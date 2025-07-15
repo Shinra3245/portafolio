@@ -1142,10 +1142,10 @@ strong {
   }
 
   .hero-image {
-    top: 55%; /* O prueba con 50% si queda muy desalineado */
+    top: 10%; /* O prueba con 50% si queda muy desalineado */
     max-width: 100px;
   }
-}
+
   
   .hero-title,
 	.hero h2 {
