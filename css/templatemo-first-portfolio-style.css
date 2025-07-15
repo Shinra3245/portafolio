@@ -1139,14 +1139,19 @@ strong {
     width: 100px;
     height: 100px;
     top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
   }
 
   .hero-image {
-    top: 10%; /* O prueba con 50% si queda muy desalineado */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 100px;
+    position: absolute;
   }
 
-  
   .hero-title,
 	.hero h2 {
 	  font-size: var(--h2-font-size);
