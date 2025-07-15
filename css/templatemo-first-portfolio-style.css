@@ -1138,11 +1138,11 @@ strong {
   .hero-image-wrap {
     width: 100px;
     height: 100px;
-    top: 40px;
+    top: 50px;
   }
 
   .hero-image {
-    top: 20%; /* O prueba con 50% si queda muy desalineado */
+    top: 50%; /* O prueba con 50% si queda muy desalineado */
     max-width: 100px;
   }
 
