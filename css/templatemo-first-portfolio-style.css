@@ -557,7 +557,7 @@ strong {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60% !important;
-  max-width: 200px !important;
+  max-width: 100px !important;
   height: auto;
 }
 
