@@ -1142,7 +1142,7 @@ strong {
   }
 
   .hero-image {
-    top: 50%; /* O prueba con 50% si queda muy desalineado */
+    top: 70%; /* O prueba con 50% si queda muy desalineado */
     max-width: 100px;
   }
 
