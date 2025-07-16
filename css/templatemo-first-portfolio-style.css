@@ -1155,7 +1155,7 @@ strong {
 .hero-image {
   position: absolute;
   z-index: 23;
-  top: 45%;
+  top: -50px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60% !important;
