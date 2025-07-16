@@ -503,6 +503,30 @@ strong {
   padding-bottom: 330px;
 }
 
+.hero-image-wrap {
+  background: var(--white-color);
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  z-index: 22;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero-image {
+  position: absolute;
+  z-index: 23;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
 
 @media  screen and (min-width: 991px) {
   .hero {
@@ -559,10 +583,6 @@ strong {
   max-width: 150px;
   height: auto;
 }
-
-
-
-
 
 .hero svg {
   position: absolute;
