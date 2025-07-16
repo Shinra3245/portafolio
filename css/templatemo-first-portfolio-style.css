@@ -510,7 +510,7 @@ strong {
   height: 150px;
   position: absolute;
   z-index: 22;
-  top: 60px;
+  top: 50px;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
