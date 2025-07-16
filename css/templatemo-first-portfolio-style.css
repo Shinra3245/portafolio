@@ -1138,14 +1138,30 @@ strong {
   }
 
   .hero-image-wrap {
-    top: -50px;
-    width: 400px;
-    height: 400px;
-  }
+  background: var(--white-color);
+  border-radius: 100%;
+  width: 350px;
+  height: 350px;
+  position: absolute;
+  z-index: 22;
+  top: -50px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  pointer-events: none;
+}
 
-  .hero-image {
-    min-width: 650px;
-  }
+
+.hero-image {
+  position: absolute;
+  z-index: 23;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60% !important;
+  max-width: 200px !important;
+  height: auto;
+}
   
   .hero-title,
 	.hero h2 {
