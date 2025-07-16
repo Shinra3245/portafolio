@@ -535,30 +535,32 @@ strong {
   top: 70px;
 }
 
-/* Estilo base para escritorio (ya está definido, solo por claridad) */
 .hero-image-wrap {
   background: var(--white-color);
   border-radius: 100%;
-  width: 150px;
-  height: 150px;
+  width: 350px;
+  height: 350px;
   position: absolute;
   z-index: 22;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: -50px;
+  right: 0;
+  left: 0;
+  margin: auto;
   pointer-events: none;
 }
+
 
 .hero-image {
   position: absolute;
   z-index: 23;
-  top: 55%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 150px;
+  width: 60% !important;
+  max-width: 200px !important;
   height: auto;
 }
+
 
 
 
@@ -1136,16 +1138,14 @@ strong {
   }
 
   .hero-image-wrap {
-    width: 100px;
-    height: 100px;
-    top: 70px;
+    top: -50px;
+    width: 400px;
+    height: 400px;
   }
 
   .hero-image {
-    top: 100%; /* O prueba con 50% si queda muy desalineado */
-    max-width: 100px;
+    min-width: 650px;
   }
-
   
   .hero-title,
 	.hero h2 {
