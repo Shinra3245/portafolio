@@ -1151,6 +1151,7 @@ strong {
   .hero-title,
 	.hero h2 {
     text-align: center;
+    font-size: 37px;
 	}
 
 
@@ -1358,4 +1359,10 @@ strong {
 
 .correo-link:hover {
   color: blue;
+}
+
+.btn-comencemos {
+  font-size: 20px;         /* Tamaño del texto */
+  padding: 18px 36px;      /* Tamaño del botón */
+  border-radius: 30px;     /* Opcional: más redondeado */
 }
