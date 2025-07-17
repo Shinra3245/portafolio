@@ -1350,3 +1350,12 @@ strong {
 
 
 
+.correo-link {
+  color: orange;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.correo-link:hover {
+  color: blue;
+}
