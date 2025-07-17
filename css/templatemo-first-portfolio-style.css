@@ -1117,7 +1117,7 @@ strong {
 }
 
 .tech-caption:hover {
-    background-color: #005fa3; /* tono más oscuro al pasar el cursor */
+    background-color: #005fa3; 
      color: #ffffff;
 }
 
@@ -1126,7 +1126,7 @@ strong {
 /*---------------------------------------
   RESPONSIVE STYLES               
 -----------------------------------------*/
-@media screen and (min-width: 1600px) {
+@media screen and (max-width: 1600px) {
   .hero {
     padding-top: 380px;
     padding-bottom: 380px;
@@ -1147,11 +1147,13 @@ strong {
     max-width: 240px !important;
     transform: translateX(-50%);
   }
-
+  
   .hero-title,
 	.hero h2 {
-	  text-align: center;
+    text-align: center;
 	}
+
+
 }
 
 @media screen and (max-width: 991px) {
