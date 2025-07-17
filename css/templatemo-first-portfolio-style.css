@@ -553,18 +553,13 @@ strong {
 .hero-image {
   position: absolute;
   z-index: 23;
-  top: 45%;
+  top: 37%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60% !important;
-  max-width: 200px !important;
+  width: 80% !important;
+  max-width: 290px !important;
   height: auto;
 }
-
-
-
-
-
 
 .hero svg {
   position: absolute;
