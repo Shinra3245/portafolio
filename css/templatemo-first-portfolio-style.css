@@ -520,7 +520,7 @@ strong {
 }
 
 .hero-title {
-	font-size: 44px;
+	font-size: 50px;
 }
 .hero-title {
   color: white;
@@ -1121,6 +1121,57 @@ strong {
      color: #ffffff;
 }
 
+.tech-section {
+  position: relative;
+  width: 100%;
+  background-color: #0d0d1c; /* o el color de tu fondo */
+  overflow: hidden;
+}
+
+.tech-text {
+  text-align: center;
+  color: white;
+  padding: 40px 20px 10px;
+  z-index: 2;
+  position: relative;
+}
+
+.tech-text h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.tech-text p {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.tech-spline-wrapper {
+  width: 100%;
+  height: 80vh;
+}
+
+.tech-spline {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+  .tech-spline-wrapper {
+    height: 45vh;
+  }
+
+  .tech-text h3 {
+    font-size: 1.4rem;
+  }
+
+  .tech-text p {
+    font-size: 0.9rem;
+  }
+}
 
 
 /*---------------------------------------
@@ -1349,8 +1400,6 @@ strong {
   }
 }
 
-
-
 .correo-link {
   color: orange;
   text-decoration: none;
@@ -1361,8 +1410,80 @@ strong {
   color: blue;
 }
 
+
 .btn-comencemos {
   font-size: 20px;         /* Tamaño del texto */
   padding: 18px 36px;      /* Tamaño del botón */
   border-radius: 30px;     /* Opcional: más redondeado */
+}
+
+.seccion-animaciones {
+  background-color: #0a0a23;
+  padding: 40px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.contenedor-animacion {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-out;
+}
+
+.icono-animacion {
+  width: 80px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.texto-animacion {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.texto-animacion span {
+  color: #ff4c60; /* Cambia a tu color principal */
+  font-weight: bold;
+}
+
+.seccion-animaciones {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 60px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.contenedor-animacion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.icono-animacion {
+  width: 90px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 5px #ff4c60);
+}
+
+.texto-animacion {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.texto-animacion span {
+  color: #ff4c60;
+  text-shadow: 0 0 10px #ff4c60;
+}
+
+.subtexto-animacion {
+  font-size: 1.1rem;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto;
 }
