@@ -23,8 +23,10 @@
         <link href="css/magnific-popup.css" rel="stylesheet">
 
         <link href="css/templatemo-first-portfolio-style.css" rel="stylesheet">
+
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.38/build/spline-viewer.js"></script>
+
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.40/build/spline-viewer.js"></script>
     <style>
       
 
@@ -47,30 +49,53 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <a href="index.php" class="navbar-brand mx-auto mx-lg-0">Omar Bolaños </a>
+                <!-- Contenedor de nombre + botón de idioma -->
+                <div class="d-flex align-items-center ms-lg-0 ms-auto gap-2">
+                    <a href="index.php" class="navbar-brand mb-0">Omar Bolaños</a>
+
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="lang-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%;">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/jgeruqwm.json"
+                            trigger="loop"
+                            state="loop-rotate"
+                            colors="primary:#3080e8,secondary:#000000"
+                            style="width:30px;height:30px">
+                        </lord-icon>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="lang-toggle">
+                        <li><a class="dropdown-item" href="#" onclick="changeLanguage('es')">Español</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
+                        </ul>
+                    </div>
+                </div>
+
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-lg-5">
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_1">Inicio</a>
+                            <a class="nav-link click-scroll" id="navInicio" href="#section_1">Inicio</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_2">Sobre mí</a>
+                            <a class="nav-link click-scroll" id="navSobreMi" href="#section_2">Sobre mí</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_3">Servicios</a>
+                            <a class="nav-link click-scroll" id="navServicios" href="#section_3">Servicios</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_4">Proyectos</a>
+                            <a class="nav-link click-scroll" id="navProyectos" href="#section_4">Proyectos</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link click-scroll" href="#section_5">Contacto</a>
+                            <a class="nav-link click-scroll" id="navContacto" href="#section_5">Contacto</a>
                         </li>
                     </ul>
+
+                    
+
 
                     <div class="d-lg-flex align-items-center d-none ms-auto">
                         <lord-icon
@@ -109,11 +134,11 @@
                                     </spline-viewer>
                                 </div>
                                 <!-- Texto debajo del avatar -->
-                                <h1 class="hero-title text-center">¡Hola! ¿Qué tal?</h1>
+                                <h1 class="hero-title text-center" id="greeting">¡Hola! ¿Qué tal?</h1>
                                 </div>
-                                <h2 class="mb-0">Estoy entusiasmado por trabajar juntos</h2>
+                                <h2 class="mb-0" id="subgreeting">Estoy entusiasmado por trabajar juntos</h2>
                                 <p class="mb-0">
-                                    <a class="custom-btn btn custom-link btn-comencemos" href="#section_2">Comencemos</a>
+                                    <a class="custom-btn btn custom-link btn-comencemos" href="#section_2" id="startButton">Comencemos</a>
                                 </p>
                             </div>
                         </div>
@@ -144,16 +169,16 @@
                             <div class="about-thumb">
 
                                 <div class="section-title-wrap d-flex justify-content-end align-items-center mb-4">
-                                    <h2 class="text-white me-4 mb-0">Mi trayecto</h2>
+                                    <h2 class="text-white me-4 mb-0" id="aboutTitle">Mi trayecto</h2>
 
                                     <img src="images/yo.png" class="avatar-image img-fluid" alt="">
                                 </div>
 
-                                <h3 class="pt-2 mb-3">Un poco acerca de mí</h3>
+                                <h3 class="pt-2 mb-3" id="aboutSubtitle">Un poco acerca de mí</h3>
 
-                                <p>Actualmente soy estudiante de Ingeniería en Sistemas Computacionales en el Tecnológico Nacional de México.</p>
+                                <p id="aboutParagraph1">Actualmente soy estudiante de Ingeniería en Sistemas Computacionales en el Tecnológico Nacional de México.</p>
 
-                                <p>Soy un desarrollador en formación con interés en la creación de páginas web tanto estáticas como dinámicas. Manejo herramientas como HTML, CSS, PHP y tengo conocimientos básicos de JavaScript. Actualmente me enfoco en aprender y perfeccionar la construcción de sitios funcionales para negocios, agendas de citas y otras aplicaciones con alto grado de lógica backend. Mi objetivo es especializarme en el desarrollo de soluciones web útiles, accesibles y modernas.</p>
+                                <p id="aboutParagraph2">Soy un desarrollador en formación con interés en la creación de páginas web tanto estáticas como dinámicas. Manejo herramientas como HTML, CSS, PHP y tengo conocimientos básicos de JavaScript. Actualmente me enfoco en aprender y perfeccionar la construcción de sitios funcionales para negocios, agendas de citas y otras aplicaciones con alto grado de lógica backend. Mi objetivo es especializarme en el desarrollo de soluciones web útiles, accesibles y modernas.</p>
                             </div>
                         </div>
 
@@ -166,24 +191,24 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 col-md-10">
         <div class="profile-thumb">
-          <h4 class="profile-title text-center">Información</h4>
+          <h4 class="profile-title text-center"  id="profileTitle">Información</h4>
           <div class="profile-body">
             <div class="info-row">
-              <span class="profile-label">Nombre:</span>
+              <span class="profile-label"  id="labelNombre">Nombre:</span>
               <span class="profile-value">Omar Bolaños</span>
             </div>
             <div class="info-row">
-              <span class="profile-label">Cumpleaños:</span>
+              <span class="profile-label" id="labelCumple">Cumpleaños:</span>
               <span class="profile-value">14 de mayo del 2004</span>
             </div>
             <div class="info-row">
-              <span class="profile-label">Teléfono:</span>
+              <span class="profile-label" id="labelTelefono">Teléfono:</span>
               <span class="profile-value">
                 <a href="https://wa.me/524131060699" >+52 413 106 0699</a>
               </span>
             </div>
             <div class="info-row">
-              <span class="profile-label">Email:</span>
+              <span class="profile-label" id="labelEmail" >Correo:</span>
               <span class="profile-value">
                 <a href="mailto:omarbolanos198@gmail.com">omarbolanos198@gmail.com</a>
               </span>
@@ -199,8 +224,10 @@
 
 <section class="tech-section">
   <div class="tech-text">
-    <h3>Tecnologías que manejo</h3>
-    <p>Estas son las principales herramientas que utilizo para crear páginas web funcionales y visualmente atractivas.</p>
+    <h3 id="techTitle">Tecnologías que manejo</h3>
+    <p id="techDescription" class="neon-box">
+    Estas son las principales herramientas que utilizo para crear páginas web funcionales y visualmente atractivas.
+  </p>
   </div>
 
   <div class="tech-spline-wrapper">
@@ -211,7 +238,7 @@
 <section class="seccion-animaciones">
   <div class="contenedor-animacion">
 
-    <h2 class="texto-animacion">
+    <h2 class="texto-animacion" id="animacionesTitulo">
       ¡También diseño <span>animaciones interactivas</span> para tu web!
     </h2>
     <br>
@@ -224,7 +251,7 @@
     style="width:150px;height:150px">
 </lord-icon>
 
-<p class="subtexto-animacion">
+<p class="subtexto-animacion"  id="animacionesTexto">
       Agrega vida, interacción y profesionalismo a tu sitio. ¡Sorprende a tus visitantes desde el primer vistazo!
     </p>
     
@@ -246,7 +273,7 @@
                 <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
                     <img src="images/services.jpg" class="avatar-image img-fluid" alt="">
 
-                    <h2 class="text-white ms-4 mb-0">Servicios</h2>
+                    <h2 class="text-white ms-4 mb-0" id="servicesTitle">Servicios</h2>
                 </div>
 
                 <div class="row pt-lg-5">
@@ -255,10 +282,10 @@
                      <div class="col-lg-6 col-12">
                         <div class="services-thumb">
                             <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                <h3 class="mb-0">Página Web Estática</h3>
+                                <h3 class="mb-0" id="staticTitle">Página Web Estática</h3>
                             </div>
 
-                            <p>Desarrollo de sitios informativos con diseño responsive, sin base de datos. Ideales para portafolios, páginas personales o landing pages.</p>
+                            <p id="staticDesc">Desarrollo de sitios informativos con diseño responsive, sin base de datos. Ideales para portafolios, páginas personales o landing pages.</p>
 
                             
 
@@ -272,10 +299,10 @@
                     <div class="col-lg-6 col-12">
                         <div class="services-thumb services-thumb-up">
                             <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                <h3 class="mb-0">Página Web Dinámica</h3>
+                                <h3 class="mb-0"  id="dynamicTitle">Página Web Dinámica</h3>
                             </div>
 
-                            <p>Aplicaciones web con panel de administración, base de datos y formularios. Pensadas para negocios, agendas de citas o control de usuarios.</p>
+                            <p id="dynamicDesc">Aplicaciones web con panel de administración, base de datos y formularios. Pensadas para negocios, agendas de citas o control de usuarios.</p>
 
                             
 
@@ -300,7 +327,7 @@
             <div class="col-lg-8 col-md-8 col-12 ms-auto">
                 <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
                     <img src="images/project.jpg" class="avatar-image img-fluid" alt="">
-                    <h2 class="text-white ms-4 mb-0">Proyectos</h2>
+                    <h2 class="text-white ms-4 mb-0" id="Proyects">Proyectos</h2>
                 </div>
             </div>
 
@@ -311,7 +338,7 @@
                 <div class="projects-thumb">
                     <div class="projects-info">
                         <small class="projects-tag">Negocio</small>
-                        <h3 class="projects-title">Panadería La Flor</h3>
+                        <h3 class="projects-title" id="panaderiaTitle">Panadería La Flor</h3>
                     </div>
 
                     <a href="https://panaderia-la-flor.infy.uk" target="_blank">
@@ -319,32 +346,50 @@
                     </a>
 
                     <div class="mt-3">
-                        <p><strong>Servicios incluidos:</strong></p>
+                        <p><strong id="panaderiaServiciosIncluidos">Servicios incluidos:</strong></p>
                         <ul>
-                            <li>Página dinámica con base de datos</li>
-                            <li>Panel de administración para productos y usuarios</li>
-                            <li>Autenticación de usuarios con roles (empleado, admin, cliente)</li>
-                            <li>Seguridad: los usuarios sin permisos de administración no pueden acceder al panel de control</li>
-                            <li>Generación de reportes en PDF y Excel</li>
-                            <li>Integración con Google Maps para visualizar sucursales</li>
-                            <li>Registro de nuevos usuarios con validación</li>
-                            <li>Gestión de transacciones y recuperación de contraseñas</li>
-                            
-                            <div style="background-color:#1a1a2e; padding: 15px; border-radius: 10px; border: 2px solid #ffc107; color: #ffffff;">
-  <h4 style="color:#ffc107;">🔒 Accesos de prueba</h4>
-  <p><strong>👤 Usuario:</strong> AdminPanaderia@gmail.com<br>
-     <strong>🔐 Contraseña:</strong> 123</p>
-  <p><strong>👤 Usuario:</strong> usuario@panaderia.com<br>
-     <strong>🔐 Contraseña:</strong> 123</p>
-    <p><strong>👤 Usuario:</strong> empleado@panaderia.com<br>
-     <strong>🔐 Contraseña:</strong> 123</p>
-</div>
-
+                            <li id="panaderiaServicio1">Página dinámica con base de datos</li>
+                            <li id="panaderiaServicio2">Panel de administración para productos y usuarios</li>
+                            <li id="panaderiaServicio3">Autenticación de usuarios con roles (empleado, admin, cliente)</li>
+                            <li id="panaderiaServicio4">Seguridad: los usuarios sin permisos de administración no pueden acceder al panel de control</li>
+                            <li id="panaderiaServicio5">Generación de reportes en PDF y Excel</li>
+                            <li id="panaderiaServicio6">Integración con Google Maps para visualizar sucursales</li>
+                            <li id="panaderiaServicio7">Registro de nuevos usuarios con validación</li>
+                            <li id="panaderiaServicio8">Gestión de transacciones y recuperación de contraseñas</li>
                         </ul>
-                        <p><strong>Tecnologías utilizadas:</strong> PHP, MySQL, HTML, CSS, JavaScript, Bootstrap</p>
-                        <p><strong>Descripción:</strong> Este sistema busca digitalizar la gestión interna y externa de una panadería, permitiendo administrar productos, usuarios, ventas y clientes desde un panel administrativo. Mejora la eficiencia operativa y ofrece una experiencia accesible al cliente.</p>
+                            <div style="background-color:#1a1a2e; padding: 15px; border-radius: 10px; border: 2px solid #ffc107; color: #ffffff;">
+                                <h4 style="color:#ffc107;" id="panaderiaAccesos">🔒 Accesos de prueba</h4>
+
+                                <p>
+                                    <strong>👤 <span id="labelUsuario1">Usuario:</span></strong> AdminPanaderia@gmail.com<br>
+                                    <strong>🔐 <span id="labelContrasena1">Contraseña:</span></strong> 123
+                                </p>
+
+                                <p>
+                                    <strong>👤 <span id="labelUsuario2">Usuario:</span></strong> usuario@panaderia.com<br>
+                                    <strong>🔐 <span id="labelContrasena2">Contraseña:</span></strong> 123
+                                </p>
+
+                                <p>
+                                    <strong>👤 <span id="labelUsuario3">Usuario:</span></strong> empleado@panaderia.com<br>
+                                    <strong>🔐 <span id="labelContrasena3">Contraseña:</span></strong> 123
+                                </p>
+                            </div>
+
+
+                        
+                        <p><strong id="panaderiaTecnologias">Tecnologías utilizadas:</strong></p>
+                        <div class="tech-badges">
+                            <span class="tech-badge html">HTML5</span>
+                            <span class="tech-badge css">CSS3</span>
+                            <span class="tech-badge js">JS</span>
+                            <span class="tech-badge php">PHP</span>
+                            <span class="tech-badge mysql">MySQL</span>
+                        </div>
+
+                        <p><strong id="panaderiaDescripcion">Descripción:</strong> Este sistema busca digitalizar la gestión interna y externa de una panadería, permitiendo administrar productos, usuarios, ventas y clientes desde un panel administrativo. Mejora la eficiencia operativa y ofrece una experiencia accesible al cliente.</p>
                         <div class="mt-2">
-                            <a href="https://panaderia-la-flor.infy.uk" target="_blank" class="btn-ver-pagina">
+                            <a href="https://panaderia-la-flor.infy.uk" target="_blank" class="btn-ver-pagina" id="panaderiaBoton">
                                 Ver página
                                 <!-- Ícono a la derecha -->
                                 <lord-icon
@@ -362,8 +407,8 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="projects-thumb">
                         <div class="projects-info">
-                            <small class="projects-tag">Aplicación</small>
-                            <h3 class="projects-title">Sistema de Tickets</h3>
+                            <small class="projects-tag" id="sistemaTicketsTag">Aplicación</small>
+                            <h3 class="projects-title" id="sistemaTicketsTitulo">Sistema de Tickets</h3>
                         </div>
 
                         <a href="https://sistemas-presidencia.infinityfreeapp.com" target="_blank">
@@ -371,37 +416,44 @@
                         </a>
 
                         <div class="mt-3">
-                            <p><strong>Servicios incluidos:</strong></p>
+                            <p><strong id="sistemaTicketsServiciosIncluidos">Servicios incluidos:</strong></p>
                             <ul>
-                                <li>Gestión y administración de tickets por parte del área responsable</li>
-                                <li>Generación de reportes detallados en formato PDF</li>
-                                <li>Seguridad en el envío de formularios: validación de campos y protección contra inyecciones SQL</li>
-                                <li>Implementación de caché para evitar envíos duplicados, spam y bots</li>
-                                <li>Los datos del formulario se conservan aunque el usuario recargue la página o reciba un mensaje de error</li>
+                                <li id="sistemaTicketsServicio1">Gestión y administración de tickets por parte del área responsable</li>
+                                <li id="sistemaTicketsServicio2">Generación de reportes detallados en formato PDF</li>
+                                <li id="sistemaTicketsServicio3">Seguridad en el envío de formularios: validación de campos y protección contra inyecciones SQL</li>
+                                <li id="sistemaTicketsServicio4">Implementación de caché para evitar envíos duplicados, spam y bots</li>
+                                <li id="sistemaTicketsServicio5">Los datos del formulario se conservan aunque el usuario recargue la página o reciba un mensaje de error</li>
                             </ul>
-                            <p><strong>Tecnologías utilizadas:</strong> PHP, MySQL, HTML, CSS, JavaScript</p>
-                            <p><strong>Descripción:</strong> Este sistema permite a los usuarios reportar problemas técnicos y recibir seguimiento por parte del área de sistemas. Agiliza la atención de fallas y mejora la organización del trabajo interno.</p>
+                            <p><strong id="sistemaTicketsTecnologias">Tecnologías utilizadas:</strong></p>
+                            <div class="tech-badges">
+                                <span class="tech-badge html">HTML5</span>
+                                <span class="tech-badge css">CSS3</span>
+                                <span class="tech-badge js">JS</span>
+                                <span class="tech-badge php">PHP</span>
+                                <span class="tech-badge mysql">MySQL</span>
+                            </div>
+                            <p id="sistemaTicketsDescripcion">Este sistema permite a los usuarios reportar problemas técnicos y recibir seguimiento...</p>
                             <div class="mt-2">
-                            <a href="https://sistemas-presidencia.infinityfreeapp.com" target="_blank" class="btn-ver-pagina">
-                                Ver página
-                                <!-- Ícono a la derecha -->
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/zmkotitn.json"
-                                    trigger="hover"
-                                    style="width:24px;height:24px; margin-left: 10px;">
-                                </lord-icon>
-                            </a>
-                        </div>
+                                <a href="https://sistemas-presidencia.infinityfreeapp.com" target="_blank" class="btn-ver-pagina" id="sistemaTicketsBoton">
+                                    Ver página
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/zmkotitn.json"
+                                        trigger="hover"
+                                        style="width:24px;height:24px; margin-left: 10px;">
+                                    </lord-icon>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Proyecto 3: Página de Distribuidora -->
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="projects-thumb">
                         <div class="projects-info">
-                            <small class="projects-tag">Negocio</small>
-                            <h3 class="projects-title">Página de Comercializadora</h3>
+                            <small class="projects-tag" id="comercializadoraTag">Negocio</small>
+                            <h3 class="projects-title" id="comercializadoraTitulo">Página de Comercializadora</h3>
                         </div>
 
                         <a href="https://comercializadora-onaldi.ct.ws" target="_blank">
@@ -409,33 +461,40 @@
                         </a>
 
                         <div class="mt-3">
-                            <p><strong>Servicios incluidos:</strong></p>
+                            <p><strong id="comercializadoraServiciosIncluidos">Servicios incluidos:</strong></p>
                             <ul>
-                                <li>Encabezado personalizado y diseño adaptable</li>
-                                <li>Sección de productos y servicios organizada por categorías</li>
-                                <li>Carruseles dinámicos para una mejor visualización de productos y promociones</li>
-                                <li>Presentación clara de servicios destacados</li>
-                                <li>Canal de contacto directo para clientes potenciales (WhatsApp, formulario o correo)</li>
+                                <li id="comercializadoraServicio1">Encabezado personalizado y diseño adaptable</li>
+                                <li id="comercializadoraServicio2">Sección de productos y servicios organizada por categorías</li>
+                                <li id="comercializadoraServicio3">Carruseles dinámicos para una mejor visualización de productos y promociones</li>
+                                <li id="comercializadoraServicio4">Presentación clara de servicios destacados</li>
+                                <li id="comercializadoraServicio5">Canal de contacto directo para clientes potenciales (WhatsApp, formulario o correo)</li>
                             </ul>
-                            <p><strong>Tecnologías utilizadas:</strong> HTML, CSS, Bootstrap</p>
-                            <p><strong>Descripción:</strong> Página estática diseñada para presentar la imagen y catálogo de una empresa distribuidora. Su objetivo es facilitar el contacto comercial y mejorar la presencia digital del negocio.</p>
+                            <p><strong id="comercializadoraTecnologias">Tecnologías utilizadas:</strong></p>
+                            <div class="tech-badges">
+                                <span class="tech-badge html">HTML5</span>
+                                <span class="tech-badge css">CSS3</span>
+                                <span class="tech-badge js">JS</span>
+                                <span class="tech-badge bootstrap">Bootstrap</span>
+                            </div>
+                            <p id="comercializadoraDescripcion">Página estática diseñada para presentar la imagen...</p>
                             <div class="mt-2">
-                            <a href="https://comercializadora-onaldi.ct.ws" target="_blank" class="btn-ver-pagina">
-                                Ver página
-                                <!-- Ícono a la derecha -->
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/zmkotitn.json"
-                                    trigger="hover"
-                                    style="width:24px;height:24px; margin-left: 10px;">
-                                </lord-icon>
-                            </a>
-                        </div>
+                                <a href="https://comercializadora-onaldi.ct.ws" target="_blank" class="btn-ver-pagina" id="comercializadoraBoton">
+                                    Ver página
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/zmkotitn.json"
+                                        trigger="hover"
+                                        style="width:24px;height:24px; margin-left: 10px;">
+                                    </lord-icon>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                        </div>
+
+
                     </div>
-                </section>
+                </div>
+            </section>
 
 
             <section class="contact section-padding" id="section_5">
@@ -445,8 +504,7 @@
                             <div class="col-lg-6 col-md-8 col-12">
                                 <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
                                     <img src="images/contactme.png" class="avatar-image img-fluid" alt="">
-
-                                    <h2 class="text-white ms-4 mb-0">Contáctame</h2>
+                                    <h2 class="text-white ms-4 mb-0" id="contactoTitulo">Contáctame</h2>
                                 </div>
                             </div>
 
@@ -454,16 +512,18 @@
 
                             <div class="col-lg-3 col-md-6 col-12 pe-lg-0">
                                 <div class="contact-info contact-info-border-start d-flex flex-column">
-                                    <strong class="site-footer-title d-block mb-3">Mis Servicios</strong>
+                                    <strong class="site-footer-title d-block mb-3" id="contactoServiciosTitulo">Mis Servicios</strong>
 
                                     <ul class="footer-menu">
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Páginas estáticas</a></li>
-
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Páginas dinámicas</a></li>
-
+                                        <li class="footer-menu-item">
+                                            <a href="#" class="footer-menu-link" id="contactoServicio1">Páginas estáticas</a>
+                                        </li>
+                                        <li class="footer-menu-item">
+                                            <a href="#" class="footer-menu-link" id="contactoServicio2">Páginas dinámicas</a>
+                                        </li>
                                     </ul>
 
-                                    <strong class="site-footer-title d-block mt-4 mb-3">Visita mis redes</strong>
+                                    <strong class="site-footer-title d-block mt-4 mb-3" id="contactoRedesTitulo">Visita mis redes</strong>
 
                                     <ul class="social-icon">
                                             <li class="social-icon-item">
@@ -513,43 +573,36 @@
                                                     </lord-icon>
                                                 </a>
                                             </li>
-
-                                            
                                         </ul>
 
                                         <!-- CDN de Lordicon -->
-                                    <strong class="site-footer-title d-block mt-4 mb-3">Empecemos un proyecto</strong>
+                                    <strong class="site-footer-title d-block mt-4 mb-3" id="footerProyectoTitulo">Empecemos un proyecto</strong>
+                                        <p class="mb-0" id="footerProyectoTexto">Estoy en busca de nuevos retos y experiencias laborales.</p>
+                                        </div>
+                                        </div>
 
-                                   <p class="mb-0">Estoy en busca de nuevos retos y experiencias laborales.</p>
-                                </div>
-                            </div>
+                                        <div class="col-lg-3 col-md-6 col-12 ps-lg-0">
+                                        <div class="contact-info d-flex flex-column">
+                                            <strong class="site-footer-title d-block mb-3" id="footerSobreMiTitulo">Sobre mí</strong>
+                                            <p class="mb-2" id="footerSobreMiTexto">
+                                            Soy estudiante de Ingeniería en Sistemas Computacionales, apasionado por el desarrollo web...
+                                            </p>
 
-                            <div class="col-lg-3 col-md-6 col-12 ps-lg-0">
-                                <div class="contact-info d-flex flex-column">
-                                    <strong class="site-footer-title d-block mb-3">Sobre mí</strong>
-
-                                    <p class="mb-2">
-                                        Soy estudiante de Ingeniería en Sistemas Computacionales, apasionado por el desarrollo web. Busco oportunidades para aprender, enseñar y mejorar en la creación de páginas web dinámicas y funcionales.
-                              </p>
-
-                                    <strong class="site-footer-title d-block mt-4 mb-3">Email</strong>
-
-                                        <p>
+                                            <strong class="site-footer-title d-block mt-4 mb-3" id="footerEmailTitulo">Email</strong>
+                                            <p>
                                             <a href="mailto:omarbolanos198@gmail.com" class="correo-link">
                                                 omarbolanos198@gmail.com
                                             </a>
-                                        </p>
+                                            </p>
 
-                                        <strong class="site-footer-title d-block mt-4 mb-3">Envíame un WhatsApp</strong>
-
-                                        <p class="mb-0">
+                                            <strong class="site-footer-title d-block mt-4 mb-3" id="footerWhatsappTitulo">Envíame un WhatsApp</strong>
+                                            <p class="mb-0">
                                             <a href="https://wa.me/524131060699" target="_blank" class="correo-link">
                                                 +52 413 106 0699
                                             </a>
-                                        </p>
-
-                                </div>
-                            </div>
+                                            </p>
+                                        </div>
+                                    </div>
 
                             <div class="col-lg-6 col-12 mt-5 mt-lg-0">
 
@@ -559,31 +612,32 @@
 
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-12">
-                                            <div class="form-floating">
-                                                <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
-                                                <label for="floatingInput">Nombre</label>
-                                            </div>
+                                        <div class="form-floating">
+                                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+                                            <label for="name" id="formNombre">Nombre</label>
+                                        </div>
                                         </div>
 
                                         <div class="col-lg-6 col-md-6 col-12"> 
-                                            <div class="form-floating">
-                                                <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
-                                                <label for="floatingInput">Dirección de correo</label>
-                                            </div>
+                                        <div class="form-floating">
+                                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                                            <label for="email" id="formCorreo">Dirección de correo</label>
+                                        </div>
                                         </div>
 
                                         <div class="col-lg-12 col-12">
-                                            <div class="form-floating">
-                                                <textarea class="form-control" name="message" placeholder="Mensaje"></textarea>
-                                                <label for="floatingTextarea">Háblame sobre tu proyecto</label>
-                                            </div>
+                                        <div class="form-floating">
+                                            <textarea class="form-control" name="message" placeholder="Mensaje"></textarea>
+                                            <label for="message" id="formMensaje">Háblame sobre tu proyecto</label>
+                                        </div>
                                         </div>
 
                                         <div class="col-lg-3 col-12 ms-auto">
-                                            <button type="submit" class="form-control">Enviar</button>
+                                        <button type="submit" class="form-control" id="formBoton">Enviar</button>
                                         </div>
                                     </div>
                                 </form>
+
                             </div>
 
                         </div>
@@ -618,6 +672,12 @@
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/magnific-popup-options.js"></script>
         <script src="js/custom.js"></script>
+        <script src="js/languaje.js"></script>
+
+
+<div id="language-toast">
+</div>
+
 
     </body>
 </html>
