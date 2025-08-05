@@ -32,6 +32,7 @@ function rain() {
 }
 
 const isMobile = window.innerWidth <= 480;
-const dropInterval = isMobile ? 100 : 20; 
+const maxDrops = isMobile ? 40 : 100;
+
 
 setInterval(rain, dropInterval);
