@@ -1,5 +1,5 @@
 function randomText() {
-  const text = "01ｱｳｴｵｶｷｸｹｺｻｼｽﾀﾁﾂﾃﾄ";
+  const text = "@!@#$*^()";
   return text[Math.floor(Math.random() * text.length)];
 }
 
