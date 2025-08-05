@@ -1568,3 +1568,98 @@ strong {
     top: 90px; /* más abajo en móvil */
   }
 }
+
+
+.iframe-wrapper {
+  width: 100%;
+  max-width: 990px;
+  height: 630px;
+  overflow: hidden;
+  margin: 0 auto; /* ✅ centra horizontalmente */
+}
+
+/* 🔽 Tablet */
+@media (max-width: 768px) {
+  .iframe-wrapper {
+    height: 650px;
+    padding: 0 20px; /* opcional: espacio lateral */
+  }
+}
+
+/* 🔽 Celular */
+@media (max-width: 480px) {
+  .iframe-wrapper {
+    width: 100%;         
+    height: 650px;
+    padding: 0 16px;      
+    box-sizing: border-box;
+    margin: 0 auto;       
+  }
+}
+
+
+
+/* Mostrar dropdown con efecto suave */
+.dropdown.show .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Dropdown menu con fondo oscuro y efecto neon */
+.dropdown-menu {
+    background: #0f0f0f;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1),
+                0 0 40px rgba(0, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 10px 0;
+    min-width: 150px;
+    transition: all 0.3s ease;
+    z-index: 1050;
+}
+
+/* Estilo base de ítems */
+.dropdown-item {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #00ffff;
+    background-color: transparent;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* Hover para ítems no seleccionados */
+.dropdown-item:not(.active-lang):hover,
+.dropdown-item:not(.active-lang):focus {
+    background-color: rgba(179, 0, 255, 0.1); /* violeta neón suave */
+    color: #b300ff;
+    border-left: 4px solid #b300ff;
+    text-shadow: 0 0 5px #b300ff, 0 0 10px #b300ff;
+}
+
+/* Idioma activo */
+.active-lang {
+    background-color: rgba(0, 255, 255, 0.15) !important;
+    color: #00ffff !important;
+    font-weight: bold;
+    border-left: 4px solid #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+
+
+@media (max-width: 576px) {
+    .dropdown-menu {
+        min-width: 120px;
+        font-size: 0.95rem;
+        right: 0; 
+        left: auto;
+    }
+
+    .dropdown-item {
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
+}

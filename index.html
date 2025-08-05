@@ -23,7 +23,6 @@
         <link href="css/magnific-popup.css" rel="stylesheet">
 
         <link href="css/templatemo-first-portfolio-style.css" rel="stylesheet">
-
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
         <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.40/build/spline-viewer.js"></script>
@@ -42,77 +41,15 @@
             </div>
         </section>
 
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
+        <div id="site-header"></div>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Contenedor de nombre + botón de idioma -->
-                <div class="d-flex align-items-center ms-lg-0 ms-auto gap-2">
-                    <a href="index.php" class="navbar-brand mb-0">Omar Bolaños</a>
-
-                    <div class="dropdown">
-                        <button class="btn btn-light dropdown-toggle" type="button" id="lang-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50%;">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/jgeruqwm.json"
-                            trigger="loop"
-                            state="loop-rotate"
-                            colors="primary:#3080e8,secondary:#000000"
-                            style="width:30px;height:30px">
-                        </lord-icon>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="lang-toggle">
-                        <li><a class="dropdown-item" href="#" onclick="changeLanguage('es')">Español</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-lg-5">
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" id="navInicio" href="#section_1">Inicio</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" id="navSobreMi" href="#section_2">Sobre mí</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" id="navServicios" href="#section_3">Servicios</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" id="navProyectos" href="#section_4">Proyectos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link click-scroll" id="navContacto" href="#section_5">Contacto</a>
-                        </li>
-                    </ul>
-
-                    
-
-
-                    <div class="d-lg-flex align-items-center d-none ms-auto">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/vyyhrdzw.json"
-                            trigger="hover"
-                            
-                            style="width:60px;height:60px">
-                        </lord-icon>
-                        <a class="custom-btn btn" href="https://wa.me/524131060699" target="_blank">
-                            +52 413 106 0699
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
-
+        <script>
+        fetch('header.html')
+            .then(res => res.text())
+            .then(data => {
+            document.getElementById('site-header').innerHTML = data;
+            });
+        </script>
         <main>
 
             <section class="hero d-flex justify-content-center align-items-center" id="section_1">
@@ -158,33 +95,42 @@
 
 
             <section class="about section-padding" id="section_2">
-                <div class="container">
-                    <div class="row">
+  <div class="container">
+    <div class="row align-items-center">
 
-                        <div class="col-lg-6 col-12">
-                            <img src="images/web-programing.jpg" class="about-image img-fluid" alt="">
-                        </div>
+      <!-- Columna izquierda: Animación -->
+      <div class="col-lg-6 col-12">
+        <div class="iframe-wrapper">
+        <iframe src="nube/nube.html"
+        width="100%"
+        height="100%"
+        style="border: 2px solid #8f44fd; border-radius: 12px;"
+        loading="lazy"
+        title="Animación Matrix Nube">
+</iframe>
+</div>
+      </div>
 
-                        <div class="col-lg-6 col-12 mt-5 mt-lg-0">
-                            <div class="about-thumb">
+      <!-- Columna derecha: Mi trayecto -->
+      <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+        <div class="about-thumb">
+          <div class="section-title-wrap d-flex justify-content-end align-items-center mb-4">
+            <h2 class="text-white me-4 mb-0" id="aboutTitle">Mi trayecto</h2>
+            <img src="images/yo.png" class="avatar-image img-fluid" alt="">
+          </div>
 
-                                <div class="section-title-wrap d-flex justify-content-end align-items-center mb-4">
-                                    <h2 class="text-white me-4 mb-0" id="aboutTitle">Mi trayecto</h2>
+          <h3 class="pt-2 mb-3" id="aboutSubtitle">Un poco acerca de mí</h3>
 
-                                    <img src="images/yo.png" class="avatar-image img-fluid" alt="">
-                                </div>
+          <p id="aboutParagraph1">Actualmente soy estudiante de Ingeniería en Sistemas Computacionales en el Tecnológico Nacional de México.</p>
 
-                                <h3 class="pt-2 mb-3" id="aboutSubtitle">Un poco acerca de mí</h3>
+          <p id="aboutParagraph2">Soy un desarrollador en formación con interés en la creación de páginas web tanto estáticas como dinámicas. Manejo herramientas como HTML, CSS, PHP y tengo conocimientos básicos de JavaScript. Actualmente me enfoco en aprender y perfeccionar la construcción de sitios funcionales para negocios, agendas de citas y otras aplicaciones con alto grado de lógica backend. Mi objetivo es especializarme en el desarrollo de soluciones web útiles, accesibles y modernas.</p>
+        </div>
+      </div>
 
-                                <p id="aboutParagraph1">Actualmente soy estudiante de Ingeniería en Sistemas Computacionales en el Tecnológico Nacional de México.</p>
+    </div>
+  </div>
+</section>
 
-                                <p id="aboutParagraph2">Soy un desarrollador en formación con interés en la creación de páginas web tanto estáticas como dinámicas. Manejo herramientas como HTML, CSS, PHP y tengo conocimientos básicos de JavaScript. Actualmente me enfoco en aprender y perfeccionar la construcción de sitios funcionales para negocios, agendas de citas y otras aplicaciones con alto grado de lógica backend. Mi objetivo es especializarme en el desarrollo de soluciones web útiles, accesibles y modernas.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
 
 <section class="featured section-padding">
   <div class="container">

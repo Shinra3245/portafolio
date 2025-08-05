@@ -4,7 +4,6 @@ function loadLang(lang, preserveScroll = false) {
     const savedScroll = window.scrollY;
     const loader = document.getElementById('lang-loader');
 
-    // Mostrar loader
     if (loader) {
         loader.style.display = 'flex';
         loader.style.opacity = '1';
@@ -32,7 +31,6 @@ function loadLang(lang, preserveScroll = false) {
                 }, 100);
             }
 
-            // Ocultar loader suavemente después de 2 segundos
             setTimeout(() => {
                 if (loader) {
                     loader.style.opacity = '0';
@@ -40,30 +38,28 @@ function loadLang(lang, preserveScroll = false) {
                         loader.style.display = 'none';
                     }, 500);
                 }
-            }, 2000); // ← Duración de la carga
+            }, 2000);
         });
 }
 
 window.changeLanguage = function (lang) {
     const toast = document.getElementById('language-toast');
 
-    // Determina el mensaje dependiendo del idioma actual
-    const message = currentLang === 'es' ? 'Cambiando idioma...' : 'Changing language...';
+    // Mostrar mensaje según el idioma al que VAS A cambiar, no el anterior
+    const message = lang === 'es' ? 'Cambiando idioma...' : 'Changing language...';
 
-    // Mostrar el mensaje
     toast.textContent = message;
     toast.style.display = 'block';
 
-    // Ocultar después de 1.5 segundos
     setTimeout(() => {
         toast.style.display = 'none';
         currentLang = lang;
-        loadLang(lang); // Aquí actualizas los textos como ya lo hacías
-
-        // También actualizamos los textos del combo para reflejar el idioma correcto
+        loadLang(lang);
         updateLangComboText(lang);
+        highlightActiveLanguage(lang);
     }, 1500);
 };
+
 
 function updateLangComboText(lang) {
     const langItems = document.querySelectorAll('#lang-toggle + .dropdown-menu .dropdown-item');
@@ -71,17 +67,30 @@ function updateLangComboText(lang) {
     langItems.forEach(item => {
         const langCode = item.getAttribute('onclick').match(/'(\w+)'/)[1];
 
-        if (lang === 'es') {
-            item.textContent = langCode === 'es' ? 'Español' : 'Inglés';
-        } else {
-            item.textContent = langCode === 'es' ? 'Spanish' : 'English';
+        if (langCode === 'es') {
+            item.textContent = lang === 'es' ? 'Español' : 'Spanish';
+        } else if (langCode === 'en') {
+            item.textContent = lang === 'es' ? 'Inglés' : 'English';
         }
     });
 }
 
+function highlightActiveLanguage(currentLang) {
+    const langItems = document.querySelectorAll('#lang-toggle + .dropdown-menu .dropdown-item');
+    langItems.forEach(item => {
+        item.classList.remove('active-lang');
+
+        const langCode = item.getAttribute('onclick').match(/'(\w+)'/)[1];
+        if (langCode === currentLang) {
+            item.classList.add('active-lang');
+        }
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     loadLang(currentLang);
+    updateLangComboText(currentLang);
+    highlightActiveLanguage(currentLang); // ✅ aplicar resaltado al cargar
 
     const toggleBtn = document.getElementById('lang-toggle');
     if (toggleBtn) {
