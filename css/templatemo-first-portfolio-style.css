@@ -1663,3 +1663,10 @@ strong {
         font-size: 0.95rem;
     }
 }
+
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    margin-left: 1.3rem; 
+  }
+}
