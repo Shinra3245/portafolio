@@ -32,6 +32,11 @@ function rain() {
 }
 
 const isMobile = window.innerWidth <= 480;
-const dropInterval = isMobile ? 100 : 20; 
+const maxDrops = isMobile ? 30 : 100; // MENOS gotas en móviles
+const dropInterval = isMobile ? 300 : 20; // MÁS lento en móviles
 
 setInterval(rain, dropInterval);
+
+if (!isMobile) {
+  setInterval(rain, dropInterval);
+}
