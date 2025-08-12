@@ -1,42 +1,54 @@
-function randomText() {
-  const text = "01ｱｳｴｵｶｷｸｹｺｻｼｽﾀﾁﾂﾃﾄ";
-  return text[Math.floor(Math.random() * text.length)];
-}
 
-function rain() {
+(() => {
   const cloud = document.querySelector('.cloud');
-  const maxDrops = 100; 
+  if (!cloud) return;
 
-  
-  if (cloud.querySelectorAll('.drop').length > maxDrops) return;
-
-  const e = document.createElement('div');
-  e.classList.add('drop');
-  cloud.appendChild(e);
-
-  const left = Math.floor(Math.random() * 300);
-  const size = Math.random() * 1.5;
-  const duration = Math.random() * 1;
-
-  e.innerText = randomText();
-  e.style.left = left + 'px';
-  e.style.fontSize = (1 + Math.random() * 0.5) + 'vw';
-  e.style.animationDuration = 1 + duration + 's';
+  const isMobile = window.matchMedia('(max-width: 400px)').matches;
+  if (isMobile) return;
 
 
-  setTimeout(() => {
-    if (cloud.contains(e)) {
-      cloud.removeChild(e);
-    }
-  }, (1 + duration) * 1000);
-}
 
-const isMobile = window.innerWidth <= 480;
-const maxDrops = isMobile ? 30 : 100; 
-const dropInterval = isMobile ? 300 : 20; 
+  const MAX_DROPS = 40;
+  const SPAWNS_PER_SEC = 15;
+  const CHARSET = "01ｱｳｴｵｶｷｸｹｺｻｼｽﾀﾁﾂﾃﾄ";
+  const target = cloud.querySelector('.pixel-cloud') || cloud;
 
-setInterval(rain, dropInterval);
+  let activeDrops = 0;
 
-if (!isMobile) {
-  setInterval(rain, dropInterval);
-}
+  const randomChar = () => CHARSET[(Math.random() * CHARSET.length) | 0];
+  const rainWidth = () => (target.clientWidth || 0);
+
+  function spawnDrop() {
+    if (activeDrops >= MAX_DROPS) return;
+    const w = rainWidth(); if (!w) return;
+
+    const d = document.createElement('div');
+    d.className = 'drop';
+    d.textContent = randomChar();
+
+    d.style.left = ((Math.random() * w) | 0) + 'px';
+    d.style.fontSize = (isMobile ? 18 : 20 + Math.random() * 4) + 'px';
+    d.style.animationDuration = (isMobile ? (1.2 + Math.random() * 0.6) : (1 + Math.random() * 1)).toFixed(2) + 's';
+
+    activeDrops++;
+    d.addEventListener('animationend', () => { d.remove(); activeDrops--; }, { once: true });
+    cloud.appendChild(d);
+  }
+
+
+  let last = performance.now();
+  let acc = 0;
+  const step = 1000 / SPAWNS_PER_SEC;
+
+  function loop(now) {
+    acc += now - last; last = now;
+    while (acc >= step) { spawnDrop(); acc -= step; }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+
+  const style = document.createElement('style');
+  style.textContent = `.drop{will-change: transform,opacity;}`;
+  document.head.appendChild(style);
+})();

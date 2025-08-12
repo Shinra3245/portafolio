@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+
 * {
   margin: 0;
   padding: 0;
@@ -35,13 +36,18 @@ body {
 }
 
 @keyframes animateColor {
-  0%   { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
 }
 
 .container .cloud {
   position: relative;
-  width: 300px;                
+  width: 300px;
   z-index: 100;
   filter: drop-shadow(0 0 35px var(--clr));
 }
@@ -65,12 +71,12 @@ body {
 
 .container .cloud .pixel-cloud {
   position: absolute;
-  top: -160px;               
+  top: -160px;
   left: 50%;
   transform: translateX(-50%);
-  width: 320px;               
+  width: 320px;
   height: 200px;
-  image-rendering: pixelated;  
+  image-rendering: pixelated;
   background: transparent;
   z-index: 50;
 }
@@ -88,11 +94,60 @@ body {
 
 
 @keyframes animate {
-  0%   { transform: translateY(0)    scaleY(0);   transform-origin: top; }
-  10%  { transform: translateY(0)    scaleY(0.25);transform-origin: top; }
-  20%  { transform: translateY(0)    scaleY(1); }
-  70%  { transform: translateY(300px) scaleY(1);  transform-origin: bottom; }
-  80%  { transform: translateY(300px) scaleY(1);  transform-origin: bottom; }
-  100% { transform: translateY(300px) scaleY(0);  transform-origin: bottom;
-         text-shadow: -180px 0 0 var(--clr), 180px 0 var(--clr); }
+  0% {
+    transform: translateY(0) scaleY(0);
+    transform-origin: top;
+  }
+
+  10% {
+    transform: translateY(0) scaleY(0.25);
+    transform-origin: top;
+  }
+
+  20% {
+    transform: translateY(0) scaleY(1);
+  }
+
+  70% {
+    transform: translateY(300px) scaleY(1);
+    transform-origin: bottom;
+  }
+
+  80% {
+    transform: translateY(300px) scaleY(1);
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: translateY(300px) scaleY(0);
+    transform-origin: bottom;
+    text-shadow: -180px 0 0 var(--clr), 180px 0 var(--clr);
+  }
+}
+
+
+@media (max-width: 400px) {
+  .pixel-cloud {
+    filter: drop-shadow(0 0 18px var(--clr));
+  }
+}
+
+
+#rainVideo {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  outline: none;
+  border: 0;
+}
+
+@media (max-width: 400px) {
+  .container {
+    display: none !important;
+  }
+
+  #rainVideo {
+    display: block !important;
+  }
 }
