@@ -8,7 +8,7 @@
 
 
 
-  const MAX_DROPS = 40;
+  const MAX_DROPS = 20;
   const SPAWNS_PER_SEC = 15;
   const CHARSET = "01ｱｳｴｵｶｷｸｹｺｻｼｽﾀﾁﾂﾃﾄ";
   const target = cloud.querySelector('.pixel-cloud') || cloud;
@@ -27,7 +27,7 @@
     d.textContent = randomChar();
 
     d.style.left = ((Math.random() * w) | 0) + 'px';
-    d.style.fontSize = (isMobile ? 18 : 20 + Math.random() * 4) + 'px';
+    d.style.fontSize = (isMobile ? 18 : 20 + Math.random() * 3) + 'px';
     d.style.animationDuration = (isMobile ? (1.2 + Math.random() * 0.6) : (1 + Math.random() * 1)).toFixed(2) + 's';
 
     activeDrops++;
