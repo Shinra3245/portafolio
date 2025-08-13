@@ -28,6 +28,8 @@
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.45/build/spline-viewer.js"></script>
     <style>
 
+
+
     </style>
 </head>
 
@@ -68,7 +70,7 @@
                                 </div>
                                 <h1 class="hero-title text-center" id="greeting">¡Hola! ¿Qué tal?</h1>
                             </div>
-                            <h2 class="mb-0" id="subgreeting">Estoy entusiasmado por trabajar juntos</h2>
+                            <h2 class="hero-title text-center" id="greeting">Estoy entusiasmado por trabajar juntos</h2>
                             <p class="mb-0">
                                 <a class="custom-btn btn custom-link btn-comencemos" href="#section_2"
                                     id="startButton">Comencemos</a>
@@ -81,7 +83,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <defs>
                     <linearGradient id="degradadoHero" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#ffffff" />
+                        <stop offset="0%" stop-color="#331246" />
                         <stop offset="100%" stop-color="#4a90e2" />
                     </linearGradient>
                 </defs>
@@ -172,9 +174,17 @@
                 </p>
             </div>
 
-            <div class="tech-spline-wrapper" aria-label="spline herramientas">
-                <spline-viewer url="https://prod.spline.design/BBgerygY3287Go2y/scene.splinecode"></spline-viewer>
+            <div class="tech-spline-wrapper" aria-label="sFpline herramientas">
+                <video class="only-mobile tech-video" autoplay muted loop playsinline preload="metadata">
+                    <source src="videos/Spline-tools.mp4" type="video/mp4">
+                </video>
+
+                <spline-viewer class="only-desktop" url="https://prod.spline.design/BBgerygY3287Go2y/scene.splinecode"
+                    show-branding="false" show-loading-bar="false" show-controls="false">
+                </spline-viewer>
             </div>
+
+
         </section>
 
         <section class="seccion-animaciones">
