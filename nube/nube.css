@@ -84,6 +84,7 @@ body {
 .container .cloud .drop {
   position: absolute;
   top: 40px;
+  left: -30px;
   height: 20px;
   line-height: 20px;
   color: var(--clr);

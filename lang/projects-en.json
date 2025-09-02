@@ -1,0 +1,514 @@
+{
+    "panaderia": {
+        "title": "Panadería La Flor",
+        "badge": "Complete System",
+        "url": "https://panaderia-la-flor.infy.uk",
+        "features": {
+            "title": "Advanced Features",
+            "items": [
+                {
+                    "icon": "inventory",
+                    "title": "Inventory System",
+                    "description": "Complete stock and product control"
+                },
+                {
+                    "icon": "management",
+                    "title": "Customer Management",
+                    "description": "Database with purchase history"
+                },
+                {
+                    "icon": "business-products",
+                    "title": "Advanced Reports",
+                    "description": "Sales analysis and statistics"
+                },
+                {
+                    "icon": "multiple-user",
+                    "title": "Multi-user",
+                    "description": "Different access levels"
+                },
+                {
+                    "icon": "ui-design",
+                    "title": "Responsive Design",
+                    "description": "Works on any device"
+                }
+            ]
+        },
+        "tech": {
+            "title": "Technology Stack",
+            "categories": [
+                {
+                    "label": "Frontend",
+                    "tags": [
+                        {
+                            "name": "HTML5",
+                            "class": "html"
+                        },
+                        {
+                            "name": "CSS3",
+                            "class": "css"
+                        },
+                        {
+                            "name": "JavaScript",
+                            "class": "js"
+                        },
+                        {
+                            "name": "Bootstrap",
+                            "class": "bootstrap"
+                        }
+                    ]
+                },
+                {
+                    "label": "Backend",
+                    "tags": [
+                        {
+                            "name": "PHP 7.4+",
+                            "class": "php"
+                        },
+                        {
+                            "name": "MySQL",
+                            "class": "mysql"
+                        }
+                    ]
+                },
+                {
+                    "label": "Security",
+                    "tags": [
+                        {
+                            "name": "Data validation",
+                            "class": "security"
+                        },
+                        {
+                            "name": "Secure sessions",
+                            "class": "security"
+                        }
+                    ]
+                },
+                {
+                    "label": "APIs",
+                    "tags": [
+                        {
+                            "name": "Google Maps",
+                            "class": "api"
+                        }
+                    ]
+                }
+            ]
+        },
+        "button": {
+            "icon": "web",
+            "text": "Open Website"
+        }
+    },
+    "tickets": {
+        "title": "Ticket System",
+        "badge": "Complete Management",
+        "url": "https://sistemas-presidencia.infinityfreeapp.com",
+        "features": {
+            "title": "Main Features",
+            "items": [
+                {
+                    "icon": "ticket",
+                    "title": "Ticket Management",
+                    "description": "Creation, tracking and resolution"
+                },
+                {
+                    "icon": "coding-apps",
+                    "title": "Admin Panel",
+                    "description": "Complete management dashboard"
+                },
+                {
+                    "icon": "notification-alert",
+                    "title": "Notifications",
+                    "description": "Automatic alert system"
+                },
+                {
+                    "icon": "business-products",
+                    "title": "Reports",
+                    "description": "PDF export with statistics"
+                },
+                {
+                    "icon": "key-lock",
+                    "title": "Security",
+                    "description": "Protection against common attacks"
+                }
+            ]
+        },
+        "tech": {
+            "title": "System Architecture",
+            "categories": [
+                {
+                    "label": "Design Pattern",
+                    "tags": [
+                        {
+                            "name": "MVC Pattern",
+                            "class": "mvc"
+                        },
+                        {
+                            "name": "Code organization",
+                            "class": "organization"
+                        }
+                    ]
+                },
+                {
+                    "label": "Database",
+                    "tags": [
+                        {
+                            "name": "Normalized",
+                            "class": "database"
+                        },
+                        {
+                            "name": "Optimized",
+                            "class": "performance"
+                        }
+                    ]
+                },
+                {
+                    "label": "Performance",
+                    "tags": [
+                        {
+                            "name": "Cache system",
+                            "class": "cache"
+                        },
+                        {
+                            "name": "Better performance",
+                            "class": "optimization"
+                        }
+                    ]
+                },
+                {
+                    "label": "Validation",
+                    "tags": [
+                        {
+                            "name": "Client & Server",
+                            "class": "validation"
+                        }
+                    ]
+                }
+            ]
+        },
+        "button": {
+            "icon": "app-web",
+            "text": "Open Web Application"
+        }
+    },
+    "comercializadora": {
+        "title": "Comercializadora",
+        "badge": "Corporate Website",
+        "url": "https://comercializadora-onaldi.ct.ws",
+        "features": {
+            "title": "Design Features",
+            "items": [
+                {
+                    "icon": "website-ui",
+                    "title": "Modern Design",
+                    "description": "Clean and professional interface"
+                },
+                {
+                    "icon": "shopping-cart",
+                    "title": "Product Catalog",
+                    "description": "Organized by categories"
+                },
+                {
+                    "icon": "edit-picture",
+                    "title": "Interactive Gallery",
+                    "description": "Carousels and visual effects"
+                },
+                {
+                    "icon": "form",
+                    "title": "Contact Form",
+                    "description": "Email integration"
+                },
+                {
+                    "icon": "check--streamline",
+                    "title": "SEO Optimized",
+                    "description": "Semantic structure and meta tags"
+                }
+            ]
+        },
+        "tech": {
+            "title": "Visual Elements",
+            "categories": [
+                {
+                    "label": "Animations",
+                    "tags": [
+                        {
+                            "name": "Smooth CSS",
+                            "class": "animations"
+                        },
+                        {
+                            "name": "Professional",
+                            "class": "professional"
+                        }
+                    ]
+                },
+                {
+                    "label": "Layout System",
+                    "tags": [
+                        {
+                            "name": "Responsive grid",
+                            "class": "grid"
+                        },
+                        {
+                            "name": "Bootstrap",
+                            "class": "bootstrap"
+                        }
+                    ]
+                },
+                {
+                    "label": "Iconography",
+                    "tags": [
+                        {
+                            "name": "Consistent",
+                            "class": "icons"
+                        },
+                        {
+                            "name": "Modern",
+                            "class": "modern"
+                        }
+                    ]
+                },
+                {
+                    "label": "Visual Identity",
+                    "tags": [
+                        {
+                            "name": "Corporate palette",
+                            "class": "colors"
+                        }
+                    ]
+                }
+            ]
+        },
+        "button": {
+            "icon": "web",
+            "text": "Open Website"
+        }
+    },
+    "portafolio": {
+        "title": "Audiovisual Portfolio",
+        "badge": "Professional Website",
+        "url": "https://alejandro-sarmiento.netlify.app",
+        "features": {
+            "title": "Main Features",
+            "items": [
+                {
+                    "icon": "edit-picture",
+                    "title": "Multimedia Gallery",
+                    "description": "Organized video and audio projects"
+                },
+                {
+                    "icon": "website-ui",
+                    "title": "Modern Design",
+                    "description": "Clean and professional interface"
+                },
+                {
+                    "icon": "form",
+                    "title": "Functional Form",
+                    "description": "Integrated contact system"
+                },
+                {
+                    "icon": "multiple-user",
+                    "title": "About Me Section",
+                    "description": "Complete professional presentation"
+                },
+                {
+                    "icon": "ui-design",
+                    "title": "Responsive Design",
+                    "description": "Adaptable to all devices"
+                }
+            ]
+        },
+        "tech": {
+            "title": "Web Technologies",
+            "categories": [
+                {
+                    "label": "Frontend",
+                    "tags": [
+                        {
+                            "name": "HTML5",
+                            "class": "html"
+                        },
+                        {
+                            "name": "CSS3",
+                            "class": "css"
+                        },
+                        {
+                            "name": "JavaScript",
+                            "class": "js"
+                        },
+                        {
+                            "name": "Bootstrap",
+                            "class": "responsive"
+                        }
+                    ]
+                },
+                {
+                    "label": "Design & UX/UI",
+                    "tags": [
+                        {
+                            "name": "Responsive Design",
+                            "class": "design"
+                        },
+                        {
+                            "name": "CSS Gradients",
+                            "class": "design"
+                        },
+                        {
+                            "name": "Animations",
+                            "class": "design"
+                        },
+                        {
+                            "name": "Grid Layout",
+                            "class": "design"
+                        }
+                    ]
+                },
+                {
+                    "label": "Optimization",
+                    "tags": [
+                        {
+                            "name": "Basic SEO",
+                            "class": "seo"
+                        },
+                        {
+                            "name": "Lazy Loading",
+                            "class": "performance"
+                        },
+                        {
+                            "name": "Image Compression",
+                            "class": "performance"
+                        },
+                        {
+                            "name": "Accessibility",
+                            "class": "accessibility"
+                        }
+                    ]
+                },
+                {
+                    "label": "Color Palette",
+                    "tags": [
+                        {
+                            "name": "#1a1a2e",
+                            "class": "color-primary"
+                        },
+                        {
+                            "name": "#16213e",
+                            "class": "color-secondary"
+                        },
+                        {
+                            "name": "#ffc107",
+                            "class": "color-accent"
+                        },
+                        {
+                            "name": "Dynamic Gradients",
+                            "class": "color-gradient"
+                        }
+                    ]
+                }
+            ]
+        },
+        "button": {
+            "icon": "web",
+            "text": "View Portfolio"
+        }
+    },
+    "siki": {
+        "title": "Siki Mexico",
+        "badge": "E-commerce Store",
+        "url": "https://siki.com.mx",
+        "features": {
+            "title": "Business Features",
+            "items": [
+                {
+                    "icon": "shopping-cart",
+                    "title": "Complete E-commerce",
+                    "description": "Online store with integrated payment system"
+                },
+                {
+                    "icon": "edit-picture",
+                    "title": "Custom Design",
+                    "description": "Uniforms with unique designs at no extra cost"
+                },
+                {
+                    "icon": "ui-design",
+                    "title": "Responsive Design",
+                    "description": "Perfectly adapted to all devices"
+                },
+                {
+                    "icon": "business-products",
+                    "title": "Organized Catalog",
+                    "description": "Products classified by sports categories"
+                },
+                {
+                    "icon": "multiple-user",
+                    "title": "Comprehensive Support",
+                    "description": "Visual support for social media included"
+                }
+            ]
+        },
+        "tech": {
+            "title": "Platform and Technology",
+            "categories": [
+                {
+                    "label": "E-commerce Platform",
+                    "tags": [
+                        {
+                            "name": "Tiendanube",
+                            "class": "tiendanube"
+                        },
+                        {
+                            "name": "Optimized",
+                            "class": "optimization"
+                        }
+                    ]
+                },
+                {
+                    "label": "Customization",
+                    "tags": [
+                        {
+                            "name": "Custom Design",
+                            "class": "design"
+                        },
+                        {
+                            "name": "Responsive",
+                            "class": "responsive"
+                        }
+                    ]
+                },
+                {
+                    "label": "Functionalities",
+                    "tags": [
+                        {
+                            "name": "Online Payments",
+                            "class": "payments"
+                        },
+                        {
+                            "name": "Inventory",
+                            "class": "inventory"
+                        },
+                        {
+                            "name": "Shipping",
+                            "class": "shipping"
+                        }
+                    ]
+                },
+                {
+                    "label": "Specialization",
+                    "tags": [
+                        {
+                            "name": "Sports Uniforms",
+                            "class": "sports"
+                        },
+                        {
+                            "name": "Customization",
+                            "class": "customization"
+                        }
+                    ]
+                }
+            ]
+        },
+        "button": {
+            "icon": "shopping-cart",
+            "text": "Visit Store"
+        }
+    }
+}

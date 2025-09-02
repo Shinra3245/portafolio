@@ -1,4 +1,6 @@
 let currentLang = localStorage.getItem('lang') || 'es';
+let currentServicesStepDetails = {};
+let loadedTranslations = {};
 
 function loadLang(lang, preserveScroll = false) {
   const savedScroll = window.scrollY;
@@ -12,7 +14,16 @@ function loadLang(lang, preserveScroll = false) {
   fetch(`lang/${lang}.json`)
     .then(res => res.json())
     .then(data => {
+      loadedTranslations = data;
+      // Actualizar servicios si existen en el JSON
+      if (data.servicesStepDetails) {
+        currentServicesStepDetails = data.servicesStepDetails;
+      }
+
       for (const key in data) {
+        // Saltar servicesStepDetails ya que no es un elemento del DOM
+        if (key === 'servicesStepDetails') continue;
+
         const el = document.getElementById(key);
         if (el) {
           if (/<.*?>/.test(data[key])) {
@@ -24,6 +35,13 @@ function loadLang(lang, preserveScroll = false) {
       }
 
       localStorage.setItem('lang', lang);
+      
+      if (window.resetProjectTranslations) {
+        window.resetProjectTranslations();
+      }
+
+      // Actualizar panel de servicios si está abierto
+      updateActiveServicePanel();
 
       if (preserveScroll) {
         setTimeout(() => {
@@ -106,3 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.initLanguageUI();
   }
 });
+
+
+window.getTranslation = function (key) {
+  return loadedTranslations[key] || key;
+}
+
+

@@ -23,18 +23,16 @@
     <link href="css/magnific-popup.css" rel="stylesheet">
 
     <link href="css/templatemo-first-portfolio-style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/slide.css">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.45/build/spline-viewer.js"></script>
-    <style>
 
-
-
-    </style>
 </head>
 
 <body>
-
+    <div class="global-particles-body" id="globalParticles"></div>
     <section class="preloader">
         <div class="spinner">
             <span class="spinner-rotate"></span>
@@ -55,6 +53,7 @@
     <main>
 
         <section class="hero d-flex justify-content-center align-items-center" id="section_1">
+            <div class="floating-particles" id="particles-section-1"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 col-12">
@@ -70,7 +69,8 @@
                                 </div>
                                 <h1 class="hero-title text-center" id="greeting">¡Hola! ¿Qué tal?</h1>
                             </div>
-                            <h2 class="hero-title text-center" id="greeting">Estoy entusiasmado por trabajar juntos</h2>
+                            <h2 class="hero-title text-center" id="subgreeting">Estoy entusiasmado por trabajar juntos
+                            </h2>
                             <p class="mb-0">
                                 <a class="custom-btn btn custom-link btn-comencemos" href="#section_2"
                                     id="startButton">Comencemos</a>
@@ -94,7 +94,8 @@
 
 
         <section class="about section-padding" id="section_2">
-            <div class="container">
+            <div class="floating-particles" id="particles-section-2"></div>
+            <div class="container about-content">
                 <div class="row align-items-center">
 
                     <div class="col-lg-6 col-12">
@@ -104,26 +105,41 @@
                                 title="Animación Matrix Nube">
                             </iframe>
                         </div>
+
+                        <div class="text-center mt-3">
+                            <button id="show-info-toast" class="btn toast-btn">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Click aqui
+                            </button>
+                        </div>
                     </div>
 
                     <div class="col-lg-6 col-12 mt-5 mt-lg-0">
                         <div class="about-thumb">
-                            <div class="section-title-wrap d-flex justify-content-end align-items-center mb-4">
-                                <h2 class="text-white me-4 mb-0" id="aboutTitle">Mi trayecto</h2>
-                                <img src="images/yo.png" class="avatar-image img-fluid" alt="">
+                            <div class="section-title-wrap d-flex  align-items-center mb-4 justify-content-between">
+                                <h2 class="heading-gradient text-white me-4 mb-0" id="aboutTitle">Mi trayecto</h2>
+                                <img src="images/yo.png" class="avatar-image img-fluid jus" alt="">
                             </div>
 
-                            <h3 class="pt-2 mb-3" id="aboutSubtitle">Un poco acerca de mí</h3>
+                            <h3 class="pt-2 mb-3" id="aboutSubtitle">Mi historia como desarrollador</h3>
 
-                            <p id="aboutParagraph1">Actualmente soy estudiante de Ingeniería en Sistemas Computacionales
-                                en el Tecnológico Nacional de México.</p>
+                            <p class="paragraph-highlight" id="aboutParagraph1">Todo comenzó cuando descubrí que podía
+                                <span class="keyword-accent">crear algo de la nada</span> con solo líneas de código.
+                                Actualmente curso la carrera de <span class="keyword-primary">Ingeniería en
+                                    Sistemas Computacionales</span> en el Tecnológico Nacional de México, donde cada día
+                                confirmo
+                                mi pasión por transformar <span class="keyword-secondary">ideas en soluciones
+                                    digitales</span>.
+                            </p>
 
-                            <p id="aboutParagraph2">Soy un desarrollador en formación con interés en la creación de
-                                páginas web tanto estáticas como dinámicas. Manejo herramientas como HTML, CSS, PHP y
-                                tengo conocimientos básicos de JavaScript. Actualmente me enfoco en aprender y
-                                perfeccionar la construcción de sitios funcionales para negocios, agendas de citas y
-                                otras aplicaciones con alto grado de lógica backend. Mi objetivo es especializarme en el
-                                desarrollo de soluciones web útiles, accesibles y modernas.</p>
+                            <p class="paragraph-standard" id="aboutParagraph2">Mi enfoque va más allá del código: me
+                                especializo en crear <span class="keyword-primary">experiencias web que realmente
+                                    importen</span>. He desarrollado desde <span class="keyword-secondary">sistemas de
+                                    gestión</span> para panaderías hasta <span class="keyword-accent">plataformas de
+                                    tickets gubernamentales</span>, siempre priorizando la funcionalidad, seguridad y
+                                experiencia del usuario. Mi stack principal incluye PHP, MySQL, JavaScript y
+                                herramientas modernas para crear soluciones <span class="keyword-primary">útiles,
+                                    accesibles y modernas</span>.</p>
                         </div>
                     </div>
 
@@ -131,32 +147,100 @@
             </div>
         </section>
 
-        <section class="featured section-padding">
+        <!-- Informacion y habilidades blandas -->
+
+        <section class="featured section-padding" id="section_3">
+            <div class="floating-particles" id="particles-section-3"></div>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-md-10">
                         <div class="profile-thumb">
-                            <h4 class="profile-title text-center" id="profileTitle">Información</h4>
+                            <div class="text-center">
+                                <h2 class="heading-gradient text-center" id="profileTitle">Información</h2>
+                            </div>
                             <div class="profile-body">
-                                <div class="info-row">
-                                    <span class="profile-label" id="labelNombre">Nombre:</span>
-                                    <span class="profile-value">Omar Bolaños</span>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <h4>5+</h4>
+                                        <span id="Textinfo1">Proyectos Completados</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h4>2+</h4>
+                                        <span id="Textinfo2">Mi Experiencia en Proyectos</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <h4>100%</h4>
+                                        <span id="Textinfo3">Clientes Satisfechos</span>
+                                    </div>
                                 </div>
-                                <div class="info-row">
-                                    <span class="profile-label" id="labelCumple">Cumpleaños:</span>
-                                    <span class="profile-value">14 de mayo del 2004</span>
-                                </div>
-                                <div class="info-row">
-                                    <span class="profile-label" id="labelTelefono">Teléfono:</span>
-                                    <span class="profile-value">
-                                        <a href="https://wa.me/524131060699">+52 413 106 0699</a>
-                                    </span>
-                                </div>
-                                <div class="info-row">
-                                    <span class="profile-label" id="labelEmail">Correo:</span>
-                                    <span class="profile-value">
-                                        <a href="mailto:omarbolanos198@gmail.com">omarbolanos198@gmail.com</a>
-                                    </span>
+
+                                <!-- Habilidades profesionales -->
+                                <div class="container">
+                                    <h4 class="profile-title" id="Skills">Habilidades Profesionales</h4>
+                                    <div class="skills-list">
+                                        <div class="skill-item" style="--hue:210">
+                                            <span class="skill-name" id="skill-1">Trabajo en equipo</span>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" data-progress="90">
+                                                    <span class="progress-percentage">0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="skill-item" style="--hue:280">
+                                            <span class="skill-name" id="skill-2">Resolución de problemas</span>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" data-progress="80">
+                                                    <span class="progress-percentage">0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="skill-item" style="--hue:25">
+                                            <span class="skill-name" id="skill-3">Organización y planificación</span>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" data-progress="85">
+                                                    <span class="progress-percentage">0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="skill-item" style="--hue:350">
+                                            <span class="skill-name" id="skill-4">Comunicación efectiva</span>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" data-progress="85">
+                                                    <span class="progress-percentage">0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="skill-item" style="--hue:45">
+                                            <span class="skill-name" id="skill-5">Atención al detalle</span>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" data-progress="90">
+                                                    <span class="progress-percentage">0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="skill-item" style="--hue:180">
+                                            <span class="skill-name" id="skill-6">Gestión de proyectos</span>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" data-progress="80">
+                                                    <span class="progress-percentage">0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="skill-item" style="--hue:300">
+                                            <span class="skill-name" id="skill-7">Adaptabilidad</span>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" data-progress="85">
+                                                    <span class="progress-percentage">0%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -165,9 +249,10 @@
             </div>
         </section>
 
-        <section class="tech-section">
+        <section class="tech-section" id="section_4">
+            <div class="floating-particles" id="particles-section-4"></div>
             <div class="tech-text">
-                <h3 id="techTitle">Tecnologías que manejo</h3>
+                <h3 class='heading-gradient' id="techTitle">Tecnologías que manejo</h3>
                 <p id="techDescription" class="neon-box">
                     Estas son las principales herramientas que utilizo para crear páginas web funcionales y visualmente
                     atractivas.
@@ -187,7 +272,8 @@
 
         </section>
 
-        <section class="seccion-animaciones">
+        <section class="seccion-animaciones" id="section_5">
+            <div class="floating-particles" id="particles-section-5"></div>
             <div class="contenedor-animacion">
 
                 <h2 class="texto-animacion" id="animacionesTitulo">
@@ -208,54 +294,118 @@
             </div>
         </section>
 
-        <section class="services section-padding" id="section_3">
+        <section class="services section-padding" id="section_6">
+            <div class="floating-particles" id="particles-section-6"></div>
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-10 col-12 mx-auto">
-                        <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
+                        <div class="section-services-wrap d-flex justify-content-center align-items-center mb-2">
                             <img src="images/services.jpg" class="avatar-image img-fluid" alt="">
-
-                            <h2 class="text-white ms-4 mb-0" id="servicesTitle">Servicios</h2>
+                            <h2 class=" heading-gradient text-white ms-4 mb-0" id="servicesTitle">Servicios</h2>
                         </div>
-
                         <div class="row pt-lg-5">
+                            <div class="col-12">
+                                <div id="services-orbit-container" class="process-orbit-container">
+                                    <div class="process-orbit">
+                                        <div class="inner-orbit"></div>
 
-                            <div class="col-lg-6 col-12">
-                                <div class="services-thumb">
-                                    <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                        <h3 class="mb-0" id="staticTitle">Página Web Estática</h3>
+                                        <!-- Paso 1 -->
+                                        <div class="process-step step-1" data-step="1">
+                                            <div class="glow-effect"></div>
+                                            <div class="step-number">01</div>
+                                            <svg class="icon">
+                                                <use href="/icons/clipboard-check.svg#clipboard-check"></use>
+                                            </svg>
+
+
+                                        </div>
+
+                                        <!-- Paso 2 -->
+                                        <div class="process-step step-2" data-step="2">
+                                            <div class="glow-effect"></div>
+                                            <div class="step-number">02</div>
+                                            <svg class="icon">
+                                                <use href="/icons/paintbrush-2.svg#paintbrush-2"></use>
+                                            </svg>
+                                        </div>
+
+                                        <!-- Paso 3 -->
+                                        <div class="process-step step-3" data-step="3">
+                                            <div class="glow-effect"></div>
+                                            <div class="step-number">03</div>
+                                            <svg class="icon">
+                                                <use href="/icons/code-monitor.svg#code-monitor"></use>
+                                            </svg>
+                                        </div>
+
+                                        <!-- Paso 4 -->
+                                        <div class="process-step step-4" data-step="4">
+                                            <div class="glow-effect"></div>
+                                            <div class="step-number">04</div>
+                                            <svg class="icon">
+                                                <use href="/icons/test-tube.svg#test-tube"></use>
+                                            </svg>
+                                        </div>
+
+                                        <!-- Paso 5 -->
+                                        <div class="process-step step-5" data-step="5">
+                                            <div class="glow-effect"></div>
+                                            <div class="step-number">06</div>
+                                            <svg class="icon">
+                                                <use href="/icons/graph-arrow.svg#graph-arrow"></use>
+                                            </svg>
+
+                                        </div>
+                                        <!-- Paso 6 -->
+                                        <div class="process-step step-6" data-step="6">
+                                            <div class="glow-effect"></div>
+                                            <div class="step-number">05</div>
+                                            <svg class="icon">
+                                                <use href="/icons/fireworks-rocket.svg#fireworks-rocket"></use>
+                                            </svg>
+
+                                        </div>
+
+                                        <!-- Etiquetas externas que rotan con la órbita -->
+                                        <div class="step-label label-1" id="service-1">Consultoría</div>
+                                        <div class="step-label label-2" id="service-2">Diseño</div>
+                                        <div class="step-label label-3" id="service-3">Desarrollo</div>
+                                        <div class="step-label label-4" id="service-4">Testing</div>
+                                        <div class="step-label label-5" id="service-5">Mejora Continua</div>
+                                        <div class="step-label label-6" id="service-6">Lanzamiento</div>
+
                                     </div>
 
-                                    <p id="staticDesc">Desarrollo de sitios informativos con diseño responsive, sin base
-                                        de datos. Ideales para portafolios, páginas personales o landing pages.</p>
-
-
-
-                                    <div class="services-icon-wrap d-flex justify-content-center align-items-center">
-                                        <i class="services-icon bi-file-earmark-code"></i>
+                                    <!-- Centro -->
+                                    <div class="orbit-center">
+                                        <h3 class="center-title" id="orbit-1">Proceso Integral</h3>
+                                        <p class="center-subtitle" id="orbit-2">Metodología probada para el éxito</p>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-6 col-12">
-                                <div class="services-thumb services-thumb-up">
-                                    <div class="d-flex flex-wrap align-items-center border-bottom mb-4 pb-3">
-                                        <h3 class="mb-0" id="dynamicTitle">Página Web Dinámica</h3>
-                                    </div>
-
-                                    <p id="dynamicDesc">Aplicaciones web con panel de administración, base de datos y
-                                        formularios. Pensadas para negocios, agendas de citas o control de usuarios.</p>
-
-
-
-                                    <div class="services-icon-wrap d-flex justify-content-center align-items-center">
-                                        <i class="services-icon bi-layout-text-window-reverse"></i>
+                                <!-- Panel de detalles -->
+                                <div class="step-details-panel" id="services-step-details">
+                                    <h4 class="detail-title" id="detail-title">Explora cada paso del proceso</h4>
+                                    <p class="detail-description" id="detail-description">
+                                        Pasa el cursor sobre cualquier paso para conocer los detalles de cómo trabajo en
+                                        cada etapa de tu proyecto.
+                                    </p>
+                                    <div class="detail-features" id="detail-features">
+                                        <div class="detail-feature" id="detail-feature-1">Enfoque personalizado</div>
+                                        <div class="detail-feature" id="detail-feature-2">Comunicación constante</div>
+                                        <div class="detail-feature" id="detail-feature-3">Calidad garantizada</div>
+                                        <div class="detail-feature" id="detail-feature-4">Resultados medibles</div>
                                     </div>
                                 </div>
-                            </div>
 
+                                <div class="interaction-hint">
+                                    <lord-icon src="https://cdn.lordicon.com/nqtddedc.json" trigger="loop"
+                                        style="width:24px;height:24px;"></lord-icon>
+                                    <br><span id="interactionHint">Interactúa con cada paso para ver los detalles</span>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -263,348 +413,599 @@
 
 
 
-        <section class="projects section-padding" id="section_4">
-            <div class="container">
+        <section class="projects section-padding">
+            <div class="container" id="section_7">
+                <div class="floating-particles" id="particles-section-7"></div>
                 <div class="row">
 
-                    <div class="col-lg-8 col-md-8 col-12 ms-auto">
-                        <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
-                            <img src="images/project.jpg" class="avatar-image img-fluid" alt="">
-                            <h2 class="text-white ms-4 mb-0" id="Proyects">Proyectos</h2>
-                        </div>
-                    </div>
-
-                    <div class="clearfix"></div>
-
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="projects-thumb">
-                            <div class="projects-info">
-                                <small class="projects-tag" id="panaderiaTag">Negocio</small>
-                                <h3 class="projects-title" id="panaderiaTitle">Panadería La Flor</h3>
-                            </div>
-
-                            <a href="https://panaderia-la-flor.infy.uk" target="_blank">
-                                <img src="images/projects/panaderia.png" class="projects-image img-fluid"
-                                    alt="Panadería">
-                            </a>
-
-                            <div class="mt-3">
-                                <p><strong id="panaderiaServiciosIncluidos">Servicios incluidos:</strong></p>
-                                <ul>
-                                    <li id="panaderiaServicio1">Página dinámica con base de datos</li>
-                                    <li id="panaderiaServicio2">Panel de administración para productos y usuarios</li>
-                                    <li id="panaderiaServicio3">Autenticación de usuarios con roles (empleado, admin,
-                                        cliente)</li>
-                                    <li id="panaderiaServicio4">Seguridad: los usuarios sin permisos de administración
-                                        no pueden acceder al panel de control</li>
-                                    <li id="panaderiaServicio5">Generación de reportes en PDF y Excel</li>
-                                    <li id="panaderiaServicio6">Integración con Google Maps para visualizar sucursales
-                                    </li>
-                                    <li id="panaderiaServicio7">Registro de nuevos usuarios con validación</li>
-                                    <li id="panaderiaServicio8">Gestión de transacciones y recuperación de contraseñas
-                                    </li>
-                                </ul>
-                                <div
-                                    style="background-color:#1a1a2e; padding: 15px; border-radius: 10px; border: 2px solid #ffc107; color: #ffffff;">
-                                    <h4 style="color:#ffc107;" id="panaderiaAccesos">🔒 Accesos de prueba</h4>
-
-                                    <p>
-                                        <strong>👤 <span id="labelUsuario1">Usuario:</span></strong>
-                                        AdminPanaderia@gmail.com<br>
-                                        <strong>🔐 <span id="labelContrasena1">Contraseña:</span></strong> 123
-                                    </p>
-
-                                    <p>
-                                        <strong>👤 <span id="labelUsuario2">Usuario:</span></strong>
-                                        usuario@panaderia.com<br>
-                                        <strong>🔐 <span id="labelContrasena2">Contraseña:</span></strong> 123
-                                    </p>
-
-                                    <p>
-                                        <strong>👤 <span id="labelUsuario3">Usuario:</span></strong>
-                                        empleado@panaderia.com<br>
-                                        <strong>🔐 <span id="labelContrasena3">Contraseña:</span></strong> 123
-                                    </p>
-                                </div>
-
-
-
-                                <p><strong id="panaderiaTecnologias">Tecnologías utilizadas:</strong></p>
-                                <div class="tech-badges">
-                                    <span class="tech-badge html">HTML5</span>
-                                    <span class="tech-badge css">CSS3</span>
-                                    <span class="tech-badge js">JS</span>
-                                    <span class="tech-badge php">PHP</span>
-                                    <span class="tech-badge mysql">MySQL</span>
-                                </div>
-
-                                <p><strong id="panaderiaDescripcion">Descripción:</strong> Este sistema busca
-                                    digitalizar la gestión interna y externa de una panadería, permitiendo administrar
-                                    productos, usuarios, ventas y clientes desde un panel administrativo. Mejora la
-                                    eficiencia operativa y ofrece una experiencia accesible al cliente.</p>
-                                <div class="mt-2">
-                                    <a href="https://panaderia-la-flor.infy.uk" target="_blank" class="btn-ver-pagina"
-                                        id="panaderiaBoton">
-                                        Ver página
-                                        <lord-icon src="https://cdn.lordicon.com/zmkotitn.json" trigger="hover"
-                                            style="width:24px;height:24px; margin-left: 10px;">
-                                        </lord-icon>
-                                    </a>
-                                </div>
+                    <div class="container d-flex justify-content-center align-items-center">
+                        <div class="col-lg-8 col-md-8 col-12">
+                            <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4">
+                                <img src="images/project.jpg" class="avatar-image img-fluid" alt="">
+                                <h2 class="heading-gradient text-white ms-4 mb-0 align-items-center " id="Proyects">
+                                    Proyectos</h2>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="projects-thumb">
-                            <div class="projects-info">
-                                <small class="projects-tag" id="sistemaTicketsTag">Aplicación</small>
-                                <h3 class="projects-title" id="sistemaTicketsTitulo">Sistema de Tickets</h3>
+                    <div class="slider-container">
+                        <div class="boundary-indicator left" id="leftIndicator"></div>
+                        <div class="boundary-indicator right" id="rightIndicator"></div>
+                        <div class="slider-wrapper" data-slider>
+
+                            <!-- PROYECTO 1: Panadería La Flor -->
+                            <div class="project-slide project-slide-1">
+                                <div class="parallax-bg parallax" data-speed="0.5"></div>
+                                <div class="parallax-overlay parallax" data-speed="0.8"></div>
+                                <div class="parallax-content parallax" data-speed="1.2">
+                                    <div class="project-content">
+                                        <div class="project-info">
+                                            <span class="project-tag" id="panaderiaTag">Negocio</span>
+                                            <h3 class="project-title" id="panaderiaTitle">Panadería La Flor</h3>
+
+
+                                            <img src="/images/projects/panaderia.png" class="project-image-mobile"
+                                                alt="Panadería La Flor">
+
+                                            <p class="project-description" id="panaderiaDescripcion">
+                                                Sistema completo para digitalizar la gestión interna y externa de una
+                                                panadería,
+                                                permitiendo administrar productos, usuarios, ventas y clientes desde un
+                                                panel
+                                                administrativo.
+                                            </p>
+
+                                            <div class="project-features">
+                                                <h4 id="panaderiaServiciosIncluidos">Servicios incluidos:</h4>
+                                                <ul>
+                                                    <li id="panaderiaServicio1">Página dinámica con base de datos</li>
+                                                    <li id="panaderiaServicio2">Panel de administración completo</li>
+                                                    <li id="panaderiaServicio3">Autenticación con roles múltiples</li>
+                                                    <li id="panaderiaServicio4">Seguridad avanzada</li>
+                                                    <li id="panaderiaServicio5">Reportes en PDF y Excel</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="tech-badges">
+                                                <span class="tech-badge html">HTML5</span>
+                                                <span class="tech-badge css">CSS3</span>
+                                                <span class="tech-badge js">JavaScript</span>
+                                                <span class="tech-badge php">PHP</span>
+                                                <span class="tech-badge mysql">MySQL</span>
+                                            </div>
+
+                                            <div class="project-actions">
+                                                <a id="panaderia-boton" href="https://panaderia-la-flor.infy.uk"
+                                                    target="_blank" class="btn-ver-pagina">
+                                                    <span id="panaderia-boton">Visitar</span>
+                                                </a>
+                                                <button class="btn-secondary" onclick="showProjectDetails('panaderia')"
+                                                    id="panaderia-detalles">
+                                                    <span id="panaderia-detalles">Más detalles</span>
+                                                </button>
+                                                <button class="btn-access" onclick="showAccessCredentials()">
+                                                    <svg class="btn-icon" aria-hidden="true" focusable="false">
+                                                        <use href="/icons/padlock-pixel.svg#padlock-pixel"></use>
+                                                    </svg>
+                                                    <span id="panaderia-accesos">Accesos</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Área de imagen -->
+                                        <div class="project-image-area">
+                                            <div class="project-image-container">
+                                                <img src="/images/projects/panaderia.png" class="project-image"
+                                                    alt="Panadería La Flor"
+                                                    onclick="window.open('https://panaderia-la-flor.infy.uk', '_blank')">
+                                            </div>
+
+                                            <!-- Botones debajo de la imagen  -->
+                                            <div class="project-actions">
+                                                <a href="https://panaderia-la-flor.infy.uk" target="_blank"
+                                                    class="btn-ver-pagina">
+                                                    <span id="panaderia-boton-under">Visitar</span>
+                                                </a>
+                                                <button class="btn-secondary" onclick="showProjectDetails('panaderia')">
+                                                    <span id="panaderia-detalles-under">Más detalles</span>
+                                                </button>
+                                                <button class="btn-access" onclick="showAccessCredentials()">
+                                                    <svg class="btn-icon" aria-hidden="true" focusable="false">
+                                                        <use href="/icons/padlock-pixel.svg#padlock-pixel"></use>
+                                                    </svg>
+                                                    <span id="panaderia-accesos-under">Accesos</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <a href="https://sistemas-presidencia.infinityfreeapp.com" target="_blank">
-                                <img src="images/projects/sistemas.png" class="projects-image img-fluid"
-                                    alt="Sistema de Tickets">
-                            </a>
+                            <!-- PROYECTO 2: Sistema de Tickets -->
+                            <div class="project-slide project-slide-2">
+                                <div class="parallax-bg parallax" data-speed="0.3"></div>
+                                <div class="parallax-overlay parallax" data-speed="0.7"></div>
+                                <div class="parallax-content parallax" data-speed="1.5">
+                                    <div class="project-content">
+                                        <div class="project-info">
+                                            <span class="project-tag" id="sistemaTicketsTag">Aplicación</span>
+                                            <h3 class="project-title" id="sistemaTicketsTitulo">Sistema de Tickets</h3>
 
-                            <div class="mt-3">
-                                <p><strong id="sistemaTicketsServiciosIncluidos">Servicios incluidos:</strong></p>
-                                <ul>
-                                    <li id="sistemaTicketsServicio1">Gestión y administración de tickets por parte del
-                                        área responsable</li>
-                                    <li id="sistemaTicketsServicio2">Generación de reportes detallados en formato PDF
-                                    </li>
-                                    <li id="sistemaTicketsServicio3">Seguridad en el envío de formularios: validación de
-                                        campos y protección contra inyecciones SQL</li>
-                                    <li id="sistemaTicketsServicio4">Implementación de caché para evitar envíos
-                                        duplicados, spam y bots</li>
-                                    <li id="sistemaTicketsServicio5">Los datos del formulario se conservan aunque el
-                                        usuario recargue la página o reciba un mensaje de error</li>
-                                </ul>
-                                <p><strong id="sistemaTicketsTecnologias">Tecnologías utilizadas:</strong></p>
-                                <div class="tech-badges">
-                                    <span class="tech-badge html">HTML5</span>
-                                    <span class="tech-badge css">CSS3</span>
-                                    <span class="tech-badge js">JS</span>
-                                    <span class="tech-badge php">PHP</span>
-                                    <span class="tech-badge mysql">MySQL</span>
-                                </div>
-                                <p id="sistemaTicketsDescripcion">Este sistema permite a los usuarios reportar problemas
-                                    técnicos y recibir seguimiento...</p>
-                                <div class="mt-2">
-                                    <a href="https://sistemas-presidencia.infinityfreeapp.com" target="_blank"
-                                        class="btn-ver-pagina" id="sistemaTicketsBoton">
-                                        Ver página
-                                        <lord-icon src="https://cdn.lordicon.com/zmkotitn.json" trigger="hover"
-                                            style="width:24px;height:24px; margin-left: 10px;">
-                                        </lord-icon>
-                                    </a>
+                                            <!-- Imagen pequeña en móviles -->
+                                            <img src="/images/projects/sistemas.png" class="project-image-mobile"
+                                                alt="Sistema de Tickets">
+
+                                            <p class="project-description" id="sistemaTicketsDescripcion">
+                                                Sistema avanzado que permite a los usuarios reportar problemas técnicos
+                                                y
+                                                recibir
+                                                seguimiento completo con gestión administrativa integrada.
+                                            </p>
+
+                                            <div class="project-features">
+                                                <h4 id="sistemaTicketsServiciosIncluidos">Servicios incluidos:</h4>
+                                                <ul>
+                                                    <li id="sistemaTicketsServicio1">Gestión completa de tickets</li>
+                                                    <li id="sistemaTicketsServicio2">Reportes detallados en PDF</li>
+                                                    <li id="sistemaTicketsServicio3">Seguridad anti-inyecciones</li>
+                                                    <li id="sistemaTicketsServicio4">Sistema anti-spam y bots</li>
+                                                    <li id="sistemaTicketsServicio5">Persistencia de datos</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="tech-badges">
+                                                <span class="tech-badge html">HTML5</span>
+                                                <span class="tech-badge css">CSS3</span>
+                                                <span class="tech-badge js">JavaScript</span>
+                                                <span class="tech-badge php">PHP</span>
+                                                <span class="tech-badge mysql">MySQL</span>
+                                            </div>
+
+                                            <!-- Botones en móviles -->
+                                            <div class="project-actions">
+                                                <a href="https://sistemas-presidencia.infinityfreeapp.com"
+                                                    target="_blank" class="btn-ver-pagina">
+                                                    <span id="boton-ticket">Visitar</span>
+                                                </a>
+                                                <button class="btn-secondary" onclick="showProjectDetails('tickets')">
+                                                    <span id="detalles-ticket">Más detalles</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Área de imagen -->
+                                        <div class="project-image-area">
+                                            <div class="project-image-container">
+                                                <img src="/images/projects/sistemas.png" class="project-image"
+                                                    alt="Sistema de Tickets"
+                                                    onclick="window.open('https://sistemas-presidencia.infinityfreeapp.com', '_blank')">
+                                            </div>
+
+                                            <!-- Botones debajo de la imagen -->
+                                            <div class="project-actions">
+                                                <a href="https://sistemas-presidencia.infinityfreeapp.com"
+                                                    target="_blank" class="btn-ver-pagina">
+                                                    <span id="boton-ticket-under">Visitar</span>
+                                                </a>
+                                                <button class="btn-secondary" onclick="showProjectDetails('tickets')">
+                                                    <span id="detalles-ticket-under">Más detalles</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+                            <!-- PROYECTO 3: Comercializadora -->
+                            <div class="project-slide project-slide-3">
+                                <div class="parallax-bg parallax" data-speed="0.6"></div>
+                                <div class="parallax-overlay parallax" data-speed="0.9"></div>
+                                <div class="parallax-content parallax" data-speed="1.8">
+                                    <div class="project-content">
+                                        <div class="project-info">
+                                            <span class="project-tag" id="comercializadoraTag">Negocio</span>
+                                            <h3 class="project-title" id="comercializadoraTitulo">Página de
+                                                Comercializadora
+                                            </h3>
+
+                                            <img src="/images/projects/comercializadora.png"
+                                                class="project-image-mobile" alt="Comercializadora">
+
+                                            <p class="project-description" id="comercializadoraDescripcion">
+                                                Página estática elegante diseñada para presentar la imagen corporativa y
+                                                servicios
+                                                de una comercializadora con diseño moderno y funcional.
+                                            </p>
+
+                                            <div class="project-features">
+                                                <h4 id="comercializadoraServiciosIncluidos">Servicios incluidos:</h4>
+                                                <ul>
+                                                    <li id="comercializadoraServicio1">Diseño responsive y moderno</li>
+                                                    <li id="comercializadoraServicio2">Organización por categorías</li>
+                                                    <li id="comercializadoraServicio3">Carruseles dinámicos</li>
+                                                    <li id="comercializadoraServicio4">Servicios destacados</li>
+                                                    <li id="comercializadoraServicio5">Canal de contacto directo</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="tech-badges">
+                                                <span class="tech-badge html">HTML5</span>
+                                                <span class="tech-badge css">CSS3</span>
+                                                <span class="tech-badge js">JavaScript</span>
+                                                <span class="tech-badge bootstrap">Bootstrap</span>
+                                            </div>
+
+                                            <div class="project-actions">
+                                                <a href="https://comercializadora-onaldi.ct.ws" target="_blank"
+                                                    class="btn-ver-pagina">
+                                                    <span id="comercializadoraBotonVisitar">Visitar</span>
+                                                </a>
+                                                <button class="btn-secondary"
+                                                    onclick="showProjectDetails('comercializadora')">
+                                                    <span id="comercializadoraBotonDetalles">Más detalles</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="project-image-area">
+                                            <div class="project-image-container">
+                                                <img src="/images/projects/comercializadora.png" class="project-image"
+                                                    alt="Comercializadora"
+                                                    onclick="window.open('https://comercializadora-onaldi.ct.ws', '_blank')">
+                                            </div>
+
+                                            <div class="project-actions">
+                                                <a href="https://comercializadora-onaldi.ct.ws" target="_blank"
+                                                    class="btn-ver-pagina">
+                                                    <span id="comercializadoraBotonVisitarUnder">Visitar</span>
+                                                </a>
+                                                <button class="btn-secondary"
+                                                    onclick="showProjectDetails('comercializadora')">
+                                                    <span id="comercializadoraBotonDetallesUnder">Más detalles</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--  PROYECTO 4: Portafolio Digital-->
+                            <div class="project-slide project-slide-4">
+                                <div class="parallax-bg parallax" data-speed="0.7"></div>
+                                <div class="parallax-overlay parallax" data-speed="1.0"></div>
+                                <div class="parallax-content parallax" data-speed="1.5">
+                                    <div class="project-content">
+                                        <div class="project-info">
+                                            <span class="project-tag" id="portafolioTag">Portafolio</span>
+                                            <h3 class="project-title" id="portafolioTitulo">Portafolio Digital
+                                                Audiovisual</h3>
+                                            <img src="/images/projects/portafolio-alejandro.png"
+                                                class="project-image-mobile" alt="Portafolio Alejandro Sarmiento">
+                                            <p class="project-description" id="portafolioDescripcion">
+                                                Portafolio digital profesional de un especialista en edición de video y
+                                                audio,
+                                                desarrollado para mostrar proyectos audiovisuales que van desde
+                                                contenido
+                                                para redes sociales hasta piezas publicitarias y documentales.
+                                            </p>
+                                            <div class="project-features">
+                                                <h4 id="portafolioServiciosIncluidos">Servicios incluidos:</h4>
+                                                <ul>
+                                                    <li id="portafolioServicio1">Diseño responsive y moderno</li>
+                                                    <li id="portafolioServicio2">Galería de proyectos multimedia</li>
+                                                    <li id="portafolioServicio3">Secciones categorizadas por tipo</li>
+                                                    <li id="portafolioServicio4">Formulario de contacto funcional</li>
+                                                    <li id="portafolioServicio5">Integración con WhatsApp</li>
+                                                </ul>
+                                            </div>
+                                            <div class="tech-badges">
+                                                <span class="tech-badge html">HTML5</span>
+                                                <span class="tech-badge css">CSS3</span>
+                                                <span class="tech-badge js">JavaScript</span>
+                                                <span class="tech-badge bootstrap">Bootstrap</span>
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="https://alejandro-sarmiento.netlify.app" target="_blank"
+                                                    class="btn-ver-pagina">
+                                                    <span id="portafolioBotonVisitar">Visitar</span>
+                                                </a>
+                                                <button class="btn-secondary"
+                                                    onclick="showProjectDetails('portafolio')">
+                                                    <span id="portafolioBotonDetalles">Más detalles</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="project-image-area">
+                                            <div class="project-image-container">
+                                                <img src="/images/projects/portafolio-alejandro.png"
+                                                    class="project-image" alt="Portafolio Alejandro Sarmiento"
+                                                    onclick="window.open('https://alejandro-sarmiento.netlify.app', '_blank')">
+                                            </div>
+                                            <div class="project-actions">
+                                                <a href="https://alejandro-sarmiento.netlify.app" target="_blank"
+                                                    class="btn-ver-pagina">
+                                                    <span id="portafolioBotonVisitarUnder">Visitar</span>
+                                                </a>
+                                                <button class="btn-secondary"
+                                                    onclick="showProjectDetails('portafolio')">
+                                                    <span id="portafolioBotonDetallesUnder">Más detalles</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PROYECTO 5: Siki México -->
+                            <div class="project-slide project-slide-5">
+                                <div class="parallax-bg parallax" data-speed="0.4"></div>
+                                <div class="parallax-overlay parallax" data-speed="0.6"></div>
+                                <div class="parallax-content parallax" data-speed="1.3">
+                                    <div class="project-content">
+                                        <div class="project-info">
+                                            <span class="project-tag" id="sikiTag">E-commerce</span>
+                                            <h3 class="project-title" id="sikiTitle">Siki México</h3>
+
+                                            <img src="/images/projects/siki-mexico.png" class="project-image-mobile"
+                                                alt="Siki México - Tienda de Uniformes Deportivos">
+
+                                            <p class="project-description" id="sikiDescripcion">
+                                                Tienda en línea especializada en uniformes deportivos de alta calidad
+                                                para equipos amateurs y profesionales. Plataforma desarrollada en
+                                                Tiendanube con
+                                                diseño responsivo y estructura adaptada a las necesidades específicas
+                                                del
+                                                negocio.
+                                            </p>
+
+                                            <div class="project-features">
+                                                <h4 id="sikiServiciosIncluidos">Servicios incluidos:</h4>
+                                                <ul>
+                                                    <li id="sikiServicio1">Tienda en línea completamente funcional</li>
+                                                    <li id="sikiServicio2">Diseño responsivo y moderno</li>
+                                                    <li id="sikiServicio3">Catálogo organizado por categorías</li>
+                                                    <li id="sikiServicio4">Sistema de pagos integrado</li>
+                                                    <li id="sikiServicio5">Optimización para conversiones</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="tech-badges">
+                                                <span class="tech-badge tiendanube">Tiendanube</span>
+                                                <span class="tech-badge html">HTML5</span>
+                                                <span class="tech-badge css">CSS3</span>
+                                                <span class="tech-badge js">JavaScript</span>
+                                            </div>
+
+                                            <div class="project-actions">
+                                                <a href="https://siki.com.mx" target="_blank" class="btn-ver-pagina">
+                                                    <span id="sikiBotonVisitar">Visitar Tienda</span>
+                                                </a>
+                                                <button class="btn-secondary" onclick="showProjectDetails('siki')">
+                                                    <span id="sikiBotonDetalles">Más detalles</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="project-image-area">
+                                            <div class="project-image-container">
+                                                <img src="/images/projects/siki-mexico.png" class="project-image"
+                                                    alt="Siki México - Tienda de Uniformes Deportivos"
+                                                    onclick="window.open('https://siki.com.mx', '_blank')">
+                                            </div>
+
+                                            <div class="project-actions">
+                                                <a href="https://siki.com.mx" target="_blank" class="btn-ver-pagina">
+                                                    <span id="sikiBotonVisitarUnder">Visitar Tienda</span>
+                                                </a>
+                                                <button class="btn-secondary" onclick="showProjectDetails('siki')">
+                                                    <span id="sikiBotonDetallesUnder">Más detalles</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Navegación -->
+                        <div class="nav-indicators">
+                            <div class="nav-dot active" data-slide="0"></div>
+                            <div class="nav-dot" data-slide="1"></div>
+                            <div class="nav-dot" data-slide="2"></div>
+                            <div class="nav-dot" data-slide="3"></div>
+                            <div class="nav-dot" data-slide="4"></div>
+                        </div>
+
+                        <div class="nav-arrows prev">
+                            <div class="nav-arrow" id="prevBtn"></div>
+                        </div>
+
+                        <div class="nav-arrows next">
+                            <div class="nav-arrow" id="nextBtn"></div>
                         </div>
                     </div>
-
-
-                    <div class="col-lg-6 col-md-6 col-12">
-                        <div class="projects-thumb">
-                            <div class="projects-info">
-                                <small class="projects-tag" id="comercializadoraTag">Negocio</small>
-                                <h3 class="projects-title" id="comercializadoraTitulo">Página de Comercializadora</h3>
-                            </div>
-
-                            <a href="https://comercializadora-onaldi.ct.ws" target="_blank">
-                                <img src="images/projects/comercializadora.png" class="projects-image img-fluid"
-                                    alt="Distribuidora">
-                            </a>
-
-                            <div class="mt-3">
-                                <p><strong id="comercializadoraServiciosIncluidos">Servicios incluidos:</strong></p>
-                                <ul>
-                                    <li id="comercializadoraServicio1">Encabezado personalizado y diseño adaptable</li>
-                                    <li id="comercializadoraServicio2">Sección de productos y servicios organizada por
-                                        categorías</li>
-                                    <li id="comercializadoraServicio3">Carruseles dinámicos para una mejor visualización
-                                        de productos y promociones</li>
-                                    <li id="comercializadoraServicio4">Presentación clara de servicios destacados</li>
-                                    <li id="comercializadoraServicio5">Canal de contacto directo para clientes
-                                        potenciales (WhatsApp, formulario o correo)</li>
-                                </ul>
-                                <p><strong id="comercializadoraTecnologias">Tecnologías utilizadas:</strong></p>
-                                <div class="tech-badges">
-                                    <span class="tech-badge html">HTML5</span>
-                                    <span class="tech-badge css">CSS3</span>
-                                    <span class="tech-badge js">JS</span>
-                                    <span class="tech-badge bootstrap">Bootstrap</span>
-                                </div>
-                                <p id="comercializadoraDescripcion">Página estática diseñada para presentar la imagen...
-                                </p>
-                                <div class="mt-2">
-                                    <a href="https://comercializadora-onaldi.ct.ws" target="_blank"
-                                        class="btn-ver-pagina" id="comercializadoraBoton">
-                                        Ver página
-                                        <lord-icon src="https://cdn.lordicon.com/zmkotitn.json" trigger="hover"
-                                            style="width:24px;height:24px; margin-left: 10px;">
-                                        </lord-icon>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
             </div>
         </section>
 
 
-        <section class="contact section-padding" id="section_5">
+        <section class="contact section-padding" id="section_8">
+            <div class="floating-particles" id="particles-section-8"></div>
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-6 col-md-8 col-12">
-                        <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5">
-                            <img src="images/contactme.png" class="avatar-image img-fluid" alt="">
-                            <h2 class="text-white ms-4 mb-0" id="contactoTitulo">Contáctame</h2>
-                        </div>
-                    </div>
-
-                    <div class="clearfix"></div>
-
-                    <div class="col-lg-3 col-md-6 col-12 pe-lg-0">
+                    <!-- Columna 1 -->
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
                         <div class="contact-info contact-info-border-start d-flex flex-column">
-                            <strong class="site-footer-title d-block mb-3" id="contactoServiciosTitulo">Mis
-                                Servicios</strong>
-
-                            <ul class="footer-menu">
-                                <li class="footer-menu-item">
-                                    <a href="#" class="footer-menu-link" id="contactoServicio1">Páginas estáticas</a>
-                                </li>
-                                <li class="footer-menu-item">
-                                    <a href="#" class="footer-menu-link" id="contactoServicio2">Páginas dinámicas</a>
-                                </li>
-                            </ul>
-
-                            <strong class="site-footer-title d-block mt-4 mb-3" id="contactoRedesTitulo">Visita mis
-                                redes</strong>
-
-                            <ul class="social-icon">
-                                <li class="social-icon-item">
-                                    <a href="https://www.facebook.com/share/19Jt6HQKa8/" class="social-icon-link"
-                                        target="_blank" aria-label="Visitar mi página de Facebook">
-                                        <lord-icon src="https://cdn.lordicon.com/xowsaqcr.json" trigger="hover"
-                                            stroke="bold" state="hover-roll" style="width:40px;height:40px">
-                                        </lord-icon>
+                            <strong class="heading-gradient site-footer-title d-block mb-4" id="connectTitle">Conecta
+                                Conmigo</strong>
+                            <div class="social-card">
+                                <h5 id="followMeTitle">Sígueme en Redes</h5>
+                                <div class="social-icons-grid">
+                                    <a href="https://www.facebook.com/share/19Jt6HQKa8/" class="social-icon-item"
+                                        target="_blank">
+                                        <img src="/images/redes-sociales/facebook.png " alt="Facebook">
                                     </a>
-                                </li>
-
-                                <li class="social-icon-item">
                                     <a href="https://www.instagram.com/g_omaar._.32?igsh=MTltMTJhN3ZxMmR4cw=="
-                                        class="social-icon-link" target="_blank"
-                                        aria-label="Visitar mi página de  Instagram">
-                                        <lord-icon src="https://cdn.lordicon.com/dbugezxr.json" trigger="hover"
-                                            style="width:40px;height:40px">
-                                        </lord-icon>
+                                        class="social-icon-item" target="_blank">
+                                        <img src="/images/redes-sociales/instagram.png " alt="instagram">
                                     </a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="https://wa.me/524131060699" class="social-icon-link" target="_blank"
-                                        aria-label="Visitar mi página de WhatsApp">
-                                        <lord-icon src="https://cdn.lordicon.com/vyyhrdzw.json" trigger="hover"
-                                            state="hover-roll" style="width:40px;height:40px">
-                                        </lord-icon>
+                                    <a href="https://wa.me/524131060699" class="social-icon-item" target="_blank">
+                                        <img src="/images/redes-sociales/whatsapp.png " alt="WhatsApp">
                                     </a>
-                                </li>
-
-                                <li class="social-icon-item">
                                     <a href="https://www.linkedin.com/in/omar-gadiel-bolaños-garcía-1a4154359/"
-                                        class="social-icon-link" target="_blank"
-                                        aria-label="Visitar mi página de linkedin">
-                                        <lord-icon src="https://cdn.lordicon.com/kozzgyfy.json" trigger="hover"
-                                            state="hover-roll" style="width:40px;height:40px">
-                                        </lord-icon>
+                                        class="social-icon-item" target="_blank">
+                                        <img src="/images/redes-sociales/linkedin.png " alt="LinkedIn">
                                     </a>
-                                </li>
-                            </ul>
-
-
-                            <strong class="site-footer-title d-block mt-4 mb-3" id="footerProyectoTitulo">Empecemos un
-                                proyecto</strong>
-                            <p class="mb-0" id="footerProyectoTexto">Estoy en busca de nuevos retos y experiencias
-                                laborales.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-12 ps-lg-0">
-                        <div class="contact-info d-flex flex-column">
-                            <strong class="site-footer-title d-block mb-3" id="footerSobreMiTitulo">Sobre mí</strong>
-                            <p class="mb-2" id="footerSobreMiTexto">
-                                Soy estudiante de Ingeniería en Sistemas Computacionales, apasionado por el desarrollo
-                                web...
-                            </p>
-
-                            <strong class="site-footer-title d-block mt-4 mb-3" id="footerEmailTitulo">Email</strong>
-                            <p>
-                                <a href="mailto:omarbolanos198@gmail.com" class="correo-link">
-                                    omarbolanos198@gmail.com
-                                </a>
-                            </p>
-
-                            <strong class="site-footer-title d-block mt-4 mb-3" id="footerWhatsappTitulo">Envíame un
-                                WhatsApp</strong>
-                            <p class="mb-0">
-                                <a href="https://wa.me/524131060699" target="_blank" class="correo-link">
-                                    +52 413 106 0699
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-12 mt-5 mt-lg-0">
-
-                        <form action="https://formsubmit.co/omarbolanos198@gmail.com" method="POST"
-                            class="custom-form contact-form" role="form">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://shinra3245.github.io/portafolio/">
-
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="form-floating">
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="Name"
-                                            required>
-                                        <label for="name" id="formNombre">Nombre</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="form-floating">
-                                        <input type="email" name="email" id="email" class="form-control"
-                                            placeholder="Email" required>
-                                        <label for="email" id="formCorreo">Dirección de correo</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12 col-12">
-                                    <div class="form-floating">
-                                        <textarea id="message" class="form-control" name="message"
-                                            placeholder="Mensaje"></textarea>
-                                        <label for="message" id="formMensaje">Háblame sobre tu proyecto</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3 col-12 ms-auto">
-                                    <button type="submit" class="form-control" id="formBoton">Enviar</button>
                                 </div>
                             </div>
-                        </form>
 
+                            <div style="margin-top: 15px; text-align: center;">
+                                <strong style="color: #8f44fd; font-size: x-large" id="statusTitle">Estado:</strong>
+                                <div style="margin-top: 10px;">
+                                    <span class="availability-status">
+                                        <small class="contact-status" id="statusText">Disponible para proyectos</small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
-            </div>
-            </div>
-        </section>
+                    <!-- Columna 2 -->
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <div class="contact-info contact-info-border-start d-flex flex-column">
+                            <strong class="heading-gradient site-footer-title d-block mb-3" id="readyTitle">¿Listo para
+                                tu
+                                proyecto?</strong>
+                            <p class="cta-text" id="readySubtitle">Transformemos tu idea en una solución web profesional
+                            </p>
 
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <lord-icon src="https://cdn.lordicon.com/qtenrimd.json" trigger="loop" delay="1000"
+                                        stroke="bold" state="hover-draw" style="width:30px;height:30px"></lord-icon>
+                                    <strong id="whatsappTitle">WhatsApp Directo</strong><br>
+                                    <a href="https://wa.me/524131060699" class="contact-link">+52 413 106 0699</a>
+                                </div>
+
+                                <div class="contact-method ">
+                                    <lord-icon src="https://cdn.lordicon.com/fluwldoy.json" trigger="loop" delay="500"
+                                        stroke="bold" state="in-reveal"
+                                        style="width:30px; height:30px; margin-right: 10px;"></lord-icon>
+                                    <strong id="emailTitle">Email Profesional</strong><br>
+                                    <a href="mailto:omarbolanos198@gmail.com"
+                                        class="contact-link">omarbolanos198@gmail.com</a><br>
+                                    <small id="emailSubtitle">Para proyectos detallados</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna 3 -->
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <div class="contact-info contact-info-border-start d-flex flex-column">
+                            <strong class="heading-gradient site-footer-title d-block mb-3"
+                                id="servicesTitle-contact">Servicios
+                                Destacados</strong>
+                            <ul class="services-list services-list-custom">
+                                <li>
+                                    <lord-icon src="https://cdn.lordicon.com/zfemvkpr.json" trigger="loop" delay="500"
+                                        colors="primary:#ffffff" style="width:30px;height:30px">
+                                    </lord-icon>
+                                    <span id="serviceResponsive">Páginas Web Responsivas</span>
+                                </li>
+                                <li>
+                                    <lord-icon src="https://cdn.lordicon.com/umuwriak.json" trigger="loop" delay="500"
+                                        state="in-cog" colors="primary:#ffffff" style="width:30px;height:30px">
+                                    </lord-icon>
+                                    <span id="serviceAdmin">Sistemas Administrativos</span>
+                                </li>
+                                <li>
+                                    <lord-icon src="https://cdn.lordicon.com/qawxkplz.json" trigger="loop" delay="500"
+                                        state="in-build" colors="primary:#ffffff" style="width:30px;height:30px">
+                                    </lord-icon>
+                                    <span id="serviceAuth">Autenticación y Seguridad</span>
+                                </li>
+                                <li>
+                                    <lord-icon src="https://cdn.lordicon.com/kwnsnjyg.json" trigger="loop" delay="500"
+                                        colors="primary:#ffffff" style="width:30px;height:30px">
+                                    </lord-icon>
+                                    <span id="serviceReports">Reportes PDF/Excel</span>
+                                </li>
+                                <li>
+                                    <lord-icon src="https://cdn.lordicon.com/iwlihxdl.json" trigger="loop" delay="500"
+                                        state="in-category" colors="primary:#ffffff" style="width:30px;height:30px">
+                                    </lord-icon>
+                                    <span id="serviceAnimations">Animaciones Interactivas</span>
+                                </li>
+                                <li>
+                                    <lord-icon src="https://cdn.lordicon.com/ghlskmzw.json" trigger="loop" delay="500"
+                                        state="in-api" colors="primary:#ffffff" style="width:30px;height:30px">
+                                    </lord-icon>
+                                    <span id="serviceApis">Integración APIs</span>
+                                </li>
+                            </ul>
+
+                            <div class="guarantee-box">
+                                <div class="garantia">
+                                    <div class="title-row">
+                                        <svg class="icon">
+                                            <use href="/icons/star-badge.svg#star-badge"></use>
+                                        </svg>
+                                        <strong id="guaranteeTitle">Mi Garantía</strong>
+                                    </div>
+                                    <small id="guaranteeText">Código limpio, documentado y con soporte
+                                        post-entrega</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario debajo de las columnas -->
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <form action="https://formsubmit.co/omarbolanos198@gmail.com" method="POST"
+                                class="custom-form contact-form" role="form">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_next" value="https://shinra3245.github.io/portafolio/">
+
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" name="name" id="name" class="form-control"
+                                                placeholder="Name" required>
+                                            <label for="name" id="formNombre">Nombre</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" name="email" id="email" class="form-control"
+                                                placeholder="Email" required>
+                                            <label for="email" id="formCorreo">Dirección de correo</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea id="message" class="form-control" name="message"
+                                                placeholder="Mensaje"></textarea>
+                                            <label for="message" id="formMensaje">Háblame sobre tu proyecto</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="form-control" id="formBoton">Enviar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -626,6 +1027,7 @@
     </footer>
 
 
+
     <script src="js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
@@ -634,10 +1036,15 @@
     <script src="js/magnific-popup-options.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/languaje.js"></script>
-
+    <script src="js/multilingual-project-modal.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/progress-bar.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/slide.js"></script>
+    <script src="https://unpkg.com/nextjs-toast-notify@1.47.0/dist/nextjs-toast-notify.js"></script>
+    <script src="js/alert-toast.js"></script>
     <div id="language-toast">
     </div>
-
 
 </body>
 
