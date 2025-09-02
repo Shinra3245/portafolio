@@ -6,7 +6,7 @@ Un portafolio web moderno y multiidioma que presenta proyectos y habilidades pro
 
 Este repositorio documenta la arquitectura y estructura técnica de mi portafolio personal. No incluye el código fuente completo, ya que el proyecto está protegido por derechos de autor.
 
-**Para ver el proyecto funcionando, visita**: **[tu-dominio.com](https://shinradev.site)**
+**Para ver el proyecto funcionando, visita**: **[shinradev.site](https://shinradev.site)**
 
 ## 🏗️ Arquitectura del Sistema
 
@@ -80,7 +80,7 @@ portfolio/
 
 ## 🌐 Ver el Proyecto
 
-Este portafolio está disponible en línea en: **[tu-dominio.com](https://shinradev.site)**
+Este portafolio está disponible en línea en: **[shinradev.site](https://shinradev.site)**
 
 > **Nota**: Este repositorio es solo para mostrar la arquitectura y documentación del proyecto. El código fuente está protegido por derechos de autor y no está disponible para clonación.
 
