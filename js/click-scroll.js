@@ -1,37 +1,22 @@
-//jquery-click-scroll
-//by syamsul'isul' Arifin
-
-var sectionArray = [1, 2, 3, 4, 5];
-
-$.each(sectionArray, function(index, value){
-          
-     $(document).scroll(function(){
-         var offsetSection = $('#' + 'section_' + value).offset().top - 90;
-         var docScroll = $(document).scrollTop();
-         var docScroll1 = docScroll + 1;
-         
-        
-         if ( docScroll1 >= offsetSection ){
-             $('.navbar-nav .nav-item .nav-link').removeClass('active');
-             $('.navbar-nav .nav-item .nav-link:link').addClass('inactive');  
-             $('.navbar-nav .nav-item .nav-link').eq(index).addClass('active');
-             $('.navbar-nav .nav-item .nav-link').eq(index).removeClass('inactive');
-         }
-         
-     });
+$(document).ready(function() {
     
-    $('.click-scroll').eq(index).click(function(e){
-        var offsetClick = $('#' + 'section_' + value).offset().top - 90;
-        e.preventDefault();
-        $('html, body').animate({
-            'scrollTop':offsetClick
-        }, 300)
+    var currentPage = window.location.pathname.split("/").pop();
+
+    // Si la ruta está vacía, significa que estamos en la página principal.
+    if (currentPage === "") {
+        currentPage = "index.html";
+    }
+
+    // 2. Quitamos la clase 'active' de TODOS los enlaces del menú para empezar de cero.
+    $('.navbar-nav .nav-item .nav-link').removeClass('active');
+
+    // 3. Buscamos el enlace que corresponde a la página actual y solo a ese le ponemos la clase 'active'.
+    $('.navbar-nav .nav-item .nav-link').each(function() {
+        var linkHref = $(this).attr('href').split("/").pop();
+
+        if (linkHref === currentPage) {
+            $(this).addClass('active');
+        }
     });
-    
-});
 
-$(document).ready(function(){
-    $('.navbar-nav .nav-item .nav-link:link').addClass('inactive');    
-    $('.navbar-nav .nav-item .nav-link').eq(0).addClass('active');
-    $('.navbar-nav .nav-item .nav-link:link').eq(0).removeClass('inactive');
 });
