@@ -16,8 +16,8 @@
   "about": {
     "title": "My Journey",
     "subtitle": "A little about me",
-    "paragraph1": "It all began when I discovered I could <span class='keyword-accent'>create something out of nothing</span> with just lines of code. I am currently pursuing a degree in <span class='keyword-primary'>Computer Systems Engineering</span> at the National Technological Institute of Mexico, where every day I reaffirm my passion for transforming <span class='keyword-secondary'>ideas into digital solutions</span>.",
-    "paragraph2": "My focus goes beyond code: I specialize in creating <span class='keyword-primary'>web experiences that truly matter</span>. I have built everything from <span class='keyword-secondary'>management systems</span> for bakeries to <span class='keyword-accent'>government ticketing platforms</span>, always prioritizing functionality, security, and user experience. My primary stack includes PHP, MySQL, JavaScript, and modern tools to build <span class='keyword-primary'>useful, accessible, and modern</span> solutions.",
+    "paragraph1": "I'm a <span class='keyword-primary'>Full-Stack developer with a strong focus on Python</span>, my main language. I'm in my 8th semester of <span class='keyword-secondary'>Computer Systems Engineering</span> at Tecnológico Nacional de México, Campus Celaya, and I've led technical teams under Scrum, including <span class='keyword-accent'>1st place at LinceHack 2026</span>, Innovation & Technology category.",
+    "paragraph2": "My work goes beyond websites: I've built <span class='keyword-primary'>full web platforms and mobile apps with Flutter</span>, with particular depth in <span class='keyword-secondary'>REST APIs with FastAPI and Flask</span>, security architectures (RBAC, RLS, authentication), and data processing engines. From management systems for businesses to smart waste-collection apps with real-time notifications, I always prioritize <span class='keyword-accent'>privacy, security, and user experience</span>.",
     "infoTitle": "Information",
     "statProjects": "Completed Projects",
     "statProjectsValue": "5+",
