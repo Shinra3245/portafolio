@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { Sparkles } from 'lucide-react'
-import TechScene from '../3d/TechScene'
+import KeyboardScene from '../3d/KeyboardScene'
 import './TechShowcase.css'
 
 gsap.registerPlugin(useGSAP)
@@ -35,7 +35,7 @@ function TechShowcase() {
       </div>
 
       <div className="tech-showcase__scene">
-        <TechScene />
+        <KeyboardScene />
       </div>
 
       <div className="tech-showcase__anim">
