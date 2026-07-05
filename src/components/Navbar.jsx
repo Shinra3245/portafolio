@@ -8,6 +8,7 @@ const links = [
   { href: '#inicio', key: 'nav.home' },
   { href: '#sobre-mi', key: 'nav.about' },
   { href: '#servicios', key: 'nav.services' },
+  { href: '#experiencia', key: 'nav.experience' },
   { href: '#proyectos', key: 'nav.projects' },
   { href: '#habilidades', key: 'nav.skills' },
   { href: '#contacto', key: 'nav.contact' },

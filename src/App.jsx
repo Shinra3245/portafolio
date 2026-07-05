@@ -7,6 +7,7 @@ import About from './sections/About'
 import TechShowcase from './sections/TechShowcase'
 import Specialization from './sections/Specialization'
 import Services from './sections/Services'
+import Experience from './sections/Experience'
 import Projects from './sections/Projects'
 import Skills from './sections/Skills'
 import Contact from './sections/Contact'
@@ -21,6 +22,7 @@ function HomePage() {
       <TechShowcase />
       <Specialization />
       <Services />
+      <Experience />
       <Projects />
       <Skills />
       <Contact />
