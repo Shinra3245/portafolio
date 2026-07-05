@@ -1,0 +1,6 @@
+.services {
+  padding: var(--section-padding);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}

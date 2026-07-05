@@ -1,0 +1,21 @@
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+.not-found h1 {
+  font-size: clamp(4rem, 12vw, 7rem);
+  background: linear-gradient(120deg, var(--color-text), var(--color-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.not-found p {
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}

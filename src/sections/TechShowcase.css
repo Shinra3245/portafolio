@@ -1,0 +1,40 @@
+.tech-showcase {
+  padding: var(--section-padding);
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tech-showcase__scene {
+  height: 420px;
+  margin: 0 auto 3rem;
+  max-width: 900px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.08), transparent 70%);
+}
+
+.tech-showcase__anim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.tech-showcase__icon {
+  color: var(--color-accent-2);
+}
+
+.tech-showcase__anim-title {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+.tech-showcase__anim-title .highlight {
+  color: var(--color-accent-2);
+}
+
+.tech-showcase__anim-text {
+  color: var(--color-muted);
+}

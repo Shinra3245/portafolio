@@ -1,0 +1,11 @@
+.projects {
+  padding: var(--section-padding);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
