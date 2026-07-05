@@ -44,6 +44,23 @@
   margin-bottom: 1.25rem;
 }
 
+.modal-image--placeholder {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: var(--color-muted);
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1), transparent 70%);
+  border: 1px dashed var(--color-border);
+}
+.modal-image--placeholder span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .modal-tag {
   display: inline-block;
   font-size: 0.75rem;

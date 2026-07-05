@@ -14,6 +14,23 @@
   aspect-ratio: 16 / 10;
   overflow: hidden;
 }
+.project-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--color-muted);
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1), transparent 70%);
+}
+.project-card__placeholder span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 .project-card__image-wrap img {
   width: 100%;
   height: 100%;

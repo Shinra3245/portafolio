@@ -6,7 +6,7 @@ import { Info } from 'lucide-react'
 import RainEffect from '../3d/RainEffect'
 import Toast from '../components/Toast'
 import { useToast } from '../hooks/useToast'
-import fotoYo from '../assets/images/yo.png'
+import fotoYo from '../assets/images/yo.jpeg'
 import './About.css'
 
 gsap.registerPlugin(ScrollTrigger)

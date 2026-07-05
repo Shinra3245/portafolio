@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import SolarSystem from '../3d/SolarSystem'
-import fotoYo from '../assets/images/yo.png'
+import fotoYo from '../assets/images/yo.jpeg'
 import './Hero.css'
 
 gsap.registerPlugin(useGSAP)

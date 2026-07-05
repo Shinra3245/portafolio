@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { X, ExternalLink, KeyRound } from 'lucide-react'
+import { X, ExternalLink, Github, KeyRound, Code2, Terminal, Smartphone } from 'lucide-react'
 import './ProjectModal.css'
+
+const CATEGORY_ICON = { web: Code2, python: Terminal, movil: Smartphone }
 
 function ProjectModal({ project, onClose }) {
   const { t, i18n } = useTranslation()
@@ -15,6 +17,7 @@ function ProjectModal({ project, onClose }) {
 
   if (!project) return null
   const content = project[lang]
+  const PlaceholderIcon = CATEGORY_ICON[project.category] || Code2
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -23,7 +26,16 @@ function ProjectModal({ project, onClose }) {
           <X size={20} />
         </button>
 
-        <img src={project.image} alt={content.title} className="modal-image" />
+        {project.video ? (
+          <video className="modal-image" src={project.video} controls />
+        ) : project.image ? (
+          <img src={project.image} alt={content.title} className="modal-image" />
+        ) : (
+          <div className="modal-image modal-image--placeholder">
+            <PlaceholderIcon size={40} />
+            <span>{t('projects.previewPending')}</span>
+          </div>
+        )}
 
         <span className="modal-tag">{content.tag}</span>
         <h3 className="modal-title">{content.title}</h3>
@@ -70,10 +82,18 @@ function ProjectModal({ project, onClose }) {
         )}
 
         <div className="modal-actions">
-          <a href={project.url} target="_blank" rel="noreferrer" className="btn btn--primary">
-            <ExternalLink size={16} />
-            {t('projects.viewSite')}
-          </a>
+          {project.url && (
+            <a href={project.url} target="_blank" rel="noreferrer" className="btn btn--primary">
+              <ExternalLink size={16} />
+              {t('projects.viewSite')}
+            </a>
+          )}
+          {project.repo && (
+            <a href={project.repo} target="_blank" rel="noreferrer" className="btn btn--secondary">
+              <Github size={16} />
+              {t('projects.viewCode')}
+            </a>
+          )}
         </div>
       </div>
     </div>

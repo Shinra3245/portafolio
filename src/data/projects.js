@@ -4,13 +4,20 @@ import comercializadoraImg from '../assets/images/projects/comercializadora.png'
 import portafolioImg from '../assets/images/projects/portafolio-alejandro.png'
 import sikiImg from '../assets/images/projects/siki-mexico.png'
 
+// category: 'web' | 'python' | 'movil' — usado para los tabs de la sección Proyectos
+// image/video: null = todavía no enviado; ProjectCard/ProjectModal muestran un placeholder
+// mientras tanto (pendiente: Omar enviará capturas/video de cada proyecto)
+
 // Contenido real de los 5 proyectos (index.html + lang/projects-es.json + lang/projects-en.json)
 export const projects = [
   {
     id: 1,
     slug: 'panaderia',
+    category: 'web',
     image: panaderiaImg,
+    video: null,
     url: 'https://panaderia-la-flor.infy.uk',
+    repo: null,
     techs: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
     credentials: {
       admin: { email: 'AdminPanaderia@gmail.com', password: '123' },
@@ -48,8 +55,11 @@ export const projects = [
   {
     id: 2,
     slug: 'tickets',
+    category: 'web',
     image: sistemasImg,
+    video: null,
     url: 'https://sistemas-presidencia.infinityfreeapp.com',
+    repo: null,
     techs: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
     es: {
       tag: 'Aplicación',
@@ -83,8 +93,11 @@ export const projects = [
   {
     id: 3,
     slug: 'comercializadora',
+    category: 'web',
     image: comercializadoraImg,
+    video: null,
     url: 'https://comercializadora-onaldi.ct.ws',
+    repo: null,
     techs: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
     es: {
       tag: 'Negocio',
@@ -118,8 +131,11 @@ export const projects = [
   {
     id: 4,
     slug: 'portafolio',
+    category: 'web',
     image: portafolioImg,
+    video: null,
     url: 'https://alejandro-sarmiento.netlify.app',
+    repo: null,
     techs: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
     es: {
       tag: 'Portafolio',
@@ -153,8 +169,11 @@ export const projects = [
   {
     id: 5,
     slug: 'siki',
+    category: 'web',
     image: sikiImg,
+    video: null,
     url: 'https://siki.com.mx',
+    repo: null,
     techs: ['Tiendanube', 'HTML5', 'CSS3', 'JavaScript'],
     es: {
       tag: 'E-commerce',
@@ -182,6 +201,156 @@ export const projects = [
         'Catalog organized by categories',
         'Integrated payment system',
         'Conversion optimization',
+      ],
+    },
+  },
+  {
+    id: 6,
+    slug: 'ilpea',
+    category: 'web',
+    image: null,
+    video: null,
+    url: 'https://ilpeatransports.site',
+    repo: null,
+    techs: ['JavaScript', 'Firebase', 'RBAC', 'QR'],
+    es: {
+      tag: 'Plataforma Web',
+      title: 'ILPEA Transports',
+      badge: 'Gestión Logística',
+      description:
+        'Plataforma web para la gestión de usuarios y operaciones logísticas de transporte. Incluye un sistema completo de autenticación segura: asignación de credenciales por empleado, control de acceso basado en roles y generación de códigos QR dinámicos para seguimiento logístico.',
+      features: [
+        'Autenticación segura con credenciales por empleado',
+        'Control de acceso basado en roles (RBAC)',
+        'Generación de códigos QR dinámicos para seguimiento logístico',
+        'Firebase como infraestructura y base de datos',
+        'Liderazgo técnico bajo metodología Scrum',
+      ],
+    },
+    en: {
+      tag: 'Web Platform',
+      title: 'ILPEA Transports',
+      badge: 'Logistics Management',
+      description:
+        'Web platform for managing users and logistics operations for a transport company. Includes a complete secure authentication system: per-employee credentials, role-based access control, and dynamic QR code generation for logistics tracking.',
+      features: [
+        'Secure authentication with per-employee credentials',
+        'Role-based access control (RBAC)',
+        'Dynamic QR code generation for logistics tracking',
+        'Firebase as infrastructure and database',
+        'Technical leadership under Scrum methodology',
+      ],
+    },
+  },
+  {
+    id: 7,
+    slug: 'siesif',
+    category: 'python',
+    image: null,
+    video: null,
+    url: 'https://siesif.onrender.com',
+    repo: 'https://github.com/Shinra3245/SIESIF',
+    techs: ['Python', 'Flask', 'SQLAlchemy', 'PostgreSQL'],
+    es: {
+      tag: 'Sistema Experto',
+      title: 'SIESIF',
+      badge: 'API en Producción',
+      description:
+        'Sistema Experto para Selección de Inversiones Financieras. API RESTful desacoplada en Python con Flask y SQLAlchemy, con un motor de inferencia lógico que retorna recomendaciones financieras dinámicas procesando peticiones JSON en tiempo real.',
+      features: [
+        'Motor de inferencia lógico con recomendaciones dinámicas',
+        'Base de datos PostgreSQL para instrumentos financieros y perfiles de riesgo',
+        'Coordiné un equipo de 5 desarrolladores bajo Scrum',
+        'Despliegue en Render (Linux/Debian)',
+        'Documentación técnica completa',
+      ],
+    },
+    en: {
+      tag: 'Expert System',
+      title: 'SIESIF',
+      badge: 'API in Production',
+      description:
+        'Expert System for Financial Investment Selection. A decoupled RESTful API in Python with Flask and SQLAlchemy, with a logical inference engine that returns dynamic financial recommendations by processing JSON requests in real time.',
+      features: [
+        'Logical inference engine with dynamic recommendations',
+        'PostgreSQL database for financial instruments and risk profiles',
+        'Coordinated a team of 5 developers under Scrum',
+        'Deployed on Render (Linux/Debian)',
+        'Complete technical documentation',
+      ],
+    },
+  },
+  {
+    id: 8,
+    slug: 'recolecta',
+    category: 'movil',
+    image: null,
+    video: null,
+    url: null,
+    repo: 'https://github.com/Shinra3245/RECOLECTA_APP',
+    techs: ['Flutter', 'FastAPI', 'PostgreSQL', 'Firebase'],
+    es: {
+      tag: 'App Móvil',
+      title: 'RECOLECTA APP',
+      badge: '1er Lugar OnlinesHack 2026',
+      description:
+        'Sistema de recolección inteligente de residuos: app móvil en Flutter que notifica a los ciudadanos el tiempo estimado de llegada del camión recolector sin exponer coordenadas GPS en tiempo real. Arquitectura de privacidad por diseño: el ciudadano solo recibe texto ("Llega en ~15 min"), el mapa con coordenadas es exclusivo del panel admin.',
+      features: [
+        'Backend API REST asíncrona en FastAPI + SQLAlchemy',
+        'PostgreSQL vía Supabase con Row Level Security (RLS)',
+        'Notificaciones push por topic de ruta con Firebase Cloud Messaging',
+        'Validación de domicilio con OCR (Tesseract) que borra la imagen tras extraer la dirección',
+        'Roles: ciudadano, chofer y admin',
+      ],
+    },
+    en: {
+      tag: 'Mobile App',
+      title: 'RECOLECTA APP',
+      badge: '1st Place OnlinesHack 2026',
+      description:
+        'Smart waste-collection system: a Flutter mobile app that notifies citizens of the estimated arrival time of the collection truck without exposing real-time GPS coordinates. Privacy-by-design architecture: citizens only receive text ("Arriving in ~15 min"), the map with coordinates is exclusive to the admin panel.',
+      features: [
+        'Asynchronous REST API backend in FastAPI + SQLAlchemy',
+        'PostgreSQL via Supabase with Row Level Security (RLS)',
+        'Route-topic push notifications with Firebase Cloud Messaging',
+        'Address validation with OCR (Tesseract) that deletes the image after extracting the address',
+        'Roles: citizen, driver, and admin',
+      ],
+    },
+  },
+  {
+    id: 9,
+    slug: 'pyprimes',
+    category: 'python',
+    image: null,
+    video: null,
+    url: null,
+    repo: 'https://github.com/Shinra3245/PyPrimes3D',
+    techs: ['Python', 'PyOpenGL', 'NumPy', 'SymPy'],
+    es: {
+      tag: 'Proyecto Personal',
+      title: 'PyPrimes 3D',
+      badge: 'Motor Gráfico Interactivo',
+      description:
+        'Núcleo en Python 3.11 con PyOpenGL para renderizado 3D en tiempo real, usando programación orientada a objetos avanzada. Algoritmos de alto rendimiento con NumPy y SymPy para generación y factorización de números primos.',
+      features: [
+        'Renderizado 3D en tiempo real con PyOpenGL',
+        'Algoritmos de generación y factorización de números primos',
+        'Programación orientada a objetos avanzada',
+        'Ejecutable portable optimizado',
+      ],
+    },
+    en: {
+      tag: 'Personal Project',
+      title: 'PyPrimes 3D',
+      badge: 'Interactive Graphics Engine',
+      description:
+        'A Python 3.11 core using PyOpenGL for real-time 3D rendering, built with advanced object-oriented programming. High-performance NumPy and SymPy algorithms for prime number generation and factorization.',
+      features: [
+        'Real-time 3D rendering with PyOpenGL',
+        'Prime number generation and factorization algorithms',
+        'Advanced object-oriented programming',
+        'Optimized portable executable',
       ],
     },
   },
