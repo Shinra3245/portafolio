@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { Download } from 'lucide-react'
 import SolarSystem from '../3d/SolarSystem'
 import fotoYo from '../assets/images/yo.jpeg'
 import './Hero.css'
@@ -49,6 +50,10 @@ function Hero() {
         <div ref={ctaRef} className="hero__actions">
           <a href="#proyectos" className="btn btn--primary">
             {t('hero.cta')}
+          </a>
+          <a href="/CV.pdf" download className="btn btn--secondary">
+            <Download size={16} />
+            {t('hero.ctaSecondary')}
           </a>
         </div>
       </div>

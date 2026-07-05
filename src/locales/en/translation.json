@@ -12,7 +12,8 @@
     "greeting": "Hello! How's it going?",
     "name": "Omar Bolaños",
     "role": "I'm excited to work together",
-    "cta": "Let's start"
+    "cta": "Let's start",
+    "ctaSecondary": "Download CV"
   },
   "about": {
     "title": "My Journey",

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Download } from 'lucide-react'
 import { useScrollPosition } from '../hooks/useScrollPosition'
 import './Navbar.css'
 
@@ -39,6 +39,16 @@ function Navbar() {
       </ul>
 
       <div className="navbar__actions">
+        <a
+          href="/CV.pdf"
+          download
+          className="navbar__cv"
+          aria-label={t('hero.ctaSecondary')}
+          title={t('hero.ctaSecondary')}
+        >
+          <Download size={18} />
+        </a>
+
         <button className="lang-toggle" onClick={toggleLang} aria-label="Cambiar idioma">
           {i18n.language === 'es' ? 'EN' : 'ES'}
         </button>
