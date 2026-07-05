@@ -1,0 +1,148 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "¡Hola! ¿Qué tal?",
+    "name": "Omar Bolaños",
+    "role": "Estoy entusiasmado por trabajar juntos",
+    "cta": "Comencemos"
+  },
+  "about": {
+    "title": "Mi trayecto",
+    "subtitle": "Mi historia como desarrollador",
+    "paragraph1": "Todo comenzó cuando descubrí que podía <span class='keyword-accent'>crear algo de la nada</span> con solo líneas de código. Actualmente curso la carrera de <span class='keyword-primary'>Ingeniería en Sistemas Computacionales</span> en el Tecnológico Nacional de México, donde cada día confirmo mi pasión por transformar <span class='keyword-secondary'>ideas en soluciones digitales</span>.",
+    "paragraph2": "Mi enfoque va más allá del código: me especializo en crear <span class='keyword-primary'>experiencias web que realmente importen</span>. He desarrollado desde <span class='keyword-secondary'>sistemas de gestión</span> para panaderías hasta <span class='keyword-accent'>plataformas de tickets gubernamentales</span>, siempre priorizando la funcionalidad, seguridad y experiencia del usuario. Mi stack principal incluye PHP, MySQL, JavaScript y herramientas modernas para crear soluciones <span class='keyword-primary'>útiles, accesibles y modernas</span>.",
+    "infoTitle": "Información",
+    "statProjects": "Proyectos Completados",
+    "statProjectsValue": "5+",
+    "statExperience": "Mi Experiencia en Proyectos",
+    "statExperienceValue": "2+",
+    "statClients": "Clientes Satisfechos",
+    "statClientsValue": "100%",
+    "toastButton": "Click aquí",
+    "toastMessage": "Esta animación fue programada por mí."
+  },
+  "tech": {
+    "title": "Tecnologías que manejo",
+    "description": "Estas son las principales herramientas que utilizo para crear páginas web funcionales y visualmente atractivas.",
+    "animTitlePrefix": "¡También diseño",
+    "animTitleHighlight": "animaciones interactivas",
+    "animTitleSuffix": "para tu web!",
+    "animText": "Agrega vida, interacción y profesionalismo a tu sitio. ¡Sorprende a tus visitantes desde el primer vistazo!"
+  },
+  "services": {
+    "title": "Servicios",
+    "orbitTitle": "Proceso Integral",
+    "orbitSubtitle": "Metodología probada para el éxito",
+    "detailDefaultTitle": "Explora cada paso del proceso",
+    "detailDefaultDescription": "Pasa el cursor o toca cualquier paso para conocer los detalles de cómo trabajo en cada etapa de tu proyecto.",
+    "interactionHint": "Interactúa con cada paso para ver los detalles",
+    "steps": {
+      "1": {
+        "label": "Consultoría",
+        "title": "🔍 Consultoría & Análisis Inicial",
+        "description": "Analizamos objetivos, audiencia y requisitos para definir la estrategia perfecta.",
+        "features": ["Análisis de necesidades", "Definición de objetivos", "Estudio de competencia", "Propuesta personalizada"]
+      },
+      "2": {
+        "label": "Diseño",
+        "title": "🎨 Diseño & Prototipado Visual",
+        "description": "Mockups y prototipos para ver tu sitio antes de desarrollarlo.",
+        "features": ["Mockups interactivos", "Paleta de colores", "Tipografía personalizada", "Responsive design"]
+      },
+      "3": {
+        "label": "Desarrollo",
+        "title": "💻 Desarrollo & Programación",
+        "description": "Transformo el diseño en un sitio rápido, seguro y escalable.",
+        "features": ["Código limpio y escalable", "Tecnologías modernas", "Optimización de rendimiento", "Seguridad implementada"]
+      },
+      "4": {
+        "label": "Testing",
+        "title": "🧪 Testing & Optimización",
+        "description": "Pruebas en dispositivos/navegadores y mejora de usabilidad y velocidad.",
+        "features": ["Pruebas multidispositivo", "Optimización de velocidad", "Testing de usabilidad", "Corrección de bugs"]
+      },
+      "5": {
+        "label": "Lanzamiento",
+        "title": "🚀 Lanzamiento & Soporte Continuo",
+        "description": "Deploy, capacitación, soporte y actualizaciones cuando las necesites.",
+        "features": ["Deploy profesional", "Capacitación incluida", "Soporte post-lanzamiento", "Actualizaciones periódicas"]
+      },
+      "6": {
+        "label": "Mejora Continua",
+        "title": "♻️ Mejora continua & Mantenimiento",
+        "description": "Monitoreo, ajustes y nuevas iteraciones para mantener y potenciar tu producto.",
+        "features": ["Monitoreo y analítica", "Parcheo de seguridad", "Optimización periódica", "Iteraciones basadas en feedback"]
+      }
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "featuresTitle": "Servicios incluidos:",
+    "viewSite": "Visitar",
+    "viewDetails": "Más detalles",
+    "close": "Cerrar",
+    "accessButton": "Accesos",
+    "credentialsTitle": "Accesos de Prueba",
+    "credentialsSubtitle": "Credenciales de Acceso",
+    "credentialsAdmin": "Administrador",
+    "credentialsCustomer": "Usuario Cliente",
+    "credentialsPassword": "Contraseña"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "softTitle": "Habilidades Profesionales",
+    "items": {
+      "teamwork": "Trabajo en equipo",
+      "problemSolving": "Resolución de problemas",
+      "organization": "Organización y planificación",
+      "communication": "Comunicación efectiva",
+      "detail": "Atención al detalle",
+      "management": "Gestión de proyectos",
+      "adaptability": "Adaptabilidad"
+    }
+  },
+  "contact": {
+    "connectTitle": "Conecta Conmigo",
+    "followMeTitle": "Sígueme en Redes",
+    "statusTitle": "Estado:",
+    "statusText": "Disponible para proyectos",
+    "readyTitle": "¿Listo para tu proyecto?",
+    "readySubtitle": "Transformemos tu idea en una solución web profesional",
+    "whatsappTitle": "WhatsApp Directo",
+    "emailTitle": "Email Profesional",
+    "emailSubtitle": "Para proyectos detallados",
+    "servicesTitle": "Servicios Destacados",
+    "serviceResponsive": "Páginas Web Responsivas",
+    "serviceAdmin": "Sistemas Administrativos",
+    "serviceAuth": "Autenticación y Seguridad",
+    "serviceReports": "Reportes PDF/Excel",
+    "serviceAnimations": "Animaciones Interactivas",
+    "serviceApis": "Integración APIs",
+    "guaranteeTitle": "Mi Garantía",
+    "guaranteeText": "Código limpio, documentado y con soporte post-entrega",
+    "form": {
+      "name": "Nombre",
+      "email": "Dirección de correo",
+      "message": "Háblame sobre tu proyecto",
+      "send": "Enviar",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado con éxito!",
+      "error": "Hubo un error. Intenta de nuevo."
+    }
+  },
+  "footer": {
+    "copyright": "Copyright © 2025 Omar Bolaños. Todos los derechos reservados"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Esta página no existe en la galaxia.",
+    "back": "Volver al inicio"
+  }
+}
