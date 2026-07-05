@@ -1,29 +1,37 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
 import HeroAvatar from '../3d/HeroAvatar'
 import fotoYo from '../assets/images/yo.png'
 import './Hero.css'
 
+gsap.registerPlugin(useGSAP)
+
 function Hero() {
   const { t } = useTranslation()
+  const sectionRef = useRef(null)
   const greetingRef = useRef(null)
   const nameRef = useRef(null)
   const roleRef = useRef(null)
   const ctaRef = useRef(null)
   const photoRef = useRef(null)
 
-  useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-    tl.from(greetingRef.current, { y: 30, opacity: 0, duration: 0.7 })
-      .from(nameRef.current, { y: 60, opacity: 0, duration: 1 }, '-=0.4')
-      .from(roleRef.current, { y: 40, opacity: 0, duration: 0.8 }, '-=0.5')
-      .from(ctaRef.current, { y: 30, opacity: 0, duration: 0.6 }, '-=0.4')
-      .from(photoRef.current, { scale: 0.8, opacity: 0, duration: 1 }, '-=0.8')
-  }, [])
+  useGSAP(
+    () => {
+      gsap
+        .timeline({ defaults: { ease: 'power3.out' } })
+        .from(greetingRef.current, { y: 30, opacity: 0, duration: 0.7 })
+        .from(nameRef.current, { y: 60, opacity: 0, duration: 1 }, '-=0.4')
+        .from(roleRef.current, { y: 40, opacity: 0, duration: 0.8 }, '-=0.5')
+        .from(ctaRef.current, { y: 30, opacity: 0, duration: 0.6 }, '-=0.4')
+        .from(photoRef.current, { scale: 0.8, opacity: 0, duration: 1 }, '-=0.8')
+    },
+    { scope: sectionRef },
+  )
 
   return (
-    <section id="inicio" className="hero">
+    <section id="inicio" className="hero" ref={sectionRef}>
       <div className="hero__avatar-canvas">
         <HeroAvatar />
       </div>

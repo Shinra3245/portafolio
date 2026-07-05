@@ -1,27 +1,34 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
 import { Sparkles } from 'lucide-react'
 import TechScene from '../3d/TechScene'
 import './TechShowcase.css'
 
+gsap.registerPlugin(useGSAP)
+
 function TechShowcase() {
   const { t } = useTranslation()
+  const sectionRef = useRef(null)
   const iconRef = useRef(null)
 
-  useEffect(() => {
-    const tl = gsap.timeline({ repeat: -1, yoyo: true })
-    tl.to(iconRef.current, {
-      rotate: 15,
-      scale: 1.15,
-      duration: 1.2,
-      ease: 'sine.inOut',
-    })
-    return () => tl.kill()
-  }, [])
+  useGSAP(
+    () => {
+      gsap.to(iconRef.current, {
+        rotate: 15,
+        scale: 1.15,
+        duration: 1.2,
+        ease: 'sine.inOut',
+        repeat: -1,
+        yoyo: true,
+      })
+    },
+    { scope: sectionRef },
+  )
 
   return (
-    <section id="tecnologias" className="tech-showcase">
+    <section id="tecnologias" className="tech-showcase" ref={sectionRef}>
       <div className="tech-showcase__intro">
         <h2 className="section-title">{t('tech.title')}</h2>
         <p className="section-subtitle">{t('tech.description')}</p>

@@ -32,11 +32,19 @@
 
 .hero__name {
   font-size: clamp(2.6rem, 7vw, 4.5rem);
-  background: linear-gradient(120deg, var(--color-text), var(--color-accent-2), var(--color-accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #f4f6ff;
   margin-bottom: 0.75rem;
+  text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .hero__name {
+    background: linear-gradient(120deg, #ffffff, var(--color-accent-2), var(--color-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+  }
 }
 
 .hero__role {
