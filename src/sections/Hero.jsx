@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
-import HeroAvatar from '../3d/HeroAvatar'
+import SolarSystem from '../3d/SolarSystem'
 import fotoYo from '../assets/images/yo.png'
 import './Hero.css'
 
@@ -33,7 +33,7 @@ function Hero() {
   return (
     <section id="inicio" className="hero" ref={sectionRef}>
       <div className="hero__avatar-canvas">
-        <HeroAvatar />
+        <SolarSystem />
       </div>
 
       <div className="hero__content">
