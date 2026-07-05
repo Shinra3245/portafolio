@@ -1,39 +1,55 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
 import ProjectCard from '../components/ProjectCard'
 import ProjectModal from '../components/ProjectModal'
 import { projects } from '../data/projects'
 import './Projects.css'
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(useGSAP)
+
+const CATEGORIES = ['all', 'web', 'python', 'movil']
 
 function Projects() {
   const { t } = useTranslation()
   const [selectedProject, setSelectedProject] = useState(null)
+  const [category, setCategory] = useState('all')
   const gridRef = useRef(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  const filtered = category === 'all' ? projects : projects.filter((p) => p.category === category)
+
+  useGSAP(
+    () => {
       gsap.from('.project-card', {
-        y: 50,
+        y: 40,
         opacity: 0,
-        duration: 0.7,
-        stagger: 0.15,
+        duration: 0.6,
+        stagger: 0.1,
         ease: 'power3.out',
-        scrollTrigger: { trigger: gridRef.current, start: 'top 80%' },
       })
-    }, gridRef)
-    return () => ctx.revert()
-  }, [])
+    },
+    { scope: gridRef, dependencies: [category] },
+  )
 
   return (
     <section id="proyectos" className="projects">
       <h2 className="section-title">{t('projects.title')}</h2>
 
+      <div className="projects__tabs">
+        {CATEGORIES.map((cat) => (
+          <button
+            key={cat}
+            className={`projects__tab ${category === cat ? 'is-active' : ''}`}
+            onClick={() => setCategory(cat)}
+          >
+            {t(`projects.category${cat.charAt(0).toUpperCase() + cat.slice(1)}`)}
+          </button>
+        ))}
+      </div>
+
       <div className="projects__grid" ref={gridRef}>
-        {projects.map((project) => (
+        {filtered.map((project) => (
           <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
         ))}
       </div>

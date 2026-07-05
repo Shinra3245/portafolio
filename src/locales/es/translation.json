@@ -99,6 +99,10 @@
   },
   "projects": {
     "title": "Proyectos",
+    "categoryAll": "Todos",
+    "categoryWeb": "Web",
+    "categoryPython": "Python",
+    "categoryMovil": "Móvil",
     "featuresTitle": "Servicios incluidos:",
     "viewSite": "Visitar",
     "viewCode": "Ver código",
