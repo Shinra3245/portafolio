@@ -3,6 +3,7 @@
     "home": "Inicio",
     "about": "Sobre mí",
     "services": "Servicios",
+    "experience": "Experiencia",
     "projects": "Proyectos",
     "skills": "Habilidades",
     "contact": "Contacto"
@@ -81,6 +82,20 @@
         "features": ["Monitoreo y analítica", "Parcheo de seguridad", "Optimización periódica", "Iteraciones basadas en feedback"]
       }
     }
+  },
+  "specialization": {
+    "title": "Especialización Técnica"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "subtitle": "Mi trayectoria, en orden cronológico",
+    "hackathonLabel": "Hackathon"
+  },
+  "education": {
+    "title": "Educación",
+    "academicTitle": "Formación académica",
+    "certificationsTitle": "Certificaciones",
+    "otherTitle": "Otra formación"
   },
   "projects": {
     "title": "Proyectos",

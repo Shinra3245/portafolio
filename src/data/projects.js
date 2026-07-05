@@ -1,8 +1,5 @@
 import panaderiaImg from '../assets/images/projects/panaderia.png'
 import sistemasImg from '../assets/images/projects/sistemas.png'
-import comercializadoraImg from '../assets/images/projects/comercializadora.png'
-import portafolioImg from '../assets/images/projects/portafolio-alejandro.png'
-import sikiImg from '../assets/images/projects/siki-mexico.png'
 
 // category: 'web' | 'python' | 'movil' — usado para los tabs de la sección Proyectos
 // image/video: null = todavía no enviado; ProjectCard/ProjectModal muestran un placeholder
@@ -87,120 +84,6 @@ export const projects = [
         'Form submission security: field validation and SQL injection protection',
         'Cache implementation to prevent duplicate submissions, spam, and bots',
         'Form data is preserved even if the page is refreshed or an error occurs',
-      ],
-    },
-  },
-  {
-    id: 3,
-    slug: 'comercializadora',
-    category: 'web',
-    image: comercializadoraImg,
-    video: null,
-    url: 'https://comercializadora-onaldi.ct.ws',
-    repo: null,
-    techs: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
-    es: {
-      tag: 'Negocio',
-      title: 'Página de Comercializadora',
-      badge: 'Sitio Web Corporativo',
-      description:
-        'Página estática diseñada para presentar la imagen y catálogo de una empresa distribuidora. Su objetivo es facilitar el contacto comercial y mejorar la presencia digital del negocio.',
-      features: [
-        'Encabezado personalizado y diseño adaptable',
-        'Sección de productos y servicios organizada por categorías',
-        'Carruseles dinámicos para una mejor visualización de productos y promociones',
-        'Presentación clara de servicios destacados',
-        'Canal de contacto directo para clientes potenciales (WhatsApp, formulario o correo)',
-      ],
-    },
-    en: {
-      tag: 'Business',
-      title: 'Comercializadora',
-      badge: 'Corporate Website',
-      description:
-        "Static page designed to present the branding and catalog of a distribution company. Its goal is to facilitate commercial contact and improve the business's digital presence.",
-      features: [
-        'Custom header and responsive design',
-        'Product and service section organized by categories',
-        'Dynamic carousels for better visualization of products and promotions',
-        'Clear presentation of featured services',
-        'Direct contact channel for potential clients (WhatsApp, form or email)',
-      ],
-    },
-  },
-  {
-    id: 4,
-    slug: 'portafolio',
-    category: 'web',
-    image: portafolioImg,
-    video: null,
-    url: 'https://alejandro-sarmiento.netlify.app',
-    repo: null,
-    techs: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
-    es: {
-      tag: 'Portafolio',
-      title: 'Portafolio Digital Audiovisual',
-      badge: 'Sitio Web Profesional',
-      description:
-        'Portafolio digital profesional de un especialista en edición de video y audio, desarrollado para mostrar proyectos audiovisuales que van desde contenido para redes sociales hasta piezas publicitarias y documentales.',
-      features: [
-        'Diseño responsive y moderno',
-        'Galería de proyectos multimedia',
-        'Secciones categorizadas por tipo',
-        'Formulario de contacto funcional',
-        'Integración con WhatsApp',
-      ],
-    },
-    en: {
-      tag: 'Portfolio',
-      title: 'Digital Audiovisual Portfolio',
-      badge: 'Professional Website',
-      description:
-        'Professional digital portfolio of a video and audio editing specialist, developed to showcase audiovisual projects ranging from social media content to advertising pieces and documentaries.',
-      features: [
-        'Modern and responsive design',
-        'Multimedia project gallery',
-        'Sections categorized by type',
-        'Functional contact form',
-        'WhatsApp integration',
-      ],
-    },
-  },
-  {
-    id: 5,
-    slug: 'siki',
-    category: 'web',
-    image: sikiImg,
-    video: null,
-    url: 'https://siki.com.mx',
-    repo: null,
-    techs: ['Tiendanube', 'HTML5', 'CSS3', 'JavaScript'],
-    es: {
-      tag: 'E-commerce',
-      title: 'Siki México',
-      badge: 'Tienda E-commerce',
-      description:
-        'Tienda en línea especializada en uniformes deportivos de alta calidad para equipos amateurs y profesionales. Plataforma desarrollada en Tiendanube con diseño responsivo y estructura adaptada a las necesidades específicas del negocio.',
-      features: [
-        'Tienda en línea completamente funcional',
-        'Diseño responsivo y moderno',
-        'Catálogo organizado por categorías',
-        'Sistema de pagos integrado',
-        'Optimización para conversiones',
-      ],
-    },
-    en: {
-      tag: 'E-commerce',
-      title: 'Siki Mexico',
-      badge: 'E-commerce Store',
-      description:
-        'Online store specializing in high-quality sports uniforms for amateur and professional teams. Platform developed on Tiendanube with a responsive design and a structure adapted to the specific needs of the business.',
-      features: [
-        'Fully functional online store',
-        'Responsive and modern design',
-        'Catalog organized by categories',
-        'Integrated payment system',
-        'Conversion optimization',
       ],
     },
   },

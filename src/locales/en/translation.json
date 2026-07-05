@@ -3,6 +3,7 @@
     "home": "Home",
     "about": "About Me",
     "services": "Services",
+    "experience": "Experience",
     "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact"
@@ -81,6 +82,20 @@
         "features": ["Monitoring and analytics", "Security patching", "Periodic optimization", "Feedback-based iterations"]
       }
     }
+  },
+  "specialization": {
+    "title": "Technical Specialization"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "My path, in chronological order",
+    "hackathonLabel": "Hackathon"
+  },
+  "education": {
+    "title": "Education",
+    "academicTitle": "Academic Background",
+    "certificationsTitle": "Certifications",
+    "otherTitle": "Other Training"
   },
   "projects": {
     "title": "Projects",
