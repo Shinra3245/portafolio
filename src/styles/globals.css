@@ -11,6 +11,7 @@
 
   --font-display: 'Rajdhani', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
   --section-padding: clamp(4rem, 8vw, 7rem) 1.5rem;
 }

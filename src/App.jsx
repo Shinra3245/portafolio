@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import TechShowcase from './sections/TechShowcase'
+import Specialization from './sections/Specialization'
 import Services from './sections/Services'
 import Projects from './sections/Projects'
 import Skills from './sections/Skills'
@@ -18,6 +19,7 @@ function HomePage() {
       <Hero />
       <About />
       <TechShowcase />
+      <Specialization />
       <Services />
       <Projects />
       <Skills />
