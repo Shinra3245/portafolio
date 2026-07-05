@@ -1,0 +1,65 @@
+.github-activity {
+  padding: var(--section-padding);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.github-activity__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.github-activity__card {
+  padding: 1.5rem;
+  overflow: hidden;
+}
+.github-activity__card h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.github-activity__heatmap-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+}
+.github-activity__heatmap-wrap img {
+  min-width: 640px;
+  width: 100%;
+  filter: saturate(1.1);
+}
+
+.github-activity__langs {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.github-activity__fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 140px;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  text-align: center;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.github-activity__link {
+  margin-top: 2rem;
+  display: inline-flex;
+}
+
+@media (max-width: 780px) {
+  .github-activity__grid {
+    grid-template-columns: 1fr;
+  }
+}

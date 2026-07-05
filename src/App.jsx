@@ -11,6 +11,7 @@ import Experience from './sections/Experience'
 import Education from './sections/Education'
 import Projects from './sections/Projects'
 import Skills from './sections/Skills'
+import GithubActivity from './sections/GithubActivity'
 import Contact from './sections/Contact'
 import NotFound from './sections/NotFound'
 import { useLenis } from './hooks/useLenis'
@@ -27,6 +28,7 @@ function HomePage() {
       <Education />
       <Projects />
       <Skills />
+      <GithubActivity />
       <Contact />
       <Footer />
     </>

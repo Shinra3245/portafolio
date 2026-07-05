@@ -158,8 +158,18 @@
       "error": "Something went wrong. Please try again."
     }
   },
+  "github": {
+    "title": "GitHub Activity",
+    "subtitle": "My open-source activity, live from GitHub",
+    "heatmapTitle": "Contributions",
+    "languagesTitle": "Most Used Languages",
+    "viewProfile": "View full profile",
+    "unavailable": "Couldn't load right now. You can view it directly on GitHub."
+  },
   "footer": {
-    "copyright": "Copyright © 2025 Omar Bolaños. All rights reserved"
+    "copyright": "Copyright © 2025 Omar Bolaños. All rights reserved",
+    "prompt": "visitor@omarbolanos",
+    "path": "~$"
   },
   "notFound": {
     "title": "404",

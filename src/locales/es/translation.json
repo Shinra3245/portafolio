@@ -158,8 +158,18 @@
       "error": "Hubo un error. Intenta de nuevo."
     }
   },
+  "github": {
+    "title": "Actividad de GitHub",
+    "subtitle": "Mi actividad de código abierto, en vivo desde GitHub",
+    "heatmapTitle": "Contribuciones",
+    "languagesTitle": "Lenguajes más usados",
+    "viewProfile": "Ver perfil completo",
+    "unavailable": "No se pudo cargar en este momento. Puedes verlo directamente en GitHub."
+  },
   "footer": {
-    "copyright": "Copyright © 2025 Omar Bolaños. Todos los derechos reservados"
+    "copyright": "Copyright © 2025 Omar Bolaños. Todos los derechos reservados",
+    "prompt": "visitor@omarbolanos",
+    "path": "~$"
   },
   "notFound": {
     "title": "404",
