@@ -1,50 +1,52 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
-import { useGSAP } from '@gsap/react'
-import { Sparkles } from 'lucide-react'
-import KeyboardScene from '../3d/KeyboardScene'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import TechIcon from '../components/TechIcon'
+import { techStack } from '../data/techstack'
 import './TechShowcase.css'
 
-gsap.registerPlugin(useGSAP)
+gsap.registerPlugin(ScrollTrigger)
 
 function TechShowcase() {
   const { t } = useTranslation()
   const sectionRef = useRef(null)
-  const iconRef = useRef(null)
 
-  useGSAP(
-    () => {
-      gsap.to(iconRef.current, {
-        rotate: 15,
-        scale: 1.15,
-        duration: 1.2,
-        ease: 'sine.inOut',
-        repeat: -1,
-        yoyo: true,
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.tech-group', {
+        y: 24,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
       })
-    },
-    { scope: sectionRef },
-  )
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section id="tecnologias" className="tech-showcase" ref={sectionRef}>
-      <div className="tech-showcase__intro">
-        <h2 className="section-title">{t('tech.title')}</h2>
-        <p className="section-subtitle">{t('tech.description')}</p>
-      </div>
+      <div className="tech-showcase__inner">
+        <h2 className="tech-showcase__title">{t('tech.title')}</h2>
+        <p className="tech-showcase__subtitle">{t('tech.description')}</p>
 
-      <div className="tech-showcase__scene">
-        <KeyboardScene />
-      </div>
-
-      <div className="tech-showcase__anim">
-        <Sparkles ref={iconRef} className="tech-showcase__icon" size={56} />
-        <h3 className="tech-showcase__anim-title">
-          {t('tech.animTitlePrefix')}{' '}
-          <span className="highlight">{t('tech.animTitleHighlight')}</span> {t('tech.animTitleSuffix')}
-        </h3>
-        <p className="tech-showcase__anim-text">{t('tech.animText')}</p>
+        <div className="tech-showcase__groups">
+          {techStack.map((group) => (
+            <div key={group.id} className="tech-group">
+              <h3 className="tech-group__title">{t(group.titleKey)}</h3>
+              <div className="tech-group__pills">
+                {group.items.map((item) => (
+                  <span key={item.id} className="tech-pill">
+                    <TechIcon icon={item.icon} />
+                    {item.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

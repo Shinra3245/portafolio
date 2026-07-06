@@ -31,18 +31,14 @@
     "toastMessage": "This animation was programmed by me."
   },
   "tech": {
-    "title": "Technologies I Use",
-    "description": "These are the main tools I use to create functional and visually appealing websites.",
+    "title": "Tech Stack",
+    "description": "Technologies and tools I work with, beyond just web development.",
     "rowLenguajes": "Languages",
     "rowBackend": "Backend",
     "rowFrontend": "Frontend",
     "rowDatos": "Databases",
     "rowDevops": "DevOps & Cloud",
-    "rowOtros": "Mobile & Tools",
-    "animTitlePrefix": "I also design",
-    "animTitleHighlight": "interactive animations",
-    "animTitleSuffix": "for your website!",
-    "animText": "Add life, interaction, and professionalism to your site. Impress your visitors from the very first look!"
+    "rowOtros": "Mobile & Tools"
   },
   "services": {
     "title": "Services",

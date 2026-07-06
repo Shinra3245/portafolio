@@ -31,18 +31,14 @@
     "toastMessage": "Esta animación fue programada por mí."
   },
   "tech": {
-    "title": "Tecnologías que manejo",
-    "description": "Estas son las principales herramientas que utilizo para crear páginas web funcionales y visualmente atractivas.",
+    "title": "Stack Tecnológico",
+    "description": "Tecnologías y herramientas con las que trabajo, más allá del desarrollo web.",
     "rowLenguajes": "Lenguajes",
     "rowBackend": "Backend",
     "rowFrontend": "Frontend",
     "rowDatos": "Bases de Datos",
     "rowDevops": "DevOps & Nube",
-    "rowOtros": "Móvil & Herramientas",
-    "animTitlePrefix": "¡También diseño",
-    "animTitleHighlight": "animaciones interactivas",
-    "animTitleSuffix": "para tu web!",
-    "animText": "Agrega vida, interacción y profesionalismo a tu sitio. ¡Sorprende a tus visitantes desde el primer vistazo!"
+    "rowOtros": "Móvil & Herramientas"
   },
   "services": {
     "title": "Servicios",
