@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import TechIcon from '../components/TechIcon'
+import Keycap from '../components/Keycap'
 import { techStack } from '../data/techstack'
 import './TechShowcase.css'
 
@@ -38,10 +38,7 @@ function TechShowcase() {
               <h3 className="tech-group__title">{t(group.titleKey)}</h3>
               <div className="tech-group__pills">
                 {group.items.map((item) => (
-                  <span key={item.id} className="tech-pill">
-                    <TechIcon icon={item.icon} />
-                    {item.label}
-                  </span>
+                  <Keycap key={item.id} icon={item.icon} label={item.label} />
                 ))}
               </div>
             </div>

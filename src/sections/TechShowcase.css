@@ -38,28 +38,7 @@
 .tech-group__pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.tech-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.95rem;
-  border-radius: 999px;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  font-size: 0.85rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-.tech-pill:hover {
-  border-color: var(--color-accent-2);
-  transform: translateY(-2px);
-}
-
-.tech-pill svg {
-  flex-shrink: 0;
+  gap: 1rem;
 }
 
 @media (max-width: 560px) {
