@@ -4,7 +4,6 @@ import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { Download } from 'lucide-react'
 import SolarSystem from '../3d/SolarSystem'
-import fotoYo from '../assets/images/yo.jpeg'
 import './Hero.css'
 
 gsap.registerPlugin(useGSAP)
@@ -16,7 +15,6 @@ function Hero() {
   const nameRef = useRef(null)
   const roleRef = useRef(null)
   const ctaRef = useRef(null)
-  const photoRef = useRef(null)
 
   useGSAP(
     () => {
@@ -26,7 +24,6 @@ function Hero() {
         .from(nameRef.current, { y: 60, opacity: 0, duration: 1 }, '-=0.4')
         .from(roleRef.current, { y: 40, opacity: 0, duration: 0.8 }, '-=0.5')
         .from(ctaRef.current, { y: 30, opacity: 0, duration: 0.6 }, '-=0.4')
-        .from(photoRef.current, { scale: 0.8, opacity: 0, duration: 1 }, '-=0.8')
     },
     { scope: sectionRef },
   )
@@ -56,10 +53,6 @@ function Hero() {
             {t('hero.ctaSecondary')}
           </a>
         </div>
-      </div>
-
-      <div ref={photoRef} className="hero__photo">
-        <img src={fotoYo} alt={t('hero.name')} />
       </div>
     </section>
   )

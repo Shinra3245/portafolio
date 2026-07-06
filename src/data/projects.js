@@ -1,5 +1,9 @@
 import panaderiaImg from '../assets/images/projects/panaderia.png'
 import sistemasImg from '../assets/images/projects/sistemas.png'
+import ilpeaImg from '../assets/images/projects/ilpea.png'
+import siesifImg from '../assets/images/projects/siesif.png'
+import recolectaImg from '../assets/images/projects/recolecta.jpeg'
+import pyprimesImg from '../assets/images/projects/pyprimes.png'
 
 // category: 'web' | 'python' | 'movil' — usado para los tabs de la sección Proyectos
 // image/video: null = todavía no enviado; ProjectCard/ProjectModal muestran un placeholder
@@ -91,7 +95,7 @@ export const projects = [
     id: 6,
     slug: 'ilpea',
     category: 'web',
-    image: null,
+    image: ilpeaImg,
     video: null,
     url: 'https://ilpeatransports.site',
     repo: null,
@@ -129,7 +133,7 @@ export const projects = [
     id: 7,
     slug: 'siesif',
     category: 'python',
-    image: null,
+    image: siesifImg,
     video: null,
     url: 'https://siesif.onrender.com',
     repo: 'https://github.com/Shinra3245/SIESIF',
@@ -167,7 +171,7 @@ export const projects = [
     id: 8,
     slug: 'recolecta',
     category: 'movil',
-    image: null,
+    image: recolectaImg,
     video: null,
     url: null,
     repo: 'https://github.com/Shinra3245/RECOLECTA_APP',
@@ -205,7 +209,7 @@ export const projects = [
     id: 9,
     slug: 'pyprimes',
     category: 'python',
-    image: null,
+    image: pyprimesImg,
     video: null,
     url: null,
     repo: 'https://github.com/Shinra3245/PyPrimes3D',
