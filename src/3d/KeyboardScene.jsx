@@ -8,19 +8,36 @@ import {
   siTypescript,
   siDart,
   siPhp,
+  siGnubash,
   siFastapi,
   siFlask,
   siNodedotjs,
+  siExpress,
   siReact,
+  siVuedotjs,
   siNextdotjs,
   siVite,
   siPostgresql,
+  siMysql,
+  siSqlite,
+  siSupabase,
+  siFirebase,
   siDocker,
   siGit,
-  siFirebase,
+  siGithub,
+  siLinux,
+  siRender,
+  siVercel,
+  siFlutter,
+  siAndroidstudio,
+  siNumpy,
+  siPandas,
+  siSympy,
+  siFigma,
+  siPostman,
 } from 'simple-icons'
 
-// 4 filas, agrupadas como en un teclado real: Lenguajes / Backend / Frontend / Datos & DevOps
+// Filas agrupadas por categoría, con el stack real del CV (lang/backend/frontend/datos/devops/otros)
 const ROWS = [
   {
     id: 'lenguajes',
@@ -31,6 +48,7 @@ const ROWS = [
       { id: 'typescript', icon: siTypescript, label: 'TypeScript' },
       { id: 'dart', icon: siDart, label: 'Dart' },
       { id: 'php', icon: siPhp, label: 'PHP' },
+      { id: 'bash', icon: siGnubash, label: 'Bash' },
     ],
   },
   {
@@ -40,6 +58,7 @@ const ROWS = [
       { id: 'fastapi', icon: siFastapi, label: 'FastAPI' },
       { id: 'flask', icon: siFlask, label: 'Flask' },
       { id: 'node', icon: siNodedotjs, label: 'Node.js' },
+      { id: 'express', icon: siExpress, label: 'Express' },
     ],
   },
   {
@@ -47,6 +66,7 @@ const ROWS = [
     color: '#f472b6',
     keys: [
       { id: 'react', icon: siReact, label: 'React' },
+      { id: 'vue', icon: siVuedotjs, label: 'Vue.js' },
       { id: 'next', icon: siNextdotjs, label: 'Next.js' },
       { id: 'vite', icon: siVite, label: 'Vite' },
     ],
@@ -56,12 +76,46 @@ const ROWS = [
     color: '#fbbf24',
     keys: [
       { id: 'postgres', icon: siPostgresql, label: 'PostgreSQL' },
-      { id: 'docker', icon: siDocker, label: 'Docker' },
-      { id: 'git', icon: siGit, label: 'Git' },
+      { id: 'mysql', icon: siMysql, label: 'MySQL' },
+      { id: 'sqlite', icon: siSqlite, label: 'SQLite' },
+      { id: 'supabase', icon: siSupabase, label: 'Supabase' },
       { id: 'firebase', icon: siFirebase, label: 'Firebase' },
     ],
   },
+  {
+    id: 'devops',
+    color: '#34d399',
+    keys: [
+      { id: 'docker', icon: siDocker, label: 'Docker' },
+      { id: 'git', icon: siGit, label: 'Git' },
+      { id: 'github', icon: siGithub, label: 'GitHub' },
+      { id: 'linux', icon: siLinux, label: 'Linux' },
+      { id: 'render', icon: siRender, label: 'Render' },
+      { id: 'vercel', icon: siVercel, label: 'Vercel' },
+    ],
+  },
+  {
+    id: 'otros',
+    color: '#a78bfa',
+    keys: [
+      { id: 'flutter', icon: siFlutter, label: 'Flutter' },
+      { id: 'androidstudio', icon: siAndroidstudio, label: 'Android Studio' },
+      { id: 'numpy', icon: siNumpy, label: 'NumPy' },
+      { id: 'pandas', icon: siPandas, label: 'Pandas' },
+      { id: 'sympy', icon: siSympy, label: 'SymPy' },
+      { id: 'figma', icon: siFigma, label: 'Figma' },
+      { id: 'postman', icon: siPostman, label: 'Postman' },
+    ],
+  },
 ]
+
+function isDarkHex(hex) {
+  const r = parseInt(hex.slice(0, 2), 16)
+  const g = parseInt(hex.slice(2, 4), 16)
+  const b = parseInt(hex.slice(4, 6), 16)
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+  return luminance < 60
+}
 
 function makeKeyTexture(icon, label) {
   const size = 160
@@ -74,22 +128,24 @@ function makeKeyTexture(icon, label) {
   ctx.fillStyle = '#11142a'
   ctx.fillRect(0, 0, size, size)
 
-  // logo real de la herramienta, en su color de marca oficial
+  // logo real de la herramienta, en su color de marca oficial — salvo que ese color
+  // sea casi negro (ej. Next.js, GitHub, Vercel), en cuyo caso se dibuja en un tono
+  // claro para que no desaparezca sobre la cara oscura de la tecla
   const iconSize = 66
   const scale = iconSize / 24
   ctx.save()
-  ctx.translate(size / 2 - iconSize / 2, 24)
+  ctx.translate(size / 2 - iconSize / 2, 22)
   ctx.scale(scale, scale)
-  ctx.fillStyle = `#${icon.hex}`
+  ctx.fillStyle = isDarkHex(icon.hex) ? '#e8ecf5' : `#${icon.hex}`
   ctx.fill(new Path2D(icon.path))
   ctx.restore()
 
   // nombre de la herramienta, plano (sin relieve/sombra)
-  ctx.font = 'bold 17px ui-monospace, Menlo, monospace'
+  ctx.font = 'bold 15px ui-monospace, Menlo, monospace'
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
   ctx.fillStyle = '#e2e8f0'
-  ctx.fillText(label, size / 2, size - 24)
+  ctx.fillText(label, size / 2, size - 22)
 
   const tex = new THREE.CanvasTexture(canvas)
   tex.colorSpace = THREE.SRGBColorSpace
@@ -120,7 +176,7 @@ function Keycap({ icon, label, color, position }) {
       onPointerUp={() => setPressed(false)}
     >
       {/* marco/borde estilo 3D, coloreado por categoría — la tecla en sí queda plana */}
-      <RoundedBox args={[0.58, 0.12, 0.58]} radius={0.025} smoothness={4} castShadow>
+      <RoundedBox args={[0.56, 0.12, 0.56]} radius={0.025} smoothness={4} castShadow>
         <meshStandardMaterial color={color} roughness={0.35} metalness={0.25} />
       </RoundedBox>
 
@@ -134,14 +190,14 @@ function Keycap({ icon, label, color, position }) {
 }
 
 function KeyboardRig() {
-  const rowSpacing = 0.85
+  const rowSpacing = 0.72
+  const keySpacing = 0.62
 
   return (
-    <Float speed={1.1} floatIntensity={0.35} rotationIntensity={0.12}>
-      <group rotation={[0.1, 0, 0]}>
+    <Float speed={1} floatIntensity={0.2} rotationIntensity={0.03}>
+      <group>
         {ROWS.map((row, rowIndex) => {
           const z = (rowIndex - (ROWS.length - 1) / 2) * rowSpacing
-          const keySpacing = 0.66
           return row.keys.map((key, keyIndex) => {
             const x = (keyIndex - (row.keys.length - 1) / 2) * keySpacing
             return <Keycap key={key.id} icon={key.icon} label={key.label} color={row.color} position={[x, 0, z]} />
@@ -152,14 +208,16 @@ function KeyboardRig() {
   )
 }
 
-// Teclado de keycaps planas con el logo real de cada tecnología grabado en la cara
+// Teclado de keycaps planas, vistas casi de frente (cámara casi cenital) para evitar
+// la distorsión de perspectiva de un ángulo muy inclinado — con el logo real de cada
+// tecnología grabado en la cara.
 function KeyboardScene() {
   return (
-    <Canvas camera={{ position: [0, 3.6, 6.2], fov: 42 }} shadows>
-      <ambientLight intensity={0.55} />
-      <pointLight position={[3, 4, 3]} intensity={1.3} color="#22d3ee" />
-      <pointLight position={[-3, 2, -2]} intensity={0.9} color="#6366f1" />
-      <directionalLight position={[0, 5, 2]} intensity={0.6} castShadow />
+    <Canvas camera={{ position: [0, 7.2, 2.3], fov: 40 }} shadows>
+      <ambientLight intensity={0.6} />
+      <pointLight position={[3, 5, 3]} intensity={1.2} color="#22d3ee" />
+      <pointLight position={[-3, 4, -2]} intensity={0.8} color="#6366f1" />
+      <directionalLight position={[0, 6, 1]} intensity={0.5} castShadow />
       <KeyboardRig />
     </Canvas>
   )
