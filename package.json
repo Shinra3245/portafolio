@@ -10,10 +10,10 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.10",
     "@react-three/postprocessing": "^2.16.3",
-    "@gsap/react": "^2.1.1",
     "gsap": "^3.12.5",
     "i18next": "^23.16.4",
     "i18next-browser-languagedetector": "^8.0.0",
@@ -23,6 +23,7 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^15.1.0",
     "react-router-dom": "^6.28.0",
+    "simple-icons": "^16.25.0",
     "three": "^0.169.0"
   },
   "devDependencies": {

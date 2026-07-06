@@ -1,5 +1,5 @@
 // Los 6 pasos del proceso de trabajo (antes "process-orbit" en index.html / js/services.js)
-// icon = nombre del icono de lucide-react usado en ServiceOrbit.jsx
+// icon = nombre del icono de lucide-react usado en Services.jsx
 export const serviceSteps = [
   { step: 1, icon: 'ClipboardCheck' },
   { step: 2, icon: 'Paintbrush' },
