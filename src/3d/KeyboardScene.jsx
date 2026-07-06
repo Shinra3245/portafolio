@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Float, RoundedBox } from '@react-three/drei'
+import { Billboard, Text } from '@react-three/drei'
+import { useTranslation } from 'react-i18next'
 import * as THREE from 'three'
 import {
   siPython,
@@ -41,6 +42,7 @@ import {
 const ROWS = [
   {
     id: 'lenguajes',
+    titleKey: 'tech.rowLenguajes',
     color: '#818cf8',
     keys: [
       { id: 'python', icon: siPython, label: 'Python' },
@@ -53,6 +55,7 @@ const ROWS = [
   },
   {
     id: 'backend',
+    titleKey: 'tech.rowBackend',
     color: '#22d3ee',
     keys: [
       { id: 'fastapi', icon: siFastapi, label: 'FastAPI' },
@@ -63,6 +66,7 @@ const ROWS = [
   },
   {
     id: 'frontend',
+    titleKey: 'tech.rowFrontend',
     color: '#f472b6',
     keys: [
       { id: 'react', icon: siReact, label: 'React' },
@@ -73,6 +77,7 @@ const ROWS = [
   },
   {
     id: 'datos',
+    titleKey: 'tech.rowDatos',
     color: '#fbbf24',
     keys: [
       { id: 'postgres', icon: siPostgresql, label: 'PostgreSQL' },
@@ -84,6 +89,7 @@ const ROWS = [
   },
   {
     id: 'devops',
+    titleKey: 'tech.rowDevops',
     color: '#34d399',
     keys: [
       { id: 'docker', icon: siDocker, label: 'Docker' },
@@ -96,6 +102,7 @@ const ROWS = [
   },
   {
     id: 'otros',
+    titleKey: 'tech.rowOtros',
     color: '#a78bfa',
     keys: [
       { id: 'flutter', icon: siFlutter, label: 'Flutter' },
@@ -117,107 +124,122 @@ function isDarkHex(hex) {
   return luminance < 60
 }
 
-function makeKeyTexture(icon, label) {
+// Todo el "bisel" se dibuja en 2D sobre el propio lienzo (marco de color + cara oscura
+// interior) — la tecla no tiene geometría con profundidad, es un plano totalmente plano.
+function makeKeyTexture(icon, label, color) {
   const size = 160
   const canvas = document.createElement('canvas')
   canvas.width = size
   canvas.height = size
   const ctx = canvas.getContext('2d')
 
-  // cara de la tecla: plana y oscura (el color de categoría queda solo en el borde/marco)
-  ctx.fillStyle = '#11142a'
-  ctx.fillRect(0, 0, size, size)
+  ctx.fillStyle = color
+  ctx.beginPath()
+  ctx.roundRect(0, 0, size, size, 20)
+  ctx.fill()
 
-  // logo real de la herramienta, en su color de marca oficial — salvo que ese color
-  // sea casi negro (ej. Next.js, GitHub, Vercel), en cuyo caso se dibuja en un tono
-  // claro para que no desaparezca sobre la cara oscura de la tecla
-  const iconSize = 66
+  const inset = 9
+  ctx.fillStyle = '#11142a'
+  ctx.beginPath()
+  ctx.roundRect(inset, inset, size - inset * 2, size - inset * 2, 13)
+  ctx.fill()
+
+  const iconSize = 62
   const scale = iconSize / 24
   ctx.save()
-  ctx.translate(size / 2 - iconSize / 2, 22)
+  ctx.translate(size / 2 - iconSize / 2, 24)
   ctx.scale(scale, scale)
   ctx.fillStyle = isDarkHex(icon.hex) ? '#e8ecf5' : `#${icon.hex}`
   ctx.fill(new Path2D(icon.path))
   ctx.restore()
 
-  // nombre de la herramienta, plano (sin relieve/sombra)
   ctx.font = 'bold 15px ui-monospace, Menlo, monospace'
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
   ctx.fillStyle = '#e2e8f0'
-  ctx.fillText(label, size / 2, size - 22)
+  ctx.fillText(label, size / 2, size - 24)
 
   const tex = new THREE.CanvasTexture(canvas)
   tex.colorSpace = THREE.SRGBColorSpace
   return tex
 }
 
+// Cada tecla es un plano único (sin profundidad) envuelto en <Billboard>, así que
+// siempre mira directo a la cámara sin importar la inclinación del tablero completo.
 function Keycap({ icon, label, color, position }) {
-  const groupRef = useRef(null)
+  const meshRef = useRef(null)
   const [hovered, setHovered] = useState(false)
   const [pressed, setPressed] = useState(false)
-  const texture = useMemo(() => makeKeyTexture(icon, label), [icon, label])
+  const texture = useMemo(() => makeKeyTexture(icon, label, color), [icon, label, color])
 
   useFrame(() => {
-    const targetY = pressed ? -0.05 : hovered ? 0.06 : 0
-    groupRef.current.position.y += (targetY - groupRef.current.position.y) * 0.25
+    const target = pressed ? 0.9 : hovered ? 1.1 : 1
+    const s = meshRef.current.scale
+    s.x += (target - s.x) * 0.25
+    s.y += (target - s.y) * 0.25
   })
 
   return (
-    <group
-      ref={groupRef}
-      position={position}
-      onPointerOver={(e) => {
-        e.stopPropagation()
-        setHovered(true)
-      }}
-      onPointerOut={() => setHovered(false)}
-      onPointerDown={() => setPressed(true)}
-      onPointerUp={() => setPressed(false)}
-    >
-      {/* marco/borde estilo 3D, coloreado por categoría — la tecla en sí queda plana */}
-      <RoundedBox args={[0.56, 0.12, 0.56]} radius={0.025} smoothness={4} castShadow>
-        <meshStandardMaterial color={color} roughness={0.35} metalness={0.25} />
-      </RoundedBox>
-
-      {/* cara plana con el logo real de la herramienta + su nombre */}
-      <mesh position={[0, 0.068, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[0.46, 0.46]} />
-        <meshStandardMaterial map={texture} roughness={0.6} metalness={0.05} />
+    <Billboard position={position}>
+      <mesh
+        ref={meshRef}
+        onPointerOver={(e) => {
+          e.stopPropagation()
+          setHovered(true)
+        }}
+        onPointerOut={() => setHovered(false)}
+        onPointerDown={() => setPressed(true)}
+        onPointerUp={() => setPressed(false)}
+      >
+        <planeGeometry args={[0.56, 0.56]} />
+        <meshBasicMaterial map={texture} transparent />
       </mesh>
-    </group>
+    </Billboard>
+  )
+}
+
+function RowLabel({ text, color, position }) {
+  return (
+    <Billboard position={position}>
+      <Text fontSize={0.15} color={color} anchorX="center" anchorY="middle" outlineWidth={0.006} outlineColor="#050816">
+        {text}
+      </Text>
+    </Billboard>
   )
 }
 
 function KeyboardRig() {
-  const rowSpacing = 0.72
+  const { t } = useTranslation()
+  const rowSpacing = 2.1
   const keySpacing = 0.62
 
   return (
-    <Float speed={1} floatIntensity={0.2} rotationIntensity={0.03}>
-      <group>
-        {ROWS.map((row, rowIndex) => {
-          const z = (rowIndex - (ROWS.length - 1) / 2) * rowSpacing
-          return row.keys.map((key, keyIndex) => {
-            const x = (keyIndex - (row.keys.length - 1) / 2) * keySpacing
-            return <Keycap key={key.id} icon={key.icon} label={key.label} color={row.color} position={[x, 0, z]} />
-          })
-        })}
-      </group>
-    </Float>
+    <group rotation={[0.12, 0, 0]}>
+      {ROWS.map((row, rowIndex) => {
+        const z = (rowIndex - (ROWS.length - 1) / 2) * rowSpacing
+        return (
+          <group key={row.id}>
+            <RowLabel text={t(row.titleKey)} color={row.color} position={[0, 0.66, z]} />
+            {row.keys.map((key, keyIndex) => {
+              const x = (keyIndex - (row.keys.length - 1) / 2) * keySpacing
+              return (
+                <Keycap key={key.id} icon={key.icon} label={key.label} color={row.color} position={[x, 0, z]} />
+              )
+            })}
+          </group>
+        )
+      })}
+    </group>
   )
 }
 
-// Teclado de keycaps planas, vistas casi de frente (cámara casi cenital) para evitar
-// la distorsión de perspectiva de un ángulo muy inclinado — con el logo real de cada
-// tecnología grabado en la cara.
+// Teclado plano: cada tecla es un plano 2D (sin profundidad) que siempre mira a la
+// cámara, dispuesto en un tablero inclinado hacia adelante, con el nombre de la
+// categoría flotando sobre cada fila.
 function KeyboardScene() {
   return (
-    <Canvas camera={{ position: [0, 7.2, 2.3], fov: 40 }} shadows>
-      <ambientLight intensity={0.6} />
-      <pointLight position={[3, 5, 3]} intensity={1.2} color="#22d3ee" />
-      <pointLight position={[-3, 4, -2]} intensity={0.8} color="#6366f1" />
-      <directionalLight position={[0, 6, 1]} intensity={0.5} castShadow />
+    <Canvas camera={{ position: [0, 4.5, 11], fov: 40 }}>
+      <ambientLight intensity={0.8} />
       <KeyboardRig />
     </Canvas>
   )

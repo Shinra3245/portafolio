@@ -33,6 +33,12 @@
   "tech": {
     "title": "Tecnologías que manejo",
     "description": "Estas son las principales herramientas que utilizo para crear páginas web funcionales y visualmente atractivas.",
+    "rowLenguajes": "Lenguajes",
+    "rowBackend": "Backend",
+    "rowFrontend": "Frontend",
+    "rowDatos": "Bases de Datos",
+    "rowDevops": "DevOps & Nube",
+    "rowOtros": "Móvil & Herramientas",
     "animTitlePrefix": "¡También diseño",
     "animTitleHighlight": "animaciones interactivas",
     "animTitleSuffix": "para tu web!",

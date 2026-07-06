@@ -33,6 +33,12 @@
   "tech": {
     "title": "Technologies I Use",
     "description": "These are the main tools I use to create functional and visually appealing websites.",
+    "rowLenguajes": "Languages",
+    "rowBackend": "Backend",
+    "rowFrontend": "Frontend",
+    "rowDatos": "Databases",
+    "rowDevops": "DevOps & Cloud",
+    "rowOtros": "Mobile & Tools",
     "animTitlePrefix": "I also design",
     "animTitleHighlight": "interactive animations",
     "animTitleSuffix": "for your website!",
