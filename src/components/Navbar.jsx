@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Menu, X, Download } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
+import DownloadButton from './DownloadButton'
+import BB8Toggle from './BB8Toggle'
 import { useScrollPosition } from '../hooks/useScrollPosition'
 import './Navbar.css'
 
@@ -9,7 +12,7 @@ const links = [
   { href: '#sobre-mi', key: 'nav.about' },
   { href: '#servicios', key: 'nav.services' },
   { href: '#experiencia', key: 'nav.experience' },
-  { href: '#proyectos', key: 'nav.projects' },
+  { href: '/proyectos', key: 'nav.projects', route: true },
   { href: '#habilidades', key: 'nav.skills' },
   { href: '#contacto', key: 'nav.contact' },
 ]
@@ -17,41 +20,44 @@ const links = [
 function Navbar() {
   const { t, i18n } = useTranslation()
   const scrollY = useScrollPosition()
+  const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
   const isScrolled = scrollY > 50
+  const isHome = location.pathname === '/'
 
   const toggleLang = () => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')
+  const closeMenu = () => setMenuOpen(false)
 
   return (
     <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
-      <a href="#inicio" className="navbar__logo">
+      <Link to="/" className="navbar__logo">
         Omar<span>.Bolaños</span>
-      </a>
+      </Link>
 
       <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
         {links.map((link) => (
           <li key={link.key}>
-            <a href={link.href} onClick={() => setMenuOpen(false)}>
-              {t(link.key)}
-            </a>
+            {link.route ? (
+              <Link to={link.href} onClick={closeMenu}>
+                {t(link.key)}
+              </Link>
+            ) : isHome ? (
+              <a href={link.href} onClick={closeMenu}>
+                {t(link.key)}
+              </a>
+            ) : (
+              <Link to={`/${link.href}`} onClick={closeMenu}>
+                {t(link.key)}
+              </Link>
+            )}
           </li>
         ))}
       </ul>
 
       <div className="navbar__actions">
-        <a
-          href="/CV.pdf"
-          download
-          className="navbar__cv"
-          aria-label={t('hero.ctaSecondary')}
-          title={t('hero.ctaSecondary')}
-        >
-          <Download size={18} />
-        </a>
+        <DownloadButton />
 
-        <button className="lang-toggle" onClick={toggleLang} aria-label="Cambiar idioma">
-          {i18n.language === 'es' ? 'EN' : 'ES'}
-        </button>
+        <BB8Toggle />
 
         <button
           className="navbar__hamburger"

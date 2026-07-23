@@ -1,0 +1,230 @@
+/* Astronauta flotante decorativo, debajo del subtítulo de /proyectos. Puerto
+   de un snippet CSS puro; todas las clases van prefijadas con astro-float__
+   para no chocar con el resto del sitio. Las dimensiones internas de cada
+   pieza (casco, brazos, piernas...) están calculadas para un astronauta de
+   200x240 — para achicarlo se escala el conjunto con transform: scale() en
+   vez de recalcular cada medida a mano. */
+.astro-float {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  margin-top: 1.5rem;
+  pointer-events: none;
+}
+
+@keyframes astro-float-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.astro-float__scale {
+  width: 200px;
+  height: 240px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 100px);
+  transform: scale(0.55);
+  transform-origin: top center;
+}
+
+.astro-float__astronaut {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  animation: astro-float-spin 5s linear infinite;
+}
+
+.astro-float__schoolbag {
+  width: 80px;
+  height: 120px;
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 60px);
+  left: calc(50% - 40px);
+  background-color: #94b7ca;
+  border-radius: 40px 40px 0 0 / 24px 24px 0 0;
+}
+
+.astro-float__head {
+  width: 78px;
+  height: 64px;
+  position: absolute;
+  z-index: 3;
+  background: linear-gradient(to right, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+  border-radius: 50%;
+  top: 27px;
+  left: calc(50% - 38px);
+}
+.astro-float__head::after {
+  content: '';
+  width: 48px;
+  height: 40px;
+  position: absolute;
+  top: calc(50% - 20px);
+  left: calc(50% - 24px);
+  background: linear-gradient(to top, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
+  border-radius: 12px;
+}
+.astro-float__head::before {
+  content: '';
+  width: 10px;
+  height: 20px;
+  position: absolute;
+  top: calc(50% - 10px);
+  left: -3px;
+  background-color: #618095;
+  border-radius: 4px;
+  box-shadow: 74px 0px 0px #618095;
+}
+
+.astro-float__body {
+  width: 68px;
+  height: 80px;
+  position: absolute;
+  z-index: 2;
+  border-radius: 32px / 16px;
+  top: 84px;
+  left: calc(50% - 33px);
+  background: linear-gradient(to right, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+}
+
+.astro-float__panel {
+  width: 48px;
+  height: 32px;
+  position: absolute;
+  top: 16px;
+  left: calc(50% - 24px);
+  background-color: #b7cceb;
+}
+.astro-float__panel::before {
+  content: '';
+  width: 24px;
+  height: 4px;
+  position: absolute;
+  top: 7px;
+  left: 6px;
+  background-color: #fbfdfa;
+  box-shadow: 0px 7px 0px #fbfdfa, 0px 14px 0px #fbfdfa;
+}
+.astro-float__panel::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: 7px;
+  right: 6px;
+  background-color: #fbfdfa;
+  border-radius: 50%;
+  box-shadow: 0px 11px 0px 2px #fbfdfa;
+}
+
+.astro-float__arm {
+  width: 64px;
+  height: 24px;
+  position: absolute;
+  top: 97px;
+  z-index: 2;
+}
+.astro-float__arm--left {
+  left: 24px;
+  background-color: #e3e8eb;
+  border-radius: 0 0 0 31px;
+}
+.astro-float__arm--right {
+  right: 24px;
+  background-color: #fbfdfa;
+  border-radius: 0 0 31px 0;
+}
+.astro-float__arm--left::before,
+.astro-float__arm--right::before {
+  content: '';
+  width: 24px;
+  height: 56px;
+  position: absolute;
+  top: -32px;
+}
+.astro-float__arm--left::before {
+  border-radius: 40px 40px 0px 96px / 40px 40px 0 88px;
+  left: 0;
+  background-color: #e3e8eb;
+}
+.astro-float__arm--right::before {
+  border-radius: 40px 40px 96px 0 / 40px 40px 88px 0;
+  right: 0;
+  background-color: #fbfdfa;
+}
+.astro-float__arm--left::after,
+.astro-float__arm--right::after {
+  content: '';
+  width: 24px;
+  height: 8px;
+  position: absolute;
+  top: -19px;
+}
+.astro-float__arm--left::after {
+  background-color: #6e91a4;
+  left: 0;
+}
+.astro-float__arm--right::after {
+  right: 0;
+  background-color: #b6d2e0;
+}
+
+.astro-float__leg {
+  width: 24px;
+  height: 32px;
+  position: absolute;
+  z-index: 2;
+  bottom: 56px;
+}
+.astro-float__leg--left {
+  left: 61px;
+  background-color: #e3e8eb;
+  transform: rotate(20deg);
+}
+.astro-float__leg--right {
+  right: 58px;
+  background-color: #fbfdfa;
+  transform: rotate(-20deg);
+}
+.astro-float__leg--left::before,
+.astro-float__leg--right::before {
+  content: '';
+  width: 40px;
+  height: 20px;
+  position: absolute;
+  bottom: -21px;
+}
+.astro-float__leg--left::before {
+  left: -16px;
+  background-color: #e3e8eb;
+  border-radius: 24px 0 0 0;
+  border-bottom: 8px solid #6d96ac;
+}
+.astro-float__leg--right::before {
+  right: -16px;
+  background-color: #fbfdfa;
+  border-radius: 0 24px 0 0;
+  border-bottom: 8px solid #b0cfe4;
+}
+
+@media (max-width: 640px) {
+  .astro-float {
+    height: 80px;
+    margin-top: 0.5rem;
+  }
+  .astro-float__scale {
+    transform: scale(0.32);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .astro-float__astronaut {
+    animation: none;
+  }
+}

@@ -1,6 +1,3 @@
-// Trayectoria cronológica real (CV.pdf) — usada por la sección Experiencia
-// (MissionTrajectory: cada hito es una "estación" en la ruta)
-// type: 'hackathon' | 'role' — solo afecta el icono/insignia que se usa en la estación
 
 export const experience = [
   {
@@ -76,6 +73,45 @@ export const experience = [
     },
   },
   {
+    id: 'rally',
+    date: 'Octubre 2025',
+    type: 'hackathon',
+    badge: 'Rally Latinoamericano',
+    link: 'https://shinra3245.github.io/PAGINA_WEB_AYUDA_MUNDIA_INUNDACIONES/',
+    techs: ['React', 'Vite', 'Tailwind', 'Leaflet', 'Firebase'],
+    es: {
+      title: 'Alerta Temprana de Inundaciones',
+      role: 'Desarrollador Web Full-Stack · Rally Latinoamericano de Innovación',
+      description:
+        'Plataforma web de alerta temprana ante inundaciones en Latinoamérica: mapa interactivo con zonas de riesgo por color, dashboard meteorológico en tiempo real, alertas automatizadas y reportes ciudadanos. Desplegada en producción.',
+    },
+    en: {
+      title: 'Flood Early-Warning System',
+      role: 'Full-Stack Web Developer · Latin American Innovation Rally',
+      description:
+        'Web platform for early flood warnings across Latin America: an interactive risk-zone map with color coding, a real-time weather dashboard, automated alerts and citizen reports. Deployed to production.',
+    },
+  },
+  {
+    id: 'playstation',
+    date: 'Diciembre 2025',
+    type: 'hardware',
+    badge: 'Hardware · ASMP',
+    techs: ['Arduino', 'C++', 'Electrónica', 'Hardware'],
+    es: {
+      title: 'Maqueta Arquitectura PlayStation 2',
+      role: 'Desarrollador de Hardware & Simulación · Arquitectura de Computadoras',
+      description:
+        'Maqueta electrónica funcional de la arquitectura de la PlayStation 2: el Emotion Engine (MIPS de 128 bits) y el Graphics Synthesizer bajo multiprocesamiento asimétrico (ASMP). Con Arduino simulé el flujo de datos y las señales de control durante el arranque de la consola.',
+    },
+    en: {
+      title: 'PlayStation 2 Architecture Model',
+      role: 'Hardware & Simulation Developer · Computer Architecture',
+      description:
+        'A functional electronic model of the PlayStation 2 architecture: the Emotion Engine (128-bit MIPS) and the Graphics Synthesizer under asymmetric multiprocessing (ASMP). Used Arduino to simulate the data flow and control signals during the console boot sequence.',
+    },
+  },
+  {
     id: 'lincehack',
     date: 'Abril 2026',
     type: 'hackathon',
@@ -110,6 +146,25 @@ export const experience = [
       role: 'Backend & Security Developer · Team Lead',
       description:
         'Web platform for managing users and logistics operations for a transport company, in production (ilpeatransports.site). Integrated Firebase as infrastructure and database to scale the project.',
+    },
+  },
+  {
+    id: 'srac',
+    date: 'Mayo 2026',
+    type: 'hardware',
+    badge: 'Robótica · IoT',
+    techs: ['ESP32', 'C++', 'IoT', 'Servo SG90', 'JavaScript'],
+    es: {
+      title: 'S.R.A.S.C.',
+      role: 'Firmware & Interfaz Web · Materia Lenguaje de Interfaz',
+      description:
+        'Robot móvil autónomo de saneamiento que detecta y clasifica residuos con un brazo robótico de 4 grados de libertad. Programé el ESP32 (WiFi), los sensores (línea infrarroja y ultrasónico HC-SR04) y una interfaz web para control remoto y monitoreo en tiempo real.',
+    },
+    en: {
+      title: 'S.R.A.S.C.',
+      role: 'Firmware & Web Interface · Interface Languages Course',
+      description:
+        'Autonomous cleaning robot that detects and sorts waste with a 4-DOF robotic arm. Programmed the ESP32 (WiFi), the sensors (IR line + HC-SR04 ultrasonic) and a web interface for remote control and real-time monitoring.',
     },
   },
   {

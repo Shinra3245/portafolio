@@ -6,9 +6,15 @@ function isDarkHex(hex) {
   return luminance < 60
 }
 
-// Logo real de marca (simple-icons) como SVG normal, con fallback claro para
-// los que tienen su color oficial casi negro (Next.js, GitHub, Vercel...)
+// Logo real de marca: la mayoría vienen de svgl.app (archivo SVG completo a
+// color, importado como URL) y se muestran tal cual con <img>. Unas pocas
+// tecnologías sin equivalente en svgl.app siguen usando simple-icons
+// (path + color de marca, con fallback claro si el color oficial es casi negro).
 function TechIcon({ icon, size = 16 }) {
+  if (typeof icon === 'string') {
+    return <img src={icon} width={size} height={size} alt="" aria-hidden="true" />
+  }
+
   const fill = isDarkHex(icon.hex) ? '#e2e8f0' : `#${icon.hex}`
 
   return (

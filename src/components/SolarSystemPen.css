@@ -1,0 +1,946 @@
+.solar-pen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-size: 10px;
+}
+
+/* --------------------------------------------------------------- botón "Revisar proyectos"
+   El "borde" degradado es el propio fondo del botón; adentro, .solar-cta__inner
+   (achicado por el padding) pinta el relleno oscuro. Con el mismo border-radius
+   en ambas capas, las esquinas siempre coinciden — a diferencia del truco
+   border:double + background-clip:content-box/border-box, que a este tamaño
+   no redondeaba la capa interior y dejaba el degradado "cortado" en los extremos. */
+.solar-cta {
+  position: relative;
+  display: flex;
+  min-width: 13rem;
+  height: 3.75rem;
+  padding: 4px;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: transform 0.5s;
+  animation: solar-cta-gradient 5s ease infinite;
+  background-image: linear-gradient(137.48deg, #ffdb3b 10%, #fe53bb 45%, #8f51ea 67%, #0044ff 87%);
+  background-size: 300% 300%;
+}
+.solar-cta__inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 1.5rem;
+  border-radius: 999px;
+  background-color: #212121;
+  backdrop-filter: blur(1rem);
+  overflow: hidden;
+}
+.solar-cta strong {
+  position: relative;
+  z-index: 2;
+  font-family: inherit;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 0 4px white;
+  white-space: nowrap;
+}
+.solar-cta:hover {
+  transform: scale(1.08);
+}
+.solar-cta:hover .solar-cta__stars {
+  opacity: 1;
+  background-color: #212121;
+}
+.solar-cta:active {
+  animation: none;
+  background-image: none;
+  background-color: #fe53bb;
+}
+.solar-cta:active .solar-cta__circle {
+  background: #fe53bb;
+}
+
+.solar-cta__stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity 0.5s, background-color 0.5s;
+}
+.solar-cta__stars-field {
+  position: relative;
+  width: 200rem;
+  height: 200rem;
+  background: transparent;
+}
+.solar-cta__stars-field::after,
+.solar-cta__stars-field::before {
+  content: '';
+  position: absolute;
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+.solar-cta__stars-field::after {
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  animation: solar-cta-star-rotate 90s linear infinite;
+}
+.solar-cta__stars-field::before {
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  opacity: 0.5;
+  animation: solar-cta-star-drift 60s linear infinite;
+}
+
+.solar-cta__glow {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+  z-index: -1;
+}
+.solar-cta__circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: solar-cta-pulse 4s infinite;
+  z-index: -1;
+}
+.solar-cta__circle:nth-of-type(1) {
+  background: rgba(254, 83, 186, 0.636);
+}
+.solar-cta__circle:nth-of-type(2) {
+  background: rgba(142, 81, 234, 0.704);
+}
+
+@keyframes solar-cta-star-drift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-135rem, 50rem);
+  }
+}
+@keyframes solar-cta-star-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+@keyframes solar-cta-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes solar-cta-pulse {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solar-cta,
+  .solar-cta__stars-field::after,
+  .solar-cta__stars-field::before,
+  .solar-cta__circle {
+    animation: none;
+  }
+}
+
+#sp-universe {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+#sp-galaxy {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 4000px;
+}
+
+#sp-system {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  font-size: 26%;
+  transition: width 0.8s ease-in-out, font-size 0.8s ease-in-out, margin-left 0.8s ease-in-out;
+}
+.solar-pen.view-3D #sp-system {
+  font-size: 62%;
+}
+.solar-pen.opening #sp-system {
+  transition-duration: 0s;
+}
+
+/* --------------------------------------------------------------- órbitas */
+.sp-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation-name: sp-orbit;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition: width 0.8s ease-in-out, height 0.8s ease-in-out, margin 0.8s ease-in-out;
+  /* Puramente decorativo — sin esto, el aro de la órbita de la Luna (un
+     hermano de .sp-planet dentro de #sp-earth, con una caja mucho más
+     grande que el disco visible) intercepta el mouse antes de que llegue
+     al planeta y el hover/tooltip de la Tierra nunca se dispara.
+     pointer-events:none se hereda a los descendientes, así que .sp-planet
+     y .sp-moon lo reactivan explícitamente más abajo (si no, ningún
+     planeta recibiría hover, ya que todos viven dentro de un .sp-orbit). */
+  pointer-events: none;
+}
+.sp-orbit .sp-orbit {
+  animation-name: sp-suborbit;
+}
+.solar-pen.opening .sp-orbit {
+  transition-duration: 0s;
+}
+
+.sp-pos {
+  position: absolute;
+  top: 50%;
+  width: 2em;
+  height: 2em;
+  margin-top: -1em;
+  margin-left: -1em;
+  transform-style: preserve-3d;
+  animation-name: sp-invert;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  /* El retraso de 1s es a propósito: deja que la órbita y el sol terminen
+     de inclinarse primero (0.8s, sin retraso), y recién después arrastra
+     cada planeta desde el centro hasta su lugar real en la órbita. */
+  transition-property: top, left;
+  transition-duration: 0.8s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 1s;
+}
+
+/* Durante la apertura, todos los planetas arrancan "recogidos" en el centro
+   (junto al sol) en vez de en su posición orbital real. */
+.solar-pen.opening .sp-pos {
+  left: 50% !important;
+  top: 50% !important;
+  transition-duration: 0s;
+  transition-delay: 0s;
+}
+
+@keyframes sp-orbit {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-360deg);
+  }
+}
+@keyframes sp-suborbit {
+  0% {
+    transform: rotateX(90deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(90deg) rotateZ(-360deg);
+  }
+}
+@keyframes sp-invert {
+  0% {
+    transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
+/* --------------------------------------------------------------- sol, planetas, luna */
+#sp-sun,
+.sp-planet,
+.sp-moon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  transform-style: preserve-3d;
+  transition: width 0.8s ease-in-out, height 0.8s ease-in-out, margin 0.8s ease-in-out, transform 0.8s ease-in-out;
+  /* Reactiva la interactividad que .sp-orbit desactivó (y que se hereda a
+     los descendientes) — el sol y los planetas sí deben poder recibir hover. */
+  pointer-events: auto;
+}
+/* Los planetas quedan invisibles mientras están "recogidos" en el centro
+   (encima del sol) y solo se revelan cuando ya empiezan a deslizarse hacia
+   su órbita real (mismo delay de 1s que .sp-pos) — evita el destello de un
+   bulto oscuro tapando el sol durante la apertura. */
+.sp-planet,
+.sp-moon {
+  opacity: 0;
+  transition: width 0.8s ease-in-out, height 0.8s ease-in-out, margin 0.8s ease-in-out, transform 0.8s ease-in-out,
+    opacity 0.6s ease-in-out 1s;
+}
+.solar-pen:not(.opening) .sp-planet,
+.solar-pen:not(.opening) .sp-moon {
+  opacity: 1;
+}
+.solar-pen.opening #sp-sun,
+.solar-pen.opening .sp-planet,
+.solar-pen.opening .sp-moon {
+  transition-duration: 0s;
+  transition-delay: 0s;
+}
+
+#sp-sun {
+  font-size: 24em;
+  box-shadow: 0 0 60px rgba(255, 160, 60, 0.4);
+  /* Mismo truco de rotación esférica que los planetas y RotatingEarth.jsx:
+     desplazar background-position sobre una textura repetida al 200%. */
+  background-size: 200%;
+  background-repeat: repeat;
+  animation: sp-rotate-sun 6s linear infinite reverse;
+}
+@keyframes sp-rotate-sun {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+.solar-pen.opening #sp-sun {
+  box-shadow: 0 0 0 rgba(255, 160, 60, 0);
+}
+
+/* Textura del planeta, separada de .sp-planet: así la rotación sobre su
+   propio eje (abajo) y la sombra día/noche viven en esta capa interna sin
+   arrastrar consigo al anillo de Saturno (que es hermano, no hijo, de esta
+   capa) ni la orientación 2D/3D del planeta (que sigue viviendo en
+   .sp-planet vía rotateX).
+   La rotación usa el mismo truco que RotatingEarth.jsx (Hero): en vez de
+   girar el disco entero como una moneda (transform/rotate, giro en el
+   plano de la pantalla), se desplaza el background-position en X sobre una
+   textura al 200% que se repite — así se ve como una esfera realmente
+   rotando sobre su eje vertical, mostrando otra "cara" con el tiempo, en
+   vez de solo girar la imagen plana. La inclinación diagonal queda como un
+   rotate() fijo (sin animar) por planeta, ver más abajo. */
+.sp-planet__surface {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-size: 200%;
+  background-repeat: repeat;
+  animation-iteration-count: infinite, infinite;
+  animation-timing-function: linear, linear;
+  transition: translate 0.3s ease;
+}
+
+.sp-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.4em;
+  height: 2.4em;
+  margin-top: -1.2em;
+  margin-left: -1.2em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.8s ease-in-out;
+}
+
+/* --------------------------------------------------------------- capas (z-index) */
+#sp-mercury {
+  z-index: 10;
+}
+#sp-venus {
+  z-index: 9;
+}
+#sp-earth {
+  z-index: 8;
+}
+#sp-mars {
+  z-index: 6;
+}
+#sp-jupiter {
+  z-index: 5;
+}
+#sp-saturn {
+  z-index: 4;
+}
+#sp-uranus {
+  z-index: 3;
+}
+#sp-neptune {
+  z-index: 2;
+}
+#sp-sun {
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------- posición inicial en la órbita */
+#sp-venus .sp-pos {
+  left: 0;
+  top: 50%;
+}
+#sp-earth .sp-pos {
+  left: 100%;
+  top: 50%;
+}
+#sp-earth .sp-orbit .sp-pos {
+  left: 100%;
+  top: 50%;
+}
+#sp-mars .sp-pos {
+  left: 50%;
+  top: 100%;
+}
+#sp-jupiter .sp-pos {
+  left: 100%;
+  top: 50%;
+}
+#sp-saturn .sp-pos {
+  left: 0%;
+  top: 50%;
+}
+#sp-uranus .sp-pos {
+  left: 0;
+  top: 50%;
+}
+#sp-neptune .sp-pos {
+  left: 50%;
+  top: 0;
+}
+
+/* --------------------------------------------------------------- vista: arranca en 2D (plana)
+   y pasa a 3D poco después de montarse — la transición CSS entre estos dos
+   estados es lo que "arma" la escena: primero se ven las órbitas y el sol
+   planos, y al activarse view-3D, todo se inclina y cada planeta se desliza
+   (por el delay de .sp-pos) hacia su posición orbital real. No hay botón
+   para volver a 2D: es solo la animación de entrada. */
+.solar-pen.view-2D #sp-sun,
+.solar-pen.view-2D .sp-ring {
+  transform: rotateX(0deg);
+}
+.solar-pen.view-2D .sp-planet,
+.solar-pen.view-2D .sp-moon {
+  transform: rotateX(90deg);
+}
+.solar-pen.view-3D #sp-system {
+  transform: rotateX(75deg);
+}
+.solar-pen.view-3D #sp-sun {
+  transform: rotateX(-90deg);
+}
+.solar-pen.view-3D .sp-ring {
+  transform: rotateX(75deg);
+}
+.solar-pen.view-3D .sp-planet,
+.solar-pen.view-3D .sp-moon {
+  transform: rotateX(0deg);
+}
+
+/* --------------------------------------------------------------- duraciones orbitales reales
+   (años siderales, escaladas — igual proporción que el pen original) */
+#sp-mercury,
+#sp-mercury > .sp-pos {
+  animation-duration: 2.89016s;
+}
+#sp-venus,
+#sp-venus > .sp-pos {
+  animation-duration: 7.38237s;
+}
+#sp-earth,
+#sp-earth > .sp-pos {
+  animation-duration: 12.00021s;
+}
+#sp-earth .sp-orbit,
+#sp-earth .sp-orbit .sp-pos {
+  animation-duration: 0.89764s;
+}
+#sp-mars,
+#sp-mars > .sp-pos {
+  animation-duration: 22.57017s;
+}
+#sp-jupiter,
+#sp-jupiter > .sp-pos {
+  animation-duration: 142.35138s;
+}
+#sp-saturn,
+#sp-saturn > .sp-pos,
+#sp-saturn .sp-ring {
+  animation-duration: 353.36998s;
+}
+#sp-uranus,
+#sp-uranus > .sp-pos {
+  animation-duration: 1008.20215s;
+}
+#sp-neptune,
+#sp-neptune > .sp-pos {
+  animation-duration: 1977.49584s;
+}
+
+/* --------------------------------------------------------------- tamaños "stretched" (exagerados, legibles) */
+#sp-mercury .sp-planet {
+  font-size: 1.5em;
+}
+#sp-venus .sp-planet {
+  font-size: 3.72em;
+}
+#sp-earth .sp-planet {
+  font-size: 3.92em;
+}
+#sp-earth .sp-moon {
+  font-size: 1.2em;
+}
+#sp-mars .sp-planet {
+  font-size: 2.9em;
+}
+#sp-jupiter .sp-planet {
+  font-size: 12em;
+}
+#sp-saturn .sp-planet {
+  font-size: 10.8em;
+}
+#sp-uranus .sp-planet {
+  font-size: 4.68em;
+}
+#sp-neptune .sp-planet {
+  font-size: 4.9em;
+}
+
+/* --------------------------------------------------------------- órbitas "stretched" */
+#sp-mercury.sp-orbit {
+  width: 32em;
+  height: 32em;
+  margin-top: -16em;
+  margin-left: -16em;
+}
+#sp-venus.sp-orbit {
+  width: 40em;
+  height: 40em;
+  margin-top: -20em;
+  margin-left: -20em;
+}
+#sp-earth.sp-orbit {
+  width: 56em;
+  height: 56em;
+  margin-top: -28em;
+  margin-left: -28em;
+}
+#sp-earth .sp-orbit {
+  width: 6em;
+  height: 6em;
+  margin-top: -3em;
+  margin-left: -3em;
+}
+#sp-mars.sp-orbit {
+  width: 72em;
+  height: 72em;
+  margin-top: -36em;
+  margin-left: -36em;
+}
+#sp-jupiter.sp-orbit {
+  width: 100em;
+  height: 100em;
+  margin-top: -50em;
+  margin-left: -50em;
+}
+#sp-saturn.sp-orbit {
+  width: 150em;
+  height: 150em;
+  margin-top: -75em;
+  margin-left: -75em;
+}
+#sp-uranus.sp-orbit {
+  width: 186em;
+  height: 186em;
+  margin-top: -93em;
+  margin-left: -93em;
+}
+#sp-neptune.sp-orbit {
+  width: 210em;
+  height: 210em;
+  margin-top: -105em;
+  margin-left: -105em;
+}
+
+/* --------------------------------------------------------------- sombra interna animada:
+   simula el sol iluminando distintas caras del planeta a medida que orbita
+   (mismo truco del pen original, con nombres de keyframe propios). Cada
+   planeta lleva además una segunda animación (sp-rotate-*) que desplaza el
+   background-position — con una duración propia, corta, independiente de la
+   duración orbital (si usara la misma, los planetas exteriores casi no se
+   verían girar: Neptuno tarda ~33 min en completar una órbita en esta
+   escena). sp-orbit gira en sentido "negativo" (rotateZ 0deg -> -360deg,
+   antihorario); animation-direction:reverse en la segunda animación hace
+   que la rotación propia siga ese mismo sentido en vez del contrario. La
+   inclinación diagonal (ángulos inspirados en la inclinación axial real de
+   cada planeta, exagerados para que se note) va aparte, como rotate() fijo
+   sin animar — ver el bloque "inclinación diagonal" más abajo. */
+#sp-mercury .sp-planet__surface {
+  animation-name: sp-shadow-mercury, sp-rotate-mercury;
+  animation-duration: 2.89016s, 4s;
+  animation-direction: normal, reverse;
+}
+@keyframes sp-shadow-mercury {
+  0% {
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: inset 13px -5px 4px rgba(0, 0, 0, 0.5);
+  }
+  50.01% {
+    box-shadow: inset -13px -5px 4px rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+  }
+}
+
+#sp-venus .sp-planet__surface {
+  animation-name: sp-shadow-venus, sp-rotate-venus;
+  animation-duration: 7.38237s, 7s;
+  animation-direction: normal, reverse;
+}
+@keyframes sp-shadow-venus {
+  0% {
+    box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    box-shadow: inset 22px -20px 10px rgba(0, 0, 0, 0.5);
+  }
+  25.5% {
+    box-shadow: inset -22px -20px 10px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+#sp-earth .sp-planet__surface {
+  animation-name: sp-shadow-earth, sp-rotate-earth;
+  animation-duration: 12.00021s, 3s;
+  animation-direction: normal, reverse;
+}
+@keyframes sp-shadow-earth {
+  0% {
+    box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    box-shadow: inset 24px -20px 15px rgba(0, 0, 0, 0.5);
+  }
+  75.01% {
+    box-shadow: inset -24px -20px 15px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+#sp-mars .sp-planet__surface {
+  animation-name: sp-shadow-mars, sp-rotate-mars;
+  animation-duration: 22.57017s, 3.2s;
+  animation-direction: normal, reverse;
+}
+@keyframes sp-shadow-mars {
+  0% {
+    box-shadow: inset -18px -10px 10px rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    box-shadow: inset -4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    box-shadow: inset 4px 0 2px rgba(0, 0, 0, 0.5);
+  }
+  99.99% {
+    box-shadow: inset 18px -10px 10px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: inset -18px -10px 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+#sp-jupiter .sp-planet__surface {
+  animation-name: sp-shadow-jupiter, sp-rotate-jupiter;
+  animation-duration: 142.35138s, 2s;
+  animation-direction: normal, reverse;
+}
+@keyframes sp-shadow-jupiter {
+  0% {
+    box-shadow: inset -16px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: inset 16px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    box-shadow: inset 94px -30px 40px rgba(0, 0, 0, 0.5);
+  }
+  75.01% {
+    box-shadow: inset -94px -30px 40px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: inset -16px 0 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+#sp-saturn .sp-planet__surface {
+  animation-name: sp-shadow-saturn, sp-rotate-saturn;
+  animation-duration: 353.36998s, 2.2s;
+  animation-direction: normal, reverse;
+}
+@keyframes sp-shadow-saturn {
+  0% {
+    box-shadow: inset 16px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    box-shadow: inset 80px -30px 50px rgba(0, 0, 0, 0.5);
+  }
+  25.01% {
+    box-shadow: inset -94px -30px 40px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: inset -16px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    box-shadow: inset -2px 3px 2px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: inset 16px 0 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+#sp-uranus .sp-planet__surface {
+  animation-name: sp-shadow-uranus, sp-rotate-uranus;
+  animation-duration: 1008.20215s, 2.6s;
+  animation-direction: normal, reverse;
+}
+@keyframes sp-shadow-uranus {
+  0% {
+    box-shadow: inset 8px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    box-shadow: inset 40px -15px 40px rgba(0, 0, 0, 0.5);
+  }
+  25.01% {
+    box-shadow: inset -40px -15px 40px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: inset -8px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: inset 8px 0 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+#sp-neptune .sp-planet__surface {
+  animation-name: sp-shadow-neptune, sp-rotate-neptune;
+  animation-duration: 1977.49584s, 2.8s;
+  animation-direction: normal, reverse;
+}
+@keyframes sp-shadow-neptune {
+  0% {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    box-shadow: inset 12px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: inset 50px -15px 40px rgba(0, 0, 0, 0.5);
+  }
+  50.01% {
+    box-shadow: inset -50px -15px 40px rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    box-shadow: inset -12px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* --------------------------------------------------------------- rotación sobre su propio eje
+   (independiente de la sombra día/noche de arriba): mismo truco que
+   RotatingEarth.jsx del Hero — desplazar background-position en X sobre una
+   textura repetida al 200%, en vez de girar el disco entero como una
+   moneda. Venus y la Tierra tienen dos capas de fondo (superficie +
+   atmósfera/nubes), así que sus keyframes traen dos valores de posición
+   separados por coma para que ambas capas se desplacen juntas. */
+@keyframes sp-rotate-mercury {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+@keyframes sp-rotate-venus {
+  0% {
+    background-position: 120% 0, 120% 0;
+  }
+  100% {
+    background-position: -80% 0, -80% 0;
+  }
+}
+@keyframes sp-rotate-earth {
+  0% {
+    background-position: 120% 0, 120% 0;
+  }
+  100% {
+    background-position: -80% 0, -80% 0;
+  }
+}
+@keyframes sp-rotate-mars {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+@keyframes sp-rotate-jupiter {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+@keyframes sp-rotate-saturn {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+@keyframes sp-rotate-uranus {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+@keyframes sp-rotate-neptune {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+
+/* --------------------------------------------------------------- inclinación diagonal
+   fija (no animada): ángulos inspirados en la inclinación axial real de
+   cada planeta, exagerados para que se note. */
+#sp-mercury .sp-planet__surface {
+  rotate: 10deg;
+}
+#sp-venus .sp-planet__surface {
+  rotate: -15deg;
+}
+#sp-earth .sp-planet__surface {
+  rotate: 23deg;
+}
+#sp-mars .sp-planet__surface {
+  rotate: 25deg;
+}
+#sp-jupiter .sp-planet__surface {
+  rotate: 8deg;
+}
+#sp-saturn .sp-planet__surface {
+  rotate: -20deg;
+}
+#sp-uranus .sp-planet__surface {
+  rotate: 90deg;
+}
+#sp-neptune .sp-planet__surface {
+  rotate: -28deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* La inclinación diagonal (arriba) no depende de la animación, así que se
+     conserva automáticamente — aquí solo se detiene el movimiento. */
+  #sp-sun,
+  .sp-orbit,
+  .sp-pos,
+  .sp-planet,
+  .sp-planet__surface,
+  .sp-ring {
+    animation: none !important;
+  }
+}
+
+/* --------------------------------------------------------------- móvil */
+@media (max-width: 640px) {
+  .solar-cta {
+    min-width: 10rem;
+    height: 2.8rem;
+  }
+  .solar-cta strong {
+    font-size: 0.85rem;
+  }
+}

@@ -4,12 +4,10 @@ import ilpeaImg from '../assets/images/projects/ilpea.png'
 import siesifImg from '../assets/images/projects/siesif.png'
 import recolectaImg from '../assets/images/projects/recolecta.jpeg'
 import pyprimesImg from '../assets/images/projects/pyprimes.png'
+import rallyImg from '../assets/images/projects/rally.jpeg'
+import playstationImg from '../assets/images/projects/playstation.jpeg'
 
-// category: 'web' | 'python' | 'movil' — usado para los tabs de la sección Proyectos
-// image/video: null = todavía no enviado; ProjectCard/ProjectModal muestran un placeholder
-// mientras tanto (pendiente: Omar enviará capturas/video de cada proyecto)
 
-// Contenido real de los 5 proyectos (index.html + lang/projects-es.json + lang/projects-en.json)
 export const projects = [
   {
     id: 1,
@@ -175,19 +173,20 @@ export const projects = [
     video: null,
     url: null,
     repo: 'https://github.com/Shinra3245/RECOLECTA_APP',
-    techs: ['Flutter', 'FastAPI', 'PostgreSQL', 'Firebase'],
+    techs: ['Flutter', 'Riverpod', 'FastAPI', 'Supabase', 'Firebase FCM', 'OpenAI'],
     es: {
       tag: 'App Móvil',
       title: 'RECOLECTA APP',
       badge: '1er Lugar OnlinesHack 2026',
       description:
-        'Sistema de recolección inteligente de residuos: app móvil en Flutter que notifica a los ciudadanos el tiempo estimado de llegada del camión recolector sin exponer coordenadas GPS en tiempo real. Arquitectura de privacidad por diseño: el ciudadano solo recibe texto ("Llega en ~15 min"), el mapa con coordenadas es exclusivo del panel admin.',
+        'Sistema inteligente de recolección de residuos para el Servicio de Limpia de Celaya, Guanajuato. App móvil en Flutter que informa al ciudadano el tiempo estimado de llegada (ETA) del camión recolector sin exponer coordenadas GPS. Privacidad por diseño: el backend traduce la posición de la ruta (1→8) a texto ("Llega en ~15 min") y las notificaciones FCM nunca incluyen lat/lng.',
       features: [
-        'Backend API REST asíncrona en FastAPI + SQLAlchemy',
-        'PostgreSQL vía Supabase con Row Level Security (RLS)',
+        'Backend asíncrono en FastAPI con simulación de ruta cada 10s (APScheduler)',
+        'PostgreSQL + Auth vía Supabase con Row Level Security (RLS) y JWT por rol',
         'Notificaciones push por topic de ruta con Firebase Cloud Messaging',
-        'Validación de domicilio con OCR (Tesseract) que borra la imagen tras extraer la dirección',
-        'Roles: ciudadano, chofer y admin',
+        'Chatbot de IA "Eco" (GPT-4o-mini) para guiar la separación de residuos',
+        'Panel de administración para gestionar rutas, unidades y conductores',
+        'Tres roles diferenciados: ciudadano, conductor y administrador',
       ],
     },
     en: {
@@ -195,13 +194,14 @@ export const projects = [
       title: 'RECOLECTA APP',
       badge: '1st Place OnlinesHack 2026',
       description:
-        'Smart waste-collection system: a Flutter mobile app that notifies citizens of the estimated arrival time of the collection truck without exposing real-time GPS coordinates. Privacy-by-design architecture: citizens only receive text ("Arriving in ~15 min"), the map with coordinates is exclusive to the admin panel.',
+        'Smart waste-collection system for the Sanitation Service of Celaya, Guanajuato. A Flutter mobile app that tells citizens the estimated arrival time (ETA) of the collection truck without exposing GPS coordinates. Privacy by design: the backend translates the route position (1→8) into text ("Arriving in ~15 min") and FCM notifications never include lat/lng.',
       features: [
-        'Asynchronous REST API backend in FastAPI + SQLAlchemy',
-        'PostgreSQL via Supabase with Row Level Security (RLS)',
+        'Async FastAPI backend with a route simulation every 10s (APScheduler)',
+        'PostgreSQL + Auth via Supabase with Row Level Security (RLS) and per-role JWT',
         'Route-topic push notifications with Firebase Cloud Messaging',
-        'Address validation with OCR (Tesseract) that deletes the image after extracting the address',
-        'Roles: citizen, driver, and admin',
+        'AI chatbot "Eco" (GPT-4o-mini) that guides waste separation',
+        'Admin panel to manage routes, units and drivers',
+        'Three differentiated roles: citizen, driver and administrator',
       ],
     },
   },
@@ -238,6 +238,118 @@ export const projects = [
         'Prime number generation and factorization algorithms',
         'Advanced object-oriented programming',
         'Optimized portable executable',
+      ],
+    },
+  },
+  {
+    id: 10,
+    slug: 'rally',
+    category: 'web',
+    image: rallyImg,
+    video: '/videos/rally.mp4',
+    url: 'https://shinra3245.github.io/PAGINA_WEB_AYUDA_MUNDIA_INUNDACIONES/',
+    repo: null,
+    techs: ['React', 'Vite', 'Tailwind', 'Leaflet', 'Firebase'],
+    es: {
+      tag: 'Competencia',
+      title: 'Alerta Temprana de Inundaciones',
+      badge: 'Rally Latinoamericano de Innovación',
+      description:
+        'Plataforma web de alerta temprana ante inundaciones en Latinoamérica, desarrollada para el Rally Latinoamericano de Innovación. Centraliza monitoreo meteorológico en tiempo real y alertas automatizadas para comunidades vulnerables.',
+      features: [
+        'Mapa interactivo con zonas de riesgo por código de color (verde/amarillo/rojo)',
+        'Dashboard meteorológico en tiempo real (precipitación, humedad, pronóstico 24h)',
+        'Sistema de alertas automatizado según umbrales de precipitación',
+        'Reportes ciudadanos verificados y geolocalización del usuario',
+        'Notificaciones push y feed de noticias de último momento',
+      ],
+    },
+    en: {
+      tag: 'Competition',
+      title: 'Flood Early-Warning System',
+      badge: 'Latin American Innovation Rally',
+      description:
+        'Web platform for early flood warnings across Latin America, built for the Latin American Innovation Rally. It centralizes real-time weather monitoring and automated alerts for vulnerable communities.',
+      features: [
+        'Interactive map with color-coded risk zones (green/yellow/red)',
+        'Real-time weather dashboard (rainfall, humidity, 24h forecast)',
+        'Automated alert system based on precipitation thresholds',
+        'Verified citizen reports and user geolocation',
+        'Push notifications and a breaking-news feed',
+      ],
+    },
+  },
+  {
+    id: 11,
+    slug: 'playstation',
+    category: 'hardware',
+    image: playstationImg,
+    video: '/videos/playstation.mp4',
+    url: null,
+    repo: null,
+    techs: ['Arduino', 'C++', 'Electrónica', 'Hardware'],
+    es: {
+      tag: 'Hardware',
+      title: 'Maqueta Arquitectura PlayStation 2',
+      badge: 'Arquitectura de Computadoras',
+      description:
+        'Maqueta electrónica funcional que representa la arquitectura de hardware de la Sony PlayStation 2, elegida por su diseño heterogéneo y su multiprocesamiento asimétrico (ASMP). Trasciende la teoría con una representación visual y tangible del arranque de la consola.',
+      features: [
+        'Emula la interacción entre el Emotion Engine (MIPS de 128 bits) y el Graphics Synthesizer',
+        'Simulación del flujo de datos y las señales de control durante el arranque',
+        'Control mediante Arduino Uno y elementos electrónicos',
+        'Representación tangible del multiprocesamiento asimétrico (ASMP)',
+      ],
+    },
+    en: {
+      tag: 'Hardware',
+      title: 'PlayStation 2 Architecture Model',
+      badge: 'Computer Architecture',
+      description:
+        'A functional electronic model representing the hardware architecture of the Sony PlayStation 2, chosen for its heterogeneous design and asymmetric multiprocessing (ASMP). It goes beyond theory with a visual, tangible representation of the console boot process.',
+      features: [
+        'Emulates the interaction between the Emotion Engine (128-bit MIPS) and the Graphics Synthesizer',
+        'Simulation of the data flow and control signals during boot',
+        'Controlled by an Arduino Uno and electronic components',
+        'Tangible representation of asymmetric multiprocessing (ASMP)',
+      ],
+    },
+  },
+  {
+    id: 12,
+    slug: 'srac',
+    category: 'hardware',
+    image: null,
+    video: null,
+    url: null,
+    repo: null,
+    techs: ['ESP32', 'C++', 'IoT', 'Servo SG90', 'JavaScript'],
+    es: {
+      tag: 'Robótica',
+      title: 'S.R.A.S.C.',
+      badge: 'Robótica autónoma · IoT',
+      description:
+        'Sistema Robótico Autónomo de Saneamiento y Clasificación: prototipo de robot móvil que se desplaza en un entorno controlado, detecta residuos con sensores y los clasifica con un brazo robótico de 4 grados de libertad. Integra electrónica, programación embebida, redes e interfaces gráficas en una sola solución IoT.',
+      features: [
+        'Control y monitoreo en tiempo real desde una interfaz web (ESP32 con WiFi)',
+        'Brazo robótico de 4 grados de libertad con servos SG90 (PWM)',
+        'Seguimiento de línea con sensores infrarrojos TCRT5000',
+        'Evasión de obstáculos con sensor ultrasónico HC-SR04',
+        'Arquitectura cliente-servidor sobre hardware de bajo costo',
+      ],
+    },
+    en: {
+      tag: 'Robotics',
+      title: 'S.R.A.S.C.',
+      badge: 'Autonomous robotics · IoT',
+      description:
+        'Autonomous Cleaning and Sorting Robotic System: a mobile robot prototype that moves through a controlled environment, detects waste with sensors and sorts it with a 4-DOF robotic arm. It integrates electronics, embedded programming, networking and graphical interfaces into a single IoT solution.',
+      features: [
+        'Real-time control and monitoring from a web interface (ESP32 with WiFi)',
+        '4-DOF robotic arm with SG90 servos (PWM)',
+        'Line following with TCRT5000 infrared sensors',
+        'Obstacle avoidance with an HC-SR04 ultrasonic sensor',
+        'Client-server architecture on low-cost hardware',
       ],
     },
   },

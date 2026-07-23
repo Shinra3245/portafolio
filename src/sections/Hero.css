@@ -3,22 +3,18 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 6rem 1.5rem 4rem;
   overflow: hidden;
-}
-
-/* El lienzo siempre ocupa toda la sección como fondo completo, sin recortes:
-   así la animación nunca se ve cortada, sin importar el tamaño de pantalla */
-.hero__avatar-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.9;
 }
 
 .hero__content {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 720px;
   margin: 0 auto;
 }
@@ -31,20 +27,7 @@
 }
 
 .hero__name {
-  font-size: clamp(2.6rem, 7vw, 4.5rem);
-  color: #f4f6ff;
   margin-bottom: 0.75rem;
-  text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
-}
-
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-  .hero__name {
-    background: linear-gradient(120deg, #ffffff, var(--color-accent-2), var(--color-accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: none;
-  }
 }
 
 .hero__role {
@@ -62,36 +45,45 @@
   gap: 1rem;
 }
 
-/* Escritorio: el lienzo sigue completo de fondo (sin recortes); el texto se
-   empuja hacia la derecha para que visualmente el sistema solar quede a la
-   izquierda y el texto/botones a la derecha */
-@media (min-width: 861px) {
-  .hero__content {
-    max-width: 480px;
-    margin: 0 8% 0 auto;
-    text-align: left;
-  }
+.hero__earth {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
 
-  .hero__actions {
-    justify-content: flex-start;
+/* ── Botón Descargar CV ───────────────────────── */
+.cv-download-btn {
+  cursor: pointer;
+  background: #1f2937;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  border: none;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.4),
+    0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  animation: cv-bounce 1s infinite;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.cv-download-btn:hover {
+  animation: none;
+  background: #374151;
+}
+
+@keyframes cv-bounce {
+  0%, 100% {
+    transform: translateY(-20%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
-/* Móvil: el lienzo completo se asoma detrás de una tarjeta de vidrio
-   esmerilado con el texto y los botones, como antes del cambio */
-@media (max-width: 860px) {
-  .hero {
-    text-align: center;
-    justify-content: center;
-  }
-
-  .hero__content {
-    background: rgba(13, 18, 36, 0.42);
-    backdrop-filter: blur(22px) saturate(140%);
-    -webkit-backdrop-filter: blur(22px) saturate(140%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 28px;
-    padding: 2.5rem 1.5rem;
-    box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
-  }
-}

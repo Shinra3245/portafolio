@@ -5,6 +5,7 @@
   padding-top: 1rem;
 }
 
+/* Central animated line */
 .mission__line-track {
   position: absolute;
   top: 0;
@@ -33,6 +34,30 @@
   z-index: 1;
 }
 
+/* ---- Year markers ---- */
+.mission-year {
+  display: grid;
+  grid-template-columns: 1fr 46px 1fr;
+  align-items: center;
+  margin: 0.5rem 0 -1rem;
+}
+.mission-year__label {
+  grid-column: 2;
+  justify-self: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-2);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  padding: 0.28rem 0.7rem;
+  box-shadow: 0 0 18px -4px rgba(34, 211, 238, 0.5);
+  white-space: nowrap;
+}
+
+/* ---- Stations ---- */
 .mission-station {
   display: grid;
   grid-template-columns: 1fr 46px 1fr;
@@ -43,6 +68,7 @@
 .mission-station__node {
   grid-column: 2;
   justify-self: center;
+  position: relative;
   width: 46px;
   height: 46px;
   border-radius: 50%;
@@ -53,17 +79,80 @@
   border: 2px solid var(--color-accent);
   color: var(--color-accent-2);
   box-shadow: 0 0 16px -2px rgba(99, 102, 241, 0.7);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .mission-station__node.is-hackathon {
   border-color: #fbbf24;
   color: #fbbf24;
   box-shadow: 0 0 16px -2px rgba(251, 191, 36, 0.7);
 }
-
-.mission-station__card {
-  padding: 1.25rem 1.4rem;
-  max-width: 380px;
+.mission-station__node.is-hardware {
+  border-color: #34d399;
+  color: #34d399;
+  box-shadow: 0 0 16px -2px rgba(52, 211, 153, 0.7);
 }
+
+/* Pulsing ring for in-progress projects */
+.mission-station__pulse {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  animation: mission-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes mission-pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* ---- Cards ---- */
+.mission-station__card {
+  --st-rgb: 34, 211, 238; /* default: cyan accent */
+  position: relative;
+  padding: 1.3rem 1.45rem 1.35rem;
+  max-width: 390px;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(var(--st-rgb), 0.22);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(var(--st-rgb), 0.06), rgba(var(--st-rgb), 0) 55%),
+    var(--color-bg-card);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 12px 28px -20px rgba(0, 0, 0, 0.9);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+.mission-station__card.is-hackathon {
+  --st-rgb: 251, 191, 36;
+}
+.mission-station__card.is-hardware {
+  --st-rgb: 52, 211, 153;
+}
+
+/* Accent edge nearest the timeline + faint corner glow */
+.mission-station__card::after {
+  content: '';
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgb(var(--st-rgb)), rgba(var(--st-rgb), 0.15));
+  box-shadow: 0 0 12px rgba(var(--st-rgb), 0.6);
+  z-index: 1;
+}
+
+.mission-station__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--st-rgb), 0.55);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 18px 40px -18px rgba(var(--st-rgb), 0.45),
+    0 8px 20px -16px rgba(0, 0, 0, 0.9);
+}
+
 .mission-station--left .mission-station__card {
   grid-column: 1;
   justify-self: end;
@@ -73,6 +162,36 @@
   grid-column: 3;
   justify-self: start;
   text-align: left;
+}
+.mission-station--left .mission-station__card::after {
+  right: 0;
+}
+.mission-station--right .mission-station__card::after {
+  left: 0;
+}
+.mission-station--left .mission-station__card:hover {
+  transform: translate(-3px, -3px);
+}
+.mission-station--right .mission-station__card:hover {
+  transform: translate(3px, -3px);
+}
+
+/* Connector tick from card to the central line */
+.mission-station__card::before {
+  content: '';
+  position: absolute;
+  top: 22px;
+  width: 22px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(var(--st-rgb), 0.1), rgb(var(--st-rgb)));
+  z-index: 1;
+}
+.mission-station--left .mission-station__card::before {
+  right: -23px;
+  background: linear-gradient(90deg, rgb(var(--st-rgb)), rgba(var(--st-rgb), 0.1));
+}
+.mission-station--right .mission-station__card::before {
+  left: -23px;
 }
 
 .mission-station__meta {
@@ -99,26 +218,49 @@
   font-weight: 600;
   padding: 0.15rem 0.55rem;
   border-radius: 999px;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  border: 1px solid var(--color-border-strong);
+}
+.mission-station__badge.is-hackathon {
   background: rgba(251, 191, 36, 0.15);
   color: #fbbf24;
-  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+.mission-station__badge.is-hardware {
+  background: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.4);
 }
 
 .mission-station__title {
-  font-size: 1.1rem;
-  margin-bottom: 0.25rem;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--color-text-strong);
+  margin-bottom: 0.2rem;
 }
 
 .mission-station__role {
-  font-size: 0.85rem;
-  color: var(--color-accent-2);
-  margin-bottom: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgb(var(--st-rgb));
+  margin-bottom: 0.7rem;
 }
 
 .mission-station__description {
-  font-size: 0.88rem;
-  color: var(--color-muted);
-  margin-bottom: 0.8rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.74);
+  margin-bottom: 0.95rem;
+}
+
+.mission-station__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(var(--st-rgb), 0.12);
 }
 
 .mission-station__techs {
@@ -132,16 +274,64 @@
 
 .mission-station__tech {
   font-size: 0.68rem;
-  padding: 0.2rem 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 0.22rem 0.6rem;
   border-radius: 999px;
-  background: rgba(99, 102, 241, 0.15);
-  color: var(--color-accent);
+  background: rgba(var(--st-rgb), 0.1);
+  border: 1px solid rgba(var(--st-rgb), 0.22);
+  color: rgba(226, 232, 240, 0.9);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.mission-station__card:hover .mission-station__tech {
+  border-color: rgba(var(--st-rgb), 0.4);
+}
+
+.mission-station__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  align-self: flex-start;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgb(var(--st-rgb));
+  border: 1px solid rgba(var(--st-rgb), 0.35);
+  border-radius: 999px;
+  padding: 0.32rem 0.75rem;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.mission-station__link:hover {
+  border-color: rgb(var(--st-rgb));
+  background: rgba(var(--st-rgb), 0.12);
+  transform: translateY(-1px);
+}
+.mission-station--left .mission-station__footer {
+  align-items: flex-end;
+}
+.mission-station--left .mission-station__link {
+  align-self: flex-end;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mission-station__pulse {
+    animation: none;
+  }
 }
 
 @media (max-width: 720px) {
   .mission__line-track {
     left: 23px;
     transform: none;
+  }
+
+  .mission-year {
+    grid-template-columns: 46px 1fr;
+    margin: 0.25rem 0 -1.25rem;
+  }
+  .mission-year__label {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-left: 0;
   }
 
   .mission-station,
@@ -163,8 +353,26 @@
     max-width: 100%;
   }
 
+  .mission-station--left .mission-station__card:hover,
+  .mission-station--right .mission-station__card:hover {
+    transform: translateX(3px);
+  }
+
+  /* Connector always points left toward the line on mobile */
+  .mission-station--left .mission-station__card::before,
+  .mission-station--right .mission-station__card::before {
+    left: -23px;
+    right: auto;
+  }
+
   .mission-station--left .mission-station__meta,
   .mission-station--left .mission-station__techs {
     justify-content: flex-start;
+  }
+  .mission-station--left .mission-station__footer {
+    align-items: flex-start;
+  }
+  .mission-station--left .mission-station__link {
+    align-self: flex-start;
   }
 }

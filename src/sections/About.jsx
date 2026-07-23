@@ -1,20 +1,56 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Info } from 'lucide-react'
-import RainEffect from '../3d/RainEffect'
-import Toast from '../components/Toast'
-import { useToast } from '../hooks/useToast'
-import fotoYo from '../assets/images/yo.jpeg'
+import SpaceLoader from '../components/SpaceLoader'
+import fotoYo from '../assets/images/yov2.jpeg'
 import './About.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Cuánto se muestra la animación de "carga" (astronauta) antes de revelar la foto real
+const PHOTO_REVEAL_DELAY = 2600
+
+// Componente auxiliar para renderizar los números de estadísticas en 3D
+function StatCard3D({ value, label }) {
+  // Separar el número del símbolo (+, %, etc.) si existe al final
+  const match = value.match(/^(\d+)([^0-9]*)$/)
+  const numPart = match ? match[1] : value
+  const symPart = match ? match[2] : ''
+
+  let lengthClass = ''
+  if (value.length >= 4) {
+    lengthClass = 'card-3d--short'
+  } else if (value.length === 3) {
+    lengthClass = 'card-3d--medium'
+  }
+
+  const content = (
+    <>
+      <span className="card-3d__num">{numPart}</span>
+      {symPart && <span className="card-3d__sym">{symPart}</span>}
+    </>
+  )
+
+  return (
+    <div className="stat stat--3d">
+      <div className={`card-3d ${lengthClass}`} aria-hidden="true">
+        <div className="card-3d__holo">
+          <div className="card-3d__layer card-3d__layer--back">{content}</div>
+          <div className="card-3d__layer card-3d__layer--mid">{content}</div>
+          <div className="card-3d__layer card-3d__layer--front">{content}</div>
+        </div>
+      </div>
+      <span className="stat__label">{label}</span>
+    </div>
+  )
+}
+
 function About() {
   const { t } = useTranslation()
-  const { toast, showToast } = useToast()
   const sectionRef = useRef(null)
+  const visualRef = useRef(null)
+  const [photoReady, setPhotoReady] = useState(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -30,23 +66,36 @@ function About() {
     return () => ctx.revert()
   }, [])
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const timer = setTimeout(() => setPhotoReady(true), PHOTO_REVEAL_DELAY)
+          observer.disconnect()
+          return () => clearTimeout(timer)
+        }
+      },
+      { threshold: 0.3 },
+    )
+    if (visualRef.current) observer.observe(visualRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section id="sobre-mi" className="about" ref={sectionRef}>
       <h2 className="section-title about__reveal">{t('about.title')}</h2>
 
       <div className="about__grid">
-        <div className="about__visual about__reveal">
-          <div className="about__rain-canvas">
-            <RainEffect />
+        <div className="about__visual about__reveal" ref={visualRef}>
+          <div className="photo-card">
+            <div className="photo-card__img-container">
+              {photoReady ? (
+                <img src={fotoYo} alt={t('hero.name')} className="photo-card__img" />
+              ) : (
+                <SpaceLoader />
+              )}
+            </div>
           </div>
-          <img src={fotoYo} alt={t('hero.name')} className="about__photo" />
-          <button
-            className="btn btn--secondary about__toast-btn"
-            onClick={() => showToast(t('about.toastMessage'))}
-          >
-            <Info size={16} />
-            {t('about.toastButton')}
-          </button>
         </div>
 
         <div className="about__text about__reveal">
@@ -62,23 +111,12 @@ function About() {
 
           <h4 className="about__info-title">{t('about.infoTitle')}</h4>
           <div className="about__stats">
-            <div className="stat">
-              <span className="stat__number">{t('about.statProjectsValue')}</span>
-              <span className="stat__label">{t('about.statProjects')}</span>
-            </div>
-            <div className="stat">
-              <span className="stat__number">{t('about.statExperienceValue')}</span>
-              <span className="stat__label">{t('about.statExperience')}</span>
-            </div>
-            <div className="stat">
-              <span className="stat__number">{t('about.statClientsValue')}</span>
-              <span className="stat__label">{t('about.statClients')}</span>
-            </div>
+            <StatCard3D value={t('about.statProjectsValue')} label={t('about.statProjects')} />
+            <StatCard3D value={t('about.statExperienceValue')} label={t('about.statExperience')} />
+            <StatCard3D value={t('about.statClientsValue')} label={t('about.statClients')} />
           </div>
         </div>
       </div>
-
-      <Toast toast={toast} />
     </section>
   )
 }

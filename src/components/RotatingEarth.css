@@ -1,0 +1,75 @@
+/* Contenedor: 10em de lado. Con font-size ~50px (equivalente al 500px del
+   pen original) y escalando hacia abajo en pantallas chicas. Todo lo demás
+   está en em para que las capas/sombras mantengan la misma proporción. */
+.earth-pen {
+  position: relative;
+  width: 10em;
+  height: 10em;
+  font-size: clamp(16px, 3.4vw, 37px);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0.1em -0.06em 0.2em 0.06em #5e90f1;
+  z-index: 1;
+}
+
+.earth-pen__day,
+.earth-pen__clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 200%;
+  background-repeat: repeat;
+  border-radius: 50%;
+}
+
+.earth-pen__day {
+  animation: earth-pen-rotate-day 80s linear infinite;
+  box-shadow: 0.1em 0 0.4em 0.2em #040615 inset;
+  z-index: 3;
+}
+
+.earth-pen__clouds {
+  animation: earth-pen-rotate-day 50s linear infinite, earth-pen-spin-clouds 100s ease infinite;
+  box-shadow: 0.1em 0 0.4em 0.2em #040615 inset, -0.18em 0 0.4em 0.2em #5e90f1 inset;
+  opacity: 0.45;
+  z-index: 4;
+}
+
+.earth-pen__inner-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: -0.1em 0 0.2em 0.02em #152b57 inset, 0.1em 0 0.2em 0.02em #040615 inset;
+  z-index: 5;
+}
+
+@keyframes earth-pen-rotate-day {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+@keyframes earth-pen-spin-clouds {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .earth-pen__day,
+  .earth-pen__clouds {
+    animation: none;
+  }
+}

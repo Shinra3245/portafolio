@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Github, Linkedin, Mail, MessageCircle } from 'lucide-react'
+import LightsaberIcon from './LightsaberIcon'
 import './Footer.css'
 
 const CHAR_DELAY = 55
@@ -70,6 +71,10 @@ function Footer() {
       <div className="site-footer__prompt">
         <span className="site-footer__prompt-text">{promptText.slice(0, revealed)}</span>
         <span className="site-footer__cursor" />
+      </div>
+
+      <div className="site-footer__swords">
+        <LightsaberIcon className="large" />
       </div>
 
       <nav className="site-footer__nav">

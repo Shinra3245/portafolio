@@ -2,17 +2,17 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre mí",
-    "services": "Servicios",
+    "services": "Enfoque",
     "experience": "Experiencia",
     "projects": "Proyectos",
     "skills": "Habilidades",
     "contact": "Contacto"
   },
   "hero": {
-    "greeting": "¡Hola! ¿Qué tal?",
+    "greeting": "Bienvenido ",
     "name": "Omar Bolaños",
     "role": "Estoy entusiasmado por trabajar juntos",
-    "cta": "Comencemos",
+    "cta": "Ver proyectos",
     "ctaSecondary": "Descargar CV"
   },
   "about": {
@@ -22,13 +22,12 @@
     "paragraph2": "Mi trabajo va más allá de páginas web: he construido <span class='keyword-primary'>plataformas web completas y aplicaciones móviles con Flutter</span>, con especial profundidad en <span class='keyword-secondary'>APIs REST con FastAPI y Flask</span>, arquitecturas de seguridad (RBAC, RLS, autenticación) y motores de procesamiento de datos. Desde sistemas de gestión para negocios hasta apps de recolección inteligente con notificaciones en tiempo real, siempre priorizo <span class='keyword-accent'>la privacidad, la seguridad y la experiencia del usuario</span>.",
     "infoTitle": "Información",
     "statProjects": "Proyectos Completados",
-    "statProjectsValue": "5+",
+    "statProjectsValue": "6+",
     "statExperience": "Mi Experiencia en Proyectos",
     "statExperienceValue": "2+",
     "statClients": "Clientes Satisfechos",
     "statClientsValue": "100%",
-    "toastButton": "Click aquí",
-    "toastMessage": "Esta animación fue programada por mí."
+    "loadingText": "Cargando misión espacial"
   },
   "tech": {
     "title": "Stack Tecnológico",
@@ -38,53 +37,28 @@
     "rowFrontend": "Frontend",
     "rowDatos": "Bases de Datos",
     "rowDevops": "DevOps & Nube",
+    "rowSistemas": "Sistemas Operativos",
+    "rowIA": "IA y Asistentes de Código",
+    "rowHardware": "Hardware & IoT",
     "rowOtros": "Móvil & Herramientas"
   },
-  "services": {
-    "title": "Servicios",
-    "subtitle": "Así es como abordo cada proyecto, paso a paso",
-    "orbitTitle": "Proceso Integral",
-    "orbitSubtitle": "Metodología probada para el éxito",
-    "detailDefaultTitle": "Explora cada paso del proceso",
-    "detailDefaultDescription": "Pasa el cursor o toca cualquier paso para conocer los detalles de cómo trabajo en cada etapa de tu proyecto.",
-    "interactionHint": "Interactúa con cada paso para ver los detalles",
-    "steps": {
-      "1": {
-        "label": "Consultoría",
-        "title": "🔍 Consultoría & Análisis Inicial",
-        "description": "Analizamos objetivos, audiencia y requisitos para definir la estrategia perfecta.",
-        "features": ["Análisis de necesidades", "Definición de objetivos", "Estudio de competencia", "Propuesta personalizada"]
-      },
-      "2": {
-        "label": "Diseño",
-        "title": "🎨 Diseño & Prototipado Visual",
-        "description": "Mockups y prototipos para ver tu sitio antes de desarrollarlo.",
-        "features": ["Mockups interactivos", "Paleta de colores", "Tipografía personalizada", "Responsive design"]
-      },
-      "3": {
-        "label": "Desarrollo",
-        "title": "💻 Desarrollo & Programación",
-        "description": "Transformo el diseño en un sitio rápido, seguro y escalable.",
-        "features": ["Código limpio y escalable", "Tecnologías modernas", "Optimización de rendimiento", "Seguridad implementada"]
-      },
-      "4": {
-        "label": "Testing",
-        "title": "🧪 Testing & Optimización",
-        "description": "Pruebas en dispositivos/navegadores y mejora de usabilidad y velocidad.",
-        "features": ["Pruebas multidispositivo", "Optimización de velocidad", "Testing de usabilidad", "Corrección de bugs"]
-      },
-      "5": {
-        "label": "Lanzamiento",
-        "title": "🚀 Lanzamiento & Soporte Continuo",
-        "description": "Deploy, capacitación, soporte y actualizaciones cuando las necesites.",
-        "features": ["Deploy profesional", "Capacitación incluida", "Soporte post-lanzamiento", "Actualizaciones periódicas"]
-      },
-      "6": {
-        "label": "Mejora Continua",
-        "title": "♻️ Mejora continua & Mantenimiento",
-        "description": "Monitoreo, ajustes y nuevas iteraciones para mantener y potenciar tu producto.",
-        "features": ["Monitoreo y analítica", "Parcheo de seguridad", "Optimización periódica", "Iteraciones basadas en feedback"]
-      }
+  "focusAreas": {
+    "title": "Áreas de Enfoque",
+    "subtitle": "En qué me especializo como desarrollador",
+    "eyebrow": "Áreas de enfoque",
+    "items": {
+      "fullstack": "Desarrollo Full-Stack",
+      "apis": "APIs REST & Backend",
+      "databases": "Bases de Datos & Modelado",
+      "security": "Seguridad & Autenticación",
+      "mobile": "Apps Móviles con Flutter",
+      "automation": "Automatización & Scripting",
+      "leadership": "Liderazgo Técnico & Scrum",
+      "devops": "DevOps & Despliegue Cloud",
+      "testing": "Testing & Control de Calidad",
+      "uxui": "Diseño UX/UI & Prototipado",
+      "performance": "Rendimiento & Optimización",
+      "cleancode": "Buenas Prácticas (Clean Code)"
     }
   },
   "specialization": {
@@ -99,10 +73,14 @@
     "title": "Educación",
     "academicTitle": "Formación académica",
     "certificationsTitle": "Certificaciones",
+    "certificationsSubtitle": "Selecciona un certificado para verlo · toca la imagen para abrirlo",
     "otherTitle": "Otra formación"
   },
   "projects": {
     "title": "Proyectos",
+    "gallerySubtitle": "Cada proyecto, un sistema en la galaxia",
+    "backHome": "Menú Principal",
+    "hoverHint": "Cada planeta es un proyecto — pasa el mouse o toca para descubrirlo",
     "categoryAll": "Todos",
     "categoryWeb": "Web",
     "categoryPython": "Python",
@@ -130,7 +108,18 @@
       "communication": "Comunicación efectiva",
       "detail": "Atención al detalle",
       "management": "Gestión de proyectos",
-      "adaptability": "Adaptabilidad"
+      "adaptability": "Adaptabilidad",
+      "leadership": "Liderazgo"
+    },
+    "desc": {
+      "teamwork": "Colaboro y sumo al equipo para llegar más lejos juntos.",
+      "problemSolving": "Analizo retos y encuentro soluciones prácticas.",
+      "organization": "Planifico y priorizo para cumplir cada objetivo.",
+      "communication": "Transmito ideas con claridad y escucho de verdad.",
+      "detail": "Cuido cada detalle para entregar calidad real.",
+      "management": "Coordino tareas y recursos hasta el resultado final.",
+      "adaptability": "Me adapto rápido a nuevos retos y tecnologías.",
+      "leadership": "Guío e inspiro al equipo hacia metas comunes."
     }
   },
   "contact": {
@@ -146,10 +135,10 @@
     "servicesTitle": "Servicios Destacados",
     "serviceResponsive": "Páginas Web Responsivas",
     "serviceAdmin": "Sistemas Administrativos",
-    "serviceAuth": "Autenticación y Seguridad",
-    "serviceReports": "Reportes PDF/Excel",
-    "serviceAnimations": "Animaciones Interactivas",
-    "serviceApis": "Integración APIs",
+    "servicePython": "Backend y APIs con Python",
+    "serviceMobile": "Apps Móviles con Flutter",
+    "serviceSecurity": "Arquitecturas de Seguridad",
+    "serviceData": "Procesamiento de Datos",
     "guaranteeTitle": "Mi Garantía",
     "guaranteeText": "Código limpio, documentado y con soporte post-entrega",
     "form": {
@@ -159,13 +148,16 @@
       "send": "Enviar",
       "sending": "Enviando...",
       "success": "¡Mensaje enviado con éxito!",
-      "error": "Hubo un error. Intenta de nuevo."
+      "error": "Hubo un error. Intenta de nuevo.",
+      "project": "Describe el proyecto que quieres crear",
+      "projectHelper": "Cuéntame tu idea: objetivo, funciones clave y el tipo de solución que imaginas, para construirla juntos."
     }
   },
   "github": {
     "title": "Actividad de GitHub",
     "subtitle": "Mi actividad de código abierto, en vivo desde GitHub",
     "heatmapTitle": "Contribuciones",
+    "statsTitle": "Estadísticas Generales",
     "languagesTitle": "Lenguajes más usados",
     "viewProfile": "Ver perfil completo",
     "unavailable": "No se pudo cargar en este momento. Puedes verlo directamente en GitHub."

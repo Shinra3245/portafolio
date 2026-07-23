@@ -1,0 +1,45 @@
+.projects-page {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* El mapa llena todo el ancho/alto disponible debajo del título, para que
+   ninguna órbita se superponga al texto ni quede cortada por el navbar. */
+.projects-page__map {
+  position: fixed;
+  top: 16.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.projects-page__content {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 6.5rem 1.5rem 0;
+  text-align: center;
+  pointer-events: none;
+}
+
+.projects-page__content > * {
+  pointer-events: auto;
+}
+
+/* El estilo visual del botón (degradado, estrellas, glow) viene de la
+   clase .solar-cta, compartida con el botón "Revisar proyectos" del mapa
+   (definida en SolarSystemPen.css, ya cargado en esta página). Acá solo se
+   ajusta el espaciado respecto al resto del contenido. */
+.projects-page__back {
+  width: fit-content;
+  margin: 0 auto 2rem;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .projects-page__map {
+    top: 20rem;
+  }
+}

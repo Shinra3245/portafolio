@@ -1,19 +1,80 @@
-/* Variables de la paleta espacial */
+@font-face {
+  font-family: 'Mojangles';
+  src: url('../assets/fonts/mojangles-v2.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Sistema de diseño: Ciencia ficción / espacial
+   Vacío profundo + acentos indigo/cian con glow. La tipografía
+   pixel-art (Mojangles) da el carácter espacial/gamer del sitio.
+   ───────────────────────────────────────────────────────────── */
 :root {
+  /* Superficies */
   --color-bg: #050816;
+  --color-bg-elevated: #0a0e20;
   --color-bg-card: #0d1224;
   --color-bg-card-hover: #131a33;
-  --color-accent: #6366f1;
-  --color-accent-2: #22d3ee;
-  --color-text: #e2e8f0;
-  --color-muted: #64748b;
-  --color-border: rgba(99, 102, 241, 0.25);
 
-  --font-display: 'Rajdhani', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  /* Acentos con glow */
+  --color-accent: #6366f1;      /* indigo */
+  --color-accent-2: #22d3ee;    /* cian */
+  --color-accent-soft: rgba(99, 102, 241, 0.16);
+
+  /* Texto */
+  --color-text: #e2e8f0;
+  --color-text-strong: #ffffff;
+  --color-muted: #64748b;
+  --color-faint: #475569;
+
+  /* Bordes con tinte de acento */
+  --color-border: rgba(99, 102, 241, 0.25);
+  --color-border-strong: rgba(99, 102, 241, 0.45);
+
+  /* Estados semánticos */
+  --color-success: #34d399;
+  --color-danger: #f87171;
+
+  /* Glows reutilizables */
+  --glow-accent: 0 0 24px -6px rgba(99, 102, 241, 0.6);
+  --glow-cyan: 0 0 20px -4px rgba(34, 211, 238, 0.55);
+
+  /* Tipografía pixel-art para todo el texto del sitio, excepto: el nombre en
+     el Hero (se dibuja como SVG) y los elementos con estilo/animación de
+     terminal ya definida (--font-mono). */
+  --font-display: 'Mojangles', 'Rajdhani', sans-serif;
+  --font-body: 'Mojangles', 'Inter', sans-serif;
   --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 
+  /* Escala de espaciado (base 8) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px -12px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 20px 48px -18px rgba(0, 0, 0, 0.8);
+
+  /* Movimiento */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: 200ms var(--ease);
+
   --section-padding: clamp(4rem, 8vw, 7rem) 1.5rem;
+  --content-max: 1180px;
 }
 
 /* Reset base */
@@ -47,6 +108,7 @@ h1, h2, h3, h4 {
 a {
   color: var(--color-accent-2);
   text-decoration: none;
+  transition: color var(--transition);
 }
 a:hover {
   color: var(--color-accent);
@@ -64,6 +126,13 @@ ul {
 button {
   font-family: inherit;
   cursor: pointer;
+}
+
+/* Accesibilidad: foco visible y consistente */
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
 /* Canvas 3D de fondo, fijo detrás de todo el contenido */
@@ -100,15 +169,17 @@ button {
   margin: -1.5rem auto 2.5rem;
 }
 
+/* ── Botones ────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-weight: 600;
   border: 1px solid transparent;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition), color var(--transition);
 }
 .btn:hover {
   transform: translateY(-2px);
@@ -117,7 +188,7 @@ button {
 .btn--primary {
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
   color: #fff;
-  box-shadow: 0 8px 24px -8px rgba(99, 102, 241, 0.6);
+  box-shadow: var(--glow-accent);
 }
 
 .btn--secondary {
@@ -130,14 +201,51 @@ button {
   color: var(--color-accent-2);
 }
 
+/* ── Cards ──────────────────────────────────────────────────── */
 .card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
+}
+
+/* ── Campos de formulario base ──────────────────────────────── */
+.input,
+.textarea {
+  width: 100%;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.75rem 0.9rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-faint);
+}
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-2);
+  box-shadow: var(--glow-cyan);
 }
 
 @media (max-width: 640px) {
   .section-title {
     margin-bottom: 1.75rem;
+  }
+}
+
+/* Respeta movimiento reducido a nivel global */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

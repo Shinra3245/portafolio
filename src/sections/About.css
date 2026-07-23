@@ -6,9 +6,9 @@
 
 .about__grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1.5fr 1.2fr;
   gap: 3rem;
-  align-items: center;
+  align-items: start;
 }
 
 .about__visual {
@@ -16,70 +16,103 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 2.5rem;
 }
 
-.about__rain-canvas {
+/* Card de Foto — Estilo Avatar (circular con anillo de acento + glow) */
+.photo-card {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4 / 5;
+  margin-inline: auto;
+  /* Anillo de degradado indigo → cian */
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  position: relative;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: var(--glow-accent), 0 16px 32px -18px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glow-cyan), var(--glow-accent), 0 22px 40px -18px rgba(0, 0, 0, 0.7);
+}
+
+.photo-card__img-container {
   position: absolute;
-  inset: -20px;
-  z-index: 0;
-  pointer-events: none;
+  inset: 5px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  background-color: #111;
+  /* Aro interior sutil para separar la foto del anillo */
+  box-shadow: inset 0 0 0 2px var(--color-bg);
 }
 
-.about__photo {
-  position: relative;
-  z-index: 1;
-  width: 220px;
-  height: 220px;
-  border-radius: 20px;
+.photo-card__img-container .space-loader {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.photo-card__img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 2px solid var(--color-accent);
-  box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.6);
+  /* Encaje del rostro dentro del recorte circular
+     (desplaza la imagen ligeramente hacia arriba-derecha) */
+  object-position: 28% 45%;
+  transition: transform 0.5s ease;
 }
 
-.about__toast-btn {
-  position: relative;
-  z-index: 1;
+.photo-card:hover .photo-card__img {
+  transform: scale(1.06);
 }
 
 .about__subtitle {
-  color: var(--color-accent-2);
+  color: #ffffff;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .about__paragraph {
-  color: var(--color-text);
+  color: #ffffff;
   margin-bottom: 1.1rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
-.about__paragraph .keyword-accent {
-  color: var(--color-accent-2);
-  font-weight: 600;
-}
-.about__paragraph .keyword-primary {
-  color: var(--color-accent);
-  font-weight: 600;
-}
+.about__paragraph .keyword-accent,
+.about__paragraph .keyword-primary,
 .about__paragraph .keyword-secondary {
-  color: #a78bfa;
+  color: #38bdf8;
   font-weight: 600;
 }
 
 .about__info-title {
   margin-top: 1.75rem;
   margin-bottom: 1rem;
-  color: var(--color-text);
+  color: #ffffff;
 }
 
 .about__stats {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .stat {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 140px;
+  min-width: 140px;
 }
 .stat__number {
   font-family: var(--font-display);
@@ -90,10 +123,205 @@
 .stat__label {
   font-size: 0.85rem;
   color: var(--color-muted);
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 860px) {
   .about__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Estilos Holográficos para los Números en 3D */
+.card-3d {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 900px;
+  margin: 15px 0;
+}
+
+.card-3d__holo {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 26px;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: card3d-wobble 6.2s ease-in-out infinite;
+}
+
+/* Desfase de animación para que se sientan orgánicos y no sincronizados */
+.stat:nth-child(2) .card-3d__holo {
+  animation: card3d-wobble 5.8s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+
+.stat:nth-child(3) .card-3d__holo {
+  animation: card3d-wobble 6.6s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+@keyframes card3d-wobble {
+  0% {
+    transform: rotateX(14deg) rotateY(-16deg);
+  }
+  50% {
+    transform: rotateX(18deg) rotateY(16deg);
+  }
+  100% {
+    transform: rotateX(14deg) rotateY(-16deg);
+  }
+}
+
+.card-3d__layer {
+  position: absolute;
+  font-weight: 900;
+  font-size: 86px;
+  letter-spacing: -5px;
+  line-height: 1;
+
+  -webkit-text-stroke: 1px rgba(0, 123, 255, 0.7);
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 123, 255, 0.18) 0%,
+    rgba(0, 123, 255, 0.92) 35%,
+    rgba(0, 180, 255, 0.7) 60%,
+    rgba(0, 123, 255, 0.22) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.55));
+  opacity: 0.95;
+  transform-style: preserve-3d;
+}
+
+/* Valores medianos (longitud 3, ej: '2+') */
+.card-3d--medium .card-3d__layer {
+  font-size: 64px;
+  letter-spacing: -3px;
+}
+
+/* Valores cortos/largos (longitud 4+, ej: '100%') */
+.card-3d--short .card-3d__layer {
+  font-size: 44px;
+  letter-spacing: -1.5px;
+}
+
+.card-3d__layer--back {
+  opacity: 0.18;
+  filter: blur(1px);
+  transform: translateZ(-70px);
+  -webkit-text-stroke: 1px rgba(0, 123, 255, 0.45);
+}
+.card-3d__layer--mid {
+  opacity: 0.42;
+  filter: blur(0.4px);
+  transform: translateZ(-34px);
+  -webkit-text-stroke: 1px rgba(0, 123, 255, 0.55);
+}
+.card-3d__layer--front {
+  opacity: 0.98;
+  transform: translateZ(0px);
+  -webkit-text-stroke: 1px rgba(34, 211, 238, 0.95);
+  background: linear-gradient(
+    90deg,
+    #22d3ee 0%,
+    #00f5ff 35%,
+    #6366f1 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Número en blanco y símbolo + en verde */
+.card-3d__num {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-stroke: 2px #00f2ea;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(0, 242, 234, 0.6);
+}
+.card-3d__sym {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-stroke: 0;
+  color: #4ade80;
+}
+/* Capas traseras: color atenuado */
+.card-3d__layer--back .card-3d__num,
+.card-3d__layer--mid .card-3d__num {
+  color: rgba(255, 255, 255, 0.35);
+}
+.card-3d__layer--back .card-3d__sym,
+.card-3d__layer--mid .card-3d__sym {
+  color: rgba(74, 222, 128, 0.35);
+}
+
+.card-3d__holo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 26px;
+  background: radial-gradient(
+    circle at 40% 35%,
+    rgba(0, 123, 255, 0.14),
+    rgba(0, 0, 0, 0) 62%
+  );
+  filter: blur(8px);
+  opacity: 0.9;
+  transform: translateZ(-80px);
+}
+
+.card-3d__holo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 26px;
+  border: 2px solid rgba(0, 242, 234, 0.4);
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.01) 45%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: 0 0 10px rgba(0, 242, 234, 0.2), inset 0 0 10px rgba(0, 242, 234, 0.1);
+  opacity: 0.55;
+  transform: translateZ(-45px);
+}
+
+@media (max-width: 600px) {
+  .card-3d__holo {
+    width: 128px;
+    height: 128px;
+    border-radius: 24px;
+  }
+  .card-3d__layer {
+    font-size: 96px;
+    letter-spacing: -5px;
+  }
+  .card-3d--medium .card-3d__layer {
+    font-size: 70px;
+    letter-spacing: -3px;
+  }
+  .card-3d--short .card-3d__layer {
+    font-size: 48px;
+    letter-spacing: -1.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-3d__holo {
+    animation: none !important;
   }
 }

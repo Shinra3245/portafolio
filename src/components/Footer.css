@@ -1,8 +1,28 @@
 .site-footer {
+  position: relative;
   text-align: center;
   padding: 3rem 1.5rem 2rem;
   border-top: 1px solid var(--color-border);
-  background: #05060d;
+  background: rgba(8, 9, 14, 0.6);
+}
+
+.site-footer__swords {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .site-footer__swords {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .site-footer__prompt {

@@ -1,5 +1,57 @@
 .specialization {
   padding: var(--section-padding);
-  max-width: 900px;
+  max-width: 1180px;
   margin: 0 auto;
+}
+
+/* ── Fila 1: Terminal ─────────────────────────── */
+.specialization__terminal-row {
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+/* ── Fila 2: Animación 3D ─────────────────────── */
+.specialization__skills-row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* El padding-bottom absorbe el desbordamiento visual de la proyección 3D */
+  padding-bottom: 6rem;
+}
+
+.specialization__skills-title {
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* Label de habilidad activa — debajo del canvas, no interfiere con la animación */
+.skill-active-label {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #badc58;
+  text-align: center;
+  letter-spacing: 0.05em;
+  min-height: 3rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  text-shadow: 0 0 24px rgba(186, 220, 88, 0.6);
+  pointer-events: none;
+  margin-top: 1.5rem;
+}
+
+.skill-active-label--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .specialization__terminal-row {
+    margin-bottom: 2rem;
+  }
 }

@@ -2,17 +2,17 @@
   "nav": {
     "home": "Home",
     "about": "About Me",
-    "services": "Services",
+    "services": "Focus",
     "experience": "Experience",
     "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hello! How's it going?",
+    "greeting": "Welcome ",
     "name": "Omar Bolaños",
     "role": "I'm excited to work together",
-    "cta": "Let's start",
+    "cta": "View projects",
     "ctaSecondary": "Download CV"
   },
   "about": {
@@ -22,13 +22,12 @@
     "paragraph2": "My work goes beyond websites: I've built <span class='keyword-primary'>full web platforms and mobile apps with Flutter</span>, with particular depth in <span class='keyword-secondary'>REST APIs with FastAPI and Flask</span>, security architectures (RBAC, RLS, authentication), and data processing engines. From management systems for businesses to smart waste-collection apps with real-time notifications, I always prioritize <span class='keyword-accent'>privacy, security, and user experience</span>.",
     "infoTitle": "Information",
     "statProjects": "Completed Projects",
-    "statProjectsValue": "5+",
+    "statProjectsValue": "6+",
     "statExperience": "My Experience in Projects",
     "statExperienceValue": "2+",
     "statClients": "Satisfied Clients",
     "statClientsValue": "100%",
-    "toastButton": "Click Here",
-    "toastMessage": "This animation was programmed by me."
+    "loadingText": "Loading space mission"
   },
   "tech": {
     "title": "Tech Stack",
@@ -38,53 +37,28 @@
     "rowFrontend": "Frontend",
     "rowDatos": "Databases",
     "rowDevops": "DevOps & Cloud",
+    "rowSistemas": "Operating Systems",
+    "rowIA": "AI & Code Assistants",
+    "rowHardware": "Hardware & IoT",
     "rowOtros": "Mobile & Tools"
   },
-  "services": {
-    "title": "Services",
-    "subtitle": "Here's how I approach every project, step by step",
-    "orbitTitle": "Comprehensive Process",
-    "orbitSubtitle": "Proven Methodology for Success",
-    "detailDefaultTitle": "Explore each step of the process",
-    "detailDefaultDescription": "Hover or tap any step to see the details of how I work in each stage of your project.",
-    "interactionHint": "Interact with each step to see the details",
-    "steps": {
-      "1": {
-        "label": "Consulting",
-        "title": "🔍 Consulting & Initial Analysis",
-        "description": "We analyze objectives, audience and requirements to define the perfect strategy.",
-        "features": ["Needs analysis", "Goal definition", "Competition study", "Custom proposal"]
-      },
-      "2": {
-        "label": "Design",
-        "title": "🎨 Design & Visual Prototyping",
-        "description": "Mockups and prototypes to see your site before developing it.",
-        "features": ["Interactive mockups", "Color palette", "Custom typography", "Responsive design"]
-      },
-      "3": {
-        "label": "Development",
-        "title": "💻 Development & Programming",
-        "description": "I transform the design into a fast, secure, and scalable site.",
-        "features": ["Clean and scalable code", "Modern technologies", "Performance optimization", "Security implemented"]
-      },
-      "4": {
-        "label": "Testing",
-        "title": "🧪 Testing & Optimization",
-        "description": "Testing on devices/browsers and improvement of usability and speed.",
-        "features": ["Multi-device testing", "Speed optimization", "Usability testing", "Bug fixing"]
-      },
-      "5": {
-        "label": "Launch",
-        "title": "🚀 Launch & Ongoing Support",
-        "description": "Deployment, training, support, and updates whenever you need them.",
-        "features": ["Professional deployment", "Training included", "Post-launch support", "Regular updates"]
-      },
-      "6": {
-        "label": "Improvement",
-        "title": "♻️ Continuous Improvement & Maintenance",
-        "description": "Monitoring, adjustments, and new iterations to maintain and enhance your product.",
-        "features": ["Monitoring and analytics", "Security patching", "Periodic optimization", "Feedback-based iterations"]
-      }
+  "focusAreas": {
+    "title": "Focus Areas",
+    "subtitle": "What I specialize in as a developer",
+    "eyebrow": "Focus areas",
+    "items": {
+      "fullstack": "Full-Stack Development",
+      "apis": "REST APIs & Backend",
+      "databases": "Databases & Data Modeling",
+      "security": "Security & Authentication",
+      "mobile": "Mobile Apps with Flutter",
+      "automation": "Automation & Scripting",
+      "leadership": "Technical Leadership & Scrum",
+      "devops": "DevOps & Cloud Deployment",
+      "testing": "Testing & QA",
+      "uxui": "UX/UI Design & Prototyping",
+      "performance": "Performance & Optimization",
+      "cleancode": "Best Practices (Clean Code)"
     }
   },
   "specialization": {
@@ -99,10 +73,14 @@
     "title": "Education",
     "academicTitle": "Academic Background",
     "certificationsTitle": "Certifications",
+    "certificationsSubtitle": "Select a certificate to preview it · tap the image to open it",
     "otherTitle": "Other Training"
   },
   "projects": {
     "title": "Projects",
+    "gallerySubtitle": "Every project, a system in the galaxy",
+    "backHome": "Main Menu",
+    "hoverHint": "Each planet is a project — hover or tap to discover it",
     "categoryAll": "All",
     "categoryWeb": "Web",
     "categoryPython": "Python",
@@ -130,7 +108,18 @@
       "communication": "Effective Communication",
       "detail": "Attention to Detail",
       "management": "Project Management",
-      "adaptability": "Adaptability"
+      "adaptability": "Adaptability",
+      "leadership": "Leadership"
+    },
+    "desc": {
+      "teamwork": "I collaborate and lift the team to go further together.",
+      "problemSolving": "I analyze challenges and find practical solutions.",
+      "organization": "I plan and prioritize to meet every goal.",
+      "communication": "I convey ideas clearly and truly listen.",
+      "detail": "I care for every detail to deliver real quality.",
+      "management": "I coordinate tasks and resources to the final result.",
+      "adaptability": "I adapt fast to new challenges and technologies.",
+      "leadership": "I guide and inspire the team toward shared goals."
     }
   },
   "contact": {
@@ -146,10 +135,10 @@
     "servicesTitle": "Featured Services",
     "serviceResponsive": "Responsive Web Pages",
     "serviceAdmin": "Management Systems",
-    "serviceAuth": "Authentication and Security",
-    "serviceReports": "PDF/Excel Reports",
-    "serviceAnimations": "Interactive Animations",
-    "serviceApis": "API Integration",
+    "servicePython": "Backend & Python APIs",
+    "serviceMobile": "Mobile Apps with Flutter",
+    "serviceSecurity": "Security Architectures",
+    "serviceData": "Data Processing Engines",
     "guaranteeTitle": "My Guarantee",
     "guaranteeText": "Clean, documented code with post-delivery support",
     "form": {
@@ -159,13 +148,16 @@
       "send": "Send",
       "sending": "Sending...",
       "success": "Message sent successfully!",
-      "error": "Something went wrong. Please try again."
+      "error": "Something went wrong. Please try again.",
+      "project": "Describe the project you want to build",
+      "projectHelper": "Share your idea: goal, key features and the kind of solution you envision, so we can build it together."
     }
   },
   "github": {
     "title": "GitHub Activity",
     "subtitle": "My open-source activity, live from GitHub",
     "heatmapTitle": "Contributions",
+    "statsTitle": "General Stats",
     "languagesTitle": "Most Used Languages",
     "viewProfile": "View full profile",
     "unavailable": "Couldn't load right now. You can view it directly on GitHub."

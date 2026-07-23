@@ -3,3 +3,7 @@ dist
 dist-ssr
 *.local
 .DS_Store
+
+# Assets crudos de trabajo (las versiones usadas por la app viven en src/assets/)
+/Textures/
+/Certificates/

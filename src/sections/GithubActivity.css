@@ -7,35 +7,155 @@
 
 .github-activity__grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   text-align: left;
 }
 
-.github-activity__card {
-  padding: 1.5rem;
-  overflow: hidden;
+.github-activity__card:first-child {
+  grid-column: 1 / -1; /* Heatmap takes full width */
 }
+
+/* ---------- Card shell (matches timeline / education cards) ---------- */
+.github-activity__card {
+  --st-rgb: 34, 211, 238; /* cyan accent */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 1.6rem 1.7rem;
+  border: 1px solid rgba(var(--st-rgb), 0.22);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(var(--st-rgb), 0.06), rgba(var(--st-rgb), 0) 55%),
+    var(--color-bg-card);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 12px 28px -20px rgba(0, 0, 0, 0.9);
+  transition: border-color 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
+}
+.github-activity__card:nth-child(2) {
+  --st-rgb: 99, 102, 241; /* indigo for the stats card */
+}
+.github-activity__card:nth-child(3) {
+  --st-rgb: 139, 122, 255; /* violet for the languages card */
+}
+
+/* Accent edge on the left + glow */
+.github-activity__card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14%;
+  bottom: 14%;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgb(var(--st-rgb)), rgba(var(--st-rgb), 0.15));
+  box-shadow: 0 0 12px rgba(var(--st-rgb), 0.6);
+}
+
+.github-activity__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--st-rgb), 0.5);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 18px 40px -18px rgba(var(--st-rgb), 0.4);
+}
+
 .github-activity__card h3 {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-text-strong);
+}
+/* Accent tick before each card title */
+.github-activity__card h3::before {
+  content: '';
+  width: 4px;
+  height: 1.05em;
+  border-radius: 999px;
+  background: rgb(var(--st-rgb));
+  box-shadow: 0 0 10px rgba(var(--st-rgb), 0.7);
+}
+
+/* ---------- Heatmap header ---------- */
+.heatmap-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.heatmap-card__total {
+  background: rgba(var(--st-rgb), 0.1);
+  border: 1px solid rgba(var(--st-rgb), 0.4);
+  color: rgb(var(--st-rgb));
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
 .github-activity__heatmap-wrap {
   overflow-x: auto;
-  border-radius: 8px;
+  overscroll-behavior-x: contain;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
 }
-.github-activity__heatmap-wrap img {
-  min-width: 640px;
-  width: 100%;
-  filter: saturate(1.1);
+
+/* ---------- Year filter buttons ---------- */
+.github-activity__years {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.year-btn {
+  background: rgba(var(--st-rgb), 0.06);
+  border: 1px solid rgba(var(--st-rgb), 0.25);
+  color: var(--color-text);
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.year-btn:hover {
+  border-color: rgba(var(--st-rgb), 0.55);
+  transform: translateY(-1px);
+}
+
+.year-btn.active {
+  background: rgba(var(--st-rgb), 0.18);
+  color: rgb(var(--st-rgb));
+  border-color: rgb(var(--st-rgb));
+  box-shadow: 0 0 14px -4px rgba(var(--st-rgb), 0.7);
+}
+
+.year-btn:focus-visible {
+  outline: 2px solid rgb(var(--st-rgb));
+  outline-offset: 2px;
+}
+
+/* Contorno sutil para los bloques del heatmap */
+.react-activity-calendar rect {
+  stroke: rgba(148, 163, 184, 0.15);
+  stroke-width: 1px;
 }
 
 .github-activity__langs {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
+  margin-top: 1rem;
 }
 
 .github-activity__fallback {
@@ -45,17 +165,25 @@
   justify-content: center;
   gap: 0.6rem;
   min-height: 140px;
+  margin-top: 1rem;
   color: var(--color-muted);
   font-size: 0.82rem;
   text-align: center;
-  border: 1px dashed var(--color-border);
-  border-radius: 8px;
+  border: 1px dashed rgba(var(--st-rgb), 0.35);
+  border-radius: 10px;
   padding: 1.5rem;
 }
 
 .github-activity__link {
   margin-top: 2rem;
   display: inline-flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .github-activity__card,
+  .year-btn {
+    transition: none;
+  }
 }
 
 @media (max-width: 780px) {
