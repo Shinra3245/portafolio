@@ -11,16 +11,10 @@ export const academic = {
   es: {
     institution: 'Tecnológico Nacional de México, Campus Celaya',
     degree: 'Ingeniería en Sistemas Computacionales',
-    detail: 'Promedio: 8.3 · Graduación: diciembre 2026',
-    subjects:
-      'Materias clave: Estructuras de Datos, Ingeniería de Software, Administración de Bases de Datos, Redes de Computadoras, Sistemas Operativos, Algoritmos.',
   },
   en: {
     institution: 'Tecnológico Nacional de México, Campus Celaya',
     degree: 'Computer Systems Engineering',
-    detail: 'GPA: 8.3 · Graduation: December 2026',
-    subjects:
-      'Key courses: Data Structures, Software Engineering, Database Administration, Computer Networks, Operating Systems, Algorithms.',
   },
 }
 

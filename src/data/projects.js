@@ -12,11 +12,12 @@ export const projects = [
   {
     id: 1,
     slug: 'panaderia',
+    planet: 'mercury',
     category: 'web',
     image: panaderiaImg,
-    video: null,
+    video: '/videos/panaderia.mp4',
     url: 'https://panaderia-la-flor.infy.uk',
-    repo: null,
+    repo: 'https://github.com/Shinra3245/Panaderia-La-Flor',
     techs: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
     credentials: {
       admin: { email: 'AdminPanaderia@gmail.com', password: '123' },
@@ -54,9 +55,10 @@ export const projects = [
   {
     id: 2,
     slug: 'tickets',
+    planet: 'venus',
     category: 'web',
     image: sistemasImg,
-    video: null,
+    video: '/videos/tickets.mp4',
     url: 'https://sistemas-presidencia.infinityfreeapp.com',
     repo: null,
     techs: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
@@ -92,6 +94,7 @@ export const projects = [
   {
     id: 6,
     slug: 'ilpea',
+    planet: 'earth',
     category: 'web',
     image: ilpeaImg,
     video: null,
@@ -130,9 +133,10 @@ export const projects = [
   {
     id: 7,
     slug: 'siesif',
+    planet: 'mars',
     category: 'python',
     image: siesifImg,
-    video: null,
+    video: '/videos/siesif.mp4',
     url: 'https://siesif.onrender.com',
     repo: 'https://github.com/Shinra3245/SIESIF',
     techs: ['Python', 'Flask', 'SQLAlchemy', 'PostgreSQL'],
@@ -168,6 +172,7 @@ export const projects = [
   {
     id: 8,
     slug: 'recolecta',
+    planet: 'jupiter',
     category: 'movil',
     image: recolectaImg,
     video: null,
@@ -208,9 +213,10 @@ export const projects = [
   {
     id: 9,
     slug: 'pyprimes',
+    planet: 'saturn',
     category: 'python',
     image: pyprimesImg,
-    video: null,
+    video: '/videos/pyprimes.mp4',
     url: null,
     repo: 'https://github.com/Shinra3245/PyPrimes3D',
     techs: ['Python', 'PyOpenGL', 'NumPy', 'SymPy'],
@@ -244,6 +250,7 @@ export const projects = [
   {
     id: 10,
     slug: 'rally',
+    planet: 'uranus',
     category: 'web',
     image: rallyImg,
     video: '/videos/rally.mp4',
@@ -282,6 +289,7 @@ export const projects = [
   {
     id: 11,
     slug: 'playstation',
+    planet: 'sun',
     category: 'hardware',
     image: playstationImg,
     video: '/videos/playstation.mp4',
@@ -318,6 +326,8 @@ export const projects = [
   {
     id: 12,
     slug: 'srac',
+    planet: 'sun',
+    planetHue: 190,
     category: 'hardware',
     image: null,
     video: null,

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { GraduationCap, Award } from 'lucide-react'
 import { academic } from '../data/education'
 import CertificatesShowcase from '../components/CertificatesShowcase'
+import tecnmLogo from '../assets/images/tecnm.png'
 import './Education.css'
 
 function Education() {
@@ -21,10 +22,19 @@ function Education() {
             </span>
             <h3>{t('education.academicTitle')}</h3>
           </div>
-          <h4 className="education__degree">{academicContent.degree}</h4>
-          <p className="education__institution">{academicContent.institution}</p>
-          <p className="education__detail">{academicContent.detail}</p>
-          <p className="education__subjects">{academicContent.subjects}</p>
+          <div className="education__academic-body">
+            <img
+              className="education__logo"
+              src={tecnmLogo}
+              alt="Tecnológico Nacional de México"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <h4 className="education__degree">{academicContent.degree}</h4>
+              <p className="education__institution">{academicContent.institution}</p>
+            </div>
+          </div>
         </article>
 
         <article className="education__card education__card--certs">

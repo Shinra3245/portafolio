@@ -16,11 +16,11 @@
 }
 
 .contact__card.card {
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(240, 15%, 9%);
-  --paragraph: hsl(0, 0%, 83%);
-  --line: hsl(240, 9%, 17%);
-  --primary: hsl(266, 92%, 58%);
+  /* Variables locales remapeadas al sistema de diseño del portafolio */
+  --white: var(--color-text-strong);
+  --paragraph: var(--color-text);
+  --line: var(--color-border);
+  --primary: var(--color-accent-2);
 
   position: relative;
   display: flex;
@@ -28,100 +28,40 @@
   gap: 1.5rem;
   padding: 1.75rem;
   width: 100%;
-  background: transparent;
-  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, var(--color-accent-soft), transparent 55%),
+    var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition), border-color var(--transition),
+    box-shadow var(--transition);
   z-index: 1;
-  border: none;
 }
 
-.contact__card.card::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  background-color: var(--color-bg-card);
-  background-image: radial-gradient(
-      at 88% 40%,
-      var(--color-bg-card) 0px,
-      transparent 85%
-    ),
-    radial-gradient(at 49% 30%, var(--color-bg-card) 0px, transparent 85%),
-    radial-gradient(at 14% 26%, var(--color-bg-card) 0px, transparent 85%),
-    radial-gradient(at 0% 64%, rgba(99, 102, 241, 0.4) 0px, transparent 85%),
-    radial-gradient(at 41% 94%, rgba(34, 211, 238, 0.3) 0px, transparent 85%),
-    radial-gradient(at 100% 99%, rgba(99, 102, 241, 0.5) 0px, transparent 85%);
-  border-radius: 0.85rem;
-  box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.contact__card.card .card__border {
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  z-index: -2;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient(
-    0deg,
-    hsl(0, 0%, 100%) -50%,
-    hsl(0, 0%, 40%) 100%
-  );
-  border-radius: 1rem;
-}
-
-.contact__card.card .card__border::before {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  z-index: 200;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(0deg);
-  transform-origin: left;
-  width: 200%;
-  height: 10rem;
-  background-image: linear-gradient(
-    0deg,
-    hsla(0, 0%, 100%, 0) 0%,
-    var(--color-accent) 40%,
-    var(--color-accent-2) 60%,
-    hsla(0, 0%, 40%, 0) 100%
-  );
-  animation: rotateBorder 8s linear infinite;
-}
-
-@keyframes rotateBorder {
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+.contact__card.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-lg), var(--glow-accent);
 }
 
 .contact__heading {
   font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: var(--white) !important;
+  color: var(--color-text-strong) !important;
   background: none !important;
-  -webkit-text-fill-color: var(--white) !important;
-  z-index: 2;
-  position: relative;
+  -webkit-text-fill-color: var(--color-text-strong) !important;
 }
 
 .contact__subheading {
   font-size: 0.95rem;
-  margin-bottom: 0.85rem;
-  color: var(--paragraph) !important;
-  z-index: 2;
-  position: relative;
+  color: var(--color-muted) !important;
+  margin-top: -0.75rem;
 }
 
 .contact__socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 2.5rem 0 2.75rem;
+  gap: 1rem;
 }
 
 .contact__status {
@@ -166,38 +106,54 @@
 .contact__services {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
-  z-index: 2;
-  position: relative;
+  gap: 0.9rem;
 }
 .contact__services li {
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: var(--paragraph);
-  font-size: 1.05rem;
+  color: var(--color-text);
+  font-size: 1rem;
 }
-.contact__services svg {
-  color: var(--primary);
+.contact__service-label {
+  line-height: 1.3;
+}
+
+/* Tile de tamaño fijo: garantiza que todos los iconos mantengan
+   exactamente la misma proporción y huella visual */
+.contact__service-icon {
   flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-accent-2);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.contact__card.card:hover .contact__service-icon {
+  border-color: var(--color-border-strong);
+}
+.contact__service-icon svg {
+  color: var(--color-accent-2);
 }
 
 .contact__service-gif {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
-  flex-shrink: 0;
 }
 
 .contact__guarantee {
   display: flex;
-  gap: 0.75rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--line);
-  color: var(--primary);
-  z-index: 2;
-  position: relative;
+  align-items: center;
+  gap: 0.9rem;
+  padding-top: 1.25rem;
+  margin-top: 0.25rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
 }
 .contact__guarantee strong {
   color: var(--white);

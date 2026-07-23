@@ -79,6 +79,9 @@ function MissionTrajectory() {
     }
 
     const content = item[lang]
+    // Las cards de evento (hackathons) definen habilidades blandas por idioma
+    // en content.skills; el resto usa el stack técnico compartido (item.techs).
+    const chips = content.skills || item.techs
     const meta = TYPE_META[item.type] || TYPE_META.role
     const { Icon } = meta
     const side = i % 2 === 0 ? 'left' : 'right'
@@ -92,6 +95,15 @@ function MissionTrajectory() {
         </div>
 
         <div className={`mission-station__card card ${meta.cls}`}>
+          {item.image && (
+            <div
+              className={`mission-station__media ${
+                item.imagePortrait ? 'mission-station__media--portrait' : ''
+              }`}
+            >
+              <img src={item.image} alt={content.title} loading="lazy" decoding="async" />
+            </div>
+          )}
           <div className="mission-station__meta">
             <span className="mission-station__date">{item.date}</span>
             {item.badge && <span className={`mission-station__badge ${meta.cls}`}>{item.badge}</span>}
@@ -101,9 +113,9 @@ function MissionTrajectory() {
           <p className="mission-station__description">{content.description}</p>
           <div className="mission-station__footer">
             <div className="mission-station__techs">
-              {item.techs.map((tech) => (
-                <span key={tech} className="mission-station__tech">
-                  {tech}
+              {chips.map((chip) => (
+                <span key={chip} className="mission-station__tech">
+                  {chip}
                 </span>
               ))}
             </div>

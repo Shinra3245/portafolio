@@ -32,17 +32,17 @@ import './Contact.css'
 
 const SOCIALS = [
   {
-    href: 'https://www.facebook.com/share/19Jt6HQKa8/',
+    href: 'https://www.facebook.com/share/1c27VUAJGY/',
     icon: facebookIcon,
     label: 'Facebook',
     sublabel: 'Omar Bolaños',
     color: '#0866ff',
   },
   {
-    href: 'https://www.instagram.com/g_omaar._.32?igsh=MTltMTJhN3ZxMmR4cw==',
+    href: 'https://www.instagram.com/omarg_b32?igsh=MW81NXFzcHgzazdwcA==',
     icon: instagramIcon,
     label: 'Instagram',
-    sublabel: '@g_omaar._.32',
+    sublabel: '@omarg_b32',
     color: '#e6683c',
   },
   {
@@ -116,7 +116,6 @@ function Contact() {
     <section id="contacto" className="contact">
       <div className="contact__grid">
         <div className="contact__card card">
-          <div className="card__border"></div>
           <h3 className="contact__heading">{t('contact.connectTitle')}</h3>
           <h4 className="contact__subheading">{t('contact.followMeTitle')}</h4>
           <div className="contact__socials">
@@ -131,32 +130,34 @@ function Contact() {
         </div>
 
         <div className="contact__card card">
-          <div className="card__border"></div>
           <h3 className="contact__heading">{t('contact.servicesTitle')}</h3>
           <ul className="contact__services">
             {SERVICE_ITEMS.map(({ key, Icon, animationData }) => (
               <li key={key}>
-                {animationData ? (
-                  <Lottie
-                    animationData={animationData}
-                    loop={true}
-                    className="contact__service-gif"
-                  />
-                ) : (
-                  <Icon size={42} />
-                )}
-                <span>{t(`contact.${key}`)}</span>
+                <span className="contact__service-icon">
+                  {animationData ? (
+                    <Lottie
+                      animationData={animationData}
+                      loop={true}
+                      className="contact__service-gif"
+                    />
+                  ) : (
+                    <Icon size={28} />
+                  )}
+                </span>
+                <span className="contact__service-label">{t(`contact.${key}`)}</span>
               </li>
             ))}
           </ul>
 
           <div className="contact__guarantee">
-            <Lottie
-              animationData={trophyLottie}
-              loop={true}
-              className="contact__service-gif"
-              style={{ width: '42px', height: '42px' }}
-            />
+            <span className="contact__service-icon">
+              <Lottie
+                animationData={trophyLottie}
+                loop={true}
+                className="contact__service-gif"
+              />
+            </span>
             <div>
               <strong>{t('contact.guaranteeTitle')}</strong>
               <p>{t('contact.guaranteeText')}</p>
@@ -239,18 +240,6 @@ function Contact() {
                 {t('contact.form.project')}
               </label>
               <small className="form-helper">{t('contact.form.projectHelper')}</small>
-            </div>
-
-            <div className="form-group">
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                placeholder=" "
-              />
-              <label htmlFor="message" className="form-label" data-text={t('contact.form.message')}>
-                {t('contact.form.message')}
-              </label>
             </div>
 
             <button

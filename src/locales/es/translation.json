@@ -85,6 +85,8 @@
     "categoryWeb": "Web",
     "categoryPython": "Python",
     "categoryMovil": "Móvil",
+    "categoryHardware": "Hardware",
+    "selectHint": "Selecciona un planeta para explorar el proyecto",
     "featuresTitle": "Servicios incluidos:",
     "viewSite": "Visitar",
     "viewCode": "Ver código",

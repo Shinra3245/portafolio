@@ -86,19 +86,33 @@
   color: rgb(var(--st-rgb));
   font-weight: 600;
   font-size: 0.9rem;
-  margin-bottom: 0.6rem;
 }
-.education__detail {
-  font-size: 0.85rem;
-  color: rgba(226, 232, 240, 0.74);
-  margin-bottom: 0.7rem;
+
+/* ---------- Academic: logo TecNM + carrera ---------- */
+.education__academic-body {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
 }
-.education__subjects {
-  font-size: 0.83rem;
-  color: rgba(226, 232, 240, 0.66);
-  line-height: 1.65;
-  padding-top: 0.8rem;
-  border-top: 1px solid rgba(var(--st-rgb), 0.12);
+.education__logo {
+  flex-shrink: 0;
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0) 72%);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.education__card--academic:hover .education__logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(var(--st-rgb), 0.55));
+}
+
+@media (max-width: 520px) {
+  .education__logo {
+    width: 64px;
+    height: 64px;
+  }
 }
 
 /* ---------- Certifications ---------- */
