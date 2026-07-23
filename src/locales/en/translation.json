@@ -2,10 +2,12 @@
   "nav": {
     "home": "Home",
     "about": "About Me",
-    "services": "Focus",
+    "tech": "Tech Stack",
+    "specialization": "Specialization",
     "experience": "Experience",
+    "education": "Education",
+    "github": "GitHub",
     "projects": "Projects",
-    "skills": "Skills",
     "contact": "Contact"
   },
   "hero": {

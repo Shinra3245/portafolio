@@ -10,10 +10,12 @@ import './Navbar.css'
 const links = [
   { href: '#inicio', key: 'nav.home' },
   { href: '#sobre-mi', key: 'nav.about' },
-  { href: '#servicios', key: 'nav.services' },
+  { href: '#tecnologias', key: 'nav.tech' },
+  { href: '#especializacion', key: 'nav.specialization' },
   { href: '#experiencia', key: 'nav.experience' },
+  { href: '#educacion', key: 'nav.education' },
+  { href: '#github', key: 'nav.github' },
   { href: '/proyectos', key: 'nav.projects', route: true },
-  { href: '#habilidades', key: 'nav.skills' },
   { href: '#contacto', key: 'nav.contact' },
 ]
 

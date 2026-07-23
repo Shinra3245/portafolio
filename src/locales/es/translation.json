@@ -2,10 +2,12 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre mí",
-    "services": "Enfoque",
+    "tech": "Tecnologías",
+    "specialization": "Especialización",
     "experience": "Experiencia",
+    "education": "Educación",
+    "github": "GitHub",
     "projects": "Proyectos",
-    "skills": "Habilidades",
     "contact": "Contacto"
   },
   "hero": {
