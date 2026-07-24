@@ -330,7 +330,7 @@ export const projects = [
     planetHue: 190,
     category: 'hardware',
     image: null,
-    video: null,
+    video: '/videos/srac.mp4',
     url: null,
     repo: null,
     techs: ['ESP32', 'C++', 'IoT', 'Servo SG90', 'JavaScript'],
