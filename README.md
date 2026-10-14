@@ -1,96 +1,87 @@
-# 🚀 Portafolio Personal
+# Portafolio de Omar Bolaños
 
-Un portafolio web moderno y multiidioma que presenta proyectos y habilidades profesionales de manera interactiva.
+Portafolio de proyectos Full Stack, Python, aplicaciones móviles y hardware, con una identidad visual espacial.
 
-## 📋 Sobre este Repositorio
+**Sitio:** [shinradev.online](https://shinradev.online/)
 
-Este repositorio documenta la arquitectura y estructura técnica de mi portafolio personal. No incluye el código fuente completo, ya que el proyecto está protegido por derechos de autor.
+**Vercel:** [portafolio-mu-gray.vercel.app](https://portafolio-mu-gray.vercel.app/)
 
-**Para ver el proyecto funcionando, visita**: **[shinradev.site](https://shinradev.online)**
+**GitHub:** [Shinra3245](https://github.com/Shinra3245)
 
-## 🏗️ Arquitectura del Sistema
+## Tecnologías
 
-```mermaid
-graph TD
-    4["User<br>External Actor"]
-    subgraph 1["Asset Management System"]
-        12["Image Assets<br>Various"]
-        13["Icon Assets<br>SVG"]
-        14["Font Assets<br>WOFF/WOFF2"]
-        15["Video Assets<br>MP4"]
-    end
-    subgraph 2["Localization System"]
-        10["Language Data Modules<br>JSON"]
-        11["Language Management Module<br>JavaScript"]
-        11["Language Management Module<br>JavaScript"] -->|reads from| 10["Language Data Modules<br>JSON"]
-    end
-    subgraph 3["Frontend Presentation System"]
-        5["HTML Structure<br>HTML"]
-        6["CSS Styling<br>CSS"]
-        7["JS Core &amp; Custom<br>JavaScript"]
-        8["Interactivity &amp; Modals<br>JavaScript"]
-        9["UI Enhancement Scripts<br>JavaScript"]
-        7["JS Core &amp; Custom<br>JavaScript"] -->|manipulates| 5["HTML Structure<br>HTML"]
-        8["Interactivity &amp; Modals<br>JavaScript"] -->|manipulates| 5["HTML Structure<br>HTML"]
-        9["UI Enhancement Scripts<br>JavaScript"] -->|manipulates| 5["HTML Structure<br>HTML"]
-        5["HTML Structure<br>HTML"] -->|links to| 6["CSS Styling<br>CSS"]
-    end
-    3["Frontend Presentation System"] -->|uses| 1["Asset Management System"]
-    3["Frontend Presentation System"] -->|uses| 2["Localization System"]
-    4["User<br>External Actor"] -->|interacts with| 3["Frontend Presentation System"]
+React 18, Vite, React Router, i18next (español/inglés), Three.js y React Three Fiber (fondo estrellado), GSAP y Anime.js (animación), Lenis (desplazamiento) y FormSubmit (formulario de contacto).
+
+## Desarrollo local
+
+Requiere Node.js compatible con Vite 5 y npm.
+
+```bash
+npm ci
+npm run dev
 ```
 
-### Descripción de Componentes
+Para compilar y revisar producción:
 
-**🗂️ Asset Management System**: Gestiona todos los recursos multimedia (imágenes, iconos SVG, fuentes web y videos) de forma centralizada para optimizar la carga y mantenimiento.
-
-**🌍 Localization System**: Maneja el soporte multiidioma mediante archivos JSON con traducciones y un módulo JavaScript que controla el cambio dinámico de idiomas.
-
-**🎨 Frontend Presentation System**: Sistema principal de presentación que incluye la estructura HTML, estilos CSS, lógica JavaScript core, sistema de modales interactivos y mejoras de UI.
-
-## 📁 Gestión de Archivos
-
-```
-portfolio/
-├── index.html              # Página principal
-├── assets/                 # Todos los recursos multimedia
-│   ├── images/            # Fotografías y gráficos
-│   ├── icons/             # Iconos SVG
-│   ├── fonts/             # Fuentes WOFF/WOFF2
-│   └── videos/            # Videos MP4
-├── css/                   # Estilos del sitio
-│   ├── main.css          # Estilos principales
-│   └── responsive.css    # Diseño responsivo
-├── js/                    # Scripts JavaScript
-│   ├── core.js           # Funcionalidad principal
-│   ├── modals.js         # Sistema de modales
-│   └── ui-enhancements.js # Mejoras de interfaz
-├── locales/               # Sistema multiidioma
-│   ├── es.json           # Textos en español
-│   ├── en.json           # Textos en inglés
-│   └── lang-manager.js   # Gestor de idiomas
-└── README.md
+```bash
+npm run build
+npm run preview
 ```
 
-### Organización por Sistema
+## Estructura
 
-- **Assets (Sistema 1)**: Todos los archivos multimedia están organizados por tipo en la carpeta `assets/`
-- **Localization (Sistema 2)**: Los archivos de idiomas JSON y el gestor están en `locales/`
-- **Frontend (Sistema 3)**: Los archivos HTML, CSS y JS están separados por funcionalidad específica
+```text
+src/
+  App.jsx                 Rutas y carga diferida
+  components/             Navegación, CV, certificados e interacciones
+  sections/               Inicio, trayectoria, educación, GitHub y contacto
+  pages/                  Explorador de proyectos
+  data/                   Proyectos, experiencia, formación y contacto
+  locales/                Traducciones activas es/en
+  hooks/                  Desplazamiento y utilidades
+  3d/                     Fondo estrellado
+  assets/                 Imágenes, iconos, texturas y fuentes
+public/
+  CV.pdf                  CV original preservado
+  CV-actualizado.pdf       Copia con contactos y dominio del portafolio
+  videos/                 Demostraciones
+scripts/
+  optimize_assets.py      Genera copias WebP y actualiza referencias
+tests/
+  browser_smoke.py        Regresión de navegación, móvil e idiomas
+```
 
-## 🌐 Ver el Proyecto
+`lang/` conserva archivos de una versión anterior; la aplicación actual utiliza `src/locales/`.
 
-Este portafolio está disponible en línea en: **[shinradev.site](https://shinradev.online)**
+## Actualizar contenido
 
-> **Nota**: Este repositorio es solo para mostrar la arquitectura y documentación del proyecto. El código fuente está protegido por derechos de autor y no está disponible para clonación.
+- Proyectos existentes: `src/data/projects.js`.
+- Trayectoria y formación: `src/data/experience.js` y `src/data/education.js`.
+- Correo, LinkedIn y enlaces principales: `src/data/profile.js`.
+- Textos: `src/locales/es/translation.json` y `src/locales/en/translation.json`.
 
-## 💻 Tecnologías
+Las estadísticas se calculan a partir del catálogo y los certificados. No se deben incluir contraseñas ni credenciales administrativas en el frontend. Cambiar el correo en `profile.js` también requiere actualizar la copia del CV y confirmar la configuración del servicio FormSubmit.
 
-- **Frontend**: HTML5, CSS3, JavaScript ES6+
-- **Activos**: Imágenes optimizadas, SVG, WOFF2, MP4
-- **Localización**: JSON + JavaScript
-- **Arquitectura**: Modular y escalable
+Las imágenes originales se conservan; las referencias activas usan copias WebP. Para regenerarlas, con Pillow instalado:
 
----
+```bash
+python3 scripts/optimize_assets.py
+```
 
-📄 **Este proyecto está protegido por derechos de autor** | 🌐 **Ver en vivo**: [shinradev.site](https://shinradev.site)
+## Validación
+
+La prueba de navegador requiere Python, Playwright y Chromium. Con la vista previa activa:
+
+```bash
+python3 tests/browser_smoke.py --base-url http://localhost:4173
+```
+
+Comprueba navegación de ida y vuelta, filtros, fichas, funcionalidades, menú a diferentes anchos, traducciones regionales y descarga del CV. No envía mensajes reales ni verifica recepción de correo o hardware físico.
+
+## Despliegue
+
+El repositorio está conectado con Vercel: publicar en `main` genera el despliegue de producción. `vercel.json` permite abrir directamente rutas como `/proyectos`. Después de publicar, se debe confirmar el estado del despliegue y repetir las pruebas contra su URL pública.
+
+## Autoría
+
+© Omar Bolaños. Derechos reservados. Este repositorio contiene el código del portafolio y su documentación.

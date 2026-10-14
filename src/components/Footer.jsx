@@ -1,5 +1,7 @@
+import { profile } from '../data/profile'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { Github, Linkedin, Mail, MessageCircle } from 'lucide-react'
 import LightsaberIcon from './LightsaberIcon'
 import './Footer.css'
@@ -9,15 +11,15 @@ const CHAR_DELAY = 55
 const NAV_LINKS = [
   { href: '#inicio', key: 'nav.home' },
   { href: '#sobre-mi', key: 'nav.about' },
-  { href: '#proyectos', key: 'nav.projects' },
+  { href: '/proyectos', key: 'nav.projects' },
   { href: '#contacto', key: 'nav.contact' },
 ]
 
 const SOCIALS = [
-  { href: 'https://github.com/Shinra3245', Icon: Github, label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/omar-gadiel-bolaños-garcía-1a4154359/', Icon: Linkedin, label: 'LinkedIn' },
-  { href: 'https://wa.me/524131060699', Icon: MessageCircle, label: 'WhatsApp' },
-  { href: 'mailto:omarbolanos198@gmail.com', Icon: Mail, label: 'Email' },
+  { href: profile.github, Icon: Github, label: 'GitHub' },
+  { href: profile.linkedin, Icon: Linkedin, label: 'LinkedIn' },
+  { href: profile.whatsapp, Icon: MessageCircle, label: 'WhatsApp' },
+  { href: `mailto:${profile.email}`, Icon: Mail, label: 'Email' },
 ]
 
 function Footer() {
@@ -79,9 +81,9 @@ function Footer() {
 
       <nav className="site-footer__nav">
         {NAV_LINKS.map((link) => (
-          <a key={link.key} href={link.href}>
+          <Link key={link.key} to={link.href.startsWith('#') ? `/${link.href}` : link.href}>
             {t(link.key)}
-          </a>
+          </Link>
         ))}
       </nav>
 

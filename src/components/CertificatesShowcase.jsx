@@ -40,7 +40,6 @@ function CertificatesShowcase({ lang }) {
       {/* Selectable list */}
       <ul
         className="certs__list"
-        role="listbox"
         aria-label={t('education.certificationsTitle')}
         data-lenis-prevent
       >

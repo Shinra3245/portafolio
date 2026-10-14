@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { animate, createTimeline, stagger, svg } from 'animejs'
+import { createTimeline, stagger, svg } from 'animejs'
 import { nameSignature } from '../data/nameSignature'
 import './DrawnName.css'
 
@@ -9,12 +9,17 @@ function DrawnName({ label }) {
 
   useEffect(() => {
     const paths = svgRef.current.querySelectorAll('.drawn-name__letter')
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      paths.forEach((path) => path.setAttribute('fill-opacity', '1'))
+      return
+    }
     const drawables = svg.createDrawable(paths)
     let timeline = null
+    let timer
 
     const startAnimation = () => {
       // Small timeout to allow the fade-out of the loader to process visually
-      setTimeout(() => {
+      timer = setTimeout(() => {
         timeline = createTimeline({ defaults: { ease: 'inOutQuad' } })
         timeline
           .add(drawables, { draw: ['0 0', '0 1'], duration: 650, delay: stagger(110) }, 0)
@@ -29,6 +34,7 @@ function DrawnName({ label }) {
     }
 
     return () => {
+      clearTimeout(timer)
       if (timeline) timeline.pause()
       window.removeEventListener('pageLoaded', startAnimation)
     }

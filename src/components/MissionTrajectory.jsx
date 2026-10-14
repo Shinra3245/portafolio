@@ -20,7 +20,7 @@ const isCurrent = (date) => /presente|present/i.test(date)
 
 function MissionTrajectory() {
   const { i18n } = useTranslation()
-  const lang = i18n.language === 'en' ? 'en' : 'es'
+  const lang = i18n.resolvedLanguage === 'en' ? 'en' : 'es'
   const containerRef = useRef(null)
   const lineRef = useRef(null)
 
@@ -105,8 +105,8 @@ function MissionTrajectory() {
             </div>
           )}
           <div className="mission-station__meta">
-            <span className="mission-station__date">{item.date}</span>
-            {item.badge && <span className={`mission-station__badge ${meta.cls}`}>{item.badge}</span>}
+            <span className="mission-station__date">{content.date || item.date}</span>
+            {item.badge && <span className={`mission-station__badge ${meta.cls}`}>{content.badge || item.badge}</span>}
           </div>
           <h3 className="mission-station__title">{content.title}</h3>
           <p className="mission-station__role">{content.role}</p>

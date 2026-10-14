@@ -8,28 +8,27 @@
     "education": "Education",
     "github": "GitHub",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "greeting": "Welcome ",
     "name": "Omar Bolaños",
-    "role": "I'm excited to work together",
+    "role": "Full Stack developer focused on Python, APIs and mobile apps",
     "cta": "View projects",
     "ctaSecondary": "Download CV"
   },
   "about": {
     "title": "My Journey",
     "subtitle": "A little about me",
-    "paragraph1": "I'm a <span class='keyword-primary'>Full-Stack developer with a strong focus on Python</span>, my main language. I'm in my 8th semester of <span class='keyword-secondary'>Computer Systems Engineering</span> at Tecnológico Nacional de México, Campus Celaya, and I've led technical teams under Scrum, including <span class='keyword-accent'>1st place at LinceHack 2026</span>, Innovation & Technology category.",
+    "paragraph1": "I'm a <span class='keyword-primary'>Full-Stack developer with a strong focus on Python</span>, my main language. I study <span class='keyword-secondary'>Computer Systems Engineering</span> at Tecnológico Nacional de México, Campus Celaya, and I've led technical teams under Scrum, including <span class='keyword-accent'>1st place at LinceHack 2026</span>, Innovation & Technology category.",
     "paragraph2": "My work goes beyond websites: I've built <span class='keyword-primary'>full web platforms and mobile apps with Flutter</span>, with particular depth in <span class='keyword-secondary'>REST APIs with FastAPI and Flask</span>, security architectures (RBAC, RLS, authentication), and data processing engines. From management systems for businesses to smart waste-collection apps with real-time notifications, I always prioritize <span class='keyword-accent'>privacy, security, and user experience</span>.",
     "infoTitle": "Information",
-    "statProjects": "Completed Projects",
-    "statProjectsValue": "6+",
-    "statExperience": "My Experience in Projects",
-    "statExperienceValue": "2+",
-    "statClients": "Satisfied Clients",
-    "statClientsValue": "100%",
-    "loadingText": "Loading space mission"
+    "statProjects": "Featured projects",
+    "loadingText": "Loading space mission",
+    "statCategories": "Project categories",
+    "statCertifications": "Certificates to explore"
   },
   "tech": {
     "title": "Tech Stack",
@@ -89,18 +88,13 @@
     "categoryMovil": "Mobile",
     "categoryHardware": "Hardware",
     "selectHint": "Select a planet to explore the project",
-    "featuresTitle": "Included services:",
+    "featuresTitle": "Features and contributions",
     "viewSite": "Visit",
     "viewCode": "View code",
     "viewDetails": "More details",
     "previewPending": "Preview coming soon",
     "close": "Close",
-    "accessButton": "Access",
-    "credentialsTitle": "Test Access Credentials",
-    "credentialsSubtitle": "Access Credentials",
-    "credentialsAdmin": "Administrator",
-    "credentialsCustomer": "Customer User",
-    "credentialsPassword": "Password"
+    "loading": "Loading projects…"
   },
   "skills": {
     "title": "Skills",
@@ -164,7 +158,8 @@
     "statsTitle": "General Stats",
     "languagesTitle": "Most Used Languages",
     "viewProfile": "View full profile",
-    "unavailable": "Couldn't load right now. You can view it directly on GitHub."
+    "unavailable": "Couldn't load right now. You can view it directly on GitHub.",
+    "contributions": "{{count}} contributions"
   },
   "footer": {
     "copyright": "Copyright © 2025 Omar Bolaños. All rights reserved",

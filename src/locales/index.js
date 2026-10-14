@@ -13,7 +13,15 @@ i18n
       en: { translation: translationEN },
     },
     fallbackLng: 'es',
+    supportedLngs: ['es', 'en'],
+    load: 'languageOnly',
     interpolation: { escapeValue: false },
   })
+
+const updateDocumentLanguage = () => {
+  document.documentElement.lang = i18n.resolvedLanguage || 'es'
+}
+i18n.on('languageChanged', updateDocumentLanguage)
+updateDocumentLanguage()
 
 export default i18n

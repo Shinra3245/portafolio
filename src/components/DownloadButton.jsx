@@ -13,7 +13,7 @@ function DownloadButton() {
   return (
     <div className="dl-tooltip">
       <a
-        href="/CV.pdf"
+        href="/CV-actualizado.pdf"
         download
         className="dl-btn"
         aria-label={t('hero.ctaSecondary')}

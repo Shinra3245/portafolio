@@ -48,7 +48,7 @@ const FILTERS = [
 
 function ProjectsPage() {
   const { t, i18n } = useTranslation()
-  const lang = i18n.language === 'en' ? 'en' : 'es'
+  const lang = i18n.resolvedLanguage === 'en' ? 'en' : 'es'
   const mapRef = useRef(null)
 
   const [filter, setFilter] = useState('all')
@@ -120,13 +120,12 @@ function ProjectsPage() {
         </p>
 
         <div className="projects-explorer">
-          <div className="projects-filters" role="tablist" aria-label={t('projects.title')}>
+          <div className="projects-filters" role="group" aria-label={t('projects.title')}>
             {FILTERS.map((f) => (
               <button
                 key={f.id}
                 type="button"
-                role="tab"
-                aria-selected={filter === f.id}
+                aria-pressed={filter === f.id}
                 className={`projects-filters__btn ${filter === f.id ? 'is-active' : ''}`}
                 onClick={() => setFilter(f.id)}
               >
@@ -146,6 +145,8 @@ function ProjectsPage() {
                     className={`planet-list__item ${active ? 'is-active' : ''}`}
                     onClick={() => setSelectedId(p.id)}
                     aria-pressed={active}
+                    aria-label={content.title}
+                    title={content.title}
                   >
                     <span className="planet-list__orb">
                       <img
@@ -174,7 +175,7 @@ function ProjectsPage() {
                     playsInline
                   />
                 ) : selected.image ? (
-                  <img src={selected.image} alt={selected[lang].title} />
+                  <img src={selected.image} alt={selected[lang].title} decoding="async" />
                 ) : (
                   <div className="project-detail__placeholder">
                     {t('projects.previewPending')}
@@ -205,6 +206,15 @@ function ProjectsPage() {
                 </ul>
 
                 <p className="project-detail__desc">{selected[lang].description}</p>
+
+                {selected[lang].features?.length > 0 && (
+                  <div className="project-detail__features">
+                    <h3>{t('projects.featuresTitle')}</h3>
+                    <ul>
+                      {selected[lang].features.map((feature) => <li key={feature}>{feature}</li>)}
+                    </ul>
+                  </div>
+                )}
 
                 <div className="project-detail__actions">
                   {selected.url && (

@@ -1,14 +1,14 @@
-import pyprimesImg from '../assets/images/projects/pyprimes.png'
-import siesifImg from '../assets/images/projects/siesif.png'
-import panaderiaImg from '../assets/images/projects/panaderia.png'
-import sistemasImg from '../assets/images/projects/sistemas.png'
-import rallyImg from '../assets/images/projects/rally.jpeg'
-import playstationImg from '../assets/images/projects/playstation.jpeg'
-import ilpeaImg from '../assets/images/projects/ilpea.png'
-import srascImg from '../assets/images/projects/SRASC.jpeg'
-import recolectaImg from '../assets/images/projects/recolecta.jpeg'
-import lincehackImg from '../assets/images/projects/Lincehack.jpeg'
-import hackOnLincesImg from '../assets/images/projects/HackOnLinces.jpeg'
+import pyprimesImg from '../assets/images/projects/pyprimes.webp'
+import siesifImg from '../assets/images/projects/siesif.webp'
+import panaderiaImg from '../assets/images/projects/panaderia.webp'
+import sistemasImg from '../assets/images/projects/sistemas.webp'
+import rallyImg from '../assets/images/projects/rally.webp'
+import playstationImg from '../assets/images/projects/playstation.webp'
+import ilpeaImg from '../assets/images/projects/ilpea.webp'
+import srascImg from '../assets/images/projects/SRASC.webp'
+import recolectaImg from '../assets/images/projects/recolecta.webp'
+import lincehackImg from '../assets/images/projects/Lincehack.webp'
+import hackOnLincesImg from '../assets/images/projects/HackOnLinces.webp'
 
 export const experience = [
   {
@@ -24,6 +24,7 @@ export const experience = [
         'Motor gráfico interactivo: núcleo en Python 3.11 con PyOpenGL para renderizado 3D en tiempo real y algoritmos de alto rendimiento para generación y factorización de números primos.',
     },
     en: {
+      date: '2023 – 2024',
       title: 'PyPrimes 3D',
       role: 'Python Developer · Personal Project',
       description:
@@ -43,6 +44,7 @@ export const experience = [
         'Sistema Experto para Selección de Inversiones Financieras, en producción. Coordiné un equipo de 5 desarrolladores bajo Scrum, con despliegue en Render.',
     },
     en: {
+      date: '2024 – Present',
       title: 'SIESIF',
       role: 'Backend Architect & API Developer',
       description:
@@ -62,6 +64,7 @@ export const experience = [
         'Carrito de compras, selección de productos y disminución automática de inventario, módulos de seguridad y autenticación, e integración de APIs de navegación y lectura de código de barras.',
     },
     en: {
+      date: 'May 2025 – June 2025',
       title: 'Bakery Management System',
       role: 'Full-Stack Developer · Academic Project',
       description:
@@ -81,6 +84,7 @@ export const experience = [
         'Esquema de base de datos para gestión eficiente de tickets de soporte técnico, con interfaz de seguimiento de estatus que mejoró los tiempos de respuesta del área.',
     },
     en: {
+      date: 'June 2025 – July 2025',
       title: 'Request Management Platform',
       role: 'Backend Developer · IT Department, Apaseo el Grande City Hall',
       description:
@@ -102,6 +106,8 @@ export const experience = [
       skills: ['Trabajo en equipo', 'Resolución de problemas', 'Gestión del tiempo', 'Trabajo bajo presión'],
     },
     en: {
+      date: 'October 2025',
+      badge: 'Participant · Early Warning',
       title: 'Latin American Innovation Rally',
       role: 'Full-Stack Web Developer · Code and Cells Team',
       description:
@@ -123,6 +129,8 @@ export const experience = [
         'Maqueta electrónica funcional de la arquitectura de la PlayStation 2: el Emotion Engine (MIPS de 128 bits) y el Graphics Synthesizer bajo multiprocesamiento asimétrico (ASMP). Con Arduino simulé el flujo de datos y las señales de control durante el arranque de la consola.',
     },
     en: {
+      date: 'December 2025',
+      badge: 'Hardware · ASMP',
       title: 'PlayStation 2 Architecture Model',
       role: 'Hardware & Simulation Developer · Computer Architecture',
       description:
@@ -143,6 +151,8 @@ export const experience = [
       skills: ['Liderazgo', 'Trabajo en equipo', 'Scrum', 'Trabajo bajo presión'],
     },
     en: {
+      date: 'April 2026',
+      badge: '1st Place · Innovation & Technology',
       title: 'LinceHack 2026',
       role: '1st Place — Innovation & Technology Category',
       description:
@@ -163,6 +173,7 @@ export const experience = [
         'Plataforma web para la gestión de usuarios y operaciones logísticas de transporte, en producción (ilpeatransports.site). Integré Firebase como infraestructura y base de datos para escalar el proyecto.',
     },
     en: {
+      date: 'April 2026 – Present',
       title: 'ILPEA Transports Web System',
       role: 'Backend & Security Developer · Team Lead',
       description:
@@ -183,6 +194,8 @@ export const experience = [
         'Robot móvil autónomo de saneamiento que detecta y clasifica residuos con un brazo robótico de 4 grados de libertad. Programé el ESP32 (WiFi), los sensores (línea infrarroja y ultrasónico HC-SR04) y una interfaz web para control remoto y monitoreo en tiempo real.',
     },
     en: {
+      date: 'May 2026',
+      badge: 'Robotics · IoT',
       title: 'S.R.A.S.C.',
       role: 'Firmware & Web Interface · Interface Languages Course',
       description:
@@ -204,6 +217,8 @@ export const experience = [
       skills: ['Liderazgo técnico', 'Trabajo en equipo', 'Comunicación', 'Resolución de problemas'],
     },
     en: {
+      date: 'May 2026',
+      badge: 'Participant · Privacy by Design',
       title: 'OnlinesHack 2026',
       role: 'Participant — Privacy by Design Category',
       description:
@@ -225,6 +240,7 @@ export const experience = [
         'App móvil en Flutter que notifica a ciudadanos el tiempo estimado de llegada del camión recolector sin exponer coordenadas GPS en tiempo real. Arquitectura de privacidad por diseño de punta a punta.',
     },
     en: {
+      date: 'May 2026 – Present',
       title: 'RECOLECTA APP',
       role: 'Backend Lead & Security Architect',
       description:

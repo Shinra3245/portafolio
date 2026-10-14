@@ -1,3 +1,4 @@
+import { profile } from '../data/profile'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -46,31 +47,31 @@ const SOCIALS = [
     color: '#e6683c',
   },
   {
-    href: 'https://wa.me/524131060699',
+    href: profile.whatsapp,
     icon: whatsappIcon,
     label: 'WhatsApp',
-    sublabel: '+52 413 106 0699',
+    sublabel: profile.phone,
     color: '#25d366',
   },
   {
-    href: 'https://www.linkedin.com/in/omar-gadiel-bolaños-garcía-1a4154359/',
+    href: profile.linkedin,
     icon: linkedinIcon,
     label: 'LinkedIn',
     sublabel: 'Omar Bolaños',
     color: '#0a66c2',
   },
   {
-    href: 'https://github.com/Shinra3245',
+    href: profile.github,
     icon: githubIcon,
     label: 'GitHub',
     sublabel: '@Shinra3245',
     color: '#e2e8f0',
   },
   {
-    href: 'mailto:omarbolanos198@gmail.com',
+    href: `mailto:${profile.email}`,
     icon: gmailIcon,
     label: 'Gmail',
-    sublabel: 'omarbolanos198@gmail.com',
+    sublabel: profile.email,
     color: '#ea4335',
     external: false,
   },
@@ -97,7 +98,7 @@ function Contact() {
     const data = new FormData(form)
 
     try {
-      const res = await fetch('https://formsubmit.co/ajax/omarbolanos198@gmail.com', {
+      const res = await fetch(`https://formsubmit.co/ajax/${profile.email}`, {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: data,
@@ -113,7 +114,7 @@ function Contact() {
   }
 
   return (
-    <section id="contacto" className="contact">
+    <section className="contact">
       <div className="contact__grid">
         <div className="contact__card card">
           <h3 className="contact__heading">{t('contact.connectTitle')}</h3>
@@ -124,7 +125,7 @@ function Contact() {
             ))}
           </div>
           <div className="contact__status">
-            <strong>{t('contact.statusTitle')}</strong>
+            <strong>{t('contact.statusTitle')}</strong> <span>{t('contact.statusText')}</span>
           </div>
           <TarsAnimation />
         </div>

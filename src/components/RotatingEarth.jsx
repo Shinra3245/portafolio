@@ -1,5 +1,5 @@
-import dayMap from '../assets/textures/2k_earth_daymap.jpg'
-import cloudsMap from '../assets/textures/2k_earth_clouds.jpg'
+import dayMap from '../assets/textures/2k_earth_daymap.webp'
+import cloudsMap from '../assets/textures/2k_earth_clouds.webp'
 import './RotatingEarth.css'
 
 // Puerto del "Rotating Earth CSS" de jamesfinn180 (CodePen VwzENbR), sin la

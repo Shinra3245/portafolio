@@ -1,11 +1,11 @@
-import ociCert from '../assets/certificates/oci.png'
-import oneTechCert from '../assets/certificates/one-tech-advanced.jpg'
-import dataEverywhereCert from '../assets/certificates/data-everywhere.jpg'
-import gitGithubCert from '../assets/certificates/git-github.jpg'
-import jsProfesionalCert from '../assets/certificates/js-profesional.jpg'
-import promptEngineeringCert from '../assets/certificates/prompt-engineering.png'
-import machineLearningCert from '../assets/certificates/machine-learning.jpg'
-import pythonDataScienceCert from '../assets/certificates/python-data-science.jpg'
+import ociCert from '../assets/certificates/oci.webp'
+import oneTechCert from '../assets/certificates/one-tech-advanced.webp'
+import dataEverywhereCert from '../assets/certificates/data-everywhere.webp'
+import gitGithubCert from '../assets/certificates/git-github.webp'
+import jsProfesionalCert from '../assets/certificates/js-profesional.webp'
+import promptEngineeringCert from '../assets/certificates/prompt-engineering.webp'
+import machineLearningCert from '../assets/certificates/machine-learning.webp'
+import pythonDataScienceCert from '../assets/certificates/python-data-science.webp'
 
 export const academic = {
   es: {

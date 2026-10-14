@@ -30,7 +30,7 @@ function GithubActivity() {
   const { t } = useTranslation()
   const [year, setYear] = useState(new Date().getFullYear())
   const [totalContribs, setTotalContribs] = useState(0)
-  const years = [2026, 2025, 2024]
+  const years = Array.from({ length: 3 }, (_, index) => new Date().getFullYear() - index)
 
   const customTheme = {
     light: ['#000000', '#5e35b1', '#3949ab', '#1e88e5', '#00bcd4'],
@@ -44,7 +44,7 @@ function GithubActivity() {
   }
 
   return (
-    <section id="github" className="github-activity">
+    <section className="github-activity">
       <h2 className="section-title">{t('github.title')}</h2>
       <p className="section-subtitle">{t('github.subtitle')}</p>
 
@@ -54,7 +54,7 @@ function GithubActivity() {
             <h3>{t('github.heatmapTitle')}</h3>
             {totalContribs > 0 && (
               <span className="heatmap-card__total">
-                {totalContribs} contribuciones
+                {t('github.contributions', { count: totalContribs })}
               </span>
             )}
           </div>

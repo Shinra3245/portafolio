@@ -8,28 +8,27 @@
     "education": "Educación",
     "github": "GitHub",
     "projects": "Proyectos",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   },
   "hero": {
     "greeting": "Bienvenido ",
     "name": "Omar Bolaños",
-    "role": "Estoy entusiasmado por trabajar juntos",
+    "role": "Desarrollador Full Stack con enfoque en Python, APIs y aplicaciones móviles",
     "cta": "Ver proyectos",
     "ctaSecondary": "Descargar CV"
   },
   "about": {
     "title": "Mi trayecto",
     "subtitle": "Mi historia como desarrollador",
-    "paragraph1": "Soy desarrollador <span class='keyword-primary'>Full-Stack con fuerte orientación a Python</span>, mi lenguaje principal. Curso el 8.º semestre de <span class='keyword-secondary'>Ingeniería en Sistemas Computacionales</span> en el Tecnológico Nacional de México, Campus Celaya, y he liderado equipos técnicos bajo metodología Scrum, incluyendo el <span class='keyword-accent'>1.er lugar en LinceHack 2026</span>, categoría Innovación y Tecnología.",
+    "paragraph1": "Soy desarrollador <span class='keyword-primary'>Full-Stack con fuerte orientación a Python</span>, mi lenguaje principal. Estudio <span class='keyword-secondary'>Ingeniería en Sistemas Computacionales</span> en el Tecnológico Nacional de México, Campus Celaya, y he liderado equipos técnicos bajo metodología Scrum, incluyendo el <span class='keyword-accent'>1.er lugar en LinceHack 2026</span>, categoría Innovación y Tecnología.",
     "paragraph2": "Mi trabajo va más allá de páginas web: he construido <span class='keyword-primary'>plataformas web completas y aplicaciones móviles con Flutter</span>, con especial profundidad en <span class='keyword-secondary'>APIs REST con FastAPI y Flask</span>, arquitecturas de seguridad (RBAC, RLS, autenticación) y motores de procesamiento de datos. Desde sistemas de gestión para negocios hasta apps de recolección inteligente con notificaciones en tiempo real, siempre priorizo <span class='keyword-accent'>la privacidad, la seguridad y la experiencia del usuario</span>.",
     "infoTitle": "Información",
-    "statProjects": "Proyectos Completados",
-    "statProjectsValue": "6+",
-    "statExperience": "Mi Experiencia en Proyectos",
-    "statExperienceValue": "2+",
-    "statClients": "Clientes Satisfechos",
-    "statClientsValue": "100%",
-    "loadingText": "Cargando misión espacial"
+    "statProjects": "Proyectos presentados",
+    "loadingText": "Cargando misión espacial",
+    "statCategories": "Categorías de proyectos",
+    "statCertifications": "Certificados disponibles"
   },
   "tech": {
     "title": "Stack Tecnológico",
@@ -89,18 +88,13 @@
     "categoryMovil": "Móvil",
     "categoryHardware": "Hardware",
     "selectHint": "Selecciona un planeta para explorar el proyecto",
-    "featuresTitle": "Servicios incluidos:",
+    "featuresTitle": "Funcionalidades y aportaciones",
     "viewSite": "Visitar",
     "viewCode": "Ver código",
     "viewDetails": "Más detalles",
     "previewPending": "Vista previa próximamente",
     "close": "Cerrar",
-    "accessButton": "Accesos",
-    "credentialsTitle": "Accesos de Prueba",
-    "credentialsSubtitle": "Credenciales de Acceso",
-    "credentialsAdmin": "Administrador",
-    "credentialsCustomer": "Usuario Cliente",
-    "credentialsPassword": "Contraseña"
+    "loading": "Cargando proyectos…"
   },
   "skills": {
     "title": "Habilidades",
@@ -164,7 +158,8 @@
     "statsTitle": "Estadísticas Generales",
     "languagesTitle": "Lenguajes más usados",
     "viewProfile": "Ver perfil completo",
-    "unavailable": "No se pudo cargar en este momento. Puedes verlo directamente en GitHub."
+    "unavailable": "No se pudo cargar en este momento. Puedes verlo directamente en GitHub.",
+    "contributions": "{{count}} contribuciones"
   },
   "footer": {
     "copyright": "Copyright © 2025 Omar Bolaños. Todos los derechos reservados",

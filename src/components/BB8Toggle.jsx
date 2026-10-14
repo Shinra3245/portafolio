@@ -54,15 +54,15 @@ const EnglishFlag = () => (
 
 function BB8Toggle() {
   const { i18n } = useTranslation()
-  const isEnglish = i18n.language === 'en'
+  const isEnglish = i18n.resolvedLanguage === 'en'
 
   const toggleLang = () => {
     i18n.changeLanguage(isEnglish ? 'es' : 'en')
   }
 
   return (
-    <div className="bb8-wrapper" title="Cambiar idioma">
-      <span className="bb8-label" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px', lineHeight: 1 }}>
+    <div className="bb8-wrapper" title={isEnglish ? 'Switch language' : 'Cambiar idioma'}>
+      <span className="bb8-label">
         <span>{isEnglish ? 'EN' : 'ES'}</span>
         {isEnglish ? <EnglishFlag /> : <SpanishFlag />}
       </span>

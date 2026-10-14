@@ -1,11 +1,11 @@
-import panaderiaImg from '../assets/images/projects/panaderia.png'
-import sistemasImg from '../assets/images/projects/sistemas.png'
-import ilpeaImg from '../assets/images/projects/ilpea.png'
-import siesifImg from '../assets/images/projects/siesif.png'
-import recolectaImg from '../assets/images/projects/recolecta.jpeg'
-import pyprimesImg from '../assets/images/projects/pyprimes.png'
-import rallyImg from '../assets/images/projects/rally.jpeg'
-import playstationImg from '../assets/images/projects/playstation.jpeg'
+import panaderiaImg from '../assets/images/projects/panaderia.webp'
+import sistemasImg from '../assets/images/projects/sistemas.webp'
+import ilpeaImg from '../assets/images/projects/ilpea.webp'
+import siesifImg from '../assets/images/projects/siesif.webp'
+import recolectaImg from '../assets/images/projects/recolecta.webp'
+import pyprimesImg from '../assets/images/projects/pyprimes.webp'
+import rallyImg from '../assets/images/projects/rally.webp'
+import playstationImg from '../assets/images/projects/playstation.webp'
 
 
 export const projects = [
@@ -19,10 +19,6 @@ export const projects = [
     url: 'https://panaderia-la-flor.infy.uk',
     repo: 'https://github.com/Shinra3245/Panaderia-La-Flor',
     techs: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
-    credentials: {
-      admin: { email: 'AdminPanaderia@gmail.com', password: '123' },
-      customer: { email: 'usuario@panaderia.com', password: '123' },
-    },
     es: {
       tag: 'Negocio',
       title: 'Panadería La Flor',
@@ -99,7 +95,7 @@ export const projects = [
     image: ilpeaImg,
     video: null,
     url: 'https://ilpeatransports.site',
-    repo: null,
+    repo: 'https://github.com/Shinra3245/ILPEA-TRANSPORTS',
     techs: ['JavaScript', 'Firebase', 'RBAC', 'QR'],
     es: {
       tag: 'Plataforma Web',
@@ -182,7 +178,7 @@ export const projects = [
     es: {
       tag: 'App Móvil',
       title: 'RECOLECTA APP',
-      badge: '1er Lugar OnlinesHack 2026',
+      badge: 'OnlinesHack 2026 · Privacidad por Diseño',
       description:
         'Sistema inteligente de recolección de residuos para el Servicio de Limpia de Celaya, Guanajuato. App móvil en Flutter que informa al ciudadano el tiempo estimado de llegada (ETA) del camión recolector sin exponer coordenadas GPS. Privacidad por diseño: el backend traduce la posición de la ruta (1→8) a texto ("Llega en ~15 min") y las notificaciones FCM nunca incluyen lat/lng.',
       features: [
@@ -197,7 +193,7 @@ export const projects = [
     en: {
       tag: 'Mobile App',
       title: 'RECOLECTA APP',
-      badge: '1st Place OnlinesHack 2026',
+      badge: 'OnlinesHack 2026 · Privacy by Design',
       description:
         'Smart waste-collection system for the Sanitation Service of Celaya, Guanajuato. A Flutter mobile app that tells citizens the estimated arrival time (ETA) of the collection truck without exposing GPS coordinates. Privacy by design: the backend translates the route position (1→8) into text ("Arriving in ~15 min") and FCM notifications never include lat/lng.',
       features: [
@@ -255,7 +251,7 @@ export const projects = [
     image: rallyImg,
     video: '/videos/rally.mp4',
     url: 'https://shinra3245.github.io/PAGINA_WEB_AYUDA_MUNDIA_INUNDACIONES/',
-    repo: null,
+    repo: 'https://github.com/Shinra3245/PAGINA_WEB_AYUDA_MUNDIA_INUNDACIONES',
     techs: ['React', 'Vite', 'Tailwind', 'Leaflet', 'Firebase'],
     es: {
       tag: 'Competencia',
@@ -332,7 +328,7 @@ export const projects = [
     image: null,
     video: '/videos/srac.mp4',
     url: null,
-    repo: null,
+    repo: 'https://github.com/Shinra3245/SRASC_ESP32',
     techs: ['ESP32', 'C++', 'IoT', 'Servo SG90', 'JavaScript'],
     es: {
       tag: 'Robótica',

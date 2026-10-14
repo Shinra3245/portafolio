@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next'
 import { GraduationCap, Award } from 'lucide-react'
 import { academic } from '../data/education'
 import CertificatesShowcase from '../components/CertificatesShowcase'
-import tecnmLogo from '../assets/images/tecnm.png'
+import tecnmLogo from '../assets/images/tecnm.webp'
 import './Education.css'
 
 function Education() {
   const { t, i18n } = useTranslation()
-  const lang = i18n.language === 'en' ? 'en' : 'es'
+  const lang = i18n.resolvedLanguage === 'en' ? 'en' : 'es'
   const academicContent = academic[lang]
 
   return (

@@ -5,30 +5,32 @@ function PageLoader() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Si el documento ya cargó, esperar 1.5s antes de ocultarlo.
-    // Si no, escuchar el evento 'load' y luego esperar 1.5s.
+    let loadTimer
+    let deadline
     const finalizeLoad = () => {
+      clearTimeout(loadTimer)
+      clearTimeout(deadline)
       setLoading(false)
       window.__PAGE_LOADED__ = true
       window.dispatchEvent(new Event('pageLoaded'))
     }
 
     const handleLoad = () => {
-      setTimeout(() => {
-        finalizeLoad()
-      }, 1500)
+      loadTimer = setTimeout(finalizeLoad, 400)
     }
 
     if (document.readyState === 'complete') {
       handleLoad()
     } else {
       window.addEventListener('load', handleLoad)
-      setTimeout(() => {
-        if (loading) finalizeLoad()
-      }, 2500)
-      return () => window.removeEventListener('load', handleLoad)
     }
-  }, [loading])
+    deadline = setTimeout(finalizeLoad, 1500)
+    return () => {
+      clearTimeout(loadTimer)
+      clearTimeout(deadline)
+      window.removeEventListener('load', handleLoad)
+    }
+  }, [])
 
   return (
     <div className={`page-loader ${!loading ? 'fade-out' : ''}`}>

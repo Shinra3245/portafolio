@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SpaceLoader from '../components/SpaceLoader'
-import fotoYo from '../assets/images/yov2.jpeg'
+import fotoYo from '../assets/images/yov2.webp'
 import './About.css'
+import { projects } from '../data/projects'
+import { certifications } from '../data/education'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -34,6 +36,7 @@ function StatCard3D({ value, label }) {
 
   return (
     <div className="stat stat--3d">
+      <span className="sr-only">{value} </span>
       <div className={`card-3d ${lengthClass}`} aria-hidden="true">
         <div className="card-3d__holo">
           <div className="card-3d__layer card-3d__layer--back">{content}</div>
@@ -67,18 +70,21 @@ function About() {
   }, [])
 
   useEffect(() => {
+    let timer
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          const timer = setTimeout(() => setPhotoReady(true), PHOTO_REVEAL_DELAY)
+          timer = setTimeout(() => setPhotoReady(true), PHOTO_REVEAL_DELAY)
           observer.disconnect()
-          return () => clearTimeout(timer)
         }
       },
       { threshold: 0.3 },
     )
     if (visualRef.current) observer.observe(visualRef.current)
-    return () => observer.disconnect()
+    return () => {
+      clearTimeout(timer)
+      observer.disconnect()
+    }
   }, [])
 
   return (
@@ -111,9 +117,9 @@ function About() {
 
           <h4 className="about__info-title">{t('about.infoTitle')}</h4>
           <div className="about__stats">
-            <StatCard3D value={t('about.statProjectsValue')} label={t('about.statProjects')} />
-            <StatCard3D value={t('about.statExperienceValue')} label={t('about.statExperience')} />
-            <StatCard3D value={t('about.statClientsValue')} label={t('about.statClients')} />
+            <StatCard3D value={String(projects.length)} label={t('about.statProjects')} />
+            <StatCard3D value={String(new Set(projects.map((p) => p.category)).size)} label={t('about.statCategories')} />
+            <StatCard3D value={String(certifications.length)} label={t('about.statCertifications')} />
           </div>
         </div>
       </div>

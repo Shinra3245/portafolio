@@ -71,7 +71,7 @@ function totalDuration(lines) {
 
 function PackageTerminal() {
   const { i18n, t } = useTranslation()
-  const lang         = i18n.language === 'en' ? 'en' : 'es'
+  const lang         = i18n.resolvedLanguage === 'en' ? 'en' : 'es'
   const containerRef = useRef(null)
   const bodyRef      = useRef(null)
   const [started, setStarted] = useState(false)

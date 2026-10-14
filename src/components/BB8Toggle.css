@@ -5,10 +5,19 @@
 }
 
 .bb8-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  line-height: 1;
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-text);
   margin-right: 0.2rem;
+}
+
+@media (max-width: 580px) {
+  .navbar__actions .bb8-label { display: none; }
 }
 
 /* REMASTERED */
@@ -54,8 +63,14 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
 }
+
+.bb8-toggle:focus-within { outline: 2px solid var(--color-accent-2); outline-offset: 6px; border-radius: 99px; }
 
 .bb8-toggle__container {
   width: var(--toggle-width);
