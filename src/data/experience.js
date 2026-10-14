@@ -315,7 +315,7 @@ export const experience = [
   },
   {
     id: 'hackatec-regional-2026',
-    date: '2026',
+    date: '28 de septiembre – 1 de octubre de 2026',
     type: 'hackathon',
     badge: 'Etapa Regional · Irapuato',
     gallery: hackatecGallery,
@@ -327,7 +327,7 @@ export const experience = [
       skills: ['Trabajo en equipo', 'Integración de sistemas', 'Comunicación técnica', 'Análisis territorial'],
     },
     en: {
-      date: '2026',
+      date: 'September 28 – October 1, 2026',
       badge: 'Regional Stage · Irapuato',
       title: 'Regional HackaTec · InnovaTecNM 2026',
       role: 'ATLAS Participant · Tecnológico de Irapuato',
