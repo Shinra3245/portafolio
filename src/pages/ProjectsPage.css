@@ -189,6 +189,7 @@
 
 /* ── Panel de detalle ───────────────────────────────────────────────── */
 .project-detail {
+  scroll-margin-top: 6rem;
   min-width: 0;
   grid-area: detail;
   overflow: hidden;
@@ -302,6 +303,8 @@
   line-height: 1.6;
   color: rgba(226, 232, 240, 0.78);
 }
+
+.project-detail__date { color: var(--color-text); font-size: 0.8rem; }
 
 .project-detail__features h3 { font-size: 1rem; margin-bottom: 0.75rem; }
 .project-detail__features ul { list-style: disc; padding-left: 1.2rem; }

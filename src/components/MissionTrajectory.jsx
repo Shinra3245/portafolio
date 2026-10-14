@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Rocket, Satellite, Cpu, ArrowUpRight } from 'lucide-react'
 import { experience } from '../data/experience'
+import ImageGallery from './ImageGallery'
 import './MissionTrajectory.css'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
@@ -88,14 +89,16 @@ function MissionTrajectory() {
     const current = isCurrent(item.date)
 
     rows.push(
-      <div key={item.id} className={`mission-station mission-station--${side}`}>
+      <div key={item.id} id={`experience-${item.id}`} className={`mission-station mission-station--${side}`}>
         <div className={`mission-station__node ${meta.cls} ${current ? 'is-current' : ''}`}>
           <Icon size={18} />
           {current && <span className="mission-station__pulse" aria-hidden="true" />}
         </div>
 
         <div className={`mission-station__card card ${meta.cls}`}>
-          {item.image && (
+          {item.gallery?.length ? (
+            <div className="mission-station__gallery"><ImageGallery images={item.gallery} variant="event" /></div>
+          ) : item.image && (
             <div
               className={`mission-station__media ${
                 item.imagePortrait ? 'mission-station__media--portrait' : ''
@@ -126,7 +129,7 @@ function MissionTrajectory() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {lang === 'en' ? 'Live site' : 'Ver sitio'}
+                {item.repoLink ? (lang === 'en' ? 'View code' : 'Ver código') : (lang === 'en' ? 'Live site' : 'Ver sitio')}
                 <ArrowUpRight size={14} />
               </a>
             )}

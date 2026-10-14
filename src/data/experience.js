@@ -9,6 +9,7 @@ import srascImg from '../assets/images/projects/SRASC.webp'
 import recolectaImg from '../assets/images/projects/recolecta.webp'
 import lincehackImg from '../assets/images/projects/Lincehack.webp'
 import hackOnLincesImg from '../assets/images/projects/HackOnLinces.webp'
+import { atlasGallery, dueloGallery, hackatecGallery } from './recentProjectMedia'
 
 export const experience = [
   {
@@ -181,6 +182,27 @@ export const experience = [
     },
   },
   {
+    id: 'bellezabot',
+    date: 'Abril 2026',
+    type: 'role',
+    link: 'https://github.com/Shinra3245/BellezaBot',
+    repoLink: true,
+    techs: ['Node.js', 'PostgreSQL', 'React', 'WhatsApp Cloud API'],
+    es: {
+      title: 'BellezaBot',
+      role: 'Desarrollo Full Stack · Automatización de citas',
+      description:
+        'Sistema para negocios de estética que integra un asistente de IA por WhatsApp con un panel web. Consultas de disponibilidad, reservas, reprogramaciones y recordatorios conectados con la agenda de cada negocio.',
+    },
+    en: {
+      date: 'April 2026',
+      title: 'BellezaBot',
+      role: 'Full Stack Development · Appointment Automation',
+      description:
+        'A system for beauty businesses that connects an AI assistant on WhatsApp with a web panel. Availability checks, bookings, rescheduling and reminders are linked to each business calendar.',
+    },
+  },
+  {
     id: 'srac',
     date: 'Mayo 2026',
     type: 'hardware',
@@ -245,6 +267,73 @@ export const experience = [
       role: 'Backend Lead & Security Architect',
       description:
         'A Flutter mobile app that notifies citizens of the estimated arrival time of the collection truck without exposing real-time GPS coordinates. End-to-end privacy-by-design architecture.',
+    },
+  },
+  {
+    id: 'duelodev',
+    date: 'Agosto 2026',
+    type: 'role',
+    image: dueloGallery[0].src,
+    link: 'https://github.com/Shinra3245/Duelo-Dev/tree/feat/semana-0-cimientos',
+    repoLink: true,
+    techs: ['Next.js', 'TypeScript', 'Python', 'PostgreSQL', 'Redis'],
+    es: {
+      title: 'DueloDev',
+      role: 'Desarrollo de plataforma de programación competitiva',
+      description:
+        'Plataforma de duelos de programación en Python con salas compartidas, comunicación en tiempo real y evaluación automática de soluciones. Arquitectura separada en aplicación web, API, servicio de tiempo real y juez de código.',
+    },
+    en: {
+      date: 'August 2026',
+      title: 'DueloDev',
+      role: 'Competitive Programming Platform Development',
+      description:
+        'A Python programming duel platform with shared rooms, real-time communication and automatic solution evaluation. Its architecture separates the web app, API, real-time service and code judge.',
+    },
+  },
+  {
+    id: 'atlas',
+    date: 'Septiembre 2026',
+    type: 'role',
+    image: atlasGallery[0].src,
+    link: 'https://github.com/Shinra3245/ATLAS',
+    repoLink: true,
+    techs: ['Python', 'FastAPI', 'React', 'Leaflet'],
+    es: {
+      title: 'ATLAS',
+      role: 'Desarrollo de plataforma de análisis territorial',
+      description:
+        'Plataforma para evaluar evidencia territorial y comparar ubicaciones de Irapuato y Celaya según el tipo de obra. Integra mapa, análisis explicable, fuentes y una ficha preliminar imprimible.',
+    },
+    en: {
+      date: 'September 2026',
+      title: 'ATLAS',
+      role: 'Territorial Analysis Platform Development',
+      description:
+        'A platform to evaluate territorial evidence and compare locations in Irapuato and Celaya by project type. It combines a map, explainable analysis, sources and a printable preliminary report.',
+    },
+  },
+  {
+    id: 'hackatec-regional-2026',
+    date: '2026',
+    type: 'hackathon',
+    badge: 'Etapa Regional · Irapuato',
+    gallery: hackatecGallery,
+    es: {
+      title: 'HackaTec Regional · InnovaTecNM 2026',
+      role: 'Participante con ATLAS · Tecnológico de Irapuato',
+      description:
+        'Participé con el equipo de ATLAS en la etapa regional de HackaTec, dentro de InnovaTecNM 2026, celebrada en el Tecnológico de Irapuato. Presentamos una plataforma de apoyo a la prefactibilidad territorial para proyectos urbanos, integrando evidencia y comparación de ubicaciones de Irapuato y Celaya.',
+      skills: ['Trabajo en equipo', 'Integración de sistemas', 'Comunicación técnica', 'Análisis territorial'],
+    },
+    en: {
+      date: '2026',
+      badge: 'Regional Stage · Irapuato',
+      title: 'Regional HackaTec · InnovaTecNM 2026',
+      role: 'ATLAS Participant · Tecnológico de Irapuato',
+      description:
+        'Participated with the ATLAS team in the regional HackaTec stage of InnovaTecNM 2026, held at the Tecnológico de Irapuato. We presented a territorial pre-feasibility platform for urban projects, combining evidence and location comparisons for Irapuato and Celaya.',
+      skills: ['Teamwork', 'Systems integration', 'Technical communication', 'Territorial analysis'],
     },
   },
 ]

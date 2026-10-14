@@ -6,6 +6,7 @@ import recolectaImg from '../assets/images/projects/recolecta.webp'
 import pyprimesImg from '../assets/images/projects/pyprimes.webp'
 import rallyImg from '../assets/images/projects/rally.webp'
 import playstationImg from '../assets/images/projects/playstation.webp'
+import { atlasGallery, dueloGallery } from './recentProjectMedia'
 
 
 export const projects = [
@@ -356,6 +357,131 @@ export const projects = [
         'Line following with TCRT5000 infrared sensors',
         'Obstacle avoidance with an HC-SR04 ultrasonic sensor',
         'Client-server architecture on low-cost hardware',
+      ],
+    },
+  },
+  {
+    id: 13,
+    slug: 'atlas',
+    planet: 'earth',
+    planetHue: 30,
+    category: 'python',
+    image: atlasGallery[0].src,
+    gallery: atlasGallery,
+    video: null,
+    url: null,
+    repo: 'https://github.com/Shinra3245/ATLAS',
+    createdAt: '2026-09-30T02:56:44Z',
+    techs: ['Python', 'FastAPI', 'React', 'Leaflet', 'Pydantic'],
+    es: {
+      tag: 'Análisis Territorial',
+      title: 'ATLAS',
+      badge: 'HackaTec Regional · InnovaTecNM 2026',
+      description:
+        'Plataforma de apoyo a la prefactibilidad territorial para proyectos de vivienda, edificación y vialidad en Irapuato y Celaya. Integra información territorial, muestra la evidencia disponible y permite comparar ubicaciones antes de construir. Presentada en la etapa regional de HackaTec de InnovaTecNM 2026, en el Tecnológico de Irapuato.',
+      features: [
+        'Mapa interactivo y selección de localidades de Irapuato y Celaya',
+        'Análisis según tipo de obra con un motor de reglas en Python',
+        'Comparación A/B de ubicaciones bajo los mismos criterios',
+        'Ficha territorial imprimible con fuentes, cobertura y evidencia',
+        'Información faltante y límites del análisis visibles en los resultados',
+      ],
+    },
+    en: {
+      tag: 'Territorial Analysis',
+      title: 'ATLAS',
+      badge: 'Regional HackaTec · InnovaTecNM 2026',
+      description:
+        'A territorial pre-feasibility platform for housing, building and road projects in Irapuato and Celaya. It brings together territorial information, shows the available evidence and compares locations before construction. Presented at the regional HackaTec stage of InnovaTecNM 2026 at the Tecnológico de Irapuato.',
+      features: [
+        'Interactive map and location selection for Irapuato and Celaya',
+        'Project-specific analysis using a Python rule engine',
+        'A/B location comparisons using the same criteria',
+        'Printable territorial report with sources, coverage and evidence',
+        'Missing information and analysis limitations visible in the results',
+      ],
+    },
+  },
+  {
+    id: 14,
+    slug: 'bellezabot',
+    planet: 'venus',
+    planetHue: 270,
+    category: 'web',
+    image: null,
+    video: null,
+    url: null,
+    repo: 'https://github.com/Shinra3245/BellezaBot',
+    createdAt: '2026-04-22T20:15:52Z',
+    techs: ['Node.js', 'Express', 'PostgreSQL', 'React', 'WhatsApp Cloud API', 'Claude'],
+    es: {
+      tag: 'Automatización para Negocios',
+      title: 'BellezaBot',
+      badge: 'Asistente de citas por WhatsApp',
+      description:
+        'Sistema de gestión de citas para negocios de estética que conecta WhatsApp con un asistente de IA y un panel web. Permite consultar servicios y horarios, reservar, cancelar y reprogramar citas, manteniendo la agenda y la disponibilidad de cada negocio en una base de datos.',
+      features: [
+        'Asistente conversacional con herramientas para consultar y gestionar citas reales',
+        'Integración con WhatsApp Cloud API y modelos de Anthropic',
+        'Panel web para administrar calendario, servicios, horarios y bloqueos',
+        'Recordatorios automáticos y manejo de zonas horarias por negocio',
+        'Separación de datos entre negocios y validación transaccional de disponibilidad',
+      ],
+    },
+    en: {
+      tag: 'Business Automation',
+      title: 'BellezaBot',
+      badge: 'WhatsApp appointment assistant',
+      description:
+        'An appointment management system for beauty businesses that connects WhatsApp with an AI assistant and a web panel. Customers can browse services and availability, book, cancel and reschedule appointments while each business keeps its own calendar and availability in a database.',
+      features: [
+        'Conversational assistant with tools to query and manage actual appointments',
+        'WhatsApp Cloud API and Anthropic model integration',
+        'Web panel for calendars, services, schedules and blocked time slots',
+        'Automatic reminders and per-business time zone handling',
+        'Data separation between businesses and transactional availability checks',
+      ],
+    },
+  },
+  {
+    id: 15,
+    slug: 'duelodev',
+    planet: 'jupiter',
+    planetHue: 180,
+    category: 'web',
+    image: dueloGallery[0].src,
+    gallery: dueloGallery,
+    video: null,
+    url: null,
+    repo: 'https://github.com/Shinra3245/Duelo-Dev/tree/feat/semana-0-cimientos',
+    createdAt: '2026-08-21T04:46:33Z',
+    techs: ['Next.js', 'TypeScript', 'Python', 'PostgreSQL', 'Redis', 'Docker', 'WebSocket'],
+    es: {
+      tag: 'Programación Competitiva',
+      title: 'DueloDev',
+      badge: 'Competencias en tiempo real',
+      description:
+        'Plataforma de duelos de programación en Python que reúne participantes en salas compartidas. Integra retos, editores de código, evaluación automática y clasificación de jugadores, con servicios separados para la aplicación web, la API, la comunicación en tiempo real y el juez de soluciones.',
+      features: [
+        'Salas de competencia con lobby, participantes y estado de conexión',
+        'Modalidades por puntos y rondas para resolver retos en Python',
+        'Envío de soluciones y veredictos automáticos mediante un juez',
+        'Comunicación en tiempo real y recuperación de conexiones',
+        'Colas de evaluación y ejecución aislada con límites de recursos',
+      ],
+    },
+    en: {
+      tag: 'Competitive Programming',
+      title: 'DueloDev',
+      badge: 'Real-time competitions',
+      description:
+        'A Python programming duel platform that brings participants into shared rooms. It combines challenges, code editors, automatic evaluation and player rankings, with separate services for the web app, API, real-time communication and solution judge.',
+      features: [
+        'Competition rooms with a lobby, participants and connection status',
+        'Points and rounds modes for solving Python challenges',
+        'Solution submission and automatic judge verdicts',
+        'Real-time communication and connection recovery',
+        'Evaluation queues and isolated execution with resource limits',
       ],
     },
   },

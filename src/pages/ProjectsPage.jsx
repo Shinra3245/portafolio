@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ExternalLink, Github, Sparkles } from 'lucide-react'
 import SolarSystemPen from '../components/SolarSystemPen'
 import TechIcon from '../components/TechIcon'
+import ImageGallery from '../components/ImageGallery'
 import { projects } from '../data/projects'
 import { techStack } from '../data/techstack'
 import mercurySvg from '../assets/icons/Planets/mercury.svg'
@@ -50,6 +51,7 @@ function ProjectsPage() {
   const { t, i18n } = useTranslation()
   const lang = i18n.resolvedLanguage === 'en' ? 'en' : 'es'
   const mapRef = useRef(null)
+  const detailRef = useRef(null)
 
   const [filter, setFilter] = useState('all')
   const [selectedId, setSelectedId] = useState(projects[0].id)
@@ -67,6 +69,16 @@ function ProjectsPage() {
   }, [filtered, selectedId])
 
   const selected = projects.find((p) => p.id === selectedId) || filtered[0]
+
+  useEffect(() => {
+    const detail = detailRef.current
+    if (detail && detail.getBoundingClientRect().top < 96) {
+      detail.scrollIntoView({
+        block: 'start',
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+      })
+    }
+  }, [selectedId])
 
   // El sistema solar de fondo reacciona al scroll (parallax + giro sutil),
   // en escritorio y móvil. Respeta prefers-reduced-motion.
@@ -164,8 +176,10 @@ function ProjectsPage() {
           </ul>
 
           {selected && (
-            <article key={selected.id} className="project-detail card">
-              <div className="project-detail__media">
+            <article ref={detailRef} key={selected.id} className="project-detail card">
+              {selected.gallery?.length && !selected.video ? (
+                <ImageGallery images={selected.gallery} />
+              ) : (selected.video || selected.image) ? <div className="project-detail__media">
                 {selected.video ? (
                   <video
                     src={selected.video}
@@ -181,7 +195,7 @@ function ProjectsPage() {
                     {t('projects.previewPending')}
                   </div>
                 )}
-              </div>
+              </div> : null}
 
               <div className="project-detail__body">
                 <div className="project-detail__head">
@@ -191,6 +205,16 @@ function ProjectsPage() {
                     <span className="project-detail__badge">{selected[lang].badge}</span>
                   )}
                 </div>
+
+                {selected.createdAt && (
+                  <p className="project-detail__date">
+                    {t('projects.started', {
+                      date: new Intl.DateTimeFormat(lang === 'en' ? 'en-US' : 'es-MX', {
+                        month: 'long', year: 'numeric', timeZone: 'America/Mexico_City',
+                      }).format(new Date(selected.createdAt)),
+                    })}
+                  </p>
+                )}
 
                 <ul className="project-detail__techs">
                   {selected.techs.map((tech) => (
