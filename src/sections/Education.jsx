@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { GraduationCap, Award } from 'lucide-react'
-import { academic } from '../data/education'
+import { academic, englishLevel } from '../data/education'
 import CertificatesShowcase from '../components/CertificatesShowcase'
 import tecnmLogo from '../assets/images/tecnm.webp'
 import './Education.css'
@@ -9,6 +9,11 @@ function Education() {
   const { t, i18n } = useTranslation()
   const lang = i18n.resolvedLanguage === 'en' ? 'en' : 'es'
   const academicContent = academic[lang]
+  const assessmentDate = new Intl.DateTimeFormat(lang === 'en' ? 'en-US' : 'es-MX', {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(`${englishLevel.assessedAt}T00:00:00Z`))
 
   return (
     <section id="educacion" className="education">
@@ -34,6 +39,15 @@ function Education() {
               <h4 className="education__degree">{academicContent.degree}</h4>
               <p className="education__institution">{academicContent.institution}</p>
             </div>
+          </div>
+          <div className="education__languages">
+            <h4>{t('education.languagesTitle')}</h4>
+            <p className="education__language-level">
+              {t('education.englishLevel', { level: englishLevel.level })}
+            </p>
+            <p className="education__language-source">
+              {t('education.englishSource', { assessment: englishLevel.assessment, date: assessmentDate })}
+            </p>
           </div>
         </article>
 

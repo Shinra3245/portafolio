@@ -18,6 +18,14 @@ export const academic = {
   },
 }
 
+// Level transcribed from the supplied TOEFL ITP student score report.
+// The source PDF is private and is not distributed with the portfolio.
+export const englishLevel = {
+  level: 'B1',
+  assessment: 'TOEFL ITP',
+  assessedAt: '2026-08-27',
+}
+
 export const certifications = [
   { 
     id: 'cert-1', 

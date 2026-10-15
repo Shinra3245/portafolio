@@ -73,6 +73,9 @@
   "education": {
     "title": "Educación",
     "academicTitle": "Formación académica",
+    "languagesTitle": "Idiomas",
+    "englishLevel": "Inglés · {{level}} (MCER)",
+    "englishSource": "Nivel reportado en {{assessment}} · {{date}}",
     "certificationsTitle": "Certificaciones",
     "certificationsSubtitle": "Selecciona un certificado para verlo · toca la imagen para abrirlo",
     "otherTitle": "Otra formación"

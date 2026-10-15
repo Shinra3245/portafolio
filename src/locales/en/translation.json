@@ -73,6 +73,9 @@
   "education": {
     "title": "Education",
     "academicTitle": "Academic Background",
+    "languagesTitle": "Languages",
+    "englishLevel": "English · {{level}} (CEFR)",
+    "englishSource": "Level reported on {{assessment}} · {{date}}",
     "certificationsTitle": "Certifications",
     "certificationsSubtitle": "Select a certificate to preview it · tap the image to open it",
     "otherTitle": "Other Training"
