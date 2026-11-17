@@ -30,7 +30,11 @@ with sync_playwright() as playwright:
     page.get_by_role('link', name='Ver proyectos', exact=True).click()
     expect(page).to_have_url(base + '/proyectos')
     expect(page.locator('.content-layer')).to_have_css('opacity', '1')
-    expect(page.locator('.planet-list__item')).to_have_count(13)
+    # Projects opens on the featured filter; All exposes the full catalog.
+    expect(page.locator('.planet-list__item')).to_have_count(4)
+    expect(page.locator('.project-detail__title')).to_have_text('ATLAS')
+    page.get_by_role('button', name='Todos', exact=True).click()
+    expect(page.locator('.planet-list__item')).to_have_count(14)
     expect(page.locator('.project-detail__features li')).not_to_have_count(0)
     page.get_by_role('button', name='Python', exact=True).click()
     expect(page.locator('.planet-list__item')).to_have_count(3)
@@ -87,6 +91,15 @@ with sync_playwright() as playwright:
     page.screenshot(path=str(shots / 'desktop-projects.png'))
     cv = context.request.get(base + '/CV-actualizado.pdf')
     assert cv.ok and cv.body().startswith(b'%PDF'), 'Updated CV is missing'
+    cv_en = context.request.get(base + '/CV_General_Omar_Bolanos_EN.pdf')
+    assert cv_en.ok and cv_en.body().startswith(b'%PDF'), 'English CV is missing'
+    language_toggle = page.locator('.bb8-toggle__checkbox')
+    language_toggle.focus()
+    page.keyboard.press('Space')
+    expect(page.locator('.dl-btn')).to_have_attribute('href', '/CV_General_Omar_Bolanos_EN.pdf')
+    language_toggle.focus()
+    page.keyboard.press('Space')
+    expect(page.locator('.dl-btn')).to_have_attribute('href', '/CV-actualizado.pdf')
     assert not errors, errors
     context.close()
 
@@ -106,11 +119,11 @@ with sync_playwright() as playwright:
         english = locale.startswith('en')
         expect(page.locator('html')).to_have_attribute('lang', 'en' if english else 'es')
         expect(page.locator('h1')).to_have_text('Projects' if english else 'Proyectos')
-        expect(page.locator('.project-detail__title')).to_have_text('La Flor Bakery' if english else 'Panadería La Flor')
+        expect(page.locator('.project-detail__title')).to_have_text('ATLAS')
         page.locator('.bb8-toggle__checkbox').focus()
         page.keyboard.press('Space')
         expect(page.locator('h1')).to_have_text('Proyectos' if english else 'Projects')
-        expect(page.locator('.project-detail__title')).to_have_text('Panadería La Flor' if english else 'La Flor Bakery')
+        expect(page.locator('.project-detail__title')).to_have_text('ATLAS')
         page.get_by_role('button', name='ATLAS', exact=True).click()
         expect(page.locator('.project-detail__date')).to_contain_text('septiembre' if english else 'September')
         expect(page.locator('.project-detail .image-gallery figcaption')).to_contain_text('presentación' if english else 'overview')
@@ -144,4 +157,4 @@ with sync_playwright() as playwright:
         context.close()
     browser.close()
 
-print('PASS: navigation, 13 projects, new project dates, NASA Space Apps participation and Journey to Mars, galleries, HackaTec photos, private status exclusions, CV, regional languages and 5 viewport widths.')
+print('PASS: navigation, featured and full project catalog, new project dates, NASA Space Apps participation and Journey to Mars, galleries, HackaTec photos, private status exclusions, Spanish/English CV downloads, regional languages and 5 viewport widths.')

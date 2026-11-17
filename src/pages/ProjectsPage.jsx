@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { ExternalLink, Github, Play, Sparkles } from 'lucide-react'
 import SolarSystemPen from '../components/SolarSystemPen'
 import TechIcon from '../components/TechIcon'
@@ -15,6 +15,7 @@ import jupiterSvg from '../assets/icons/Planets/jupiter.svg'
 import saturnSvg from '../assets/icons/Planets/saturn.svg'
 import uranusSvg from '../assets/icons/Planets/uranus.svg'
 import sunSvg from '../assets/icons/Planets/sun.svg'
+import { FEATURED_SLUGS } from '../components/FeaturedProjects'
 import './ProjectsPage.css'
 
 const PLANET_SVGS = {
@@ -40,11 +41,22 @@ const TECH_ICONS = techStack
 TECH_ICONS['Firebase FCM'] = TECH_ICONS['Firebase']
 
 const FILTERS = [
+  { id: 'featured', key: 'projects.categoryFeatured' },
   { id: 'all', key: 'projects.categoryAll' },
   { id: 'web', key: 'projects.categoryWeb' },
   { id: 'python', key: 'projects.categoryPython' },
   { id: 'movil', key: 'projects.categoryMovil' },
   { id: 'hardware', key: 'projects.categoryHardware' },
+]
+
+// Solo se enlazan URLs públicas http(s); cualquier otro valor se omite.
+const publicUrl = (value) => (typeof value === 'string' && /^https:\/\//i.test(value) ? value : null)
+
+const FACTS = [
+  { key: 'challenge', label: 'projects.challenge' },
+  { key: 'contribution', label: 'projects.contribution' },
+  { key: 'status', label: 'projects.status' },
+  { key: 'limitations', label: 'projects.limitations' },
 ]
 
 function ProjectsPage() {
@@ -53,13 +65,30 @@ function ProjectsPage() {
   const mapRef = useRef(null)
   const detailRef = useRef(null)
 
-  const [filter, setFilter] = useState('all')
-  const [selectedId, setSelectedId] = useState(projects[0].id)
+  const [searchParams] = useSearchParams()
+  const requested = projects.find((p) => p.slug === searchParams.get('p'))
 
-  const filtered = useMemo(
-    () => (filter === 'all' ? projects : projects.filter((p) => p.category === filter)),
-    [filter],
-  )
+  const [filter, setFilter] = useState(requested ? 'all' : 'featured')
+  const [selectedId, setSelectedId] = useState((requested ?? projects[0]).id)
+
+  // Destacados primero (orden P1 de la guía); el resto conserva su orden de datos.
+  const ordered = useMemo(() => {
+    const rank = (p) => {
+      const i = FEATURED_SLUGS.indexOf(p.slug)
+      return i === -1 ? FEATURED_SLUGS.length : i
+    }
+    return [...projects].sort((a, b) => rank(a) - rank(b))
+  }, [])
+
+  const filtered = useMemo(() => {
+    if (filter === 'all') return ordered
+    if (filter === 'featured') return ordered.filter((p) => FEATURED_SLUGS.includes(p.slug))
+    return ordered.filter((p) => p.category === filter)
+  }, [filter, ordered])
+
+  useEffect(() => {
+    if (requested) setSelectedId(requested.id)
+  }, [requested])
 
   // Si el proyecto seleccionado ya no pertenece al filtro activo, salta al primero.
   useEffect(() => {
@@ -69,6 +98,9 @@ function ProjectsPage() {
   }, [filtered, selectedId])
 
   const selected = projects.find((p) => p.id === selectedId) || filtered[0]
+  const site = publicUrl(selected?.url)
+  const video = publicUrl(selected?.demoVideoUrl)
+  const code = publicUrl(selected?.repo)
 
   useEffect(() => {
     const detail = detailRef.current
@@ -230,6 +262,17 @@ function ProjectsPage() {
 
                 <p className="project-detail__desc">{selected[lang].description}</p>
 
+                {FACTS.some(({ key }) => selected[lang][key]) && (
+                  <dl className="project-detail__facts">
+                    {FACTS.filter(({ key }) => selected[lang][key]).map(({ key, label }) => (
+                      <div key={key} className={`project-detail__fact project-detail__fact--${key}`}>
+                        <dt>{t(label)}</dt>
+                        <dd>{selected[lang][key]}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+
                 {selected[lang].features?.length > 0 && (
                   <div className="project-detail__features">
                     <h3>{t('projects.featuresTitle')}</h3>
@@ -239,41 +282,46 @@ function ProjectsPage() {
                   </div>
                 )}
 
+                {(site || video || code) && (
+                  <div className="project-detail__evidence">
+                    <h3>{t('projects.evidenceTitle')}</h3>
                 <div className="project-detail__actions">
-                  {selected.url && (
-                    <a
-                      className="btn btn--primary"
-                      href={selected.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <ExternalLink size={16} />
-                      {t('projects.viewSite')}
-                    </a>
-                  )}
-                  {selected.demoVideoUrl && (
-                    <a
-                      className="btn btn--secondary"
-                      href={selected.demoVideoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Play size={16} />
-                      {t('projects.viewVideo')}
-                    </a>
-                  )}
-                  {selected.repo && (
-                    <a
-                      className="btn btn--secondary"
-                      href={selected.repo}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Github size={16} />
-                      {t('projects.viewCode')}
-                    </a>
-                  )}
-                </div>
+                      {site && (
+                        <a
+                          className="btn btn--primary"
+                          href={site}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <ExternalLink size={16} aria-hidden="true" />
+                          {t('projects.viewSite')}
+                        </a>
+                      )}
+                      {video && (
+                        <a
+                          className="btn btn--secondary"
+                          href={video}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Play size={16} aria-hidden="true" />
+                          {t('projects.viewVideo')}
+                        </a>
+                      )}
+                      {code && (
+                        <a
+                          className="btn btn--secondary"
+                          href={code}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <Github size={16} aria-hidden="true" />
+                          {t('projects.viewCode')}
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             </article>
           )}

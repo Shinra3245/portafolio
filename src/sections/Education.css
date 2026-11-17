@@ -142,3 +142,27 @@
   margin-top: -0.4rem;
   margin-bottom: 1.15rem;
 }
+
+.education__status {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  margin-top: 0.35rem;
+}
+
+.education__schedule {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.education__graduation {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.education__schedule-note {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  line-height: 1.5;
+}

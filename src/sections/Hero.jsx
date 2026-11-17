@@ -6,6 +6,8 @@ import { useGSAP } from '@gsap/react'
 import DownloadButton from '../components/DownloadButton'
 import DrawnName from '../components/DrawnName'
 import RotatingEarth from '../components/RotatingEarth'
+import FeaturedProjects from '../components/FeaturedProjects'
+import { profile } from '../data/profile'
 import './Hero.css'
 
 gsap.registerPlugin(useGSAP)
@@ -33,6 +35,7 @@ function Hero() {
   )
 
   return (
+    <>
     <section id="inicio" className="hero" ref={sectionRef}>
       <div className="hero__content">
         <p ref={greetingRef} className="hero__greeting">
@@ -58,12 +61,22 @@ function Hero() {
             </span>
           </Link>
           <DownloadButton />
+          <a
+            href={profile.linkedin}
+            className="btn btn--secondary hero__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('hero.linkedin')}
+          </a>
         </div>
-        <div ref={earthRef} className="hero__earth">
+        <div ref={earthRef} className="hero__earth" aria-hidden="true">
           <RotatingEarth />
         </div>
       </div>
     </section>
+    <FeaturedProjects />
+    </>
   )
 }
 

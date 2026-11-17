@@ -56,6 +56,7 @@ function About() {
   const [photoReady, setPhotoReady] = useState(false)
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const ctx = gsap.context(() => {
       gsap.from('.about__reveal', {
         y: 40,

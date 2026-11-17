@@ -83,14 +83,14 @@ export const experience = [
       title: 'Plataforma de Gestión de Solicitudes',
       role: 'Desarrollador Backend · Área de Sistemas, Presidencia de Apaseo el Grande',
       description:
-        'Esquema de base de datos para gestión eficiente de tickets de soporte técnico, con interfaz de seguimiento de estatus que mejoró los tiempos de respuesta del área.',
+        'Esquema de base de datos para la gestión y seguimiento eficiente de tickets de soporte técnico e incidencias del área.',
     },
     en: {
       date: 'June 2025 – July 2025',
       title: 'Request Management Platform',
       role: 'Backend Developer · IT Department, Apaseo el Grande City Hall',
       description:
-        'Database schema for efficient technical support ticket management, with a status-tracking interface that improved the department\'s response times.',
+        'Database schema for efficient technical support ticket management and departmental issue tracking.',
     },
   },
   {
@@ -104,7 +104,7 @@ export const experience = [
       title: 'Rally Latinoamericano de Innovación',
       role: 'Desarrollador Web Full-Stack · Equipo Code and Cells',
       description:
-        'Hackathon de innovación donde mi equipo desarrolló SAT-IA, un sistema de alerta temprana de inundaciones basado en IoT: ESP32 con sensor ultrasónico y energía solar para monitorear el nivel del agua 24/7 y emitir alertas. Mi aportación fue la plataforma web: mapa interactivo de riesgo en tiempo real, dashboard meteorológico y alertas para autoridades y ciudadanos.',
+        'Participé en un prototipo web para explorar cómo comunicar riesgos de inundación mediante un mapa y un panel meteorológico. La propuesta no se validó en campo; no se afirma monitoreo IoT continuo ni alertas automáticas operativas.',
       skills: ['Trabajo en equipo', 'Resolución de problemas', 'Gestión del tiempo', 'Trabajo bajo presión'],
     },
     en: {
@@ -113,7 +113,7 @@ export const experience = [
       title: 'Latin American Innovation Rally',
       role: 'Full-Stack Web Developer · Code and Cells Team',
       description:
-        'Innovation hackathon where my team built SAT-IA, an IoT-based flood early-warning system: an ESP32 with an ultrasonic sensor and solar power to monitor water levels 24/7 and issue alerts. My contribution was the web platform: a real-time interactive risk map, a weather dashboard, and alerts for authorities and citizens.',
+        'I helped build a web prototype exploring how to communicate flood risks through a map and a weather panel. The proposal was not field-validated; continuous IoT monitoring and operational automated alerts are not claimed.',
       skills: ['Teamwork', 'Problem solving', 'Time management', 'Working under pressure'],
     },
   },
@@ -128,7 +128,7 @@ export const experience = [
       title: 'Maqueta Arquitectura PlayStation 2',
       role: 'Desarrollador de Hardware & Simulación · Arquitectura de Computadoras',
       description:
-        'Maqueta electrónica funcional de la arquitectura de la PlayStation 2: el Emotion Engine (MIPS de 128 bits) y el Graphics Synthesizer bajo multiprocesamiento asimétrico (ASMP). Con Arduino simulé el flujo de datos y las señales de control durante el arranque de la consola.',
+        'Construí la mayor parte de una maqueta didáctica sobre la arquitectura de PlayStation 2. Conecté indicadores LED y una pantalla, y programé un Arduino Uno para representar información y etapas del funcionamiento de la consola. No emula el hardware original.',
     },
     en: {
       date: 'December 2025',
@@ -136,7 +136,7 @@ export const experience = [
       title: 'PlayStation 2 Architecture Model',
       role: 'Hardware & Simulation Developer · Computer Architecture',
       description:
-        'A functional electronic model of the PlayStation 2 architecture: the Emotion Engine (128-bit MIPS) and the Graphics Synthesizer under asymmetric multiprocessing (ASMP). Used Arduino to simulate the data flow and control signals during the console boot sequence.',
+        'I built most of a teaching model about the PlayStation 2 architecture. I connected LED indicators and a display, then programmed an Arduino Uno to represent information and stages of the console process. It does not emulate the original hardware.',
     },
   },
   {
@@ -149,7 +149,7 @@ export const experience = [
       title: 'LinceHack 2026',
       role: '1.er Lugar — Categoría Innovación y Tecnología',
       description:
-        'Líder de equipo en hackathon de 24 horas. Desarrollé la arquitectura completa de autenticación segura del Sistema Web ILPEA Transports (credenciales por empleado, RBAC, códigos QR dinámicos) bajo metodología Scrum, bajo presión de competencia.',
+        'Líder de equipo en hackathon de 24 horas donde obtuvimos el 1.er lugar como equipo en la categoría Innovación y Tecnología. Mi contribución se centró en el módulo de autenticación segura del Sistema Web ILPEA Transports (credenciales por empleado, RBAC, códigos QR dinámicos) bajo metodología Scrum.',
       skills: ['Liderazgo', 'Trabajo en equipo', 'Scrum', 'Trabajo bajo presión'],
     },
     en: {
@@ -158,7 +158,7 @@ export const experience = [
       title: 'LinceHack 2026',
       role: '1st Place — Innovation & Technology Category',
       description:
-        'Team lead in a 24-hour hackathon. Built the full secure-authentication architecture for the ILPEA Transports web system (per-employee credentials, RBAC, dynamic QR codes) under Scrum, under competition pressure.',
+        'Team lead in a 24-hour hackathon where our team won 1st place in the Innovation & Technology category. My contribution focused on the secure authentication module for the ILPEA Transports web system (per-employee credentials, RBAC, dynamic QR codes) under Scrum.',
       skills: ['Leadership', 'Teamwork', 'Scrum', 'Working under pressure'],
     },
   },
@@ -207,22 +207,22 @@ export const experience = [
     id: 'srac',
     date: 'Mayo 2026',
     type: 'hardware',
-    badge: 'Robótica · IoT',
+    badge: 'Prototipo de robótica',
     image: srascImg,
-    techs: ['ESP32', 'C++', 'IoT', 'Servo SG90', 'JavaScript'],
+    techs: ['ESP32', 'C++', 'Sensores', 'Servos', 'JavaScript'],
     es: {
       title: 'S.R.A.S.C.',
       role: 'Firmware & Interfaz Web · Materia Lenguaje de Interfaz',
       description:
-        'Robot móvil autónomo de saneamiento que detecta y clasifica residuos con un brazo robótico de 4 grados de libertad. Programé el ESP32 (WiFi), los sensores (línea infrarroja y ultrasónico HC-SR04) y una interfaz web para control remoto y monitoreo en tiempo real.',
+        'Prototipo académico de robot móvil para saneamiento y clasificación de residuos. Integré programación con ESP32, sensores genéricos (línea, ultrasónico, color), motores y garra con servos; el alcance corresponde a pruebas en entorno controlado sin modelos de hardware inferidos.',
     },
     en: {
       date: 'May 2026',
-      badge: 'Robotics · IoT',
+      badge: 'Robotics prototype',
       title: 'S.R.A.S.C.',
       role: 'Firmware & Web Interface · Interface Languages Course',
       description:
-        'Autonomous cleaning robot that detects and sorts waste with a 4-DOF robotic arm. Programmed the ESP32 (WiFi), the sensors (IR line + HC-SR04 ultrasonic) and a web interface for remote control and real-time monitoring.',
+        'Academic mobile-robot prototype for waste collection and sorting. I integrated ESP32 programming, generic sensors (line, ultrasonic, color), motors and a servo gripper; the scope corresponds to controlled-environment testing without inferred hardware models.',
     },
   },
   {
@@ -236,7 +236,7 @@ export const experience = [
       title: 'OnlinesHack 2026',
       role: 'Participante — Categoría Privacidad por Diseño',
       description:
-        'Líder técnico de un equipo de 4 personas. Construí la arquitectura backend completa de RECOLECTA APP: API asíncrona en FastAPI, PostgreSQL con Row Level Security en Supabase, JWT con roles, y validación de domicilio con OCR que borra la imagen original.',
+        'En un equipo de cuatro, trabajé en la API FastAPI y el acceso a datos con PostgreSQL/Supabase, RLS y JWT por roles. La validación automática de domicilios con OCR no fue implementada.',
       skills: ['Liderazgo técnico', 'Trabajo en equipo', 'Comunicación', 'Resolución de problemas'],
     },
     en: {
@@ -245,29 +245,29 @@ export const experience = [
       title: 'OnlinesHack 2026',
       role: 'Participant — Privacy by Design Category',
       description:
-        'Technical lead of a 4-person team. Built the complete backend architecture for RECOLECTA APP: async FastAPI API, PostgreSQL with Row Level Security on Supabase, JWT with roles, and address validation with OCR that deletes the original image.',
-      skills: ['Technical leadership', 'Teamwork', 'Communication', 'Problem solving'],
+        'As part of a four-person team, I worked on the FastAPI API and data access with PostgreSQL/Supabase, RLS and role-based JWT. Automatic address validation with OCR was not implemented.',
+      skills: ['Backend development', 'Teamwork', 'Communication', 'Problem solving'],
     },
   },
   {
     id: 'recolecta',
-    date: 'Mayo 2026 – Presente',
+    date: 'Mayo 2026',
     type: 'role',
     image: recolectaImg,
     imagePortrait: true,
     techs: ['Flutter', 'FastAPI', 'PostgreSQL', 'Firebase'],
     es: {
       title: 'RECOLECTA APP',
-      role: 'Líder Backend & Arquitecto de Seguridad',
+      role: 'Backend y acceso a datos · Equipo de cuatro',
       description:
-        'App móvil en Flutter que notifica a ciudadanos el tiempo estimado de llegada del camión recolector sin exponer coordenadas GPS en tiempo real. Arquitectura de privacidad por diseño de punta a punta.',
+        'Propuesta de app móvil en Flutter para comunicar el tiempo estimado de llegada del camión sin exponer sus coordenadas GPS. Mi contribución se centró en la API FastAPI y el acceso a datos con PostgreSQL/Supabase, RLS y JWT por rol; algunas rutas y notificaciones son simuladas y no incluye validación OCR.',
     },
     en: {
-      date: 'May 2026 – Present',
+      date: 'May 2026',
       title: 'RECOLECTA APP',
-      role: 'Backend Lead & Security Architect',
+      role: 'Backend and Data Access · Four-person Team',
       description:
-        'A Flutter mobile app that notifies citizens of the estimated arrival time of the collection truck without exposing real-time GPS coordinates. End-to-end privacy-by-design architecture.',
+        'A Flutter mobile-app proposal that communicates the truck arrival estimate without exposing GPS coordinates. My contribution focused on the FastAPI API and data access with PostgreSQL/Supabase, RLS and role-based JWT; some routes and notifications are simulated and it does not include OCR validation.',
     },
   },
   {
@@ -282,14 +282,14 @@ export const experience = [
       title: 'DueloDev',
       role: 'Desarrollo de plataforma de programación competitiva',
       description:
-        'Plataforma de duelos de programación en Python con salas compartidas, comunicación en tiempo real y evaluación automática de soluciones. Arquitectura separada en aplicación web, API, servicio de tiempo real y juez de código.',
+        'Proyecto de una plataforma de duelos de programación en Python. El diseño separa la interfaz web, API, comunicación y evaluación de soluciones; no se publican métricas de uso o rendimiento.',
     },
     en: {
       date: 'August 2026',
       title: 'DueloDev',
       role: 'Competitive Programming Platform Development',
       description:
-        'A Python programming duel platform with shared rooms, real-time communication and automatic solution evaluation. Its architecture separates the web app, API, real-time service and code judge.',
+        'A Python programming duel platform project. Its design separates the web interface, API, communication and solution evaluation; no usage or performance metrics are published.',
     },
   },
   {
@@ -324,7 +324,7 @@ export const experience = [
       title: 'HackaTec Regional · InnovaTecNM 2026',
       role: 'Participante con ATLAS · Tecnológico de Irapuato',
       description:
-        'Participé con el equipo de ATLAS en la etapa regional de HackaTec, dentro de InnovaTecNM 2026, celebrada en el Tecnológico de Irapuato. Presentamos una plataforma de apoyo a la prefactibilidad territorial para proyectos urbanos, integrando evidencia y comparación de ubicaciones de Irapuato y Celaya.',
+        'Participé con el equipo de ATLAS en la etapa regional de HackaTec, dentro de InnovaTecNM 2026, celebrada del 28 de septiembre al 1 de octubre en el Tecnológico de Irapuato. Coordiné tareas y contribuí al backend/integración con Python y FastAPI; presentamos la plataforma para apoyar la prefactibilidad territorial en Irapuato y Celaya.',
       skills: ['Trabajo en equipo', 'Integración de sistemas', 'Comunicación técnica', 'Análisis territorial'],
     },
     en: {
@@ -333,7 +333,7 @@ export const experience = [
       title: 'Regional HackaTec · InnovaTecNM 2026',
       role: 'ATLAS Participant · Tecnológico de Irapuato',
       description:
-        'Participated with the ATLAS team in the regional HackaTec stage of InnovaTecNM 2026, held at the Tecnológico de Irapuato. We presented a territorial pre-feasibility platform for urban projects, combining evidence and location comparisons for Irapuato and Celaya.',
+        'I participated with the ATLAS team in the regional HackaTec stage of InnovaTecNM 2026, held September 28–October 1 at the Tecnológico de Irapuato. I coordinated tasks and contributed to the Python/FastAPI backend integration; we presented the platform to support territorial pre-feasibility in Irapuato and Celaya.',
       skills: ['Teamwork', 'Systems integration', 'Technical communication', 'Territorial analysis'],
     },
   },
@@ -348,7 +348,7 @@ export const experience = [
       title: 'NASA Space Apps Challenge · Querétaro',
       role: 'Participante del equipo Houston, We Code · UNAQ',
       description:
-        'Participé en la sede presencial de Querétaro con el equipo Houston, We Code. Durante el hackathon, el equipo desarrolló y publicó Journey to Mars, un videojuego educativo 3D de supervivencia para niñas y niños de 7 a 12 años, basado en el desafío Build a Junior Astronaut Mission Trainer.',
+        'Con Houston, We Code participé en la planeación y coordinación del proyecto, el modelado 3D y la animación principal de Journey to Mars. El equipo publicó el prototipo de forma independiente y no lo envió a evaluación oficial de NASA Space Apps.',
       skills: ['Desarrollo colaborativo', 'Diseño de juegos educativos', 'Trabajo bajo presión'],
     },
     en: {
@@ -357,7 +357,7 @@ export const experience = [
       title: 'NASA Space Apps Challenge · Querétaro',
       role: 'Houston, We Code team participant · UNAQ',
       description:
-        'I participated in the in-person Querétaro local event with Houston, We Code. During the hackathon, the team developed and published Journey to Mars, a 3D educational survival game for children ages 7–12, based on the Build a Junior Astronaut Mission Trainer challenge.',
+        'With Houston, We Code, I contributed to project planning and coordination, 3D modeling and the main animation for Journey to Mars. The team independently published the prototype and did not submit it for official NASA Space Apps judging.',
       skills: ['Collaborative development', 'Educational game design', 'Working under pressure'],
     },
   },

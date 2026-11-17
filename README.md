@@ -42,8 +42,8 @@ src/
   3d/                     Fondo estrellado
   assets/                 Imágenes, iconos, texturas y fuentes
 public/
-  CV.pdf                  CV original preservado
-  CV-actualizado.pdf       Copia con contactos y dominio del portafolio
+  CV-actualizado.pdf       CV general en español (botón de descarga ES)
+  CV_General_Omar_Bolanos_EN.pdf  CV general en inglés (botón de descarga EN)
   videos/                 Demostraciones
 scripts/
   optimize_assets.py      Genera copias WebP y actualiza referencias

@@ -1,6 +1,7 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: min(100vh, 760px);
+  min-height: min(100svh, 760px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,18 +36,26 @@
   font-weight: 400;
   font-size: clamp(1.05rem, 2.5vw, 1.4rem);
   color: var(--color-muted);
-  margin-bottom: 2.25rem;
+  max-width: 46ch;
+  line-height: 1.5;
+  margin-bottom: 2rem;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
 
+.hero__link {
+  text-decoration: none;
+}
+
 .hero__earth {
-  margin-top: 3rem;
+  margin-top: 2rem;
+  opacity: 0.85;
   display: flex;
   justify-content: center;
 }
@@ -87,3 +96,23 @@
   }
 }
 
+
+/* Móvil: la Tierra decorativa no retrasa el acceso a contenido y proyectos */
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+    padding: 6rem 1rem 2.5rem;
+  }
+  .hero__earth {
+    display: none;
+  }
+  .hero__role {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-download-btn {
+    animation: none;
+  }
+}

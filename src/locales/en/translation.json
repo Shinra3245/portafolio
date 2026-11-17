@@ -15,15 +15,16 @@
   "hero": {
     "greeting": "Welcome ",
     "name": "Omar Bolaños",
-    "role": "Full Stack developer focused on Python, APIs and mobile apps",
+    "role": "Developer with Python as my main language: applied systems, APIs, data and privacy by design",
     "cta": "View projects",
-    "ctaSecondary": "Download CV"
+    "ctaSecondary": "Download CV",
+    "linkedin": "LinkedIn"
   },
   "about": {
     "title": "My Journey",
     "subtitle": "A little about me",
-    "paragraph1": "I'm a <span class='keyword-primary'>Full-Stack developer with a strong focus on Python</span>, my main language. I study <span class='keyword-secondary'>Computer Systems Engineering</span> at Tecnológico Nacional de México, Campus Celaya, and I've led technical teams under Scrum, including <span class='keyword-accent'>1st place at LinceHack 2026</span>, Innovation & Technology category.",
-    "paragraph2": "My work goes beyond websites: I've built <span class='keyword-primary'>full web platforms and mobile apps with Flutter</span>, with particular depth in <span class='keyword-secondary'>REST APIs with FastAPI and Flask</span>, security architectures (RBAC, RLS, authentication), and data processing engines. From management systems for businesses to smart waste-collection apps with real-time notifications, I always prioritize <span class='keyword-accent'>privacy, security, and user experience</span>.",
+    "paragraph1": "I study <span class='keyword-secondary'>Computer Systems Engineering</span> at Tecnológico Nacional de México, Celaya Campus. My main language is <span class='keyword-primary'>Python</span>, which I use to build APIs, system logic and analysis tools. I also work with JavaScript and web technologies, mobile development with Flutter, and electronics prototypes with Arduino and ESP32.",
+    "paragraph2": "In projects such as <span class='keyword-primary'>ATLAS, RECOLECTA and VivaOrden</span> I have worked on territorial analysis, data privacy and business operations. In hackathons and academic projects I have also taken part in solution design, team coordination, 3D modeling and electronics prototypes. I am interested in <span class='keyword-accent'>applied research</span> and in building systems whose scope, sources and limitations can be explained clearly.",
     "infoTitle": "Information",
     "statProjects": "Featured projects",
     "loadingText": "Loading space mission",
@@ -32,7 +33,7 @@
   },
   "tech": {
     "title": "Tech Stack",
-    "description": "Technologies and tools I work with, beyond just web development.",
+    "description": "Python is my main language. The rest is organized by level of evidence, with links to the projects where I used it.",
     "rowLenguajes": "Languages",
     "rowBackend": "Backend",
     "rowFrontend": "Frontend",
@@ -41,7 +42,29 @@
     "rowSistemas": "Operating Systems",
     "rowIA": "AI & Code Assistants",
     "rowHardware": "Hardware & IoT",
-    "rowOtros": "Mobile & Tools"
+    "rowOtros": "Mobile",
+    "rowWeb": "Web",
+    "rowSecurity": "Security",
+    "rowGeospatial": "Maps",
+    "row3d": "3D",
+    "rowAnalitica": "Data analysis",
+    "rowExploradas": "Explored tools",
+    "evidence": "Evidence:",
+    "evidenceLink": "View {{project}} (evidence for {{group}})",
+    "tier": {
+      "primary": {
+        "title": "Demonstrated use",
+        "desc": "Main language, with projects where I apply it."
+      },
+      "complementary": {
+        "title": "Complementary use",
+        "desc": "Technologies I use as each project requires, backed by concrete work."
+      },
+      "explored": {
+        "title": "Explored",
+        "desc": "Tools I have tried; I do not present them as equivalent expertise."
+      }
+    }
   },
   "focusAreas": {
     "title": "Focus Areas",
@@ -75,7 +98,7 @@
     "academicTitle": "Academic Background",
     "languagesTitle": "Languages",
     "englishLevel": "English · {{level}} (CEFR)",
-    "englishSource": "Level reported on {{assessment}} · {{date}}",
+    "englishSource": "Level reported on {{assessment}} · score {{score}} · {{date}}",
     "certificationsTitle": "Certifications",
     "certificationsSubtitle": "Select a certificate to preview it · tap the image to open it",
     "otherTitle": "Other Training"
@@ -99,7 +122,13 @@
     "previewPending": "Preview coming soon",
     "close": "Close",
     "loading": "Loading projects…",
-    "started": "Since {{date}}"
+    "started": "Since {{date}}",
+    "categoryFeatured": "Featured",
+    "challenge": "Challenge",
+    "contribution": "My contribution",
+    "status": "Status",
+    "limitations": "Limits",
+    "evidenceTitle": "Evidence"
   },
   "skills": {
     "title": "Skills",
@@ -129,31 +158,22 @@
     "connectTitle": "Connect With Me",
     "followMeTitle": "Follow me on Social Media",
     "statusTitle": "Status:",
-    "statusText": "Available for projects",
+    "statusText": "Open to collaboration and applied research",
     "readyTitle": "Ready for your project?",
     "readySubtitle": "Let's turn your idea into a professional web solution",
     "whatsappTitle": "Direct WhatsApp",
     "emailTitle": "Professional Email",
     "emailSubtitle": "For detailed projects",
-    "servicesTitle": "Featured Services",
-    "serviceResponsive": "Responsive Web Pages",
-    "serviceAdmin": "Management Systems",
-    "servicePython": "Backend & Python APIs",
-    "serviceMobile": "Mobile Apps with Flutter",
-    "serviceSecurity": "Security Architectures",
-    "serviceData": "Data Processing Engines",
-    "guaranteeTitle": "My Guarantee",
-    "guaranteeText": "Clean, documented code with post-delivery support",
+    "servicesTitle": "Areas of work",
+    "serviceResponsive": "Responsive web interfaces",
+    "serviceAdmin": "Management systems",
+    "servicePython": "APIs and logic in Python",
+    "serviceMobile": "Mobile apps with Flutter",
+    "serviceSecurity": "Privacy and authentication",
+    "serviceData": "Data analysis",
     "form": {
-      "name": "Name",
-      "email": "Email address",
-      "message": "Tell me about your project",
-      "send": "Send",
-      "sending": "Sending...",
-      "success": "Message sent successfully!",
-      "error": "Something went wrong. Please try again.",
-      "project": "Describe the project you want to build",
-      "projectHelper": "Share your idea: goal, key features and the kind of solution you envision, so we can build it together."
+      "project": "Message",
+      "projectHelper": "Briefly describe the context, question or collaboration you have in mind."
     }
   },
   "github": {
@@ -167,7 +187,7 @@
     "contributions": "{{count}} contributions"
   },
   "footer": {
-    "copyright": "Copyright © 2025 Omar Bolaños. All rights reserved",
+    "copyright": "Copyright © 2026 Omar Bolaños. All rights reserved",
     "prompt": "visitor@omarbolanos",
     "path": "~$"
   },
@@ -180,5 +200,13 @@
     "images": "Image gallery",
     "openImage": "Open image: {{caption}}",
     "selectImage": "View image {{index}}: {{caption}}"
+  },
+  "featured": {
+    "title": "Featured projects",
+    "subtitle": "Four projects to start with. Each page details contribution, technologies, status and limits.",
+    "open": "Open {{title}}",
+    "techs": "Technologies",
+    "cta": "View details",
+    "all": "See all projects"
   }
 }

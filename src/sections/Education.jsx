@@ -38,7 +38,12 @@ function Education() {
             <div>
               <h4 className="education__degree">{academicContent.degree}</h4>
               <p className="education__institution">{academicContent.institution}</p>
+              <p className="education__status">{academicContent.status}</p>
             </div>
+          </div>
+          <div className="education__schedule">
+            <p className="education__graduation">{academicContent.expectedGraduation}</p>
+            <p className="education__schedule-note">{academicContent.academicSchedule}</p>
           </div>
           <div className="education__languages">
             <h4>{t('education.languagesTitle')}</h4>
@@ -46,7 +51,7 @@ function Education() {
               {t('education.englishLevel', { level: englishLevel.level })}
             </p>
             <p className="education__language-source">
-              {t('education.englishSource', { assessment: englishLevel.assessment, date: assessmentDate })}
+              {t('education.englishSource', { assessment: englishLevel.assessment, score: englishLevel.score, date: assessmentDate })}
             </p>
           </div>
         </article>

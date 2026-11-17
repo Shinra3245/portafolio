@@ -11,10 +11,16 @@ export const academic = {
   es: {
     institution: 'Tecnológico Nacional de México, Campus Celaya',
     degree: 'Ingeniería en Sistemas Computacionales',
+    status: 'Ingreso 2022 · 9.º semestre · promedio 8.5/10',
+    expectedGraduation: 'Egreso previsto: junio de 2027',
+    academicSchedule: 'Fin de materias previsto en diciembre de 2026; residencias profesionales de enero a junio de 2027.',
   },
   en: {
     institution: 'Tecnológico Nacional de México, Campus Celaya',
     degree: 'Computer Systems Engineering',
+    status: 'Started in 2022 · 9th semester · GPA 8.5/10',
+    expectedGraduation: 'Expected graduation: June 2027',
+    academicSchedule: 'Coursework expected to finish in December 2026; professional residency from January to June 2027.',
   },
 }
 
@@ -23,6 +29,7 @@ export const academic = {
 export const englishLevel = {
   level: 'B1',
   assessment: 'TOEFL ITP',
+  score: 477,
   assessedAt: '2026-08-27',
 }
 

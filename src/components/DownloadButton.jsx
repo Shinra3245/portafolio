@@ -8,13 +8,16 @@ import './DownloadButton.css'
  *  - Icono de flecha de descarga con animación bounce (encima)
  */
 function DownloadButton() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isEnglish = (i18n.resolvedLanguage || i18n.language || 'es').startsWith('en')
+  const cvHref = isEnglish ? '/CV_General_Omar_Bolanos_EN.pdf' : '/CV-actualizado.pdf'
+  const cvName = isEnglish ? 'CV_General_Omar_Bolanos_EN.pdf' : 'CV_General_Omar_Bolanos_ES.pdf'
 
   return (
     <div className="dl-tooltip">
       <a
-        href="/CV-actualizado.pdf"
-        download
+        href={cvHref}
+        download={cvName}
         className="dl-btn"
         aria-label={t('hero.ctaSecondary')}
         title={t('hero.ctaSecondary')}

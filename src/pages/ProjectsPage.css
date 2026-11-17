@@ -385,3 +385,38 @@
     transform: none;
   }
 }
+
+/* --- Ficha: reto, aporte, estado, límites --- */
+.project-detail__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin: 0.25rem 0;
+}
+.project-detail__fact {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.project-detail__fact dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-2);
+  margin-bottom: 0.3rem;
+}
+.project-detail__fact dd {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+.project-detail__fact--limitations {
+  border-style: dashed;
+}
+.project-detail__evidence h3 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}

@@ -146,23 +146,6 @@
   object-fit: contain;
 }
 
-.contact__guarantee {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  padding-top: 1.25rem;
-  margin-top: 0.25rem;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-text);
-}
-.contact__guarantee strong {
-  color: var(--white);
-}
-.contact__guarantee p {
-  color: var(--paragraph);
-  font-size: 0.85rem;
-  margin-top: 0.2rem;
-}
 
 /* --- Root Variables for the component --- */
 .glitch-form-wrapper {

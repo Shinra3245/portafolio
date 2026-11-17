@@ -15,15 +15,16 @@
   "hero": {
     "greeting": "Bienvenido ",
     "name": "Omar Bolaños",
-    "role": "Desarrollador Full Stack con enfoque en Python, APIs y aplicaciones móviles",
+    "role": "Desarrollador con Python como lenguaje principal: sistemas aplicados, APIs, datos y privacidad por diseño",
     "cta": "Ver proyectos",
-    "ctaSecondary": "Descargar CV"
+    "ctaSecondary": "Descargar CV",
+    "linkedin": "LinkedIn"
   },
   "about": {
     "title": "Mi trayecto",
     "subtitle": "Mi historia como desarrollador",
-    "paragraph1": "Soy desarrollador <span class='keyword-primary'>Full-Stack con fuerte orientación a Python</span>, mi lenguaje principal. Estudio <span class='keyword-secondary'>Ingeniería en Sistemas Computacionales</span> en el Tecnológico Nacional de México, Campus Celaya, y he liderado equipos técnicos bajo metodología Scrum, incluyendo el <span class='keyword-accent'>1.er lugar en LinceHack 2026</span>, categoría Innovación y Tecnología.",
-    "paragraph2": "Mi trabajo va más allá de páginas web: he construido <span class='keyword-primary'>plataformas web completas y aplicaciones móviles con Flutter</span>, con especial profundidad en <span class='keyword-secondary'>APIs REST con FastAPI y Flask</span>, arquitecturas de seguridad (RBAC, RLS, autenticación) y motores de procesamiento de datos. Desde sistemas de gestión para negocios hasta apps de recolección inteligente con notificaciones en tiempo real, siempre priorizo <span class='keyword-accent'>la privacidad, la seguridad y la experiencia del usuario</span>.",
+    "paragraph1": "Estudio <span class='keyword-secondary'>Ingeniería en Sistemas Computacionales</span> en el Tecnológico Nacional de México, Campus Celaya. Mi lenguaje principal es <span class='keyword-primary'>Python</span>, que utilizo para construir APIs, lógica de sistemas y herramientas de análisis. También trabajo con JavaScript y tecnologías web, desarrollo móvil con Flutter y prototipos de electrónica con Arduino y ESP32.",
+    "paragraph2": "En proyectos como <span class='keyword-primary'>ATLAS, RECOLECTA y VivaOrden</span> he trabajado en análisis territorial, privacidad de datos y operación de negocios. En hackatones y proyectos académicos también he participado en diseño de soluciones, coordinación de equipos, modelado 3D y prototipos electrónicos. Me interesa la <span class='keyword-accent'>investigación aplicada</span> y desarrollar sistemas cuyo alcance, fuentes y limitaciones puedan explicarse con claridad.",
     "infoTitle": "Información",
     "statProjects": "Proyectos presentados",
     "loadingText": "Cargando misión espacial",
@@ -32,7 +33,7 @@
   },
   "tech": {
     "title": "Stack Tecnológico",
-    "description": "Tecnologías y herramientas con las que trabajo, más allá del desarrollo web.",
+    "description": "Python es mi lenguaje principal. El resto se organiza por nivel de evidencia, con enlaces a los proyectos donde lo he usado.",
     "rowLenguajes": "Lenguajes",
     "rowBackend": "Backend",
     "rowFrontend": "Frontend",
@@ -41,7 +42,29 @@
     "rowSistemas": "Sistemas Operativos",
     "rowIA": "IA y Asistentes de Código",
     "rowHardware": "Hardware & IoT",
-    "rowOtros": "Móvil & Herramientas"
+    "rowOtros": "Móvil",
+    "rowWeb": "Web",
+    "rowSecurity": "Seguridad",
+    "rowGeospatial": "Mapas",
+    "row3d": "3D",
+    "rowAnalitica": "Análisis de datos",
+    "rowExploradas": "Herramientas exploradas",
+    "evidence": "Evidencia:",
+    "evidenceLink": "Ver {{project}} (evidencia de {{group}})",
+    "tier": {
+      "primary": {
+        "title": "Uso demostrado",
+        "desc": "Lenguaje principal, con proyectos donde lo aplico."
+      },
+      "complementary": {
+        "title": "Uso complementario",
+        "desc": "Tecnologías que uso según el proyecto, respaldadas por trabajo concreto."
+      },
+      "explored": {
+        "title": "Exploradas",
+        "desc": "Herramientas que he probado; no las presento como dominio equivalente."
+      }
+    }
   },
   "focusAreas": {
     "title": "Áreas de Enfoque",
@@ -75,7 +98,7 @@
     "academicTitle": "Formación académica",
     "languagesTitle": "Idiomas",
     "englishLevel": "Inglés · {{level}} (MCER)",
-    "englishSource": "Nivel reportado en {{assessment}} · {{date}}",
+    "englishSource": "Nivel reportado en {{assessment}} · puntaje {{score}} · {{date}}",
     "certificationsTitle": "Certificaciones",
     "certificationsSubtitle": "Selecciona un certificado para verlo · toca la imagen para abrirlo",
     "otherTitle": "Otra formación"
@@ -99,7 +122,13 @@
     "previewPending": "Vista previa próximamente",
     "close": "Cerrar",
     "loading": "Cargando proyectos…",
-    "started": "Desde {{date}}"
+    "started": "Desde {{date}}",
+    "categoryFeatured": "Destacados",
+    "challenge": "Reto",
+    "contribution": "Mi aporte",
+    "status": "Estado",
+    "limitations": "Límites",
+    "evidenceTitle": "Evidencia"
   },
   "skills": {
     "title": "Habilidades",
@@ -129,31 +158,22 @@
     "connectTitle": "Conecta Conmigo",
     "followMeTitle": "Sígueme en Redes",
     "statusTitle": "Estado:",
-    "statusText": "Disponible para proyectos",
+    "statusText": "Abierto a colaboración e investigación aplicada",
     "readyTitle": "¿Listo para tu proyecto?",
     "readySubtitle": "Transformemos tu idea en una solución web profesional",
     "whatsappTitle": "WhatsApp Directo",
     "emailTitle": "Email Profesional",
     "emailSubtitle": "Para proyectos detallados",
-    "servicesTitle": "Servicios Destacados",
-    "serviceResponsive": "Páginas Web Responsivas",
-    "serviceAdmin": "Sistemas Administrativos",
-    "servicePython": "Backend y APIs con Python",
-    "serviceMobile": "Apps Móviles con Flutter",
-    "serviceSecurity": "Arquitecturas de Seguridad",
-    "serviceData": "Procesamiento de Datos",
-    "guaranteeTitle": "Mi Garantía",
-    "guaranteeText": "Código limpio, documentado y con soporte post-entrega",
+    "servicesTitle": "Áreas de trabajo",
+    "serviceResponsive": "Interfaces web responsivas",
+    "serviceAdmin": "Sistemas de gestión",
+    "servicePython": "APIs y lógica con Python",
+    "serviceMobile": "Apps móviles con Flutter",
+    "serviceSecurity": "Privacidad y autenticación",
+    "serviceData": "Análisis de datos",
     "form": {
-      "name": "Nombre",
-      "email": "Dirección de correo",
-      "message": "Háblame sobre tu proyecto",
-      "send": "Enviar",
-      "sending": "Enviando...",
-      "success": "¡Mensaje enviado con éxito!",
-      "error": "Hubo un error. Intenta de nuevo.",
-      "project": "Describe el proyecto que quieres crear",
-      "projectHelper": "Cuéntame tu idea: objetivo, funciones clave y el tipo de solución que imaginas, para construirla juntos."
+      "project": "Mensaje",
+      "projectHelper": "Cuéntame brevemente el contexto, la pregunta o la colaboración que tienes en mente."
     }
   },
   "github": {
@@ -167,7 +187,7 @@
     "contributions": "{{count}} contribuciones"
   },
   "footer": {
-    "copyright": "Copyright © 2025 Omar Bolaños. Todos los derechos reservados",
+    "copyright": "Copyright © 2026 Omar Bolaños. Todos los derechos reservados",
     "prompt": "visitor@omarbolanos",
     "path": "~$"
   },
@@ -180,5 +200,13 @@
     "images": "Galería de imágenes",
     "openImage": "Abrir imagen: {{caption}}",
     "selectImage": "Ver imagen {{index}}: {{caption}}"
+  },
+  "featured": {
+    "title": "Proyectos destacados",
+    "subtitle": "Cuatro proyectos para empezar. Cada ficha detalla aporte, tecnologías, estado y límites.",
+    "open": "Abrir {{title}}",
+    "techs": "Tecnologías",
+    "cta": "Ver ficha",
+    "all": "Ver todos los proyectos"
   }
 }

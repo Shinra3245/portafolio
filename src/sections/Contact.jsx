@@ -27,7 +27,6 @@ import pythonLottie from '../assets/icons/python-logo.json'
 import mobileLottie from '../assets/icons/iphone.json'
 import securityLottie from '../assets/icons/security-status.json'
 import dataLottie from '../assets/icons/graph-lottie.json'
-import trophyLottie from '../assets/icons/trophy.json'
 import TarsAnimation from '../components/TarsAnimation'
 import './Contact.css'
 
@@ -150,20 +149,6 @@ function Contact() {
               </li>
             ))}
           </ul>
-
-          <div className="contact__guarantee">
-            <span className="contact__service-icon">
-              <Lottie
-                animationData={trophyLottie}
-                loop={true}
-                className="contact__service-gif"
-              />
-            </span>
-            <div>
-              <strong>{t('contact.guaranteeTitle')}</strong>
-              <p>{t('contact.guaranteeText')}</p>
-            </div>
-          </div>
         </div>
       </div>
 

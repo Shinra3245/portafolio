@@ -26,8 +26,8 @@
   /* Texto */
   --color-text: #e2e8f0;
   --color-text-strong: #ffffff;
-  --color-muted: #64748b;
-  --color-faint: #475569;
+  --color-muted: #94a3b8;   /* ≥7:1 sobre --color-bg (antes #64748b, ~4:1) */
+  --color-faint: #64748b;
 
   /* Bordes con tinte de acento */
   --color-border: rgba(99, 102, 241, 0.25);
@@ -88,6 +88,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -254,5 +255,14 @@ section[id] { scroll-margin-top: 5.5rem; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Objetivos táctiles cómodos en móvil */
+@media (max-width: 640px) {
+  .btn,
+  .projects-filters__btn {
+    min-height: 44px;
+    justify-content: center;
   }
 }
