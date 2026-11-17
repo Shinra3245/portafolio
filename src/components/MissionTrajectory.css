@@ -131,6 +131,18 @@
 .mission-station__gallery { margin: -1.3rem -1.45rem 1rem; }
 .mission-station__gallery .image-gallery__thumbnails,
 .mission-station__gallery .image-gallery figcaption { margin-left: 0.7rem; margin-right: 0.7rem; }
+.mission-station__video {
+  margin: -1.3rem -1.45rem 1rem;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(var(--st-rgb), 0.2);
+  background: #05070c;
+}
+.mission-station__video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
 .mission-station__card.is-hackathon {
   --st-rgb: 251, 191, 36;
 }

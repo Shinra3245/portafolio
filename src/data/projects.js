@@ -6,7 +6,7 @@ import recolectaImg from '../assets/images/projects/recolecta.webp'
 import pyprimesImg from '../assets/images/projects/pyprimes.webp'
 import rallyImg from '../assets/images/projects/rally.webp'
 import playstationImg from '../assets/images/projects/playstation.webp'
-import { atlasGallery, dueloGallery } from './recentProjectMedia'
+import { atlasGallery, dueloGallery, vivaOrdenGallery, vivaOrdenVideo, vivaOrdenVideoPoster } from './recentProjectMedia'
 import { journeyToMarsGallery, journeyToMarsVideo } from './nasaSpaceAppsMedia'
 
 
@@ -573,8 +573,9 @@ export const projects = [
     slug: 'vivaorden',
     planet: 'venus',
     category: 'web',
-    image: null,
-    video: null,
+    image: vivaOrdenVideoPoster,
+    gallery: vivaOrdenGallery,
+    video: vivaOrdenVideo,
     url: null,
     repo: null,
     techs: ['React', 'Vite', 'Node.js', 'PostgreSQL'],
@@ -586,8 +587,8 @@ export const projects = [
         'VivaOrden es una plataforma de operación para restaurantes, desarrollada e implementada primero en Pizzas a la Leña. Conecta el POS web del personal con el menú digital móvil para clientes y una aplicación móvil de reparto. La presentación usa una instancia de pruebas con información de demostración; el código fuente y la infraestructura interna son privados.',
       challenge: 'Coordinar la captura y seguimiento de pedidos con la preparación, caja y entrega mediante herramientas relacionadas para el restaurante.',
       contribution: 'Desarrollo del producto VivaOrden y de su primera implementación en Pizzas a la Leña.',
-      status: 'Primera implementación documentada; recursos visuales de portafolio pendientes.',
-      limitations: 'El código fuente, las URL internas y los datos operativos del establecimiento no son públicos. No se publican métricas comerciales ni se afirma disponibilidad general o uso en varios restaurantes.',
+      status: 'Primera implementación documentada; video de muestra grabado en pruebas y capturas públicas del menú.',
+      limitations: 'El video no demuestra una comanda activa de cocina, una sesión iniciada del repartidor ni pagos en línea. El código fuente, las URL internas y los datos operativos del establecimiento no son públicos. No se publican métricas comerciales ni se afirma disponibilidad general o uso en varios restaurantes.',
       features: [
         'POS web para captura y seguimiento de pedidos, catálogo y operación de caja',
         'Coordinación de comandas y preparación',
@@ -603,8 +604,8 @@ export const projects = [
         'VivaOrden is a restaurant operations platform, first developed and implemented for Pizzas a la Leña. It connects the staff web POS with a mobile digital menu for customers and a mobile delivery app. The presentation uses a test instance with demo data; source code and internal infrastructure are private.',
       challenge: 'Coordinate order intake and tracking with preparation, cash register and delivery through related restaurant tools.',
       contribution: 'Development of the VivaOrden product and its first implementation at Pizzas a la Leña.',
-      status: 'First documented implementation; portfolio media is pending.',
-      limitations: 'Source code, internal URLs and restaurant operational data are private. No business metrics, general availability or use across multiple restaurants are claimed.',
+      status: 'First documented implementation; sample video recorded in testing and public menu screenshots.',
+      limitations: 'The video does not demonstrate an active kitchen ticket, a signed-in courier session or online payments. Source code, internal URLs and restaurant operational data are private. No business metrics, general availability or use across multiple restaurants are claimed.',
       features: [
         'Web POS for order intake and tracking, catalog and cash register operations',
         'Kitchen tickets and preparation coordination',

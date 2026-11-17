@@ -12,6 +12,14 @@ import lincehackCertificate from '../assets/images/events/lincehack-2026/linceha
 import lincehackAward from '../assets/images/events/lincehack-2026/lincehack-2026-reconocimiento-general.webp'
 import lincehackDetail from '../assets/images/events/lincehack-2026/lincehack-2026-reconocimiento-detalle.webp'
 import lincehackPresentation from '../assets/images/events/lincehack-2026/lincehack-2026-reconocimiento-entrega.webp'
+import vivaOrdenPoster from '../assets/images/events/vivaorden-2026/vivaorden-pos-demo-poster.webp'
+import vivaOrdenPOS from '../assets/images/events/vivaorden-2026/01-acceso-pos-produccion-sesion-cerrada.webp'
+import vivaOrdenMenu from '../assets/images/events/vivaorden-2026/02-menu-movil-portada.webp'
+import vivaOrdenMenuCategories from '../assets/images/events/vivaorden-2026/03-menu-movil-categorias-y-primeros-platillos.webp'
+import vivaOrdenPizzas from '../assets/images/events/vivaorden-2026/04-menu-movil-pizzas.webp'
+import vivaOrdenMenuList from '../assets/images/events/vivaorden-2026/05-menu-movil-listado.webp'
+import vivaOrdenCourierSession from '../assets/images/events/vivaorden-2026/06-reparto-movil-validando-sesion-test.webp'
+import vivaOrdenCourierLogin from '../assets/images/events/vivaorden-2026/07-reparto-movil-acceso-test.webp'
 
 export const atlasGallery = [
   { src: atlasPresentation, es: 'ATLAS: presentación de la plataforma territorial', en: 'ATLAS: territorial platform overview' },
@@ -38,3 +46,16 @@ export const lincehackCertificateGallery = [
   { src: lincehackDetail, es: 'Detalle del certificado y la medalla del primer lugar', en: 'Close-up of the first-place certificate and medal' },
   { src: lincehackPresentation, es: 'Entrega del reconocimiento al equipo participante', en: 'Award presentation to the participating team' },
 ]
+
+export const vivaOrdenVideo = '/videos/vivaorden-portfolio-demo.mp4'
+export const vivaOrdenGallery = [
+  { src: vivaOrdenPOS, es: 'Acceso al POS de producción con la sesión cerrada; no se inició sesión', en: 'Production POS access screen with the session closed; no sign-in was attempted' },
+  { src: vivaOrdenMenu, es: 'Portada del menú digital en vista móvil', en: 'Digital menu landing page in mobile view' },
+  { src: vivaOrdenMenuCategories, es: 'Categorías y primeros platillos del menú móvil', en: 'Categories and first items in the mobile menu' },
+  { src: vivaOrdenPizzas, es: 'Catálogo de pizzas en el menú móvil', en: 'Pizza catalog in the mobile menu' },
+  { src: vivaOrdenMenuList, es: 'Más opciones del catálogo en el menú móvil', en: 'More catalog items in the mobile menu' },
+  { src: vivaOrdenCourierSession, es: 'App de reparto en entorno de pruebas, comprobando la sesión', en: 'Delivery app in the test environment, checking the session' },
+  { src: vivaOrdenCourierLogin, es: 'Acceso móvil de repartidor en entorno de pruebas; sin sesión iniciada', en: 'Mobile courier sign-in in the test environment; no signed-in session' },
+]
+
+export const vivaOrdenVideoPoster = vivaOrdenPoster

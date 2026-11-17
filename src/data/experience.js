@@ -8,7 +8,7 @@ import ilpeaImg from '../assets/images/projects/ilpea.webp'
 import srascImg from '../assets/images/projects/SRASC.webp'
 import recolectaImg from '../assets/images/projects/recolecta.webp'
 import hackOnLincesImg from '../assets/images/projects/HackOnLinces.webp'
-import { atlasGallery, dueloGallery, hackatecGallery, lincehackCertificateGallery } from './recentProjectMedia'
+import { atlasGallery, dueloGallery, hackatecGallery, lincehackCertificateGallery, vivaOrdenGallery, vivaOrdenVideo, vivaOrdenVideoPoster } from './recentProjectMedia'
 import { journeyToMarsGallery, nasaSpaceAppsGallery } from './nasaSpaceAppsMedia'
 
 export const experience = [
@@ -341,11 +341,14 @@ export const experience = [
     date: '2026 – Presente',
     type: 'role',
     badge: 'Primera implementación · Pizzas a la Leña',
+    gallery: vivaOrdenGallery,
+    video: vivaOrdenVideo,
+    videoPoster: vivaOrdenVideoPoster,
     es: {
       title: 'VivaOrden · Pizzas a la Leña',
       role: 'Desarrollo del sistema · Primer caso de implementación',
       description:
-        'Desarrollo de la primera implementación de VivaOrden para Pizzas a la Leña. El sistema conecta el POS web para pedidos, preparación, caja y comandas con el menú digital para clientes y la aplicación móvil de reparto. La ficha no incluye capturas ni video porque esos materiales siguen pendientes; la presentación del producto utiliza una instancia de pruebas con datos de demostración. El código fuente es privado.',
+        'VivaOrden se desarrolló e implementó primero para Pizzas a la Leña. La demostración muestra el POS, el menú digital móvil y las pantallas de acceso de la app de reparto desde pruebas y capturas públicas del menú. No se muestra una comanda activa, una sesión de repartidor iniciada ni pagos en línea. El código fuente es privado.',
       skills: ['Diseño de sistemas', 'Operación de restaurantes', 'Integración de flujos'],
     },
     en: {
@@ -354,7 +357,7 @@ export const experience = [
       title: 'VivaOrden · Pizzas a la Leña',
       role: 'System development · First implementation case',
       description:
-        'Development of VivaOrden’s first implementation for Pizzas a la Leña. The system connects a web POS for orders, preparation, cash register and kitchen tickets with a customer-facing digital menu and a mobile delivery app. Screenshots and video are not included yet because those materials are pending; the product presentation uses a test instance with demo data. The source code is private.',
+        'VivaOrden was first developed and implemented for Pizzas a la Leña. The demo shows the POS, mobile digital menu and delivery-app sign-in screens from the test environment and public menu captures. It does not show an active kitchen ticket, a signed-in courier session or online payments. The source code is private.',
       skills: ['Systems design', 'Restaurant operations', 'Workflow integration'],
     },
   },

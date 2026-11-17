@@ -96,6 +96,18 @@ function MissionTrajectory() {
         </div>
 
         <div className={`mission-station__card card ${meta.cls}`}>
+          {item.video && (
+            <div className="mission-station__video">
+              <video
+                src={item.video}
+                poster={item.videoPoster}
+                controls
+                preload="metadata"
+                playsInline
+                aria-label={lang === 'en' ? `${content.title} demo video` : `Video de demostración: ${content.title}`}
+              />
+            </div>
+          )}
           {item.gallery?.length ? (
             <div className="mission-station__gallery"><ImageGallery images={item.gallery} variant="event" /></div>
           ) : item.image && (
