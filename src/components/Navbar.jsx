@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, Rocket, X } from 'lucide-react'
 import DownloadButton from './DownloadButton'
 import BB8Toggle from './BB8Toggle'
 import { useScrollPosition } from '../hooks/useScrollPosition'
@@ -59,8 +59,9 @@ function Navbar() {
               </li>
             ))}
             <li className="navbar__tab-item">
-              <Link to={projectsPath} className="navbar__tab" onClick={closeMenu}>
-                {t('nav.projects')}
+              <Link to={projectsPath} className="navbar__tab navbar__tab--projects" onClick={closeMenu}>
+                <Rocket size={16} aria-hidden="true" />
+                <span>{t('nav.projects')}</span>
               </Link>
             </li>
           </>
@@ -74,11 +75,12 @@ function Navbar() {
             <li className="navbar__tab-item">
               <Link
                 to={projectsPath}
-                className="navbar__tab navbar__tab--active"
+                className="navbar__tab navbar__tab--projects navbar__tab--active"
                 aria-current="page"
                 onClick={closeMenu}
               >
-                {t('nav.projects')}
+                <Rocket size={16} aria-hidden="true" />
+                <span>{t('nav.projects')}</span>
               </Link>
             </li>
           </>
