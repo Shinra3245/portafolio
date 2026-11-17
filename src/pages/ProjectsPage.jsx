@@ -59,6 +59,8 @@ const FACTS = [
   { key: 'limitations', label: 'projects.limitations' },
 ]
 
+const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
 function ProjectsPage() {
   const { t, i18n } = useTranslation()
   const lang = i18n.resolvedLanguage === 'en' ? 'en' : 'es'
@@ -101,13 +103,40 @@ function ProjectsPage() {
   const site = publicUrl(selected?.url)
   const video = publicUrl(selected?.demoVideoUrl)
   const code = publicUrl(selected?.repo)
+  const hasLocalMedia = Boolean(selected?.video || selected?.gallery?.length)
+
+  // Secciones reales de la ficha seleccionada (solo las que tienen contenido).
+  const sections = useMemo(() => {
+    if (!selected) return []
+    const c = selected[lang]
+    const list = [{ id: 'overview', label: t('projects.sectionOverview') }]
+    FACTS.forEach(({ key, label }) => {
+      if (c[key]) list.push({ id: key, label: t(label) })
+    })
+    if (c.features?.length > 0) list.push({ id: 'features', label: t('projects.featuresTitle') })
+    if (hasLocalMedia || site || video || code) list.push({ id: 'evidence', label: t('projects.evidenceTitle') })
+    return list
+  }, [selected, lang, t, site, video, code, hasLocalMedia])
+
+  const [activeSection, setActiveSection] = useState('overview')
+  useEffect(() => {
+    setActiveSection('overview')
+  }, [selectedId, lang])
+
+  const goToSection = (id) => {
+    setActiveSection(id)
+    document.getElementById(`pd-${id}`)?.scrollIntoView({
+      block: 'start',
+      behavior: reducedMotion() ? 'instant' : 'smooth',
+    })
+  }
 
   useEffect(() => {
     const detail = detailRef.current
     if (detail && detail.getBoundingClientRect().top < 96) {
       detail.scrollIntoView({
         block: 'start',
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+        behavior: reducedMotion() ? 'instant' : 'smooth',
       })
     }
   }, [selectedId])
@@ -164,6 +193,7 @@ function ProjectsPage() {
         </p>
 
         <div className="projects-explorer">
+          <nav className="projects-side projects-side--left" aria-label={t('projects.navProjects')}>
           <div className="projects-filters" role="group" aria-label={t('projects.title')}>
             {FILTERS.map((f) => (
               <button
@@ -206,9 +236,11 @@ function ProjectsPage() {
               )
             })}
           </ul>
+          </nav>
 
           {selected && (
             <article ref={detailRef} key={selected.id} className="project-detail card">
+              <div id={hasLocalMedia ? 'pd-evidence' : undefined}>
               {selected.video && (
                 <div className="project-detail__media">
                   <video
@@ -227,6 +259,7 @@ function ProjectsPage() {
                   <img src={selected.image} alt={selected[lang].title} decoding="async" />
                 </div>
               ) : null}
+              </div>
 
               <div className="project-detail__body">
                 <div className="project-detail__head">
@@ -260,12 +293,12 @@ function ProjectsPage() {
                   ))}
                 </ul>
 
-                <p className="project-detail__desc">{selected[lang].description}</p>
+                <p id="pd-overview" className="project-detail__desc">{selected[lang].description}</p>
 
                 {FACTS.some(({ key }) => selected[lang][key]) && (
                   <dl className="project-detail__facts">
                     {FACTS.filter(({ key }) => selected[lang][key]).map(({ key, label }) => (
-                      <div key={key} className={`project-detail__fact project-detail__fact--${key}`}>
+                      <div key={key} id={`pd-${key}`} className={`project-detail__fact project-detail__fact--${key}`}>
                         <dt>{t(label)}</dt>
                         <dd>{selected[lang][key]}</dd>
                       </div>
@@ -274,7 +307,7 @@ function ProjectsPage() {
                 )}
 
                 {selected[lang].features?.length > 0 && (
-                  <div className="project-detail__features">
+                  <div id="pd-features" className="project-detail__features">
                     <h3>{t('projects.featuresTitle')}</h3>
                     <ul>
                       {selected[lang].features.map((feature) => <li key={feature}>{feature}</li>)}
@@ -283,7 +316,7 @@ function ProjectsPage() {
                 )}
 
                 {(site || video || code) && (
-                  <div className="project-detail__evidence">
+                  <div id={hasLocalMedia ? undefined : 'pd-evidence'} className="project-detail__evidence">
                     <h3>{t('projects.evidenceTitle')}</h3>
                 <div className="project-detail__actions">
                       {site && (
@@ -324,6 +357,26 @@ function ProjectsPage() {
                 )}
               </div>
             </article>
+          )}
+
+          {selected && (
+            <nav className="projects-side projects-side--right" aria-label={t('projects.navSections')}>
+              <p className="projects-side__title" aria-hidden="true">{t('projects.navSections')}</p>
+              <ul className="section-nav">
+                {sections.map((sec) => (
+                  <li key={sec.id}>
+                    <button
+                      type="button"
+                      className={`section-nav__item ${activeSection === sec.id ? 'is-active' : ''}`}
+                      aria-current={activeSection === sec.id ? 'true' : undefined}
+                      onClick={() => goToSection(sec.id)}
+                    >
+                      {sec.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           )}
         </div>
       </div>

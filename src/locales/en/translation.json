@@ -129,7 +129,10 @@
     "contribution": "My contribution",
     "status": "Status",
     "limitations": "Limits",
-    "evidenceTitle": "Evidence"
+    "evidenceTitle": "Evidence",
+    "sectionOverview": "Overview",
+    "navProjects": "Projects",
+    "navSections": "Project sections"
   },
   "skills": {
     "title": "Skills",

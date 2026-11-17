@@ -129,7 +129,10 @@
     "contribution": "Mi aporte",
     "status": "Estado",
     "limitations": "Límites",
-    "evidenceTitle": "Evidencia"
+    "evidenceTitle": "Evidencia",
+    "sectionOverview": "Descripción",
+    "navProjects": "Proyectos",
+    "navSections": "Secciones del proyecto"
   },
   "skills": {
     "title": "Habilidades",
