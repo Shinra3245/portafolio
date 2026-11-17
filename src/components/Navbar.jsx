@@ -15,9 +15,10 @@ const links = [
   { href: '#experiencia', key: 'nav.experience' },
   { href: '#educacion', key: 'nav.education' },
   { href: '#github', key: 'nav.github' },
-  { href: '/proyectos', key: 'nav.projects', route: true },
   { href: '#contacto', key: 'nav.contact' },
 ]
+
+const projectsPath = '/proyectos'
 
 function Navbar() {
   const { t } = useTranslation()
@@ -48,23 +49,40 @@ function Navbar() {
       </Link>
 
       <ul id="main-navigation" className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
-        {links.map((link) => (
-          <li key={link.key}>
-            {link.route ? (
-              <Link to={link.href} onClick={closeMenu}>
-                {t(link.key)}
+        {isHome ? (
+          <>
+            {links.map((link) => (
+              <li key={link.key}>
+                <a href={link.href} onClick={closeMenu}>
+                  {t(link.key)}
+                </a>
+              </li>
+            ))}
+            <li className="navbar__tab-item">
+              <Link to={projectsPath} className="navbar__tab" onClick={closeMenu}>
+                {t('nav.projects')}
               </Link>
-            ) : isHome ? (
-              <a href={link.href} onClick={closeMenu}>
-                {t(link.key)}
-              </a>
-            ) : (
-              <Link to={`/${link.href}`} onClick={closeMenu}>
-                {t(link.key)}
+            </li>
+          </>
+        ) : (
+          <>
+            <li className="navbar__tab-item">
+              <Link to="/" className="navbar__tab" onClick={closeMenu}>
+                {t('nav.portfolio')}
               </Link>
-            )}
-          </li>
-        ))}
+            </li>
+            <li className="navbar__tab-item">
+              <Link
+                to={projectsPath}
+                className="navbar__tab navbar__tab--active"
+                aria-current="page"
+                onClick={closeMenu}
+              >
+                {t('nav.projects')}
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
 
       <div className="navbar__actions">

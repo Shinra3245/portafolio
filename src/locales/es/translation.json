@@ -7,6 +7,7 @@
     "experience": "Experiencia",
     "education": "Educación",
     "github": "GitHub",
+    "portfolio": "Portafolio",
     "projects": "Proyectos",
     "contact": "Contacto",
     "openMenu": "Abrir menú",
@@ -184,7 +185,18 @@
     "languagesTitle": "Lenguajes más usados",
     "viewProfile": "Ver perfil completo",
     "unavailable": "No se pudo cargar en este momento. Puedes verlo directamente en GitHub.",
-    "contributions": "{{count}} contribuciones"
+    "contributions": "{{count}} contribuciones",
+    "loading": "Cargando…",
+    "stat": {
+      "publicRepos": "Repositorios públicos",
+      "stars": "Estrellas recibidas",
+      "forks": "Forks recibidos",
+      "followers": "Seguidores"
+    },
+    "statsNote": "Datos públicos de la API de GitHub; estrellas y forks suman mis repositorios propios (sin forks, hasta 100 más recientes).",
+    "repoCount_one": "{{count}} repo",
+    "repoCount_other": "{{count}} repos",
+    "languagesNote": "Cantidad de repositorios propios por lenguaje principal. Es frecuencia por repositorio, no porcentaje de código."
   },
   "footer": {
     "copyright": "Copyright © 2026 Omar Bolaños. Todos los derechos reservados",
