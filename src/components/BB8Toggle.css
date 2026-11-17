@@ -16,8 +16,31 @@
   margin-right: 0.2rem;
 }
 
+/* Banderas laterales: solo móvil, donde el label se oculta */
+.bb8-flag { display: none; }
+
 @media (max-width: 580px) {
   .navbar__actions .bb8-label { display: none; }
+  .navbar__actions .bb8-wrapper { gap: 0.3rem; flex-shrink: 0; }
+  .navbar__actions .bb8-flag {
+    display: inline-flex;
+    flex-shrink: 0;
+    border-radius: 50%;
+    opacity: 0.45;
+    filter: grayscale(0.5);
+    transition: opacity 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  }
+  .navbar__actions .bb8-flag svg { display: block; width: 18px; height: 18px; }
+  .navbar__actions .bb8-flag--active {
+    opacity: 1;
+    filter: none;
+    box-shadow: 0 0 0 2px var(--color-accent-2);
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar__actions .bb8-wrapper { gap: 0.2rem; }
+  .navbar__actions .bb8-flag svg { width: 15px; height: 15px; }
 }
 
 /* REMASTERED */

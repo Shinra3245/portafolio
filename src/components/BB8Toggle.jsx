@@ -62,6 +62,9 @@ function BB8Toggle() {
 
   return (
     <div className="bb8-wrapper" title={isEnglish ? 'Switch language' : 'Cambiar idioma'}>
+      <span className={`bb8-flag${isEnglish ? '' : ' bb8-flag--active'}`} aria-hidden="true">
+        <SpanishFlag />
+      </span>
       <span className="bb8-label">
         <span>{isEnglish ? 'EN' : 'ES'}</span>
         {isEnglish ? <EnglishFlag /> : <SpanishFlag />}
@@ -105,6 +108,9 @@ function BB8Toggle() {
           </div>
         </div>
       </label>
+      <span className={`bb8-flag${isEnglish ? ' bb8-flag--active' : ''}`} aria-hidden="true">
+        <EnglishFlag />
+      </span>
     </div>
   )
 }
