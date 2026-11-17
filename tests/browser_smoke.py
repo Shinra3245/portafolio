@@ -1,6 +1,7 @@
 """Browser regression checks. Requires Python Playwright and Chromium."""
 import argparse
 import re
+import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
 
@@ -13,7 +14,10 @@ shots = Path(args.screenshots)
 shots.mkdir(parents=True, exist_ok=True)
 
 with sync_playwright() as playwright:
-    browser = playwright.chromium.launch(headless=True)
+    browser = playwright.chromium.launch(
+        headless=True,
+        executable_path=os.environ.get('PLAYWRIGHT_CHROMIUM_EXECUTABLE'),
+    )
     context = browser.new_context(viewport={'width': 1440, 'height': 1000}, locale='es-MX')
     page = context.new_page()
     errors = []
@@ -26,7 +30,7 @@ with sync_playwright() as playwright:
     page.get_by_role('link', name='Ver proyectos', exact=True).click()
     expect(page).to_have_url(base + '/proyectos')
     expect(page.locator('.content-layer')).to_have_css('opacity', '1')
-    expect(page.locator('.planet-list__item')).to_have_count(12)
+    expect(page.locator('.planet-list__item')).to_have_count(13)
     expect(page.locator('.project-detail__features li')).not_to_have_count(0)
     page.get_by_role('button', name='Python', exact=True).click()
     expect(page.locator('.planet-list__item')).to_have_count(3)
@@ -48,6 +52,21 @@ with sync_playwright() as playwright:
             expect(gallery.locator('figcaption')).to_contain_text('Comparación' if name == 'ATLAS' else 'Reto')
             image = gallery.locator('.image-gallery__viewport img')
             page.wait_for_function('(src) => Array.from(document.images).some(img => img.getAttribute("src") === src && img.complete && img.naturalWidth > 0)', arg=image.get_attribute('src'))
+    page.get_by_role('button', name='Journey to Mars', exact=True).click()
+    expect(page.locator('.project-detail__title')).to_have_text('Journey to Mars')
+    expect(page.locator('.project-detail__badge')).to_contain_text('NASA Space Apps Challenge 2026')
+    expect(page.locator('.project-detail .image-gallery__thumbnails button')).to_have_count(9)
+    expect(page.locator('.project-detail__actions a[href="https://nave-aurora-hack-nasa-2026.shinra3245.workers.dev/"]')).to_be_visible()
+    expect(page.locator('.project-detail__actions a[href="https://youtu.be/EchcRADMmSY"]')).to_be_visible()
+    game_video = page.locator('.project-detail__media video')
+    expect(game_video).to_have_attribute('src', re.compile('journey-to-mars'))
+    game_video.evaluate('(video) => video.load()')
+    page.wait_for_function("""() => {
+      const video = document.querySelector('.project-detail__media video')
+      return video && video.readyState >= 1 && video.videoWidth > 0 && video.videoHeight > 0
+    }""", timeout=15000)
+    expect(page.locator('.project-detail__desc')).to_contain_text('creado en equipo')
+    page.get_by_role('button', name='Todos', exact=True).click()
     page.get_by_role('link', name='Menú Principal', exact=True).click()
     expect(page.locator('.hero__role')).to_be_visible()
     expect(page.locator('.content-layer')).to_have_css('opacity', '1')
@@ -55,6 +74,11 @@ with sync_playwright() as playwright:
     event.scroll_into_view_if_needed()
     expect(event.locator('.image-gallery__thumbnails button')).to_have_count(5)
     expect(event.locator('.mission-station__description')).to_contain_text('Tecnológico de Irapuato')
+    nasa_event = page.locator('#experience-nasa-space-apps-2026')
+    nasa_event.scroll_into_view_if_needed()
+    expect(nasa_event.locator('.mission-station__date')).to_contain_text('14–15 de noviembre de 2026')
+    expect(nasa_event.locator('.mission-station__description')).to_contain_text('Journey to Mars')
+    expect(nasa_event.locator('.image-gallery__thumbnails button')).to_have_count(5)
     event.locator('.image-gallery__thumbnails button').nth(2).click()
     expect(event.locator('figcaption')).to_contain_text('Sede del evento')
     event.screenshot(path=str(shots / 'hackatec-timeline.png'))
@@ -120,4 +144,4 @@ with sync_playwright() as playwright:
         context.close()
     browser.close()
 
-print('PASS: navigation, 12 projects, new project dates, galleries, HackaTec photos, private status exclusions, CV, regional languages and 5 viewport widths.')
+print('PASS: navigation, 13 projects, new project dates, NASA Space Apps participation and Journey to Mars, galleries, HackaTec photos, private status exclusions, CV, regional languages and 5 viewport widths.')

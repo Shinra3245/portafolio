@@ -7,6 +7,7 @@ import pyprimesImg from '../assets/images/projects/pyprimes.webp'
 import rallyImg from '../assets/images/projects/rally.webp'
 import playstationImg from '../assets/images/projects/playstation.webp'
 import { atlasGallery, dueloGallery } from './recentProjectMedia'
+import { journeyToMarsGallery, journeyToMarsVideo } from './nasaSpaceAppsMedia'
 
 
 export const projects = [
@@ -482,6 +483,48 @@ export const projects = [
         'Solution submission and automatic judge verdicts',
         'Real-time communication and connection recovery',
         'Evaluation queues and isolated execution with resource limits',
+      ],
+    },
+  },
+  {
+    id: 16,
+    slug: 'journey-to-mars',
+    planet: 'mars',
+    planetHue: 175,
+    category: 'web',
+    image: journeyToMarsGallery[0].src,
+    gallery: journeyToMarsGallery,
+    video: journeyToMarsVideo,
+    url: 'https://nave-aurora-hack-nasa-2026.shinra3245.workers.dev/',
+    demoVideoUrl: 'https://youtu.be/EchcRADMmSY',
+    repo: null,
+    techs: ['Three.js', 'JavaScript', 'Web Audio', 'glTF/GLB', 'Cloudflare Workers'],
+    es: {
+      tag: 'Videojuego educativo 3D · Hackathon',
+      title: 'Journey to Mars',
+      badge: 'NASA Space Apps Challenge 2026 · Querétaro',
+      description:
+        'Videojuego educativo 3D para navegador, creado en equipo durante el NASA Space Apps Challenge 2026 en Querétaro. La tripulación de una nave debe sobrevivir tras un aterrizaje forzoso en Marte: cada decisión administra recursos limitados y explica sus consecuencias. Publicado de forma independiente y disponible gratis, sin cuenta.',
+      features: [
+        'Nueve misiones de supervivencia y exploración de un entorno marciano abierto',
+        'Gestión de oxígeno, agua, energía, alimentos, piezas y tiempo',
+        'Construcción de instalaciones y decisiones con consecuencias explicadas',
+        'Interfaz en español e inglés con seis avatares',
+        'Controles táctiles, ajustes de calidad y guardado automático en navegador',
+      ],
+    },
+    en: {
+      tag: '3D Educational Game · Hackathon',
+      title: 'Journey to Mars',
+      badge: 'NASA Space Apps Challenge 2026 · Querétaro',
+      description:
+        'A browser-based educational 3D game created by a team during NASA Space Apps Challenge 2026 in Querétaro. After an emergency landing on Mars, the crew must survive: every decision manages limited resources and explains its consequences. Independently published and free to play without an account.',
+      features: [
+        'Nine survival missions and exploration of an open Martian environment',
+        'Management of oxygen, water, energy, food, parts and time',
+        'Facility construction and decisions with explained consequences',
+        'Spanish and English interface with six avatars',
+        'Touch controls, quality settings and automatic browser saving',
       ],
     },
   },

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { ExternalLink, Github, Sparkles } from 'lucide-react'
+import { ExternalLink, Github, Play, Sparkles } from 'lucide-react'
 import SolarSystemPen from '../components/SolarSystemPen'
 import TechIcon from '../components/TechIcon'
 import ImageGallery from '../components/ImageGallery'
@@ -177,10 +177,8 @@ function ProjectsPage() {
 
           {selected && (
             <article ref={detailRef} key={selected.id} className="project-detail card">
-              {selected.gallery?.length && !selected.video ? (
-                <ImageGallery images={selected.gallery} />
-              ) : (selected.video || selected.image) ? <div className="project-detail__media">
-                {selected.video ? (
+              {selected.video && (
+                <div className="project-detail__media">
                   <video
                     src={selected.video}
                     poster={selected.image || undefined}
@@ -188,14 +186,15 @@ function ProjectsPage() {
                     preload="metadata"
                     playsInline
                   />
-                ) : selected.image ? (
+                </div>
+              )}
+              {selected.gallery?.length ? (
+                <ImageGallery images={selected.gallery} />
+              ) : !selected.video && selected.image ? (
+                <div className="project-detail__media">
                   <img src={selected.image} alt={selected[lang].title} decoding="async" />
-                ) : (
-                  <div className="project-detail__placeholder">
-                    {t('projects.previewPending')}
-                  </div>
-                )}
-              </div> : null}
+                </div>
+              ) : null}
 
               <div className="project-detail__body">
                 <div className="project-detail__head">
@@ -250,6 +249,17 @@ function ProjectsPage() {
                     >
                       <ExternalLink size={16} />
                       {t('projects.viewSite')}
+                    </a>
+                  )}
+                  {selected.demoVideoUrl && (
+                    <a
+                      className="btn btn--secondary"
+                      href={selected.demoVideoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Play size={16} />
+                      {t('projects.viewVideo')}
                     </a>
                   )}
                   {selected.repo && (

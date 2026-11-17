@@ -10,6 +10,7 @@ import recolectaImg from '../assets/images/projects/recolecta.webp'
 import lincehackImg from '../assets/images/projects/Lincehack.webp'
 import hackOnLincesImg from '../assets/images/projects/HackOnLinces.webp'
 import { atlasGallery, dueloGallery, hackatecGallery } from './recentProjectMedia'
+import { nasaSpaceAppsGallery } from './nasaSpaceAppsMedia'
 
 export const experience = [
   {
@@ -334,6 +335,30 @@ export const experience = [
       description:
         'Participated with the ATLAS team in the regional HackaTec stage of InnovaTecNM 2026, held at the Tecnológico de Irapuato. We presented a territorial pre-feasibility platform for urban projects, combining evidence and location comparisons for Irapuato and Celaya.',
       skills: ['Teamwork', 'Systems integration', 'Technical communication', 'Territorial analysis'],
+    },
+  },
+  {
+    id: 'nasa-space-apps-2026',
+    date: '14–15 de noviembre de 2026',
+    type: 'hackathon',
+    badge: 'Participante · Houston, We Code',
+    gallery: nasaSpaceAppsGallery,
+    link: 'https://www.spaceappschallenge.org/2026/challenges/junior-astronaut-mission-trainer/',
+    es: {
+      title: 'NASA Space Apps Challenge · Querétaro',
+      role: 'Participante del equipo Houston, We Code · UNAQ',
+      description:
+        'Participé en la sede presencial de Querétaro con el equipo Houston, We Code. Durante el hackathon, el equipo desarrolló y publicó Journey to Mars, un videojuego educativo 3D de supervivencia para niñas y niños de 7 a 12 años, basado en el desafío Build a Junior Astronaut Mission Trainer.',
+      skills: ['Desarrollo colaborativo', 'Diseño de juegos educativos', 'Trabajo bajo presión'],
+    },
+    en: {
+      date: 'November 14–15, 2026',
+      badge: 'Participant · Houston, We Code',
+      title: 'NASA Space Apps Challenge · Querétaro',
+      role: 'Houston, We Code team participant · UNAQ',
+      description:
+        'I participated in the in-person Querétaro local event with Houston, We Code. During the hackathon, the team developed and published Journey to Mars, a 3D educational survival game for children ages 7–12, based on the Build a Junior Astronaut Mission Trainer challenge.',
+      skills: ['Collaborative development', 'Educational game design', 'Working under pressure'],
     },
   },
 ]
