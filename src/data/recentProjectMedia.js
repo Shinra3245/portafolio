@@ -8,6 +8,10 @@ import hackatecDelegation from '../assets/images/events/hackatec-2026-delegacion
 import hackatecVenue from '../assets/images/events/hackatec-2026-sede.webp'
 import hackatecEvent from '../assets/images/events/hackatec-2026-evento.webp'
 import hackatecClassroom from '../assets/images/events/hackatec-2026-equipo-aula.webp'
+import lincehackCertificate from '../assets/images/events/lincehack-2026/lincehack-2026-reconocimiento-primer-lugar.webp'
+import lincehackAward from '../assets/images/events/lincehack-2026/lincehack-2026-reconocimiento-general.webp'
+import lincehackDetail from '../assets/images/events/lincehack-2026/lincehack-2026-reconocimiento-detalle.webp'
+import lincehackPresentation from '../assets/images/events/lincehack-2026/lincehack-2026-reconocimiento-entrega.webp'
 
 export const atlasGallery = [
   { src: atlasPresentation, es: 'ATLAS: presentación de la plataforma territorial', en: 'ATLAS: territorial platform overview' },
@@ -26,4 +30,11 @@ export const hackatecGallery = [
   { src: hackatecVenue, es: 'Sede del evento en el Tecnológico de Irapuato', en: 'Event venue at the Tecnológico de Irapuato' },
   { src: hackatecEvent, es: 'Actividades del encuentro InnovaTecNM 2026', en: 'Activities at the InnovaTecNM 2026 event' },
   { src: hackatecClassroom, es: 'Encuentro del equipo durante la participación regional', en: 'Team gathering during the regional event' },
+]
+
+export const lincehackCertificateGallery = [
+  { src: lincehackCertificate, es: 'Certificado del primer lugar en el reto ILPEA durante LinceHack 2026', en: 'First-place certificate in the ILPEA challenge at LinceHack 2026' },
+  { src: lincehackAward, es: 'Reconocimiento del equipo por el primer lugar', en: 'Team recognition for first place' },
+  { src: lincehackDetail, es: 'Detalle del certificado y la medalla del primer lugar', en: 'Close-up of the first-place certificate and medal' },
+  { src: lincehackPresentation, es: 'Entrega del reconocimiento al equipo participante', en: 'Award presentation to the participating team' },
 ]

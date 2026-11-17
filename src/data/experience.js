@@ -7,10 +7,9 @@ import playstationImg from '../assets/images/projects/playstation.webp'
 import ilpeaImg from '../assets/images/projects/ilpea.webp'
 import srascImg from '../assets/images/projects/SRASC.webp'
 import recolectaImg from '../assets/images/projects/recolecta.webp'
-import lincehackImg from '../assets/images/projects/Lincehack.webp'
 import hackOnLincesImg from '../assets/images/projects/HackOnLinces.webp'
-import { atlasGallery, dueloGallery, hackatecGallery } from './recentProjectMedia'
-import { nasaSpaceAppsGallery } from './nasaSpaceAppsMedia'
+import { atlasGallery, dueloGallery, hackatecGallery, lincehackCertificateGallery } from './recentProjectMedia'
+import { journeyToMarsGallery, nasaSpaceAppsGallery } from './nasaSpaceAppsMedia'
 
 export const experience = [
   {
@@ -143,22 +142,22 @@ export const experience = [
     id: 'lincehack',
     date: 'Abril 2026',
     type: 'hackathon',
-    badge: '1.er Lugar · Innovación y Tecnología',
-    image: lincehackImg,
+    badge: '1.er Lugar · Reto ILPEA',
+    gallery: lincehackCertificateGallery,
     es: {
       title: 'LinceHack 2026',
-      role: '1.er Lugar — Categoría Innovación y Tecnología',
+      role: 'Primer lugar · Reto presentado por ILPEA',
       description:
-        'Líder de equipo en hackathon de 24 horas donde obtuvimos el 1.er lugar como equipo en la categoría Innovación y Tecnología. Mi contribución se centró en el módulo de autenticación segura del Sistema Web ILPEA Transports (credenciales por empleado, RBAC, códigos QR dinámicos) bajo metodología Scrum.',
+        'El equipo obtuvo el primer lugar en el reto presentado por ILPEA durante LinceHack 2026, realizado en el Instituto Tecnológico de Celaya. El certificado y las fotografías del reconocimiento documentan el resultado. Mi contribución se centró en el módulo de autenticación segura del Sistema Web ILPEA Transports (credenciales por empleado, RBAC y códigos QR dinámicos) bajo metodología Scrum.',
       skills: ['Liderazgo', 'Trabajo en equipo', 'Scrum', 'Trabajo bajo presión'],
     },
     en: {
       date: 'April 2026',
-      badge: '1st Place · Innovation & Technology',
+      badge: '1st Place · ILPEA Challenge',
       title: 'LinceHack 2026',
-      role: '1st Place — Innovation & Technology Category',
+      role: 'First place · Challenge presented by ILPEA',
       description:
-        'Team lead in a 24-hour hackathon where our team won 1st place in the Innovation & Technology category. My contribution focused on the secure authentication module for the ILPEA Transports web system (per-employee credentials, RBAC, dynamic QR codes) under Scrum.',
+        'The team placed first in the challenge presented by ILPEA at LinceHack 2026, held at Instituto Tecnológico de Celaya. The certificate and award photos document the result. My contribution focused on the secure authentication module for the ILPEA Transports web system (per-employee credentials, RBAC and dynamic QR codes) under Scrum.',
       skills: ['Leadership', 'Teamwork', 'Scrum', 'Working under pressure'],
     },
   },
@@ -338,6 +337,28 @@ export const experience = [
     },
   },
   {
+    id: 'vivaorden-pizzas-implementation-2026',
+    date: '2026 – Presente',
+    type: 'role',
+    badge: 'Primera implementación · Pizzas a la Leña',
+    es: {
+      title: 'VivaOrden · Pizzas a la Leña',
+      role: 'Desarrollo del sistema · Primer caso de implementación',
+      description:
+        'Desarrollo de la primera implementación de VivaOrden para Pizzas a la Leña. El sistema conecta el POS web para pedidos, preparación, caja y comandas con el menú digital para clientes y la aplicación móvil de reparto. La ficha no incluye capturas ni video porque esos materiales siguen pendientes; la presentación del producto utiliza una instancia de pruebas con datos de demostración. El código fuente es privado.',
+      skills: ['Diseño de sistemas', 'Operación de restaurantes', 'Integración de flujos'],
+    },
+    en: {
+      date: '2026 – Present',
+      badge: 'First implementation · Pizzas a la Leña',
+      title: 'VivaOrden · Pizzas a la Leña',
+      role: 'System development · First implementation case',
+      description:
+        'Development of VivaOrden’s first implementation for Pizzas a la Leña. The system connects a web POS for orders, preparation, cash register and kitchen tickets with a customer-facing digital menu and a mobile delivery app. Screenshots and video are not included yet because those materials are pending; the product presentation uses a test instance with demo data. The source code is private.',
+      skills: ['Systems design', 'Restaurant operations', 'Workflow integration'],
+    },
+  },
+  {
     id: 'nasa-space-apps-2026',
     date: '14–15 de noviembre de 2026',
     type: 'hackathon',
@@ -359,6 +380,31 @@ export const experience = [
       description:
         'With Houston, We Code, I contributed to project planning and coordination, 3D modeling and the main animation for Journey to Mars. The team independently published the prototype and did not submit it for official NASA Space Apps judging.',
       skills: ['Collaborative development', 'Educational game design', 'Working under pressure'],
+    },
+  },
+  {
+    id: 'journey-to-mars-project-2026',
+    date: '14–15 de noviembre de 2026',
+    type: 'role',
+    badge: 'Proyecto del hackathon · Prototipo 3D',
+    gallery: journeyToMarsGallery,
+    link: 'https://nave-aurora-hack-nasa-2026.shinra3245.workers.dev/',
+    techs: ['Three.js', 'JavaScript', 'Web Audio', 'glTF/GLB', 'Cloudflare Workers'],
+    es: {
+      title: 'Journey to Mars',
+      role: 'Juego educativo 3D · Houston, We Code',
+      description:
+        'Videojuego educativo 3D para navegador, creado durante NASA Space Apps Challenge 2026 en Querétaro. La tripulación debe sobrevivir en Marte administrando recursos y tomando decisiones durante sus misiones. Contribuí a la planeación y coordinación, el modelado 3D y la animación principal. El prototipo se publicó de forma independiente y no se envió a evaluación oficial de NASA Space Apps.',
+      skills: ['Desarrollo de juegos', 'Modelado 3D', 'Animación', 'Trabajo colaborativo'],
+    },
+    en: {
+      date: 'November 14–15, 2026',
+      badge: 'Hackathon project · 3D prototype',
+      title: 'Journey to Mars',
+      role: '3D educational game · Houston, We Code',
+      description:
+        'A browser-based 3D educational game created during NASA Space Apps Challenge 2026 in Querétaro. The crew must survive on Mars by managing resources and making decisions throughout its missions. I contributed to planning and coordination, 3D modeling and the main animation. The prototype was independently published and was not submitted for official NASA Space Apps judging.',
+      skills: ['Game development', '3D modeling', 'Animation', 'Collaborative development'],
     },
   },
 ]
