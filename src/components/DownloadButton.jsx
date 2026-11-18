@@ -10,7 +10,7 @@ import './DownloadButton.css'
 function DownloadButton() {
   const { t, i18n } = useTranslation()
   const isEnglish = (i18n.resolvedLanguage || i18n.language || 'es').startsWith('en')
-  const cvHref = isEnglish ? '/CV_General_Omar_Bolanos_EN.pdf' : '/CV-actualizado.pdf'
+  const cvHref = isEnglish ? '/CV_General_Omar_Bolanos_EN.pdf' : '/CV_General_Omar_Bolanos_ES.pdf'
   const cvName = isEnglish ? 'CV_General_Omar_Bolanos_EN.pdf' : 'CV_General_Omar_Bolanos_ES.pdf'
 
   return (

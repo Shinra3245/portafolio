@@ -6,7 +6,7 @@ import recolectaImg from '../assets/images/projects/recolecta.webp'
 import pyprimesImg from '../assets/images/projects/pyprimes.webp'
 import rallyImg from '../assets/images/projects/rally.webp'
 import playstationImg from '../assets/images/projects/playstation.webp'
-import { atlasGallery, dueloGallery, vivaOrdenGallery, vivaOrdenVideo, vivaOrdenVideoPoster } from './recentProjectMedia'
+import { atlasGallery, dueloGallery, vivaOrdenGallery } from './recentProjectMedia'
 import { journeyToMarsGallery, journeyToMarsVideo } from './nasaSpaceAppsMedia'
 
 
@@ -102,9 +102,9 @@ export const projects = [
     es: {
       tag: 'Plataforma Web',
       title: 'ILPEA Transports',
-      badge: 'Gestión Logística',
+      badge: 'LinceHack 2026 · Primer lugar del equipo',
       description:
-        'Plataforma web para la gestión de usuarios y operaciones logísticas de transporte. Incluye un sistema completo de autenticación segura: asignación de credenciales por empleado, control de acceso basado en roles y generación de códigos QR dinámicos para seguimiento logístico.',
+        'Plataforma colaborativa para la gestión de usuarios y operaciones logísticas de transporte, presentada en el reto ILPEA de LinceHack 2026, donde el equipo obtuvo el primer lugar. Omar lideró la organización y orquestación de tareas, integró el trabajo del equipo y coordinó la colaboración.',
       features: [
         'Autenticación segura con credenciales por empleado',
         'Control de acceso basado en roles (RBAC)',
@@ -116,9 +116,9 @@ export const projects = [
     en: {
       tag: 'Web Platform',
       title: 'ILPEA Transports',
-      badge: 'Logistics Management',
+      badge: 'LinceHack 2026 · Team first place',
       description:
-        'Web platform for managing users and logistics operations for a transport company. Includes a complete secure authentication system: per-employee credentials, role-based access control, and dynamic QR code generation for logistics tracking.',
+        'Collaborative platform for managing users and transportation logistics, presented in the ILPEA challenge at LinceHack 2026, where the team placed first. Omar led task organization and orchestration, integrated the team’s work, and coordinated collaboration.',
       features: [
         'Secure authentication with per-employee credentials',
         'Role-based access control (RBAC)',
@@ -573,44 +573,43 @@ export const projects = [
     slug: 'vivaorden',
     planet: 'venus',
     category: 'web',
-    image: vivaOrdenVideoPoster,
+    image: vivaOrdenGallery[0].src,
     gallery: vivaOrdenGallery,
-    video: vivaOrdenVideo,
     url: null,
     repo: null,
     techs: ['React', 'Vite', 'Node.js', 'PostgreSQL'],
     es: {
-      tag: 'Sistema POS',
+      tag: 'Plataforma de operación para restaurantes',
       title: 'VivaOrden',
       badge: 'Primera implementación · Pizzas a la Leña',
       description:
-        'VivaOrden es una plataforma de operación para restaurantes, desarrollada e implementada primero en Pizzas a la Leña. Conecta el POS web del personal con el menú digital móvil para clientes y una aplicación móvil de reparto. La presentación usa una instancia de pruebas con información de demostración; el código fuente y la infraestructura interna son privados.',
-      challenge: 'Coordinar la captura y seguimiento de pedidos con la preparación, caja y entrega mediante herramientas relacionadas para el restaurante.',
-      contribution: 'Desarrollo del producto VivaOrden y de su primera implementación en Pizzas a la Leña.',
-      status: 'Primera implementación documentada; video de muestra grabado en pruebas y capturas públicas del menú.',
-      limitations: 'El video no demuestra una comanda activa de cocina, una sesión iniciada del repartidor ni pagos en línea. El código fuente, las URL internas y los datos operativos del establecimiento no son públicos. No se publican métricas comerciales ni se afirma disponibilidad general o uso en varios restaurantes.',
+        'VivaOrden es una plataforma de operación para restaurantes fundada por Omar, quien participa como CEO en un desarrollo colaborativo. Sigue en desarrollo y ya se utiliza comercialmente con clientes reales, pedidos y operaciones de pago reales. Pizzas a la Leña fue su primera implementación. El POS integra captura y seguimiento de pedidos, comandas por estación, caja y flujo de entrega.',
+      challenge: 'Coordinar la captura y seguimiento de pedidos con las comandas por estación, la caja y el flujo de entrega.',
+      contribution: 'Fundador y CEO; participa en el desarrollo colaborativo y en la primera implementación del producto en Pizzas a la Leña.',
+      status: 'En desarrollo y en uso comercial; todavía no está abierto al público general.',
+      limitations: 'La demo pública utiliza un entorno de prueba y datos de demostración, y no representa la operación comercial. El menú digital es para consultar la carta; no se ofrecen pedidos autónomos desde el menú ni pagos en línea. El flujo de entrega forma parte del POS; no se presenta una app independiente de repartidores. Código fuente e información operativa son privados.',
       features: [
-        'POS web para captura y seguimiento de pedidos, catálogo y operación de caja',
-        'Coordinación de comandas y preparación',
-        'Menú digital diseñado para consulta desde el teléfono del cliente',
-        'Aplicación móvil de reparto',
+        'POS web para captura y seguimiento de pedidos y operación de caja',
+        'Comandas por estación y coordinación de preparación',
+        'Flujo de entrega integrado al POS',
+        'Menú digital para consultar la carta',
       ],
     },
     en: {
-      tag: 'POS system',
+      tag: 'Restaurant operations platform',
       title: 'VivaOrden',
       badge: 'First implementation · Pizzas a la Leña',
       description:
-        'VivaOrden is a restaurant operations platform, first developed and implemented for Pizzas a la Leña. It connects the staff web POS with a mobile digital menu for customers and a mobile delivery app. The presentation uses a test instance with demo data; source code and internal infrastructure are private.',
-      challenge: 'Coordinate order intake and tracking with preparation, cash register and delivery through related restaurant tools.',
-      contribution: 'Development of the VivaOrden product and its first implementation at Pizzas a la Leña.',
-      status: 'First documented implementation; sample video recorded in testing and public menu screenshots.',
-      limitations: 'The video does not demonstrate an active kitchen ticket, a signed-in courier session or online payments. Source code, internal URLs and restaurant operational data are private. No business metrics, general availability or use across multiple restaurants are claimed.',
+        'VivaOrden is a restaurant operations platform founded by Omar, who serves as CEO in a collaborative development effort. It is still in development and is already used commercially by real clients, with real orders and payment operations. Pizzas a la Leña was its first implementation. The POS integrates order intake and tracking, station-based kitchen tickets, cash-register operations, and the delivery workflow.',
+      challenge: 'Coordinate order intake and tracking with station-based kitchen tickets, cash-register operations, and delivery.',
+      contribution: 'Founder and CEO; contributes to collaborative development and the product’s first implementation at Pizzas a la Leña.',
+      status: 'In development and in commercial use; not yet generally available.',
+      limitations: 'The public demo uses a test environment and demo data; it does not represent commercial operations. The digital menu is for browsing the menu; it does not accept standalone orders or online payments. Delivery is an integrated POS workflow; no standalone courier app is presented. Source code and operational information are private.',
       features: [
-        'Web POS for order intake and tracking, catalog and cash register operations',
-        'Kitchen tickets and preparation coordination',
-        'Digital menu designed for customers on mobile devices',
-        'Mobile delivery app',
+        'Web POS for order intake, tracking, and cash-register operations',
+        'Station-based kitchen tickets and preparation coordination',
+        'Delivery workflow integrated into the POS',
+        'Digital menu for browsing the menu',
       ],
     },
   },

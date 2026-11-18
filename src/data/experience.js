@@ -8,7 +8,7 @@ import ilpeaImg from '../assets/images/projects/ilpea.webp'
 import srascImg from '../assets/images/projects/SRASC.webp'
 import recolectaImg from '../assets/images/projects/recolecta.webp'
 import hackOnLincesImg from '../assets/images/projects/HackOnLinces.webp'
-import { atlasGallery, dueloGallery, hackatecGallery, lincehackCertificateGallery, vivaOrdenGallery, vivaOrdenVideo, vivaOrdenVideoPoster } from './recentProjectMedia'
+import { atlasGallery, dueloGallery, hackatecGallery, lincehackCertificateGallery, vivaOrdenGallery } from './recentProjectMedia'
 import { journeyToMarsGallery, nasaSpaceAppsGallery } from './nasaSpaceAppsMedia'
 
 export const experience = [
@@ -142,22 +142,22 @@ export const experience = [
     id: 'lincehack',
     date: 'Abril 2026',
     type: 'hackathon',
-    badge: '1.er Lugar · Reto ILPEA',
+    badge: 'Premio del equipo: primer lugar · Reto ILPEA',
     gallery: lincehackCertificateGallery,
     es: {
       title: 'LinceHack 2026',
-      role: 'Primer lugar · Reto presentado por ILPEA',
+      role: 'Liderazgo, coordinación e integración del equipo',
       description:
-        'El equipo obtuvo el primer lugar en el reto presentado por ILPEA durante LinceHack 2026, realizado en el Instituto Tecnológico de Celaya. El certificado y las fotografías del reconocimiento documentan el resultado. Mi contribución se centró en el módulo de autenticación segura del Sistema Web ILPEA Transports (credenciales por empleado, RBAC y códigos QR dinámicos) bajo metodología Scrum.',
+        'El equipo obtuvo el primer lugar en el reto de ILPEA durante LinceHack 2026, realizado en el Instituto Tecnológico de Celaya los días 17 y 18 de abril. Omar lideró la organización y orquestación de tareas, integró el trabajo del equipo y coordinó la colaboración. El certificado institucional documenta el reconocimiento colectivo.',
       skills: ['Liderazgo', 'Trabajo en equipo', 'Scrum', 'Trabajo bajo presión'],
     },
     en: {
       date: 'April 2026',
-      badge: '1st Place · ILPEA Challenge',
+      badge: 'Team award: first place · ILPEA Challenge',
       title: 'LinceHack 2026',
-      role: 'First place · Challenge presented by ILPEA',
+      role: 'Team leadership, coordination and integration',
       description:
-        'The team placed first in the challenge presented by ILPEA at LinceHack 2026, held at Instituto Tecnológico de Celaya. The certificate and award photos document the result. My contribution focused on the secure authentication module for the ILPEA Transports web system (per-employee credentials, RBAC and dynamic QR codes) under Scrum.',
+        'The team placed first in ILPEA’s challenge at LinceHack 2026, held at Instituto Tecnológico de Celaya on April 17–18. Omar led task organization and orchestration, integrated the team’s work, and coordinated collaboration. The institutional certificate documents the team award.',
       skills: ['Leadership', 'Teamwork', 'Scrum', 'Working under pressure'],
     },
   },
@@ -169,16 +169,16 @@ export const experience = [
     techs: ['JavaScript', 'Firebase', 'RBAC', 'QR'],
     es: {
       title: 'Sistema Web ILPEA Transports',
-      role: 'Desarrollador Backend & Seguridad · Líder de Equipo',
+      role: 'Líder de equipo · Coordinación e integración',
       description:
-        'Plataforma web para la gestión de usuarios y operaciones logísticas de transporte, en producción (ilpeatransports.site). Integré Firebase como infraestructura y base de datos para escalar el proyecto.',
+        'Plataforma web colaborativa para la gestión de usuarios y operaciones logísticas de transporte. Omar lideró la organización y orquestación de tareas, integró el trabajo del equipo y coordinó la colaboración.',
     },
     en: {
       date: 'April 2026 – Present',
       title: 'ILPEA Transports Web System',
-      role: 'Backend & Security Developer · Team Lead',
+      role: 'Team Lead · Coordination and Integration',
       description:
-        'Web platform for managing users and logistics operations for a transport company, in production (ilpeatransports.site). Integrated Firebase as infrastructure and database to scale the project.',
+        'Collaborative web platform for managing users and transportation logistics. Omar led task organization and orchestration, integrated the team’s work, and coordinated collaboration.',
     },
   },
   {
@@ -342,22 +342,20 @@ export const experience = [
     type: 'role',
     badge: 'Primera implementación · Pizzas a la Leña',
     gallery: vivaOrdenGallery,
-    video: vivaOrdenVideo,
-    videoPoster: vivaOrdenVideoPoster,
     es: {
       title: 'VivaOrden · Pizzas a la Leña',
-      role: 'Desarrollo del sistema · Primer caso de implementación',
+      role: 'Fundador y CEO · Desarrollo colaborativo',
       description:
-        'VivaOrden se desarrolló e implementó primero para Pizzas a la Leña. La demostración muestra el POS, el menú digital móvil y las pantallas de acceso de la app de reparto desde pruebas y capturas públicas del menú. No se muestra una comanda activa, una sesión de repartidor iniciada ni pagos en línea. El código fuente es privado.',
+        'VivaOrden es una plataforma de operación para restaurantes que sigue en desarrollo y ya se utiliza comercialmente con clientes reales, pedidos y operaciones de pago reales. Pizzas a la Leña fue su primera implementación. El POS integra pedidos, comandas por estación, caja y flujo de entrega. La demo pública usa un entorno de prueba con datos de demostración y no representa la operación comercial; el código fuente y la información operativa son privados.',
       skills: ['Diseño de sistemas', 'Operación de restaurantes', 'Integración de flujos'],
     },
     en: {
       date: '2026 – Present',
       badge: 'First implementation · Pizzas a la Leña',
       title: 'VivaOrden · Pizzas a la Leña',
-      role: 'System development · First implementation case',
+      role: 'Founder and CEO · Collaborative development',
       description:
-        'VivaOrden was first developed and implemented for Pizzas a la Leña. The demo shows the POS, mobile digital menu and delivery-app sign-in screens from the test environment and public menu captures. It does not show an active kitchen ticket, a signed-in courier session or online payments. The source code is private.',
+        'VivaOrden is a restaurant operations platform that is still in development and is already used commercially by real clients, with real orders and payment operations. Pizzas a la Leña was its first implementation. The POS integrates orders, station-based kitchen tickets, cash-register operations, and delivery. The public demo uses a test environment with demo data and does not represent commercial operations; source code and operational information are private.',
       skills: ['Systems design', 'Restaurant operations', 'Workflow integration'],
     },
   },
